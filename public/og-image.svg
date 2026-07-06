@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Aeora Research</title>
+  <desc id="desc">Aeora Research social preview artwork.</desc>
+  <rect width="1200" height="630" fill="#0D141B"/>
+  <path d="M0 126h1200M0 252h1200M0 378h1200M0 504h1200M120 0v630M240 0v630M360 0v630M480 0v630M600 0v630M720 0v630M840 0v630M960 0v630M1080 0v630" stroke="#F5F7F7" stroke-opacity=".07"/>
+  <path d="M140 390h920" stroke="#31EDAE" stroke-opacity=".7"/>
+  <path d="M170 226h860" stroke="#F5F7F7" stroke-opacity=".22"/>
+  <path d="M220 434 484 218l216 104 286-164" fill="none" stroke="#31EDAE" stroke-width="2"/>
+  <text x="140" y="308" fill="#FFFFFF" font-family="Bahnschrift, Aptos Display, Segoe UI, sans-serif" font-size="118" font-weight="300" letter-spacing="26">ΛEORΛ</text>
+  <text x="148" y="382" fill="#31EDAE" font-family="Bahnschrift, Aptos Display, Segoe UI, sans-serif" font-size="31" font-weight="400" letter-spacing="36">RESEARCH</text>
+  <text x="144" y="494" fill="#F5F7F7" fill-opacity=".72" font-family="Aptos, Segoe UI, sans-serif" font-size="28">Prop Desk | Market Intelligence | Edge</text>
+</svg>
