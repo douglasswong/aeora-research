@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CONTACT_EMAIL, NAV_ITEMS } from "@/lib/site";
+import { NAV_ITEMS } from "@/lib/site";
 import { BrandLockup } from "@/components/BrandLockup";
 
 export function Header() {
@@ -34,8 +34,8 @@ export function Header() {
           </ul>
           <a
             className="site-nav__cta"
-            href={`mailto:${CONTACT_EMAIL}`}
-            aria-label="Connect with Aeora Research"
+            href="#connect"
+            aria-label="Go to Aeora Research contact section"
           >
             Connect
           </a>

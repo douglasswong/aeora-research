@@ -1,4 +1,25 @@
-export const CONTACT_EMAIL = "hello@aeora.com";
+export const CONTACT_EMAIL = "enquiry@chartsdworks.com";
+
+export const COMPANY_NAME = "Aeora Research (BRN nil)";
+
+export const COMPANY_ADDRESS_LINES = [
+  "30A (1st Floor), Jalan Merak 4A,",
+  "Bandar Puchong Jaya, 47100 Puchong,",
+  "Selangor, Malaysia"
+] as const;
+
+export const OFFICE_PHONE = {
+  label: "+603 5626 5777",
+  href: "tel:+60356265777"
+} as const;
+
+export const HOTLINE_PHONE = {
+  label: "+6019 8899 296",
+  href: "tel:+60198899296"
+} as const;
+
+export const MAP_EMBED_URL =
+  "https://www.google.com/maps?q=30A%20Jalan%20Merak%204A%20Bandar%20Puchong%20Jaya%2047100%20Puchong%20Selangor%20Malaysia&output=embed";
 
 export const SITE_URL = "https://www.aeora.com";
 
@@ -43,3 +64,28 @@ export const ENQUIRY_PATHWAYS = [
   "Research Collaboration",
   "Institutional Partnerships"
 ] as const;
+
+export const NUMBERS = [
+  {
+    label: "Avg Annual Portfolio Target",
+    kind: "range",
+    from: 15,
+    to: 30,
+    suffix: "%"
+  },
+  {
+    label: "Number of Prop Traders",
+    kind: "integer",
+    value: 8,
+    suffix: "+"
+  },
+  {
+    label: "Current AUM",
+    kind: "decimal",
+    value: 2.3,
+    suffix: "mil MYR+",
+    note: "still growing"
+  }
+] as const;
+
+export const SOCIAL_CHANNELS = ["Facebook", "Instagram", "YouTube"] as const;

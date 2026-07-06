@@ -1,16 +1,25 @@
 import { BrandLockup } from "@/components/BrandLockup";
 import { Header } from "@/components/Header";
 import { MarketField } from "@/components/MarketField";
+import { NumbersSection } from "@/components/NumbersSection";
+import { ParallaxSlider } from "@/components/ParallaxSlider";
 import { PillarCard } from "@/components/PillarCard";
 import {
+  COMPANY_ADDRESS_LINES,
+  COMPANY_NAME,
   CONTACT_EMAIL,
   ENQUIRY_PATHWAYS,
+  HOTLINE_PHONE,
+  MAP_EMBED_URL,
   NAV_ITEMS,
+  OFFICE_PHONE,
   PILLARS,
+  SOCIAL_CHANNELS,
   SITE_URL
 } from "@/lib/site";
 
 const currentYear = new Date().getFullYear();
+const heroSubtitleLetters = "RESEARCH".split("");
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -18,6 +27,56 @@ const organizationSchema = {
   name: "Aeora Research",
   url: SITE_URL
 };
+
+type SocialChannel = (typeof SOCIAL_CHANNELS)[number];
+
+function SocialIcon({ channel }: { channel: SocialChannel }) {
+  if (channel === "Facebook") {
+    return (
+      <span
+        className="social-placeholder"
+        aria-label="Facebook profile coming soon"
+        title="Coming soon"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M14.2 8.2h2.4V4.4c-.42-.06-1.84-.18-3.5-.18-3.46 0-5.82 2.05-5.82 5.82v3.26H3.5v4.25h3.78V24h4.6v-6.45h3.6l.68-4.25h-4.28V10.46c0-1.23.34-2.26 2.32-2.26Z" />
+        </svg>
+        <span>{channel}</span>
+      </span>
+    );
+  }
+
+  if (channel === "Instagram") {
+    return (
+      <span
+        className="social-placeholder"
+        aria-label="Instagram profile coming soon"
+        title="Coming soon"
+      >
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <rect x="3.6" y="3.6" width="16.8" height="16.8" rx="4.2" />
+          <circle cx="12" cy="12" r="4.1" />
+          <circle cx="17.35" cy="6.65" r="1.05" />
+        </svg>
+        <span>{channel}</span>
+      </span>
+    );
+  }
+
+  return (
+    <span
+      className="social-placeholder"
+      aria-label="YouTube channel coming soon"
+      title="Coming soon"
+    >
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M22 8.25a3.2 3.2 0 0 0-2.25-2.26C17.76 5.45 12 5.45 12 5.45s-5.76 0-7.75.54A3.2 3.2 0 0 0 2 8.25 33.3 33.3 0 0 0 1.45 12 33.3 33.3 0 0 0 2 15.75a3.2 3.2 0 0 0 2.25 2.26c1.99.54 7.75.54 7.75.54s5.76 0 7.75-.54A3.2 3.2 0 0 0 22 15.75 33.3 33.3 0 0 0 22.55 12 33.3 33.3 0 0 0 22 8.25Z" />
+        <path d="m10.2 15.3 5.1-3.3-5.1-3.3v6.6Z" />
+      </svg>
+      <span>{channel}</span>
+    </span>
+  );
+}
 
 export default function Home() {
   return (
@@ -44,7 +103,14 @@ export default function Home() {
                     {"\u039bEOR\u039b"}
                   </span>
                   <span className="hero-brand__sub" aria-hidden="true">
-                    Research
+                    {heroSubtitleLetters.map((letter, index) => (
+                      <span
+                        className="hero-brand__sub-letter"
+                        key={`${letter}-${index}`}
+                      >
+                        {letter}
+                      </span>
+                    ))}
                   </span>
                 </h1>
                 <p className="hero__positioning">
@@ -72,23 +138,29 @@ export default function Home() {
           </section>
 
           <section
-            id="focus"
+            id="positioning"
             className="positioning section section--ruled"
             aria-labelledby="positioning-title"
           >
             <div className="section__inner positioning__inner reveal">
-              <p className="section-kicker">Positioning</p>
-              <h2 id="positioning-title">
-                Markets reward preparation, not prediction.
-              </h2>
-              <p>
-                We approach markets through structured research, contextual
-                intelligence and disciplined decision frameworks.
-              </p>
+              <div className="positioning__copy">
+                <p className="section-kicker">Positioning</p>
+                <h2 id="positioning-title">
+                  Markets reward preparation, not prediction.
+                </h2>
+                <p>
+                  We approach markets through structured research, contextual
+                  intelligence and disciplined decision frameworks.
+                </p>
+              </div>
+              <ParallaxSlider />
             </div>
           </section>
 
+          <NumbersSection />
+
           <section
+            id="focus"
             className="pillars section"
             aria-labelledby="pillars-title"
           >
@@ -187,20 +259,68 @@ export default function Home() {
           </section>
         </main>
 
-        <footer className="site-footer">
+        <footer className="site-footer" aria-labelledby="footer-title">
           <div className="section__inner site-footer__inner">
             <div className="site-footer__brand">
-              <BrandLockup compact />
-              <p>Prop Desk | Market Intelligence | Edge</p>
+              <BrandLockup inverse />
+              <h2 id="footer-title" className="sr-only">
+                Aeora Research contact information
+              </h2>
+              <p className="site-footer__pillars">
+                Prop Desk | Market Intelligence | Edge
+              </p>
+              <p className="site-footer__description">
+                Research-led market intelligence and professional market
+                participation.
+              </p>
             </div>
-            <nav className="site-footer__nav" aria-label="Footer navigation">
-              {NAV_ITEMS.map((item) => (
-                <a key={item.href} href={item.href}>
-                  {item.label}
-                </a>
-              ))}
-              <a href="#connect">Connect</a>
-            </nav>
+
+            <div className="site-footer__contact">
+              <p className="site-footer__kicker">Company / Contact</p>
+              <h3>{COMPANY_NAME}</h3>
+              <address>
+                <span className="site-footer__label">Address</span>
+                {COMPANY_ADDRESS_LINES.map((line) => (
+                  <span className="site-footer__address-line" key={line}>
+                    {line}
+                  </span>
+                ))}
+                <span className="site-footer__label">Office</span>
+                <a href={OFFICE_PHONE.href}>{OFFICE_PHONE.label}</a>
+                <span className="site-footer__label">Hotline</span>
+                <a href={HOTLINE_PHONE.href}>{HOTLINE_PHONE.label}</a>
+                <span className="site-footer__label">Email</span>
+                <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+              </address>
+              <div className="site-footer__map">
+                <iframe
+                  title="Map to Aeora Research office in Bandar Puchong Jaya"
+                  src={MAP_EMBED_URL}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+
+            <div className="site-footer__follow">
+              <p className="site-footer__kicker">Follow Us</p>
+              <div className="site-footer__socials" aria-label="Social profiles">
+                {SOCIAL_CHANNELS.map((channel) => (
+                  <SocialIcon channel={channel} key={channel} />
+                ))}
+              </div>
+              <nav className="site-footer__nav" aria-label="Footer navigation">
+                {NAV_ITEMS.map((item) => (
+                  <a key={item.href} href={item.href}>
+                    {item.label}
+                  </a>
+                ))}
+                <a href="#connect">Connect</a>
+              </nav>
+            </div>
+          </div>
+
+          <div className="section__inner site-footer__legal">
             <p className="site-footer__disclaimer">
               Information presented by Aeora Research is for general
               informational, research and educational purposes only. Nothing on
