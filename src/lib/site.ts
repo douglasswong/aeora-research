@@ -23,7 +23,7 @@ export const HOTLINE_PHONE = {
 export const MAP_EMBED_URL =
   "https://www.google.com/maps?q=30A%20Jalan%20Merak%204A%20Bandar%20Puchong%20Jaya%2047100%20Puchong%20Selangor%20Malaysia&output=embed";
 
-export const SITE_URL = "https://www.aeora.com";
+export const SITE_URL = "https://aeora-research.com";
 
 export const SITE_TITLE =
   "Aeora Research | Prop Desk, Market Intelligence & Edge";
