@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = "enquiry@chartsdworks.com";
+export const CONTACT_EMAIL = "support@aeora-research.com";
 
 export const COMPANY_NAME = "Aeora Research PLT";
 
