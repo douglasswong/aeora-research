@@ -26,7 +26,21 @@ const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "Aeora Research",
-  url: SITE_URL
+  legalName: COMPANY_NAME,
+  identifier: COMPANY_REGISTRATION,
+  url: SITE_URL,
+  logo: `${SITE_URL}/brand/aeora-logo-dark.svg`,
+  email: CONTACT_EMAIL,
+  telephone: OFFICE_PHONE.href.replace("tel:", ""),
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "30A (1st Floor), Jalan Merak 4A",
+    addressLocality: "Puchong",
+    addressRegion: "Selangor",
+    postalCode: "47100",
+    addressCountry: "MY"
+  },
+  sameAs: SOCIAL_CHANNELS.map((channel) => channel.href)
 };
 
 type SocialChannel = (typeof SOCIAL_CHANNELS)[number];
