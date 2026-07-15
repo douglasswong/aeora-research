@@ -1262,6 +1262,16 @@ a {
   line-height: 1.32;
 }
 
+.site-footer__registration {
+  margin: 8px 0 0;
+  color: rgba(245, 247, 247, 0.44);
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  font-weight: 450;
+  letter-spacing: 0.11em;
+  line-height: 1.5;
+}
+
 .site-footer__contact address {
   display: grid;
   gap: 2px;
@@ -1318,7 +1328,7 @@ a {
   gap: 12px;
 }
 
-.social-placeholder {
+.social-link {
   display: inline-flex;
   min-height: 44px;
   width: fit-content;
@@ -1329,9 +1339,14 @@ a {
   font-size: 0.74rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  transition: color 180ms var(--ease-out);
 }
 
-.social-placeholder svg {
+.social-link:hover {
+  color: var(--aeora-white);
+}
+
+.social-link svg {
   width: 21px;
   height: 21px;
   color: rgba(49, 237, 174, 0.72);
@@ -1339,14 +1354,10 @@ a {
   flex: 0 0 auto;
 }
 
-.social-placeholder[aria-label*="Instagram"] svg {
+.social-link[aria-label*="Instagram"] svg {
   fill: none;
   stroke: currentColor;
   stroke-width: 1.7;
-}
-
-.social-placeholder[aria-label*="YouTube"] svg path:last-child {
-  fill: #080E14;
 }
 
 .site-footer__nav {

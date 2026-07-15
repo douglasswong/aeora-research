@@ -1,6 +1,8 @@
 export const CONTACT_EMAIL = "enquiry@chartsdworks.com";
 
-export const COMPANY_NAME = "Aeora Research (BRN nil)";
+export const COMPANY_NAME = "Aeora Research PLT";
+
+export const COMPANY_REGISTRATION = "202604001729(LLP0046968-LGN)";
 
 export const COMPANY_ADDRESS_LINES = [
   "30A (1st Floor), Jalan Merak 4A,",
@@ -88,4 +90,13 @@ export const NUMBERS = [
   }
 ] as const;
 
-export const SOCIAL_CHANNELS = ["Facebook", "Instagram", "YouTube"] as const;
+export const SOCIAL_CHANNELS = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/aeoraresearch/"
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1SG2VkQo3J/?mibextid=wwXIfr"
+  }
+] as const;

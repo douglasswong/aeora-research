@@ -7,6 +7,7 @@ import { PillarCard } from "@/components/PillarCard";
 import {
   COMPANY_ADDRESS_LINES,
   COMPANY_NAME,
+  COMPANY_REGISTRATION,
   CONTACT_EMAIL,
   ENQUIRY_PATHWAYS,
   HOTLINE_PHONE,
@@ -31,50 +32,27 @@ const organizationSchema = {
 type SocialChannel = (typeof SOCIAL_CHANNELS)[number];
 
 function SocialIcon({ channel }: { channel: SocialChannel }) {
-  if (channel === "Facebook") {
-    return (
-      <span
-        className="social-placeholder"
-        aria-label="Facebook profile coming soon"
-        title="Coming soon"
-      >
-        <svg aria-hidden="true" viewBox="0 0 24 24">
-          <path d="M14.2 8.2h2.4V4.4c-.42-.06-1.84-.18-3.5-.18-3.46 0-5.82 2.05-5.82 5.82v3.26H3.5v4.25h3.78V24h4.6v-6.45h3.6l.68-4.25h-4.28V10.46c0-1.23.34-2.26 2.32-2.26Z" />
-        </svg>
-        <span>{channel}</span>
-      </span>
-    );
-  }
-
-  if (channel === "Instagram") {
-    return (
-      <span
-        className="social-placeholder"
-        aria-label="Instagram profile coming soon"
-        title="Coming soon"
-      >
+  return (
+    <a
+      className="social-link"
+      href={channel.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Visit Aeora Research on ${channel.label} (opens in a new tab)`}
+    >
+      {channel.label === "Instagram" ? (
         <svg aria-hidden="true" viewBox="0 0 24 24">
           <rect x="3.6" y="3.6" width="16.8" height="16.8" rx="4.2" />
           <circle cx="12" cy="12" r="4.1" />
           <circle cx="17.35" cy="6.65" r="1.05" />
         </svg>
-        <span>{channel}</span>
-      </span>
-    );
-  }
-
-  return (
-    <span
-      className="social-placeholder"
-      aria-label="YouTube channel coming soon"
-      title="Coming soon"
-    >
-      <svg aria-hidden="true" viewBox="0 0 24 24">
-        <path d="M22 8.25a3.2 3.2 0 0 0-2.25-2.26C17.76 5.45 12 5.45 12 5.45s-5.76 0-7.75.54A3.2 3.2 0 0 0 2 8.25 33.3 33.3 0 0 0 1.45 12 33.3 33.3 0 0 0 2 15.75a3.2 3.2 0 0 0 2.25 2.26c1.99.54 7.75.54 7.75.54s5.76 0 7.75-.54A3.2 3.2 0 0 0 22 15.75 33.3 33.3 0 0 0 22.55 12 33.3 33.3 0 0 0 22 8.25Z" />
-        <path d="m10.2 15.3 5.1-3.3-5.1-3.3v6.6Z" />
-      </svg>
-      <span>{channel}</span>
-    </span>
+      ) : (
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M14.2 8.2h2.4V4.4c-.42-.06-1.84-.18-3.5-.18-3.46 0-5.82 2.05-5.82 5.82v3.26H3.5v4.25h3.78V24h4.6v-6.45h3.6l.68-4.25h-4.28V10.46c0-1.23.34-2.26 2.32-2.26Z" />
+        </svg>
+      )}
+      <span>{channel.label}</span>
+    </a>
   );
 }
 
@@ -278,6 +256,9 @@ export default function Home() {
             <div className="site-footer__contact">
               <p className="site-footer__kicker">Company / Contact</p>
               <h3>{COMPANY_NAME}</h3>
+              <p className="site-footer__registration">
+                {COMPANY_REGISTRATION}
+              </p>
               <address>
                 <span className="site-footer__label">Address</span>
                 {COMPANY_ADDRESS_LINES.map((line) => (
@@ -306,7 +287,7 @@ export default function Home() {
               <p className="site-footer__kicker">Follow Us</p>
               <div className="site-footer__socials" aria-label="Social profiles">
                 {SOCIAL_CHANNELS.map((channel) => (
-                  <SocialIcon channel={channel} key={channel} />
+                  <SocialIcon channel={channel} key={channel.label} />
                 ))}
               </div>
               <nav className="site-footer__nav" aria-label="Footer navigation">
