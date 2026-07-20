@@ -39,6 +39,93 @@ export const NAV_ITEMS = [
 
 export const TEAM_NAV_ITEM = { label: "Our Team", href: "/team" } as const;
 
+export const PINNACLE_NAV_ITEM = { label: "Pinnacle", href: "/pinnacle" } as const;
+
+export type PinnacleGalleryItem = {
+  src: string;
+  alt: string;
+  caption: string;
+  orientation: "portrait" | "landscape";
+};
+
+export type PinnacleGalleryEvent = {
+  id: string;
+  code: string;
+  title: string;
+  location: string;
+  date: string;
+  photos: readonly PinnacleGalleryItem[];
+};
+
+export const PINNACLE_GALLERY: readonly PinnacleGalleryEvent[] = [
+  {
+    id: "pic",
+    code: "PIC 2026",
+    title: "PhilipCapital 16th Investment Conference",
+    location: "Kuala Lumpur, Malaysia",
+    date: "July 2026",
+    photos: [
+      {
+        src: "/pinnacle/gallery/pic-2026/conference-team.jpg",
+        alt: "Aeora Research attendees at the PhilipCapital 16th Investment Conference",
+        caption: "Aeora Research attendees at the conference.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/pic-2026/conference-pair.jpg",
+        alt: "Two Aeora Research attendees at the PhilipCapital 16th Investment Conference",
+        caption: "On site at PIC 2026.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/pic-2026/conference-audience.jpg",
+        alt: "Attendees seated during the PhilipCapital 16th Investment Conference",
+        caption: "Following the conference programme.",
+        orientation: "landscape"
+      }
+    ]
+  },
+  {
+    id: "fia",
+    code: "FIA Forum 2026",
+    title: "Futures Industry Association Forum",
+    location: "Kuala Lumpur, Malaysia",
+    date: "July 2026",
+    photos: [
+      {
+        src: "/pinnacle/gallery/fia-2026/forum-group.jpg",
+        alt: "Aeora Research attendees at an FIA Forum 2026 event space",
+        caption: "Connecting with the market community.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/fia-2026/forum-pair.jpg",
+        alt: "Two attendees wearing FIA Forum 2026 lanyards",
+        caption: "At FIA Forum Kuala Lumpur.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/fia-2026/forum-delegates.jpg",
+        alt: "Aeora Research attendees at FIA Forum 2026",
+        caption: "In discussion at the forum.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/fia-2026/forum-stage.jpg",
+        alt: "Two attendees in front of the FIA Forum Kuala Lumpur 2026 stage",
+        caption: "FIA Forum Kuala Lumpur 2026.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/fia-2026/forum-venue.jpg",
+        alt: "FIA Forum Kuala Lumpur 2026 venue and registration screen",
+        caption: "Forum venue in Kuala Lumpur.",
+        orientation: "portrait"
+      }
+    ]
+  }
+];
+
 export const TEAM_MEMBERS = [
   {
     index: "02",
@@ -68,6 +155,7 @@ export type TeamMember = (typeof TEAM_MEMBERS)[number];
 export const FOOTER_NAV_ITEMS = [
   ...NAV_ITEMS,
   TEAM_NAV_ITEM,
+  PINNACLE_NAV_ITEM,
   { label: "Research", href: "/research" }
 ] as const;
 

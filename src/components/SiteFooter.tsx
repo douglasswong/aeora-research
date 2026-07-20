@@ -112,9 +112,14 @@ export function SiteFooter() {
           constitutes investment advice, an offer, solicitation, recommendation
           or guarantee of performance.
         </p>
-        <p className="site-footer__copyright">
-          &copy; {currentYear} Aeora Research. All rights reserved.
-        </p>
+        <div className="site-footer__legal-meta">
+          <Link className="site-footer__terms" href="/terms-conditions">
+            Terms &amp; Conditions
+          </Link>
+          <p className="site-footer__copyright">
+            &copy; {currentYear} Aeora Research. All rights reserved.
+          </p>
+        </div>
       </div>
     </footer>
   );
