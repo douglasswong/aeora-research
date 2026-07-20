@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import { MarketField } from "@/components/MarketField";
+import { MarketContextField } from "@/components/MarketContextField";
 import { NumbersSection } from "@/components/NumbersSection";
 import { ParallaxSlider } from "@/components/ParallaxSlider";
 import { PartnersSection } from "@/components/PartnersSection";
@@ -169,6 +170,7 @@ export default function Home() {
             className="about section section--ruled"
             aria-labelledby="about-title"
           >
+            <MarketContextField />
             <div className="section__inner about__inner">
               <div className="section-heading reveal">
                 <p className="section-kicker">About</p>
