@@ -6,6 +6,7 @@ type EditorialPageProps = {
   kicker: string;
   title: string;
   intro: string;
+  compactHero?: boolean;
   children: ReactNode;
 };
 
@@ -13,6 +14,7 @@ export function EditorialPage({
   kicker,
   title,
   intro,
+  compactHero = false,
   children
 }: EditorialPageProps) {
   return (
@@ -23,7 +25,10 @@ export function EditorialPage({
       <div id="top" className="site-shell">
         <Header />
         <main id="main">
-          <section className="editorial-hero section" aria-labelledby="page-title">
+          <section
+            className={`editorial-hero section${compactHero ? " editorial-hero--compact" : ""}`}
+            aria-labelledby="page-title"
+          >
             <div className="section__inner editorial-hero__inner">
               <p className="section-kicker">{kicker}</p>
               <h1 id="page-title">{title}</h1>

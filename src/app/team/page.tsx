@@ -22,6 +22,7 @@ export default function TeamPage() {
       kicker="Our Team"
       title="Built around disciplined market practice."
       intro="Aeora Research brings together research, trader development and specialist market practice with a long-term view of professional participation."
+      compactHero
     >
       <section className="team-lead section section--ruled" aria-labelledby="leadership-title">
         <div className="section__inner team-lead__inner">
@@ -67,6 +68,10 @@ export default function TeamPage() {
               <TeamMemberCard member={member} key={member.slug} />
             ))}
           </div>
+          <section className="team-trading" aria-labelledby="trading-team-title">
+            <h2 id="trading-team-title">Trading Team</h2>
+            <p className="team-trading__status">Coming soon.</p>
+          </section>
         </div>
       </section>
     </EditorialPage>

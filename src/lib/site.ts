@@ -51,7 +51,7 @@ export const TEAM_MEMBERS = [
     index: "03",
     slug: "max",
     name: "Max Fong",
-    role: "Capital Strategist & Opportunity Scout",
+    role: "Head of Multi-Asset Trading & Opportunity Scout",
     image: "/team/max-fong.png"
   },
   {

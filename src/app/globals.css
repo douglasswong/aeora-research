@@ -2285,6 +2285,11 @@ a {
   overflow: hidden;
 }
 
+.editorial-hero--compact {
+  min-height: min(452px, calc(100svh - var(--header-height)));
+  padding: clamp(76px, 9vw, 106px) 0 clamp(58px, 6vw, 78px);
+}
+
 .editorial-hero::before {
   position: absolute;
   inset: 0;
@@ -2419,7 +2424,7 @@ a {
 }
 
 .team-lead {
-  padding-block: clamp(72px, 9vw, 124px);
+  padding-block: clamp(52px, 6vw, 84px);
 }
 
 .team-lead__inner {
@@ -2591,6 +2596,40 @@ a {
   line-height: 1;
 }
 
+.team-trading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.7fr);
+  min-height: 146px;
+  align-items: end;
+  gap: clamp(24px, 7vw, 100px);
+  margin-top: clamp(52px, 7vw, 84px);
+  padding-top: 28px;
+  border-top: 1px solid rgba(13, 20, 27, 0.28);
+}
+
+.team-trading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.4cqi, 1.16rem);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.team-trading__status {
+  margin: 0;
+  padding-left: 18px;
+  border-left: 1px solid var(--aeora-mint);
+  color: rgba(13, 20, 27, 0.62);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
 .research-framework__list {
   display: grid;
   padding: 0;
@@ -2668,6 +2707,11 @@ a {
     padding-block: 82px 68px;
   }
 
+  .editorial-hero--compact {
+    min-height: 390px;
+    padding-block: 64px 54px;
+  }
+
   .editorial-hero__inner {
     margin-inline: 14px;
   }
@@ -2730,6 +2774,18 @@ a {
     font-size: clamp(2.35rem, 11.2cqi, 3.2rem);
   }
 
+  .team-trading {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 18px;
+    margin-top: 46px;
+    padding-top: 26px;
+  }
+
+  .team-trading__status {
+    padding-left: 14px;
+  }
+
   .team-roster__grid {
     grid-template-columns: 1fr;
   }
@@ -2772,6 +2828,11 @@ a {
   .editorial-hero {
     min-height: 412px;
     padding-block: 68px 54px;
+  }
+
+  .editorial-hero--compact {
+    min-height: 352px;
+    padding-block: 54px 44px;
   }
 
   .editorial-hero h1 {
