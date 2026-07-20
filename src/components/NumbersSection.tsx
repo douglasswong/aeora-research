@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { NUMBERS } from "@/lib/site";
 
-const DURATION_MS = 3500;
+const DURATION_MS = 3000;
 
 function easeInOutCubic(progress: number) {
   return progress < 0.5

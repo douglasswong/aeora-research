@@ -25,11 +25,14 @@ export const MAP_EMBED_URL =
 
 export const SITE_URL = "https://aeora-research.com";
 
+export const TRADER_DEVELOPMENT_INTEREST_URL =
+  "https://forms.gle/5JtxMrrjjSH7bHj18";
+
 export const SITE_TITLE =
   "Aeora Research Malaysia | Market Intelligence & Prop Desk";
 
 export const SITE_DESCRIPTION =
-  "Aeora Research PLT is a research-led financial markets company in Malaysia focused on market intelligence, trader development and disciplined market participation.";
+  "Aeora Research is a Malaysia based research-led market ecosystem focused on market intelligence, trader development and performance-driven thinking.";
 
 export const NAV_ITEMS = [
   { label: "Focus", href: "/#focus" },
@@ -37,9 +40,20 @@ export const NAV_ITEMS = [
   { label: "About", href: "/#about" }
 ] as const;
 
+export const HEADER_NAV_ITEMS = NAV_ITEMS.filter(
+  (item) => item.href !== "/#philosophy"
+);
+
 export const TEAM_NAV_ITEM = { label: "Our Team", href: "/team" } as const;
 
-export const PINNACLE_NAV_ITEM = { label: "Pinnacle", href: "/pinnacle" } as const;
+export const TRADER_DEVELOPMENT_NAV_ITEM = {
+  label: "Trader Development",
+  compactLabel: "Trader Dev.",
+  narrowLabel: "Dev.",
+  href: "/pinnacle"
+} as const;
+
+export const FAQ_NAV_ITEM = { label: "FAQ", href: "/faq" } as const;
 
 export type PinnacleGalleryItem = {
   src: string;
@@ -155,8 +169,9 @@ export type TeamMember = (typeof TEAM_MEMBERS)[number];
 export const FOOTER_NAV_ITEMS = [
   ...NAV_ITEMS,
   TEAM_NAV_ITEM,
-  PINNACLE_NAV_ITEM,
-  { label: "Research", href: "/research" }
+  TRADER_DEVELOPMENT_NAV_ITEM,
+  { label: "Research", href: "/research" },
+  FAQ_NAV_ITEM
 ] as const;
 
 export const PILLARS = [
@@ -197,14 +212,21 @@ export const PARTNER_GROUPS = [
       {
         name: "Kenanga Futures",
         logo: "/partners/kenanga-futures.png",
-        variant: "kenanga"
+        variant: "kenanga",
+        href: "https://dco.kenanga.com.my/affiliate?agentCode=MRKNDW"
       },
       {
         name: "Pepperstone",
         logo: "/partners/pepperstone.png",
-        variant: "pepperstone"
+        variant: "pepperstone",
+        href: "https://trk.pepperstonepartners.com/SH13p"
       },
-      { name: "ATFX", logo: "/partners/atfx-tight.png", variant: "atfx" }
+      {
+        name: "ATFX",
+        logo: "/partners/atfx-tight.png",
+        variant: "atfx",
+        href: "https://login-gm.atfx.com/register?redirect_uri=applyLive&invitationCode=Hfz7oKeo8MXrQmPRF2B7FcgR%2FLQr24rtbYplawH3Qf8%3D"
+      }
     ]
   },
   {
@@ -220,7 +242,8 @@ export const PARTNER_GROUPS = [
       {
         name: "TradingView",
         logo: "/partners/tradingview.png",
-        variant: "tradingview"
+        variant: "tradingview",
+        href: "https://www.tradingview.com/gopro/?share_your_love=douglasswg"
       }
     ]
   },

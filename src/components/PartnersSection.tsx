@@ -18,11 +18,8 @@ export function PartnersSection() {
           >
             <h3>{group.title}</h3>
             <ul className="partner-group__logos" aria-label={`${group.title} logos`}>
-              {group.partners.map((partner) => (
-                <li
-                  className={`partner-logo partner-logo--${partner.variant}`}
-                  key={partner.name}
-                >
+              {group.partners.map((partner) => {
+                const logo = (
                   <Image
                     className="partner-logo__image"
                     src={partner.logo}
@@ -31,8 +28,29 @@ export function PartnersSection() {
                     height={44}
                     sizes="(max-width: 720px) 28vw, 14vw"
                   />
-                </li>
-              ))}
+                );
+
+                return (
+                  <li
+                    className={`partner-logo partner-logo--${partner.variant}`}
+                    key={partner.name}
+                  >
+                    {"href" in partner ? (
+                      <a
+                        className="partner-logo__link"
+                        href={partner.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${partner.name} partner link in a new tab`}
+                      >
+                        {logo}
+                      </a>
+                    ) : (
+                      logo
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </section>
         ))}

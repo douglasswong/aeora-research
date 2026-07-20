@@ -4,6 +4,7 @@ import { NumbersSection } from "@/components/NumbersSection";
 import { ParallaxSlider } from "@/components/ParallaxSlider";
 import { PartnersSection } from "@/components/PartnersSection";
 import { PillarCard } from "@/components/PillarCard";
+import { PhilosophySection } from "@/components/PhilosophySection";
 import { SiteFooter } from "@/components/SiteFooter";
 import {
   COMPANY_NAME,
@@ -12,6 +13,7 @@ import {
   ENQUIRY_PATHWAYS,
   OFFICE_PHONE,
   PILLARS,
+  SITE_DESCRIPTION,
   SOCIAL_CHANNELS,
   SITE_URL
 } from "@/lib/site";
@@ -28,8 +30,7 @@ const organizationSchema = {
   identifier: COMPANY_REGISTRATION,
   url: SITE_URL,
   logo: `${SITE_URL}/brand/aeora-logo-dark.svg`,
-  description:
-    "Aeora Research PLT is a research-led financial markets company in Malaysia focused on market intelligence, trader development and disciplined market participation.",
+  description: SITE_DESCRIPTION,
   email: CONTACT_EMAIL,
   telephone: OFFICE_PHONE.href.replace("tel:", ""),
   address: {
@@ -73,7 +74,7 @@ export default function Home() {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <div id="top" className="site-shell">
+      <div id="top" className="site-shell home-page">
         <Header />
         <main id="main">
           <section className="hero section" aria-labelledby="hero-title">
@@ -161,27 +162,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section
-            id="philosophy"
-            className="philosophy section"
-            aria-labelledby="philosophy-title"
-          >
-            <div className="section__inner philosophy__inner">
-              <div className="philosophy__copy reveal">
-                <p className="section-kicker section-kicker--dark">
-                  Philosophy
-                </p>
-                <h2 id="philosophy-title">Research First.</h2>
-                <p>Every position begins before execution.</p>
-              </div>
-              <div className="philosophy__terms reveal" aria-label="Core terms">
-                <span>Context.</span>
-                <span>Structure.</span>
-                <span>Risk.</span>
-                <span>Conviction.</span>
-              </div>
-            </div>
-          </section>
+          <PhilosophySection />
 
           <section
             id="about"
@@ -216,7 +197,10 @@ export default function Home() {
             <div className="section__inner connect__inner">
               <div className="connect__intro reveal">
                 <p className="section-kicker">Connect</p>
-                <h2 id="connect-title">Build the edge with us.</h2>
+                <h2 id="connect-title">
+                  <span>Build the edge</span>
+                  <span>with us.</span>
+                </h2>
                 <a
                   className="connect__email"
                   href={`mailto:${CONTACT_EMAIL}`}

@@ -4,11 +4,9 @@ import { Header } from "@/components/Header";
 import { PinnacleGallery } from "@/components/PinnacleGallery";
 import { SiteFooter } from "@/components/SiteFooter";
 import {
-  CONTACT_EMAIL,
-  SITE_URL
+  SITE_URL,
+  TRADER_DEVELOPMENT_INTEREST_URL
 } from "@/lib/site";
-
-const programmeHref = `mailto:${CONTACT_EMAIL}?subject=Aeora%20Pinnacle%20programme%20enquiry`;
 
 const WHY_US = [
   {
@@ -39,16 +37,16 @@ const WHY_US = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Aeora Pinnacle | Professional Trading Programme",
+  title: "Aeora Trader Development | Professional Trading Programme",
   description:
-    "Aeora Pinnacle is an in-person programme exploring market context, risk discipline and professional trading practice.",
+    "Aeora Trader Development is an in-person programme exploring market context, risk discipline and professional trading practice.",
   alternates: {
     canonical: "/pinnacle"
   },
   openGraph: {
-    title: "Aeora Pinnacle | Professional Trading Programme",
+    title: "Aeora Trader Development | Professional Trading Programme",
     description:
-      "An in-person Aeora Research programme exploring market context, risk discipline and professional trading practice.",
+      "An in-person Aeora Research trader development programme exploring market context, risk discipline and professional trading practice.",
     url: `${SITE_URL}/pinnacle`
   }
 };
@@ -74,7 +72,7 @@ export default function PinnaclePage() {
                 />
               </div>
               <div className="pinnacle-hero__content">
-                <p className="section-kicker">Aeora Pinnacle</p>
+                <p className="section-kicker">Aeora Trader Development</p>
                 <h1 id="pinnacle-title">Level up your trading environment.</h1>
                 <p>
                   An in-person programme for traders developing a more
@@ -82,8 +80,10 @@ export default function PinnaclePage() {
                   execution.
                 </p>
                 <div className="pinnacle-intake" aria-label="Next programme intake">
-                  <p>Next intake</p>
-                  <strong>TBC</strong>
+                  <div className="pinnacle-intake__status">
+                    <p>Next intake</p>
+                    <strong>TBC</strong>
+                  </div>
                   <dl>
                     <div>
                       <dt>Possible date</dt>
@@ -115,22 +115,29 @@ export default function PinnaclePage() {
               <div className="pinnacle-programme__heading">
                 <p className="section-kicker">The programme</p>
                 <h2 id="programme-title">
-                  A practical introduction to professional market practice.
+                  <span>A practical introduction to</span>
+                  <span>professional market practice.</span>
                 </h2>
               </div>
               <div className="pinnacle-programme__content">
                 <p>
-                  Aeora Pinnacle brings together market intelligence, trading
-                  process and risk awareness in a focused in-person setting.
-                  It is designed for participants who want to build a stronger
-                  foundation for disciplined market practice.
+                  Aeora Trader Development brings together market intelligence,
+                  trading process and risk awareness in a focused in-person
+                  setting. It is designed for participants who want to build a
+                  stronger foundation for disciplined market practice.
                 </p>
                 <ul>
                   <li>Market context and structured preparation</li>
                   <li>Risk, decision quality and review</li>
                   <li>Professional routines around execution</li>
                 </ul>
-                <a className="button button--primary" href={programmeHref}>
+                <a
+                  className="button button--primary"
+                  href={TRADER_DEVELOPMENT_INTEREST_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Register interest via the Aeora Trader Development Google Form, opens in a new tab"
+                >
                   Register interest
                 </a>
               </div>
