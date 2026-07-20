@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { NAV_ITEMS } from "@/lib/site";
+import Link from "next/link";
+import { NAV_ITEMS, TEAM_NAV_ITEM } from "@/lib/site";
 import { BrandLockup } from "@/components/BrandLockup";
 
 export function Header() {
@@ -28,17 +29,20 @@ export function Header() {
           <ul className="site-nav__list">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+                <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
+            <li>
+              <Link href={TEAM_NAV_ITEM.href}>{TEAM_NAV_ITEM.label}</Link>
+            </li>
           </ul>
-          <a
+          <Link
             className="site-nav__cta"
-            href="#connect"
+            href="/#connect"
             aria-label="Go to Aeora Research contact section"
           >
             Connect
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

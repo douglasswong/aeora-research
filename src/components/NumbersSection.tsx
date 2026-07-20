@@ -3,10 +3,12 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { NUMBERS } from "@/lib/site";
 
-const DURATION_MS = 1200;
+const DURATION_MS = 4000;
 
-function easeOutCubic(progress: number) {
-  return 1 - Math.pow(1 - progress, 3);
+function easeInOutCubic(progress: number) {
+  return progress < 0.5
+    ? 4 * Math.pow(progress, 3)
+    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
 }
 
 function formatNumber(item: (typeof NUMBERS)[number], progress: number) {
@@ -28,7 +30,7 @@ export function NumbersSection() {
   const [progress, setProgress] = useState(0);
   const sectionRef = useRef<HTMLElement | null>(null);
   const hasPlayedRef = useRef(false);
-  const displayProgress = useMemo(() => easeOutCubic(progress), [progress]);
+  const displayProgress = useMemo(() => easeInOutCubic(progress), [progress]);
 
   useEffect(() => {
     const element = sectionRef.current;
@@ -100,6 +102,9 @@ export function NumbersSection() {
             return (
               <article className="numbers__item reveal" key={item.label}>
                 <p>{item.label}</p>
+                {"context" in item ? (
+                  <span className="numbers__context">{item.context}</span>
+                ) : null}
                 <strong>
                   <span className="numbers__value-main">
                     {formatted.value}

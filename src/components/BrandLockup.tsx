@@ -3,6 +3,7 @@ import Link from "next/link";
 
 type BrandLockupProps = {
   asLink?: boolean;
+  href?: string;
   logo?: "dark" | "light";
   compact?: boolean;
   inverse?: boolean;
@@ -11,6 +12,7 @@ type BrandLockupProps = {
 
 export function BrandLockup({
   asLink = false,
+  href = "/#top",
   logo,
   compact = false,
   inverse = false,
@@ -53,7 +55,7 @@ export function BrandLockup({
 
   if (asLink) {
     return (
-      <Link className={className} href="#top" aria-label="Aeora Research home">
+      <Link className={className} href={href} aria-label="Aeora Research home">
         {content}
       </Link>
     );

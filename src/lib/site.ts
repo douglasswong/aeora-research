@@ -26,15 +26,23 @@ export const MAP_EMBED_URL =
 export const SITE_URL = "https://aeora-research.com";
 
 export const SITE_TITLE =
-  "Aeora Research | Prop Desk, Market Intelligence & Edge";
+  "Aeora Research Malaysia | Market Intelligence & Prop Desk";
 
 export const SITE_DESCRIPTION =
-  "Aeora Research is a research-led market ecosystem focused on market intelligence, trader development and performance-driven thinking.";
+  "Aeora Research PLT is a research-led financial markets company in Malaysia focused on market intelligence, trader development and disciplined market participation.";
 
 export const NAV_ITEMS = [
-  { label: "Focus", href: "#focus" },
-  { label: "Philosophy", href: "#philosophy" },
-  { label: "About", href: "#about" }
+  { label: "Focus", href: "/#focus" },
+  { label: "Philosophy", href: "/#philosophy" },
+  { label: "About", href: "/#about" }
+] as const;
+
+export const TEAM_NAV_ITEM = { label: "Our Team", href: "/team" } as const;
+
+export const FOOTER_NAV_ITEMS = [
+  ...NAV_ITEMS,
+  TEAM_NAV_ITEM,
+  { label: "Research", href: "/research" }
 ] as const;
 
 export const PILLARS = [
@@ -67,6 +75,51 @@ export const ENQUIRY_PATHWAYS = [
   "Institutional Partnerships"
 ] as const;
 
+export const PARTNER_GROUPS = [
+  {
+    id: "market",
+    title: "Our Partners",
+    partners: [
+      {
+        name: "Kenanga Futures",
+        logo: "/partners/kenanga-futures.png",
+        variant: "kenanga"
+      },
+      {
+        name: "Pepperstone",
+        logo: "/partners/pepperstone.png",
+        variant: "pepperstone"
+      },
+      { name: "ATFX", logo: "/partners/atfx-tight.png", variant: "atfx" }
+    ]
+  },
+  {
+    id: "tech",
+    title: "Tech Partners",
+    partners: [
+      { name: "QST", logo: "/partners/qst.png", variant: "qst" },
+      {
+        name: "Shinjiru",
+        logo: "/partners/shinjiru.png",
+        variant: "shinjiru"
+      },
+      {
+        name: "TradingView",
+        logo: "/partners/tradingview.png",
+        variant: "tradingview"
+      }
+    ]
+  },
+  {
+    id: "ai",
+    title: "AI Systems",
+    partners: [
+      { name: "OpenAI", logo: "/partners/openai.webp", variant: "openai" },
+      { name: "Codex", logo: "/partners/codex.png", variant: "codex" }
+    ]
+  }
+] as const;
+
 export const NUMBERS = [
   {
     label: "Avg Annual Portfolio Target",
@@ -86,6 +139,7 @@ export const NUMBERS = [
     kind: "decimal",
     value: 2.3,
     suffix: "mil MYR+",
+    context: "Approx. USD 580K",
     note: "still growing"
   }
 ] as const;
