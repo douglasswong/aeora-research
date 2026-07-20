@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import { EditorialPage } from "@/components/EditorialPage";
-import { SITE_URL } from "@/lib/site";
+import { TeamMemberCard } from "@/components/TeamMemberCard";
+import { SITE_URL, TEAM_MEMBERS } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Our Team | Aeora Research",
@@ -20,44 +21,51 @@ export default function TeamPage() {
     <EditorialPage
       kicker="Our Team"
       title="Built around disciplined market practice."
-      intro="Aeora Research brings together leadership, market intelligence and trader development with a long-term view of professional market participation."
+      intro="Aeora Research brings together research, trader development and specialist market practice with a long-term view of professional participation."
     >
-      <section className="editorial-section section section--ruled">
-        <div className="section__inner team-layout">
-          <div className="team-layout__intro">
-            <p className="section-kicker">Leadership</p>
-            <h2>The people behind the process.</h2>
+      <section className="team-lead section section--ruled" aria-labelledby="leadership-title">
+        <div className="section__inner team-lead__inner">
+          <div className="team-lead__portrait">
+            <span className="team-lead__index" aria-hidden="true">
+              01
+            </span>
+            <Image
+              className="team-lead__image"
+              src="/team/douglas-wong.png"
+              alt="Portrait of Douglas Wong"
+              fill
+              priority
+              sizes="(max-width: 720px) 100vw, 46vw"
+            />
           </div>
-          <article className="team-profile">
-            <p className="team-profile__index">01</p>
-            <div>
-              <p className="team-profile__role">Head of PropDesk &amp; Research</p>
-              <h3>Douglas Wong</h3>
-              <p>
+          <article className="team-lead__content">
+            <p className="section-kicker">Leadership</p>
+            <p className="team-lead__role">Head of PropDesk &amp; Research</p>
+            <h2 id="leadership-title">Douglas Wong</h2>
+            <div className="team-lead__experience">
+              <p className="team-lead__tenure">14 Years+ Market Experience</p>
+              <p className="team-lead__summary">
                 Douglas leads the work at the intersection of research, trader
-                development and prop desk direction at Aeora Research.
+                development and prop desk direction at Aeora Research. His
+                experience spans FX, metals and cryptocurrencies, with a
+                current focus on institutional volume execution within the
+                futures commodities market.
               </p>
             </div>
           </article>
         </div>
       </section>
 
-      <section className="editorial-section section">
-        <div className="section__inner editorial-grid">
-          <div>
-            <p className="section-kicker">Working principles</p>
-            <h2>Clear roles. Shared standards.</h2>
+      <section className="team-roster section" aria-labelledby="team-roster-title">
+        <div className="section__inner">
+          <div className="team-roster__heading">
+            <p className="section-kicker">Team</p>
+            <h2 id="team-roster-title">Distinct roles. Shared standards.</h2>
           </div>
-          <div className="editorial-copy">
-            <p>
-              Team profiles will be introduced as the organisation develops.
-              Each profile will be grounded in a defined role, relevant market
-              experience and the responsibilities held within Aeora Research.
-            </p>
-            <div className="editorial-links">
-              <Link href="/research">See the research approach</Link>
-              <Link href="/#connect">Connect with Aeora</Link>
-            </div>
+          <div className="team-roster__grid">
+            {TEAM_MEMBERS.map((member) => (
+              <TeamMemberCard member={member} key={member.slug} />
+            ))}
           </div>
         </div>
       </section>

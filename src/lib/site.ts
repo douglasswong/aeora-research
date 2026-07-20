@@ -39,6 +39,32 @@ export const NAV_ITEMS = [
 
 export const TEAM_NAV_ITEM = { label: "Our Team", href: "/team" } as const;
 
+export const TEAM_MEMBERS = [
+  {
+    index: "02",
+    slug: "nicol",
+    name: "Nicol",
+    role: "Co-founder & Head of Finance",
+    image: "/team/nicol.png"
+  },
+  {
+    index: "03",
+    slug: "max",
+    name: "Max Fong",
+    role: "Capital Strategist & Opportunity Scout",
+    image: "/team/max-fong.png"
+  },
+  {
+    index: "04",
+    slug: "joshua",
+    name: "Joshua Chew",
+    role: "Execution & Market Structure Analyst",
+    image: "/team/joshua-chew.png"
+  }
+] as const;
+
+export type TeamMember = (typeof TEAM_MEMBERS)[number];
+
 export const FOOTER_NAV_ITEMS = [
   ...NAV_ITEMS,
   TEAM_NAV_ITEM,
@@ -115,7 +141,11 @@ export const PARTNER_GROUPS = [
     title: "AI Systems",
     partners: [
       { name: "OpenAI", logo: "/partners/openai.webp", variant: "openai" },
-      { name: "Codex", logo: "/partners/codex.png", variant: "codex" }
+      {
+        name: "Codex",
+        logo: "/partners/codex-tight.png",
+        variant: "codex"
+      }
     ]
   }
 ] as const;
