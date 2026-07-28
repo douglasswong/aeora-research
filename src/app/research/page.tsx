@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
+import { ResearchCover } from "@/components/ResearchCover";
+import { RESEARCH_ARTICLES } from "@/lib/research";
 import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -16,12 +18,49 @@ export const metadata: Metadata = {
 };
 
 export default function ResearchPage() {
+  const latestArticle = RESEARCH_ARTICLES[0];
+
   return (
     <EditorialPage
       kicker="Research"
       title="Context before conviction."
       intro="Aeora Research approaches markets through structured research, contextual intelligence and disciplined decision frameworks."
     >
+      <section className="research-index section section--ruled">
+        <div className="section__inner">
+          <div className="research-index__heading">
+            <div>
+              <p className="section-kicker">Latest research</p>
+              <p className="research-index__count">Note 01 / 2026</p>
+            </div>
+            <h2>Clear market structure, without unnecessary complexity.</h2>
+          </div>
+
+          <Link
+            className="research-feature"
+            href={`/research/${latestArticle.slug}`}
+            aria-label={`Read ${latestArticle.title}`}
+          >
+            <div className="research-feature__content">
+              <div className="research-feature__meta">
+                <span>{latestArticle.category}</span>
+                <time dateTime={latestArticle.publishedAt}>
+                  {latestArticle.displayDate}
+                </time>
+              </div>
+              <h3>{latestArticle.title}</h3>
+              <p>{latestArticle.excerpt}</p>
+              <div className="research-feature__footer">
+                <span>{latestArticle.author}</span>
+                <span>{latestArticle.readingTime}</span>
+                <strong>Read the note</strong>
+              </div>
+            </div>
+            <ResearchCover articleNumber={latestArticle.noteNumber} />
+          </Link>
+        </div>
+      </section>
+
       <section className="editorial-section section section--ruled">
         <div className="section__inner research-framework">
           <div className="research-framework__intro">
@@ -81,10 +120,10 @@ export default function ResearchPage() {
           </div>
           <div className="editorial-copy">
             <p>
-              Future research notes will identify their author, publication
-              date, relevant sources and analytical scope. They will be
-              published to inform discussion, not to provide investment advice
-              or promise a market outcome.
+              Research notes identify their author, publication date, relevant
+              sources and analytical scope. They are published to inform
+              discussion, not to provide investment advice or promise a market
+              outcome.
             </p>
             <p>
               This is the foundation for a growing library of market
@@ -92,7 +131,9 @@ export default function ResearchPage() {
               disciplined refinement that informs the broader Aeora ecosystem.
             </p>
             <div className="editorial-links">
-              <Link href="/about">About Aeora Research</Link>
+              <Link href={`/research/${latestArticle.slug}`}>
+                Read the latest research note
+              </Link>
               <Link href="/#connect">Research collaboration enquiries</Link>
             </div>
           </div>

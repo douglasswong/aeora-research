@@ -40,9 +40,15 @@ export const NAV_ITEMS = [
   { label: "About", href: "/#about" }
 ] as const;
 
-export const HEADER_NAV_ITEMS = NAV_ITEMS.filter(
-  (item) => item.href !== "/#philosophy"
-);
+export const RESEARCH_NAV_ITEM = {
+  label: "Research",
+  href: "/research"
+} as const;
+
+export const HEADER_NAV_ITEMS = [
+  ...NAV_ITEMS.filter((item) => item.href !== "/#philosophy"),
+  RESEARCH_NAV_ITEM
+] as const;
 
 export const TEAM_NAV_ITEM = { label: "Our Team", href: "/team" } as const;
 
@@ -170,7 +176,7 @@ export const FOOTER_NAV_ITEMS = [
   ...NAV_ITEMS,
   TEAM_NAV_ITEM,
   TRADER_DEVELOPMENT_NAV_ITEM,
-  { label: "Research", href: "/research" },
+  RESEARCH_NAV_ITEM,
   FAQ_NAV_ITEM
 ] as const;
 
