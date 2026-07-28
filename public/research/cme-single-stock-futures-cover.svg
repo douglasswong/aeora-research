@@ -1,31 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
   <title id="title">CME Single Stock Futures: A Beginner's Guide</title>
-  <desc id="description">Aeora Research market structure note comparing Standard and Micro Single Stock Futures.</desc>
+  <desc id="description">Independent Aeora Research explainer of CME Single Stock Futures.</desc>
   <rect width="1200" height="630" fill="#0D141B"/>
   <g stroke="#26313A" stroke-width="1" opacity="0.78">
     <path d="M0 105H1200M0 210H1200M0 315H1200M0 420H1200M0 525H1200"/>
     <path d="M100 0V630M200 0V630M300 0V630M400 0V630M500 0V630M600 0V630M700 0V630M800 0V630M900 0V630M1000 0V630M1100 0V630"/>
   </g>
-  <path d="M910 0V630" stroke="#31EDAE" stroke-width="2" opacity="0.54"/>
-  <path d="M928 0V630" stroke="#31EDAE" stroke-width="1" opacity="0.14"/>
+  <path d="M508 0V630" stroke="#31EDAE" stroke-width="2" opacity="0.54"/>
+  <path d="M526 0V630" stroke="#31EDAE" stroke-width="1" opacity="0.14"/>
 
   <g font-family="Arial, sans-serif">
     <text x="68" y="74" fill="#31EDAE" font-size="21" font-weight="700" letter-spacing="6">AEORA RESEARCH</text>
-    <text x="1132" y="74" fill="#909AA3" font-size="16" text-anchor="end" letter-spacing="3">MARKET STRUCTURE / 01</text>
+    <text x="1132" y="74" fill="#909AA3" font-size="15" text-anchor="end" letter-spacing="2.5">INDEPENDENT EDUCATIONAL EXPLAINER</text>
 
-    <rect x="68" y="172" width="92" height="5" fill="#31EDAE"/>
-    <text x="68" y="246" fill="#F5F7F7" font-size="67" font-weight="400">CME Single Stock Futures:</text>
-    <text x="68" y="322" fill="#F5F7F7" font-size="67" font-weight="400">A Beginner's Guide</text>
+    <rect x="68" y="160" width="4" height="191" fill="#4A85C8"/>
+    <text x="95" y="315" fill="#F5F7F7" font-size="190" font-weight="300" letter-spacing="-4">CME</text>
+    <text x="96" y="349" fill="#79A9DD" font-size="14" font-weight="700" letter-spacing="3">EQUITY DERIVATIVES</text>
 
-    <g transform="translate(68 392)">
-      <path d="M0 0H472M0 112H472M236 0V112" fill="none" stroke="#68737D" stroke-width="1"/>
-      <text x="0" y="28" fill="#909AA3" font-size="14" font-weight="700" letter-spacing="2">STANDARD</text>
-      <text x="0" y="82" fill="#F5F7F7" font-size="46">100x</text>
-      <text x="262" y="28" fill="#909AA3" font-size="14" font-weight="700" letter-spacing="2">MICRO</text>
-      <text x="262" y="82" fill="#31EDAE" font-size="46">10x</text>
+    <g transform="translate(586 168)">
+      <text x="0" y="0" fill="#31EDAE" font-size="16" font-weight="700" letter-spacing="3">SINGLE STOCK FUTURES</text>
+      <text x="0" y="72" fill="#F5F7F7" font-size="56" font-weight="400">A beginner's</text>
+      <text x="0" y="132" fill="#F5F7F7" font-size="56" font-weight="400">guide</text>
+      <text x="0" y="184" fill="#909AA3" font-size="14" font-weight="700" letter-spacing="2">MARKET STRUCTURE / CONTRACT MECHANICS / RISK</text>
     </g>
 
-    <text x="68" y="577" fill="#909AA3" font-size="15" letter-spacing="2">BEGINNER GUIDE / FUTURES STRUCTURE</text>
-    <text x="1132" y="577" fill="#909AA3" font-size="15" text-anchor="end" letter-spacing="2">AEORA-RESEARCH.COM</text>
+    <g transform="translate(68 421)">
+      <path d="M0 0H1064M0 100H1064M532 0V100" fill="none" stroke="#68737D" stroke-width="1"/>
+      <text x="0" y="26" fill="#909AA3" font-size="13" font-weight="700" letter-spacing="2">STANDARD CONTRACT</text>
+      <text x="0" y="76" fill="#F5F7F7" font-size="43">100x</text>
+      <text x="570" y="26" fill="#909AA3" font-size="13" font-weight="700" letter-spacing="2">MICRO CONTRACT</text>
+      <text x="570" y="76" fill="#31EDAE" font-size="43">10x</text>
+    </g>
+
+    <text x="68" y="577" fill="#909AA3" font-size="13" letter-spacing="1.8">NOT AFFILIATED WITH OR ENDORSED BY CME GROUP</text>
+    <text x="1132" y="577" fill="#909AA3" font-size="14" text-anchor="end" letter-spacing="2">AEORA-RESEARCH.COM</text>
   </g>
 </svg>

@@ -183,6 +183,11 @@ export function CmeSingleStockFuturesArticle() {
           The contract creates access. Liquidity, execution and risk control
           determine whether that access is usable.
         </blockquote>
+        <p className="research-article__trademark-note">
+          CME and CME Group are referenced solely to identify the product
+          provider. Aeora Research is independent and is not affiliated with or
+          endorsed by CME Group.
+        </p>
       </section>
     </>
   );
