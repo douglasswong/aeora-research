@@ -5,6 +5,7 @@ import { PinnacleGallery } from "@/components/PinnacleGallery";
 import { SiteFooter } from "@/components/SiteFooter";
 import {
   SITE_URL,
+  TRADER_DEVELOPMENT_INTAKE,
   TRADER_DEVELOPMENT_INTEREST_URL
 } from "@/lib/site";
 
@@ -38,15 +39,13 @@ const WHY_US = [
 
 export const metadata: Metadata = {
   title: "Aeora Trader Development | Professional Trading Programme",
-  description:
-    "Aeora Trader Development is an in-person programme exploring market context, risk discipline and professional trading practice.",
+  description: `The next Aeora Trader Development intake is open for ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}, with a small-class ballroom format.`,
   alternates: {
     canonical: "/pinnacle"
   },
   openGraph: {
     title: "Aeora Trader Development | Professional Trading Programme",
-    description:
-      "An in-person Aeora Research trader development programme exploring market context, risk discipline and professional trading practice.",
+    description: `The next Aeora Trader Development intake is open for ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}.`,
     url: `${SITE_URL}/pinnacle`
   }
 };
@@ -82,20 +81,23 @@ export default function PinnaclePage() {
                 <div className="pinnacle-intake" aria-label="Next programme intake">
                   <div className="pinnacle-intake__status">
                     <p>Next intake</p>
-                    <strong>TBC</strong>
+                    <strong>{TRADER_DEVELOPMENT_INTAKE.status}</strong>
                   </div>
                   <dl>
                     <div>
-                      <dt>Possible date</dt>
-                      <dd>Q4 2026</dd>
+                      <dt>Dates</dt>
+                      <dd>
+                        {TRADER_DEVELOPMENT_INTAKE.dates}
+                        <span>{TRADER_DEVELOPMENT_INTAKE.days}</span>
+                      </dd>
                     </div>
                     <div>
                       <dt>Location</dt>
-                      <dd>Kuala Lumpur, Malaysia</dd>
+                      <dd>{TRADER_DEVELOPMENT_INTAKE.location}</dd>
                     </div>
                     <div>
                       <dt>Format</dt>
-                      <dd>Physical event. Seats limited.</dd>
+                      <dd>{TRADER_DEVELOPMENT_INTAKE.format}</dd>
                     </div>
                   </dl>
                 </div>

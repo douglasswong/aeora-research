@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { EditorialPage } from "@/components/EditorialPage";
-import { CONTACT_EMAIL, SITE_URL } from "@/lib/site";
+import {
+  CONTACT_EMAIL,
+  SITE_URL,
+  TRADER_DEVELOPMENT_INTAKE
+} from "@/lib/site";
 
 const FAQ_ITEMS = [
   {
@@ -25,8 +29,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "When and where is the next Aeora Trader Development intake?",
-    answer:
-      "The next intake is currently marked TBC, with Q4 2026 in Kuala Lumpur, Malaysia listed as a possible timing and location. The format is planned as a physical event with limited seats."
+    answer: `The next intake is now open for ${TRADER_DEVELOPMENT_INTAKE.dates} (${TRADER_DEVELOPMENT_INTAKE.days}) in ${TRADER_DEVELOPMENT_INTAKE.location}. It will run as a ${TRADER_DEVELOPMENT_INTAKE.format.toLowerCase()}`
   },
   {
     question: "Does registering interest guarantee a role on a prop desk?",

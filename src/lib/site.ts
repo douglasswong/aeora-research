@@ -28,6 +28,14 @@ export const SITE_URL = "https://aeora-research.com";
 export const TRADER_DEVELOPMENT_INTEREST_URL =
   "https://forms.gle/5JtxMrrjjSH7bHj18";
 
+export const TRADER_DEVELOPMENT_INTAKE = {
+  status: "Open",
+  dates: "22-23 August 2026",
+  days: "Saturday & Sunday",
+  location: "Kuala Lumpur, Malaysia",
+  format: "Small class in a ballroom setting."
+} as const;
+
 export const SITE_TITLE =
   "Aeora Research Malaysia | Market Intelligence & Prop Desk";
 
@@ -45,10 +53,9 @@ export const RESEARCH_NAV_ITEM = {
   href: "/research"
 } as const;
 
-export const HEADER_NAV_ITEMS = [
-  ...NAV_ITEMS.filter((item) => item.href !== "/#philosophy"),
-  RESEARCH_NAV_ITEM
-] as const;
+export const HEADER_NAV_ITEMS = NAV_ITEMS.filter(
+  (item) => item.href !== "/#philosophy"
+);
 
 export const TEAM_NAV_ITEM = { label: "Our Team", href: "/team" } as const;
 
