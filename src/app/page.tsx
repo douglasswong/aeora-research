@@ -170,11 +170,12 @@ export default function Home() {
             className="about section section--ruled"
             aria-labelledby="about-title"
           >
-            <MarketContextField />
             <div className="section__inner about__inner">
               <div className="section-heading reveal">
                 <p className="section-kicker">About</p>
-                <h2 id="about-title">Built for the evolving market landscape.</h2>
+                <h2 id="about-title">
+                  Built for the evolving market landscape.
+                </h2>
               </div>
               <div className="about__body reveal">
                 <p>
@@ -188,6 +189,7 @@ export default function Home() {
                   institutional market participation.
                 </p>
               </div>
+              <MarketContextField />
             </div>
           </section>
 

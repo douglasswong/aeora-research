@@ -1260,15 +1260,29 @@ a {
 .about__inner {
   position: relative;
   z-index: 1;
+  grid-template-areas:
+    "heading body"
+    "field body";
+  grid-template-rows: auto auto;
+  row-gap: clamp(48px, 5vw, 66px);
+  align-items: start;
+}
+
+.about .section-heading {
+  grid-area: heading;
+  margin-bottom: 0;
+}
+
+.about__body {
+  grid-area: body;
 }
 
 .market-context-field {
-  position: absolute;
+  position: relative;
   z-index: 0;
-  top: clamp(300px, 22vw, 360px);
-  bottom: clamp(36px, 4vw, 72px);
-  left: max(28px, calc((100% - var(--container)) / 2));
-  width: min(40vw, 584px);
+  grid-area: field;
+  width: min(100%, 600px);
+  height: clamp(168px, 14vw, 196px);
   overflow: hidden;
   color: rgba(13, 20, 27, 0.54);
   pointer-events: none;
@@ -1546,15 +1560,14 @@ a {
 
 @media (max-width: 980px) {
   .about__inner {
-    padding-bottom: 230px;
+    grid-template-areas:
+      "heading"
+      "body"
+      "field";
   }
 
   .market-context-field {
-    top: auto;
-    right: 28px;
-    bottom: 30px;
-    left: 28px;
-    width: auto;
+    width: 100%;
     height: 190px;
   }
 
@@ -1601,15 +1614,7 @@ a {
 }
 
 @media (max-width: 460px) {
-  .about__inner {
-    padding-bottom: 184px;
-  }
-
   .market-context-field {
-    right: 20px;
-    bottom: 20px;
-    left: 20px;
-    width: auto;
     height: 152px;
   }
 
