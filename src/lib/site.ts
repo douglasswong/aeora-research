@@ -238,7 +238,7 @@ export const PARTNER_GROUPS = [
         name: "ATFX",
         logo: "/partners/atfx-tight.png",
         variant: "atfx",
-        href: "https://login-gm.atfx.com/register?redirect_uri=applyLive&invitationCode=Hfz7oKeo8MXrQmPRF2B7FcgR%2FLQr24rtbYplawH3Qf8%3D"
+        href: "https://login-gm.atfx-gm.com/register?utm_medium=salescustomelink&redirect_uri=applyLive&invitationCode=DekxDNDPych4PXFJVJjag1HtimaTpw63iZzQCJjqhXk%3D"
       }
     ]
   },
