@@ -5253,6 +5253,95 @@ a {
   display: block;
 }
 
+.pinnacle-programme__heading {
+  min-width: 0;
+}
+
+.pinnacle-programme__signal {
+  position: relative;
+  width: min(100%, 720px);
+  height: 176px;
+  margin-top: clamp(44px, 5.5vw, 70px);
+  border-bottom: 1px solid rgba(13, 20, 27, 0.1);
+  color: rgba(13, 20, 27, 0.36);
+}
+
+.pinnacle-programme__signal::before {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: rgba(13, 20, 27, 0.08);
+}
+
+.pinnacle-programme__signal svg {
+  display: block;
+  width: 100%;
+  height: 132px;
+  overflow: visible;
+}
+
+.pinnacle-programme__signal-rail,
+.pinnacle-programme__signal-route,
+.pinnacle-programme__signal-arrow {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.pinnacle-programme__signal-rail {
+  stroke: rgba(13, 20, 27, 0.18);
+  stroke-width: 1;
+}
+
+.pinnacle-programme__signal-route {
+  stroke: var(--aeora-mint);
+  stroke-width: 1.5;
+}
+
+.pinnacle-programme__signal-arrow {
+  stroke: rgba(13, 20, 27, 0.54);
+  stroke-width: 1.2;
+}
+
+.pinnacle-programme__signal-node {
+  fill: var(--aeora-offwhite);
+  stroke: rgba(13, 20, 27, 0.38);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.pinnacle-programme__signal-node--active {
+  fill: var(--aeora-mint);
+  stroke: var(--aeora-mint);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.pinnacle-programme__signal-labels {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  color: rgba(13, 20, 27, 0.42);
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.pinnacle-programme__signal-labels span:nth-child(2) {
+  text-align: center;
+}
+
+.pinnacle-programme__signal-labels span:last-child {
+  text-align: right;
+}
+
 .pinnacle-programme__content {
   max-width: 550px;
 }
@@ -5291,8 +5380,112 @@ a {
   background: var(--aeora-mint);
 }
 
-.pinnacle-programme__content .button {
+.pinnacle-programme__action {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   margin-top: 34px;
+}
+
+.pinnacle-programme__content .button {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+.pinnacle-programme__cta-signal {
+  position: relative;
+  display: block;
+  width: clamp(48px, 5vw, 72px);
+  height: 14px;
+  overflow: hidden;
+}
+
+.pinnacle-programme__cta-signal::before {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: rgba(13, 20, 27, 0.28);
+}
+
+.pinnacle-programme__cta-signal::after {
+  position: absolute;
+  top: 50%;
+  right: 1px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid rgba(13, 20, 27, 0.58);
+  border-right: 1px solid rgba(13, 20, 27, 0.58);
+  content: "";
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.pinnacle-programme__cta-signal span {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--aeora-mint);
+  transform: translateY(-50%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pinnacle-programme__signal-route {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: pinnacle-signal-draw 1.8s var(--ease-out) 180ms both;
+  }
+
+  .pinnacle-programme__signal-node--active {
+    animation: pinnacle-signal-node 3.2s ease-in-out 1.8s infinite;
+  }
+
+  .pinnacle-programme__cta-signal span {
+    animation: pinnacle-cta-signal 2.4s var(--ease-out) infinite;
+  }
+}
+
+@keyframes pinnacle-signal-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pinnacle-signal-node {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes pinnacle-cta-signal {
+  0% {
+    opacity: 0;
+    transform: translate(-2px, -50%);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(clamp(48px, 5vw, 72px) - 12px), -50%);
+  }
 }
 
 .pinnacle-why {
@@ -5731,6 +5924,33 @@ a {
   .pinnacle-why h2,
   .pinnacle-gallery h2 {
     font-size: clamp(2.35rem, 11.2cqi, 3.45rem);
+  }
+
+  .pinnacle-programme__signal {
+    height: 142px;
+    margin-top: 36px;
+  }
+
+  .pinnacle-programme__signal::before {
+    top: 22px;
+  }
+
+  .pinnacle-programme__signal svg {
+    height: 104px;
+  }
+
+  .pinnacle-programme__signal-labels {
+    bottom: 10px;
+    font-size: 0.45rem;
+    letter-spacing: 0.1em;
+  }
+
+  .pinnacle-programme__action {
+    gap: 0;
+  }
+
+  .pinnacle-programme__cta-signal {
+    display: none;
   }
 
   .pinnacle-why__grid {

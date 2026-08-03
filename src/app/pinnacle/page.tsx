@@ -120,6 +120,46 @@ export default function PinnaclePage() {
                   <span>A practical introduction to</span>
                   <span>professional market practice.</span>
                 </h2>
+                <div className="pinnacle-programme__signal" aria-hidden="true">
+                  <svg viewBox="0 0 620 132" preserveAspectRatio="none">
+                    <path
+                      className="pinnacle-programme__signal-rail"
+                      d="M8 98 H152 V70 H306 V92 H458 V52 H612"
+                    />
+                    <path
+                      className="pinnacle-programme__signal-route"
+                      d="M8 98 H152 V70 H306 V92 H458 V52 H612"
+                      pathLength="1"
+                    />
+                    <circle
+                      className="pinnacle-programme__signal-node"
+                      cx="152"
+                      cy="70"
+                      r="4"
+                    />
+                    <circle
+                      className="pinnacle-programme__signal-node"
+                      cx="306"
+                      cy="92"
+                      r="4"
+                    />
+                    <circle
+                      className="pinnacle-programme__signal-node pinnacle-programme__signal-node--active"
+                      cx="458"
+                      cy="52"
+                      r="5"
+                    />
+                    <path
+                      className="pinnacle-programme__signal-arrow"
+                      d="M602 44 L612 52 L602 60"
+                    />
+                  </svg>
+                  <div className="pinnacle-programme__signal-labels">
+                    <span>01 / Context</span>
+                    <span>02 / Process</span>
+                    <span>03 / Decision</span>
+                  </div>
+                </div>
               </div>
               <div className="pinnacle-programme__content">
                 <p>
@@ -133,15 +173,20 @@ export default function PinnaclePage() {
                   <li>Risk, decision quality and review</li>
                   <li>Professional routines around execution</li>
                 </ul>
-                <a
-                  className="button button--primary"
-                  href={TRADER_DEVELOPMENT_INTEREST_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Register interest via the Aeora Trader Development Google Form, opens in a new tab"
-                >
-                  Register interest
-                </a>
+                <div className="pinnacle-programme__action">
+                  <span className="pinnacle-programme__cta-signal" aria-hidden="true">
+                    <span />
+                  </span>
+                  <a
+                    className="button button--primary"
+                    href={TRADER_DEVELOPMENT_INTEREST_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Register interest via the Aeora Trader Development Google Form, opens in a new tab"
+                  >
+                    Register interest
+                  </a>
+                </div>
               </div>
             </div>
           </section>
