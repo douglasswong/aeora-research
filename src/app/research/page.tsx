@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
+import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { ResearchCover } from "@/components/ResearchCover";
 import { RESEARCH_ARTICLES } from "@/lib/research";
 import { SITE_URL } from "@/lib/site";
@@ -18,22 +19,29 @@ export const metadata: Metadata = {
 };
 
 export default function ResearchPage() {
-  const latestArticle = RESEARCH_ARTICLES[0];
+  const researchArticles = [...RESEARCH_ARTICLES].sort(
+    (first, second) =>
+      new Date(second.publishedAt).getTime() -
+      new Date(first.publishedAt).getTime()
+  );
+  const latestArticle = researchArticles[0];
+  const earlierArticles = researchArticles.slice(1);
 
   return (
     <EditorialPage
       kicker="Research"
       title="Context before conviction."
-      intro="Aeora Research approaches markets through structured research, contextual intelligence and disciplined decision frameworks."
+      intro="Clear market structure, without unnecessary complexity."
+      compactHero
     >
       <section className="research-index section section--ruled">
         <div className="section__inner">
           <div className="research-index__heading">
             <div>
               <p className="section-kicker">Latest research</p>
-              <p className="research-index__count">Note 01 / 2026</p>
+              <h2>Current research note</h2>
             </div>
-            <h2>Clear market structure, without unnecessary complexity.</h2>
+            <p className="research-index__count">Newest first</p>
           </div>
 
           <Link
@@ -56,12 +64,45 @@ export default function ResearchPage() {
                 <strong>Read the note</strong>
               </div>
             </div>
-            <ResearchCover articleNumber={latestArticle.noteNumber} />
+            {latestArticle.slug === "why-markets-rally-despite-bad-news" ? (
+              <MarketsRallyCover articleCover={false} />
+            ) : (
+              <ResearchCover articleNumber={latestArticle.noteNumber} />
+            )}
           </Link>
+
+          {earlierArticles.length > 0 ? (
+            <section className="research-archive" aria-labelledby="earlier-research-title">
+              <div className="research-archive__heading">
+                <p className="section-kicker">Earlier research</p>
+                <h2 id="earlier-research-title">Published notes</h2>
+              </div>
+              <ol>
+                {earlierArticles.map((article) => (
+                  <li key={article.slug}>
+                    <Link href={`/research/${article.slug}`}>
+                      <span className="research-archive__number">
+                        Note {article.noteNumber}
+                      </span>
+                      <span className="research-archive__detail">
+                        <span>
+                          {article.category} / {article.displayDate}
+                        </span>
+                        <strong>{article.title}</strong>
+                      </span>
+                      <span className="research-archive__action">
+                        {article.readingTime} / Read the note
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          ) : null}
         </div>
       </section>
 
-      <section className="editorial-section section section--ruled">
+      <section className="research-framework-section section section--ruled">
         <div className="section__inner research-framework">
           <div className="research-framework__intro">
             <p className="section-kicker">Research framework</p>
@@ -112,7 +153,7 @@ export default function ResearchPage() {
         </div>
       </section>
 
-      <section className="editorial-section section">
+      <section className="research-publication-standard section">
         <div className="section__inner editorial-grid">
           <div>
             <p className="section-kicker">Publication standard</p>

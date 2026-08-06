@@ -4025,11 +4025,16 @@ a {
 }
 
 .research-index__heading {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1fr);
-  gap: clamp(48px, 9vw, 132px);
+  display: flex;
   align-items: end;
-  margin-bottom: clamp(54px, 8vw, 92px);
+  justify-content: space-between;
+  gap: 24px 56px;
+  margin-bottom: clamp(30px, 4vw, 46px);
+}
+
+.research-index {
+  padding-top: clamp(72px, 7vw, 100px);
+  padding-bottom: clamp(54px, 5vw, 76px);
 }
 
 .research-index__heading h2,
@@ -4041,9 +4046,10 @@ a {
   line-height: 1.02;
 }
 
-.research-index__heading h2 {
-  max-width: 760px;
-  font-size: clamp(2.5rem, 5vw, 4.4rem);
+.research-index .research-index__heading h2 {
+  max-width: 460px;
+  font-size: clamp(1.45rem, 2.1vw, 1.9rem);
+  line-height: 1.1;
 }
 
 .research-index__count {
@@ -4383,6 +4389,120 @@ a {
   letter-spacing: 0.18em;
   line-height: 1.5;
   text-transform: uppercase;
+}
+
+.research-archive {
+  margin-top: clamp(62px, 8vw, 102px);
+}
+
+.research-archive__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px 32px;
+  margin-bottom: 20px;
+}
+
+.research-archive__heading .section-kicker {
+  margin-bottom: 0;
+}
+
+.research-archive__heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.8vw, 1.6rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
+
+.research-archive ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid rgba(13, 20, 27, 0.3);
+}
+
+.research-archive li {
+  border-bottom: 1px solid var(--aeora-line);
+}
+
+.research-archive a {
+  display: grid;
+  grid-template-columns: minmax(86px, 0.24fr) minmax(0, 1fr) minmax(160px, 0.34fr);
+  gap: 24px;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.research-archive__number,
+.research-archive__detail > span,
+.research-archive__action {
+  color: rgba(13, 20, 27, 0.52);
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.research-archive__detail {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.research-archive__detail strong {
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.28rem, 2.1vw, 1.78rem);
+  font-weight: 350;
+  letter-spacing: 0;
+  line-height: 1.15;
+}
+
+.research-archive__action {
+  justify-self: end;
+  color: rgba(13, 20, 27, 0.68);
+  text-align: right;
+  transition: color 180ms var(--ease-out);
+}
+
+.research-archive a:hover .research-archive__detail strong,
+.research-archive a:hover .research-archive__action {
+  color: #11835e;
+}
+
+.research-framework-section,
+.research-publication-standard {
+  padding-top: clamp(68px, 6.5vw, 92px);
+}
+
+.research-framework-section {
+  padding-bottom: clamp(46px, 4.5vw, 62px);
+}
+
+.research-publication-standard {
+  padding-bottom: clamp(70px, 7vw, 96px);
+}
+
+.research-framework-section .research-framework,
+.research-publication-standard .editorial-grid {
+  gap: clamp(48px, 7vw, 88px);
+}
+
+.research-framework-section .research-framework h2,
+.research-publication-standard .editorial-grid h2 {
+  max-width: 410px;
+  font-size: clamp(2.15rem, 3.9vw, 3.45rem);
+  line-height: 1.03;
+}
+
+.research-publication-standard .editorial-grid h2 {
+  max-width: 520px;
+  font-size: clamp(2.05rem, 3.45vw, 3.15rem);
 }
 
 .market-rally-cover__label span {
@@ -5063,12 +5183,30 @@ a {
   }
 
   .research-index__heading {
-    grid-template-columns: 1fr;
+    align-items: flex-start;
+    flex-direction: column;
     gap: 24px;
   }
 
-  .research-index__heading h2 {
-    font-size: clamp(2.15rem, 10cqi, 3.2rem);
+  .research-index .research-index__heading h2 {
+    font-size: clamp(1.35rem, 6.7cqi, 1.68rem);
+  }
+
+  .research-archive__heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .research-archive a {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-block: 22px;
+  }
+
+  .research-archive__action {
+    justify-self: start;
+    text-align: left;
   }
 
   .research-cover__frame,

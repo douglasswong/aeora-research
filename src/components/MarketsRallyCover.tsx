@@ -1,8 +1,17 @@
 import Image from "next/image";
 
-export function MarketsRallyCover() {
+type MarketsRallyCoverProps = {
+  articleCover?: boolean;
+};
+
+export function MarketsRallyCover({
+  articleCover = true
+}: MarketsRallyCoverProps) {
   return (
-    <figure className="market-rally-cover" id="article-cover">
+    <figure
+      className="market-rally-cover"
+      id={articleCover ? "article-cover" : undefined}
+    >
       <div className="market-rally-cover__image-wrap">
         <Image
           src="/research/why-markets-rally-despite-bad-news-aeora-research.webp"
