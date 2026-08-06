@@ -4028,6 +4028,14 @@ a {
   border-top: 1px solid rgba(13, 20, 27, 0.28);
 }
 
+.team-roster__client-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 66.6667%;
+  margin: clamp(38px, 4vw, 60px) auto 0;
+  border-top: 1px solid rgba(13, 20, 27, 0.28);
+}
+
 .team-member {
   min-width: 0;
   padding: 0 clamp(20px, 3vw, 42px) 0 0;
@@ -5491,6 +5499,12 @@ a {
 
   .team-roster__grid {
     grid-template-columns: 1fr;
+  }
+
+  .team-roster__client-grid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-top: 42px;
   }
 
   .team-member,

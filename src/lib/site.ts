@@ -165,7 +165,7 @@ export const TEAM_MEMBERS = [
     index: "03",
     slug: "max",
     name: "Max Fong",
-    role: "Head of Multi-Asset Trading & Opportunity Scout",
+    role: "Head of Multi-Asset Strategy & Opportunity Scout",
     image: "/team/max-fong.png"
   },
   {
@@ -174,6 +174,20 @@ export const TEAM_MEMBERS = [
     name: "Joshua Chew",
     role: "Execution & Market Structure Analyst",
     image: "/team/joshua-chew.png"
+  },
+  {
+    index: "05",
+    slug: "shady",
+    name: "Shady Kambai",
+    role: "Global Client Relations",
+    image: "/team/shady-kambai-portrait.webp"
+  },
+  {
+    index: "06",
+    slug: "joel",
+    name: "Joel Banner",
+    role: "Client Relationship Manager",
+    image: "/team/joel-banner-portrait.webp"
   }
 ] as const;
 
