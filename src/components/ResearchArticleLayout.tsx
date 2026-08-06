@@ -15,6 +15,7 @@ type ResearchArticleLayoutProps = {
   article: ResearchArticle;
   keyPoints: readonly string[];
   sources: readonly ResearchSource[];
+  cover?: ReactNode;
   children: ReactNode;
 };
 
@@ -22,6 +23,7 @@ export function ResearchArticleLayout({
   article,
   keyPoints,
   sources,
+  cover,
   children
 }: ResearchArticleLayoutProps) {
   const articleUrl = `${SITE_URL}/research/${article.slug}`;
@@ -78,7 +80,7 @@ export function ResearchArticleLayout({
             </header>
 
             <div className="section__inner research-article__visual">
-              <ResearchCover articleNumber={article.noteNumber} wide />
+              {cover ?? <ResearchCover articleNumber={article.noteNumber} wide />}
             </div>
 
             <div className="section__inner research-article__layout">

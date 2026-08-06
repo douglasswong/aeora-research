@@ -5,6 +5,12 @@ import {
   cmeSingleStockFuturesKeyPoints,
   cmeSingleStockFuturesSources
 } from "@/content/research/CmeSingleStockFutures";
+import {
+  WhyMarketsRallyDespiteBadNewsArticle,
+  whyMarketsRallyKeyPoints,
+  whyMarketsRallySources
+} from "@/content/research/WhyMarketsRallyDespiteBadNews";
+import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { ResearchArticleLayout } from "@/components/ResearchArticleLayout";
 import {
   getResearchArticle,
@@ -35,7 +41,9 @@ export async function generateMetadata({
   }
 
   const socialImage =
-    "/research/cme-single-stock-futures-cover.png";
+    article.slug === "why-markets-rally-despite-bad-news"
+      ? "/research/why-markets-rally-despite-bad-news-aeora-research.webp"
+      : "/research/cme-single-stock-futures-cover.png";
 
   return {
     title: `${article.title} | Aeora Research`,
@@ -77,9 +85,27 @@ export default async function ResearchArticlePage({
   const { slug } = await params;
   const article = getResearchArticle(slug);
 
-  if (!article || article.slug !== "cme-single-stock-futures-explained") {
+  if (!article) {
     notFound();
   }
+
+  const isMarketsRallyArticle =
+    article.slug === "why-markets-rally-despite-bad-news";
+  const keyPoints = isMarketsRallyArticle
+    ? whyMarketsRallyKeyPoints
+    : cmeSingleStockFuturesKeyPoints;
+  const sources = isMarketsRallyArticle
+    ? whyMarketsRallySources
+    : cmeSingleStockFuturesSources;
+  const content = isMarketsRallyArticle ? (
+    <WhyMarketsRallyDespiteBadNewsArticle />
+  ) : (
+    <CmeSingleStockFuturesArticle />
+  );
+  const cover = isMarketsRallyArticle ? <MarketsRallyCover /> : undefined;
+  const socialImage = isMarketsRallyArticle
+    ? "/research/why-markets-rally-despite-bad-news-aeora-research.webp"
+    : "/research/cme-single-stock-futures-cover.png";
 
   const articleUrl = `${SITE_URL}/research/${article.slug}`;
   const structuredData = {
@@ -91,7 +117,7 @@ export default async function ResearchArticlePage({
     dateModified: article.publishedAt,
     mainEntityOfPage: articleUrl,
     articleSection: article.category,
-    image: `${SITE_URL}/research/cme-single-stock-futures-cover.png`,
+    image: `${SITE_URL}${socialImage}`,
     author: {
       "@type": "Organization",
       name: article.author,
@@ -106,7 +132,7 @@ export default async function ResearchArticlePage({
         url: `${SITE_URL}/brand/aeora-logo-dark.png`
       }
     },
-    citation: cmeSingleStockFuturesSources.map((source) => source.href)
+    citation: sources.map((source) => source.href)
   };
 
   return (
@@ -119,10 +145,11 @@ export default async function ResearchArticlePage({
       />
       <ResearchArticleLayout
         article={article}
-        keyPoints={cmeSingleStockFuturesKeyPoints}
-        sources={cmeSingleStockFuturesSources}
+        keyPoints={keyPoints}
+        sources={sources}
+        cover={cover}
       >
-        <CmeSingleStockFuturesArticle />
+        {content}
       </ResearchArticleLayout>
     </>
   );
