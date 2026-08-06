@@ -1,12 +1,12 @@
-const DEPTH_ROWS = [
-  ["48.2", "51.8", "03"],
-  ["42.7", "57.3", "08"],
-  ["56.4", "43.6", "13"],
-  ["39.1", "60.9", "21"],
-  ["52.8", "47.2", "34"]
+const FIBONACCI_LEVELS = [
+  ["38.2", "0.382"],
+  ["50", "0.500"],
+  ["61.8", "0.618"],
+  ["78.6", "0.786"],
+  ["100", "1.000"]
 ] as const;
 
-const FIELD_TICKS = Array.from({ length: 18 }, (_, index) => index);
+const CANDLES = Array.from({ length: 9 }, (_, index) => index);
 
 export function MarketField() {
   return (
@@ -16,18 +16,19 @@ export function MarketField() {
       <div className="market-field__axis market-field__axis--y" />
       <div className="market-field__trace market-field__trace--one" />
       <div className="market-field__trace market-field__trace--two" />
-      <div className="market-field__depth">
-        {DEPTH_ROWS.map(([bid, ask, level]) => (
-          <div className="market-field__row" key={level}>
-            <span>{bid}</span>
-            <span>{level}</span>
-            <span>{ask}</span>
-          </div>
+      <div className="market-field__candles">
+        {CANDLES.map((candle) => (
+          <span className="market-field__candle" key={candle} />
         ))}
       </div>
-      <div className="market-field__ticks">
-        {FIELD_TICKS.map((tick) => (
-          <span key={tick} />
+      <div className="market-field__fib">
+        <p>FIB / RETRACEMENT</p>
+        {FIBONACCI_LEVELS.map(([level, decimal]) => (
+          <div className="market-field__fib-row" key={level}>
+            <span className="market-field__fib-level">{level}</span>
+            <i />
+            <span className="market-field__fib-decimal">{decimal}</span>
+          </div>
         ))}
       </div>
       <div className="market-field__scan" />

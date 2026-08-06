@@ -624,6 +624,7 @@ a {
 .market-field__grid {
   position: absolute;
   inset: 6% 0 6% 9%;
+  z-index: 0;
   background:
     repeating-linear-gradient(
       90deg,
@@ -643,6 +644,7 @@ a {
 
 .market-field__axis {
   position: absolute;
+  z-index: 1;
   background: rgba(13, 20, 27, 0.3);
 }
 
@@ -662,6 +664,7 @@ a {
 
 .market-field__trace {
   position: absolute;
+  z-index: 2;
   height: 2px;
   transform-origin: left center;
   background: rgba(13, 20, 27, 0.78);
@@ -682,17 +685,113 @@ a {
   background: rgba(49, 237, 174, 0.86);
 }
 
-.market-field__depth {
+.market-field__candles {
+  position: absolute;
+  top: 9%;
+  right: 7%;
+  left: 12%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  align-items: start;
+  height: 176px;
+  opacity: 0.46;
+}
+
+.market-field__candle {
+  position: relative;
+  justify-self: center;
+  width: 1px;
+  background: rgba(13, 20, 27, 0.52);
+}
+
+.market-field__candle::after {
+  position: absolute;
+  top: 28%;
+  left: -3px;
+  width: 7px;
+  height: 42%;
+  content: "";
+  background: rgba(13, 20, 27, 0.42);
+}
+
+.market-field__candle:nth-child(1) {
+  height: 44px;
+  margin-top: 12px;
+}
+
+.market-field__candle:nth-child(2) {
+  height: 72px;
+  margin-top: 28px;
+}
+
+.market-field__candle:nth-child(3) {
+  height: 54px;
+  margin-top: 8px;
+}
+
+.market-field__candle:nth-child(4) {
+  height: 86px;
+  margin-top: 42px;
+}
+
+.market-field__candle:nth-child(5) {
+  height: 64px;
+  margin-top: 18px;
+}
+
+.market-field__candle:nth-child(6) {
+  height: 94px;
+  margin-top: 4px;
+}
+
+.market-field__candle:nth-child(7) {
+  height: 58px;
+  margin-top: 38px;
+}
+
+.market-field__candle:nth-child(8) {
+  height: 74px;
+  margin-top: 20px;
+}
+
+.market-field__candle:nth-child(9) {
+  height: 48px;
+  margin-top: 46px;
+}
+
+.market-field__candle:nth-child(2n)::after,
+.market-field__candle:nth-child(5)::after {
+  top: 18%;
+  height: 48%;
+  background: rgba(49, 237, 174, 0.68);
+}
+
+.market-field__fib {
   position: absolute;
   right: 0;
-  bottom: 18%;
-  width: min(260px, 62%);
+  bottom: 16%;
+  z-index: 3;
+  width: min(286px, 67%);
   border-top: 1px solid rgba(13, 20, 27, 0.2);
 }
 
-.market-field__row {
+.market-field__fib > p {
+  margin: 0;
+  padding: 8px 0 7px;
+  color: rgba(13, 20, 27, 0.5);
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1;
+}
+
+.market-field__fib-row {
   display: grid;
-  grid-template-columns: 1fr 0.5fr 1fr;
+  grid-template-columns: max-content minmax(34px, 1fr) max-content;
+  align-items: center;
+  gap: 9px;
   border-bottom: 1px solid rgba(13, 20, 27, 0.13);
   color: rgba(13, 20, 27, 0.56);
   font-family: var(--font-display);
@@ -702,38 +801,23 @@ a {
   line-height: 1;
 }
 
-.market-field__row span {
-  padding: 10px 8px;
+.market-field__fib-row span {
+  padding: 9px 0;
 }
 
-.market-field__row span:nth-child(2) {
+.market-field__fib-row i {
+  display: block;
+  height: 1px;
+  background: rgba(13, 20, 27, 0.22);
+}
+
+.market-field__fib-level {
   color: rgba(49, 237, 174, 0.96);
   font-weight: 650;
-  text-align: center;
 }
 
-.market-field__row span:nth-child(3) {
+.market-field__fib-decimal {
   text-align: right;
-}
-
-.market-field__ticks {
-  position: absolute;
-  inset: 8% 6% auto 10%;
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  gap: 24px 16px;
-}
-
-.market-field__ticks span {
-  display: block;
-  width: 2px;
-  height: 20px;
-  background: rgba(13, 20, 27, 0.32);
-}
-
-.market-field__ticks span:nth-child(3n) {
-  height: 34px;
-  background: rgba(49, 237, 174, 0.78);
 }
 
 .market-field__scan {
@@ -741,6 +825,7 @@ a {
   top: 0;
   bottom: 0;
   left: 36%;
+  z-index: 4;
   width: 2px;
   background: linear-gradient(
     180deg,
@@ -2410,27 +2495,44 @@ a {
     animation: trace-two-drift 8.6s ease-in-out infinite;
   }
 
-  .market-field__ticks span:nth-child(3n) {
-    animation: tick-reading 5.2s ease-in-out infinite;
+  .market-field__candle {
+    transform-origin: center;
+    animation: field-candle-pulse 4.8s ease-in-out infinite;
   }
 
-  .market-field__row span:nth-child(2) {
+  .market-field__candle:nth-child(2n) {
+    animation-name: field-candle-pulse-up;
+  }
+
+  .market-field__candle:nth-child(2),
+  .market-field__candle:nth-child(5),
+  .market-field__candle:nth-child(8) {
+    animation-delay: 520ms;
+  }
+
+  .market-field__candle:nth-child(3),
+  .market-field__candle:nth-child(6),
+  .market-field__candle:nth-child(9) {
+    animation-delay: 980ms;
+  }
+
+  .market-field__fib-level {
     animation: depth-reading 4.6s ease-in-out infinite;
   }
 
-  .market-field__row:nth-child(2) span:nth-child(2) {
+  .market-field__fib-row:nth-child(3) .market-field__fib-level {
     animation-delay: 460ms;
   }
 
-  .market-field__row:nth-child(3) span:nth-child(2) {
+  .market-field__fib-row:nth-child(4) .market-field__fib-level {
     animation-delay: 920ms;
   }
 
-  .market-field__row:nth-child(4) span:nth-child(2) {
+  .market-field__fib-row:nth-child(5) .market-field__fib-level {
     animation-delay: 1380ms;
   }
 
-  .market-field__row:nth-child(5) span:nth-child(2) {
+  .market-field__fib-row:nth-child(6) .market-field__fib-level {
     animation-delay: 1840ms;
   }
 
@@ -2677,13 +2779,27 @@ a {
   }
 }
 
-@keyframes tick-reading {
+@keyframes field-candle-pulse {
   0%,
   100% {
-    opacity: 0.58;
+    opacity: 0.32;
+    transform: translateY(2px) scaleY(0.92);
   }
   45% {
-    opacity: 1;
+    opacity: 0.7;
+    transform: translateY(-3px) scaleY(1.04);
+  }
+}
+
+@keyframes field-candle-pulse-up {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(-2px) scaleY(0.9);
+  }
+  48% {
+    opacity: 0.76;
+    transform: translateY(3px) scaleY(1.08);
   }
 }
 
@@ -3186,7 +3302,7 @@ a {
     font-size: clamp(2.7rem, 13cqi, 4rem);
   }
 
-  .market-field__depth {
+  .market-field__fib {
     width: 76%;
   }
 
@@ -3487,7 +3603,7 @@ a {
     font-size: clamp(2.42rem, 12.6cqi, 3.3rem);
   }
 
-  .market-field__row {
+  .market-field__fib-row {
     font-size: 0.58rem;
     letter-spacing: 0.08em;
   }
