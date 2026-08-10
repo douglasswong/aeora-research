@@ -228,6 +228,7 @@ export const PILLARS = [
 
 export const ENQUIRY_PATHWAYS = [
   "Trader Enquiries",
+  "Commercial Hedging",
   "Research Collaboration",
   "Institutional Partnerships"
 ] as const;
