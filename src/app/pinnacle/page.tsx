@@ -81,7 +81,12 @@ export default function PinnaclePage() {
                 <div className="pinnacle-intake" aria-label="Next programme intake">
                   <div className="pinnacle-intake__status">
                     <p>Next intake</p>
-                    <strong>{TRADER_DEVELOPMENT_INTAKE.status}</strong>
+                    <div className="pinnacle-intake__status-value">
+                      <strong>{TRADER_DEVELOPMENT_INTAKE.status}</strong>
+                      <span>
+                        ({TRADER_DEVELOPMENT_INTAKE.availability})
+                      </span>
+                    </div>
                   </div>
                   <dl>
                     <div>

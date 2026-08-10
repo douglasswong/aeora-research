@@ -5640,6 +5640,21 @@ a {
   line-height: 0.94;
 }
 
+.pinnacle-intake__status-value {
+  display: grid;
+  gap: 8px;
+}
+
+.pinnacle-intake__status-value > span {
+  color: rgba(13, 20, 27, 0.5);
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
 .pinnacle-intake dl {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
