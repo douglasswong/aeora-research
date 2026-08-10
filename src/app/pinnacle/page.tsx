@@ -39,7 +39,7 @@ const WHY_US = [
 
 export const metadata: Metadata = {
   title: "Aeora Trader Development | Professional Trading Programme",
-  description: `The next Aeora Trader Development intake is open for ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}, with a small-class ballroom format.`,
+  description: `The next Aeora Trader Development intake is open for ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}, with a small-class training-room format.`,
   alternates: {
     canonical: "/pinnacle"
   },
@@ -172,6 +172,7 @@ export default function PinnaclePage() {
                   <li>Market context and structured preparation</li>
                   <li>Risk, decision quality and review</li>
                   <li>Professional routines around execution</li>
+                  <li>Full-Time Trader Career Pathway</li>
                 </ul>
                 <div className="pinnacle-programme__action">
                   <span className="pinnacle-programme__cta-signal" aria-hidden="true">

@@ -29,11 +29,11 @@ export const TRADER_DEVELOPMENT_INTEREST_URL =
   "https://forms.gle/5JtxMrrjjSH7bHj18";
 
 export const TRADER_DEVELOPMENT_INTAKE = {
-  status: "Open",
+  status: "Open - limited slots left",
   dates: "22-23 August 2026",
   days: "Saturday & Sunday",
   location: "Kuala Lumpur, Malaysia",
-  format: "Small class in a ballroom setting."
+  format: "Small Class, Training Room"
 } as const;
 
 export const SITE_TITLE =
