@@ -25,6 +25,9 @@ export const MAP_EMBED_URL =
 
 export const SITE_URL = "https://aeora-research.com";
 
+export const KENANGA_FUTURES_APPLICATION_URL =
+  "https://dco.kenanga.com.my/affiliate?agentCode=MRKNDW";
+
 export const TRADER_DEVELOPMENT_INTEREST_URL =
   "https://forms.gle/5JtxMrrjjSH7bHj18";
 
@@ -242,7 +245,7 @@ export const PARTNER_GROUPS = [
         name: "Kenanga Futures",
         logo: "/partners/kenanga-futures.png",
         variant: "kenanga",
-        href: "https://dco.kenanga.com.my/affiliate?agentCode=MRKNDW"
+        href: KENANGA_FUTURES_APPLICATION_URL
       },
       {
         name: "Pepperstone",
