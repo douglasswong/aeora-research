@@ -104,8 +104,12 @@ export default function WorldTradingCupPage() {
             <div className="section__inner wtc-hero__inner">
               <p className="wtc-kicker">ATFX World Trading Cup 2026</p>
               <h1 id="wtc-title">
-                Trade for your region.
-                <span>Advance to the world stage.</span>
+                <span className="wtc-hero__title-line wtc-hero__title-line--primary">
+                  Trade for your region.
+                </span>
+                <span className="wtc-hero__title-line wtc-hero__title-line--accent">
+                  Advance to the world stage.
+                </span>
               </h1>
               <p className="wtc-hero__lead">
                 A three-stage global trading competition organised by ATFX.
@@ -116,6 +120,13 @@ export default function WorldTradingCupPage() {
                 <p>
                   <span>Pre-registration closes</span>
                   <strong>14 August 2026</strong>
+                  <span className="wtc-hero__urgency">
+                    <span
+                      className="wtc-hero__urgency-dot"
+                      aria-hidden="true"
+                    />
+                    Closing soon
+                  </span>
                 </p>
                 <p>
                   <span>Stage 1 competition</span>
