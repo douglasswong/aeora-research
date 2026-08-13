@@ -900,6 +900,48 @@ a {
   line-height: 1.62;
 }
 
+.wtc-region {
+  padding-block: clamp(72px, 8vw, 108px);
+  background: #030608;
+  color: var(--aeora-white);
+}
+
+.wtc-region__heading {
+  display: grid;
+  align-items: end;
+  margin-bottom: clamp(38px, 5vw, 62px);
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: clamp(42px, 8vw, 108px);
+}
+
+.wtc-region__heading h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5.2cqi, 4.6rem);
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.wtc-region__heading > p {
+  margin: 0;
+  color: rgba(245, 247, 247, 0.66);
+  line-height: 1.72;
+}
+
+.wtc-region__banner {
+  margin: 0;
+  border-top: 1px solid rgba(240, 211, 154, 0.24);
+  border-bottom: 1px solid rgba(245, 247, 247, 0.12);
+  background: #000;
+}
+
+.wtc-region__banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .wtc-section {
   position: relative;
   padding-block: clamp(92px, 10vw, 144px);
@@ -1304,6 +1346,11 @@ a {
     column-gap: 42px;
   }
 
+  .wtc-region__heading {
+    grid-template-columns: 1fr 0.75fr;
+    gap: 42px;
+  }
+
   .wtc-entry__inner,
   .wtc-prizes__inner,
   .wtc-terms__inner {
@@ -1390,6 +1437,24 @@ a {
     margin-top: 16px;
     padding-top: 16px;
     border-top: 1px solid var(--aeora-line);
+  }
+
+  .wtc-region {
+    padding-block: 68px;
+  }
+
+  .wtc-region__heading {
+    display: block;
+    margin-bottom: 34px;
+  }
+
+  .wtc-region__heading h2 {
+    font-size: clamp(2.45rem, 12cqi, 3.7rem);
+  }
+
+  .wtc-region__heading > p {
+    max-width: 38rem;
+    margin-top: 24px;
   }
 
   .wtc-section {

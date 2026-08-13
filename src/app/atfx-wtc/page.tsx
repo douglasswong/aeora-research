@@ -161,6 +161,31 @@ export default function WorldTradingCupPage() {
             </div>
           </aside>
 
+          <section className="wtc-region" aria-labelledby="region-title">
+            <div className="section__inner wtc-region__inner">
+              <div className="wtc-region__heading">
+                <div>
+                  <p className="wtc-kicker">Regional competition</p>
+                  <h2 id="region-title">Compete in Southeast Asia.</h2>
+                </div>
+                <p>
+                  AEORA&apos;s dedicated registration pathway is intended for
+                  eligible traders entering ATFX&apos;s Southeast Asia regional
+                  competition.
+                </p>
+              </div>
+              <figure className="wtc-region__banner">
+                <Image
+                  src={`${CAMPAIGN_ASSET_PATH}/atfx-world-trading-cup-regions.png`}
+                  alt="ATFX World Trading Cup regions with Southeast Asia highlighted"
+                  width={1552}
+                  height={488}
+                  sizes="(max-width: 720px) calc(100vw - 40px), 1120px"
+                />
+              </figure>
+            </div>
+          </section>
+
           <section className="wtc-section wtc-route" aria-labelledby="route-title">
             <div className="section__inner">
               <div className="wtc-heading">
