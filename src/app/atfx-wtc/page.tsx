@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Header } from "@/components/Header";
+import { PrizeCounter } from "@/components/PrizeCounter";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_URL } from "@/lib/site";
 
@@ -261,33 +262,23 @@ export default function WorldTradingCupPage() {
                 <div className="wtc-prizes__summary">
                   <div>
                     <p>Stage 1 / per sub-region</p>
-                    <strong>USD 1,000</strong>
+                    <PrizeCounter amount={1000} duration={950} />
                     <span>USD 500 / USD 250</span>
                   </div>
                   <div>
                     <p>Stage 2 / per region</p>
-                    <strong>USD 5,000</strong>
+                    <PrizeCounter amount={5000} delay={140} duration={1150} />
                     <span>USD 3,000 / USD 2,000 + travel package</span>
                   </div>
                   <div className="wtc-prizes__final">
                     <p>Stage 3 / combined final</p>
-                    <strong
+                    <PrizeCounter
+                      amount={160000}
                       className="wtc-prizes__grand-total"
-                      aria-label="USD 160,000"
-                    >
-                      <span className="wtc-prizes__currency" aria-hidden="true">
-                        USD
-                      </span>
-                      <span className="wtc-prizes__amount" aria-hidden="true">
-                        <span>1</span>
-                        <span>6</span>
-                        <span>0</span>
-                        <span>,</span>
-                        <span>0</span>
-                        <span>0</span>
-                        <span>0</span>
-                      </span>
-                    </strong>
+                      delay={280}
+                      duration={1800}
+                      grand
+                    />
                     <span>Shared across the top five finalists</span>
                   </div>
                 </div>

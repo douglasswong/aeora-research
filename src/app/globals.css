@@ -1131,16 +1131,34 @@ a {
   }
 }
 
-@keyframes wtc-prize-digit-rise {
+@keyframes wtc-counter-focus {
   from {
-    opacity: 0;
-    filter: blur(8px);
-    transform: translateY(70%) rotateX(-65deg);
+    opacity: 0.45;
+    filter: blur(5px);
+    transform: translateY(9px);
   }
   to {
     opacity: 1;
     filter: blur(0);
-    transform: translateY(0) rotateX(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes wtc-counter-charge {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  18% {
+    opacity: 1;
+  }
+  78% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scaleX(1);
   }
 }
 
@@ -1248,35 +1266,16 @@ a {
       animation-range: entry 14% cover 36%;
     }
 
-    .wtc-prizes__amount > span {
-      animation: wtc-prize-digit-rise linear both;
-      animation-timeline: view();
-      animation-range: entry 14% cover 31%;
-    }
+  }
 
-    .wtc-prizes__amount > span:nth-child(2) {
-      animation-range: entry 16% cover 33%;
-    }
+  .wtc-prize-counter.is-active::after {
+    animation: wtc-counter-charge var(--wtc-counter-duration) var(--ease-out)
+      both;
+  }
 
-    .wtc-prizes__amount > span:nth-child(3) {
-      animation-range: entry 18% cover 35%;
-    }
-
-    .wtc-prizes__amount > span:nth-child(4) {
-      animation-range: entry 20% cover 37%;
-    }
-
-    .wtc-prizes__amount > span:nth-child(5) {
-      animation-range: entry 22% cover 39%;
-    }
-
-    .wtc-prizes__amount > span:nth-child(6) {
-      animation-range: entry 24% cover 41%;
-    }
-
-    .wtc-prizes__amount > span:nth-child(7) {
-      animation-range: entry 26% cover 43%;
-    }
+  .wtc-prize-counter.is-active .wtc-prize-counter__value {
+    animation: wtc-counter-focus var(--wtc-counter-duration) var(--ease-out)
+      both;
   }
 }
 
@@ -1501,12 +1500,7 @@ a {
 }
 
 .wtc-prizes__grand-total {
-  display: flex;
-  align-items: baseline;
   color: var(--wtc-gold-light) !important;
-  gap: 10px;
-  perspective: 400px;
-  white-space: nowrap;
 }
 
 .wtc-prizes__currency {
@@ -1517,20 +1511,51 @@ a {
   letter-spacing: 0.14em;
 }
 
-.wtc-prizes__amount {
+.wtc-prize-counter {
+  position: relative;
   display: inline-flex;
-  color: inherit !important;
-  font-family: var(--font-display);
-  font-size: clamp(2.45rem, 4vw, 4.3rem) !important;
-  font-weight: 300;
-  letter-spacing: 0;
-  line-height: 0.9 !important;
+  width: max-content;
+  max-width: 100%;
+  align-items: baseline;
+  padding-bottom: 9px;
+  gap: 9px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
-.wtc-prizes__amount > span {
-  color: inherit;
-  font: inherit;
-  transform-origin: 50% 100%;
+.wtc-prize-counter::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  background: var(--aeora-mint);
+}
+
+.wtc-prize-counter__value {
+  min-width: 5.1ch;
+  color: var(--aeora-ink) !important;
+  font-family: var(--font-display);
+  font-size: 1.7rem !important;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1 !important;
+  text-align: left;
+}
+
+.wtc-prize-counter--grand::after {
+  background: var(--wtc-gold);
+}
+
+.wtc-prize-counter--grand .wtc-prize-counter__value {
+  min-width: 7.3ch;
+  color: var(--wtc-gold-light) !important;
+  font-size: clamp(2.45rem, 4vw, 4.3rem) !important;
+  font-weight: 300;
+  line-height: 0.9 !important;
 }
 
 .wtc-prizes__note {
@@ -2004,7 +2029,7 @@ a {
     gap: 7px;
   }
 
-  .wtc-prizes__amount {
+  .wtc-prize-counter--grand .wtc-prize-counter__value {
     font-size: clamp(2.35rem, 13vw, 3.7rem) !important;
   }
 
