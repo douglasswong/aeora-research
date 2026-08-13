@@ -118,6 +118,16 @@ export default async function ResearchArticlePage({
   ) : isMarketsRallyArticle ? (
     <MarketsRallyCover />
   ) : undefined;
+  const headline = isSawitEcoThermArticle ? (
+    <>
+      <span className="research-article__headline-primary">
+        Can Palm Oil Cool AI?
+      </span>
+      <span className="research-article__headline-secondary">
+        What <mark>Sawit EcoTherm</mark> Could Mean for FCPO
+      </span>
+    </>
+  ) : undefined;
   const socialImage = article.socialImage ?? "/research/cme-single-stock-futures-cover.png";
 
   const articleUrl = `${SITE_URL}/research/${article.slug}`;
@@ -161,6 +171,7 @@ export default async function ResearchArticlePage({
         keyPoints={keyPoints}
         sources={sources}
         cover={cover}
+        headline={headline}
       >
         {content}
       </ResearchArticleLayout>
