@@ -1,4 +1,41 @@
-export const RESEARCH_ARTICLES = [
+export type ResearchArticle = {
+  slug: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  excerpt: string;
+  category: string;
+  author: string;
+  publishedAt: string;
+  displayDate: string;
+  readingTime: string;
+  noteNumber: string;
+  seoTitle?: string;
+  socialImage?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
+};
+
+export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
+  {
+    slug: "sawit-ecotherm-palm-oil-ai-data-centre-fcpo",
+    title: "Can Palm Oil Cool AI? What Sawit EcoTherm Could Mean for FCPO",
+    shortTitle: "Palm Oil, AI and FCPO",
+    description:
+      "MPOB's Sawit EcoTherm could open a new palm-oil use case in AI data-centre cooling. Aeora Research examines what it really means for FCPO.",
+    excerpt:
+      "Sawit EcoTherm links palm-based cooling technology with AI infrastructure. The early opportunity is worth tracking, but it is not yet proof of material new demand for FCPO.",
+    category: "Market Intelligence",
+    author: "Aeora Research Team",
+    publishedAt: "2026-08-13",
+    displayDate: "13 August 2026",
+    readingTime: "5 min read",
+    noteNumber: "03",
+    seoTitle: "Sawit EcoTherm: Can Palm Oil Cool AI Data Centres?",
+    socialImage: "/research/sawit-ecotherm-ai-data-centre-fcpo.webp",
+    socialImageWidth: 1600,
+    socialImageHeight: 900
+  },
   {
     slug: "why-markets-rally-despite-bad-news",
     title: "Why Markets Rally Despite Bad News",
@@ -30,8 +67,6 @@ export const RESEARCH_ARTICLES = [
     noteNumber: "01"
   }
 ] as const;
-
-export type ResearchArticle = (typeof RESEARCH_ARTICLES)[number];
 
 export function getResearchArticle(slug: string) {
   return RESEARCH_ARTICLES.find((article) => article.slug === slug);

@@ -1,0 +1,54 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#0D141B"/>
+  <g stroke="#F5F7F7" stroke-opacity=".09">
+    <path d="M0 100H1600M0 200H1600M0 300H1600M0 400H1600M0 500H1600M0 600H1600M0 700H1600M0 800H1600"/>
+    <path d="M100 0V900M200 0V900M300 0V900M400 0V900M500 0V900M600 0V900M700 0V900M800 0V900M900 0V900M1000 0V900M1100 0V900M1200 0V900M1300 0V900M1400 0V900M1500 0V900"/>
+  </g>
+  <g stroke="#31EDAE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M160 660C250 540 340 506 460 506C530 506 594 482 650 424" stroke-opacity=".88"/>
+    <path d="M164 660C238 694 314 708 386 697" stroke-opacity=".48"/>
+    <path d="M224 604C205 558 194 520 206 476" stroke-opacity=".38"/>
+    <path d="M290 554C278 504 288 458 330 414" stroke-opacity=".38"/>
+    <path d="M380 520C380 474 402 434 446 398" stroke-opacity=".38"/>
+    <path d="M470 498C486 456 522 424 568 410" stroke-opacity=".38"/>
+    <path d="M622 450L666 400L708 450" stroke-opacity=".92"/>
+    <path d="M708 450L1046 450" stroke-opacity=".92"/>
+  </g>
+  <g fill="#31EDAE">
+    <circle cx="710" cy="450" r="7"/>
+    <circle cx="900" cy="450" r="7"/>
+    <circle cx="1050" cy="450" r="7"/>
+  </g>
+  <g stroke="#F5F7F7" stroke-opacity=".55">
+    <rect x="1050" y="180" width="340" height="530"/>
+    <path d="M1050 260H1390M1050 340H1390M1050 420H1390M1050 500H1390M1050 580H1390M1050 660H1390"/>
+    <path d="M1136 180V710M1222 180V710M1308 180V710" stroke-opacity=".2"/>
+  </g>
+  <g fill="#F5F7F7" fill-opacity=".28">
+    <rect x="1080" y="218" width="82" height="10" rx="5"/>
+    <rect x="1190" y="218" width="152" height="10" rx="5"/>
+    <rect x="1080" y="298" width="180" height="10" rx="5"/>
+    <rect x="1280" y="298" width="62" height="10" rx="5"/>
+    <rect x="1080" y="378" width="108" height="10" rx="5"/>
+    <rect x="1220" y="378" width="122" height="10" rx="5"/>
+    <rect x="1080" y="458" width="250" height="10" rx="5"/>
+    <rect x="1080" y="538" width="136" height="10" rx="5"/>
+    <rect x="1246" y="538" width="96" height="10" rx="5"/>
+    <rect x="1080" y="618" width="210" height="10" rx="5"/>
+  </g>
+  <g fill="#31EDAE">
+    <rect x="1080" y="218" width="22" height="10" rx="5"/>
+    <rect x="1280" y="298" width="22" height="10" rx="5"/>
+    <rect x="1220" y="378" width="22" height="10" rx="5"/>
+    <rect x="1080" y="458" width="22" height="10" rx="5"/>
+    <rect x="1246" y="538" width="22" height="10" rx="5"/>
+    <rect x="1268" y="618" width="22" height="10" rx="5"/>
+  </g>
+  <g fill="#F5F7F7" font-family="Arial, Helvetica, sans-serif" letter-spacing="4">
+    <text x="110" y="128" font-size="18" fill="#31EDAE">AEORA / MARKET INTELLIGENCE / 03</text>
+    <text x="110" y="790" font-size="15" fill-opacity=".56">PALM-DERIVED INPUT</text>
+    <text x="1050" y="770" font-size="15" fill-opacity=".56">HIGH-PERFORMANCE INFRASTRUCTURE</text>
+  </g>
+  <path d="M110 834H1490" stroke="#F5F7F7" stroke-opacity=".26"/>
+  <path d="M110 834H430" stroke="#31EDAE" stroke-width="4"/>
+</svg>

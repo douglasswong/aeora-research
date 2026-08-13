@@ -12,6 +12,12 @@ import {
 } from "@/content/research/WhyMarketsRallyDespiteBadNews";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { ResearchArticleLayout } from "@/components/ResearchArticleLayout";
+import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
+import {
+  SawitEcoThermArticle,
+  sawitEcoThermKeyPoints,
+  sawitEcoThermSources
+} from "@/content/research/SawitEcoTherm";
 import {
   getResearchArticle,
   RESEARCH_ARTICLES
@@ -40,19 +46,17 @@ export async function generateMetadata({
     return {};
   }
 
-  const socialImage =
-    article.slug === "why-markets-rally-despite-bad-news"
-      ? "/research/why-markets-rally-despite-bad-news-aeora-research.webp"
-      : "/research/cme-single-stock-futures-cover.png";
+  const socialImage = article.socialImage ?? "/research/cme-single-stock-futures-cover.png";
+  const metadataTitle = article.seoTitle ?? article.title;
 
   return {
-    title: `${article.title} | Aeora Research`,
+    title: `${metadataTitle} | Aeora Research`,
     description: article.description,
     alternates: {
       canonical: `/research/${article.slug}`
     },
     openGraph: {
-      title: article.title,
+      title: metadataTitle,
       description: article.description,
       type: "article",
       url: `${SITE_URL}/research/${article.slug}`,
@@ -64,15 +68,15 @@ export async function generateMetadata({
       images: [
         {
           url: socialImage,
-          width: 1200,
-          height: 630,
+          width: article.socialImageWidth ?? 1200,
+          height: article.socialImageHeight ?? 630,
           alt: article.title
         }
       ]
     },
     twitter: {
       card: "summary_large_image",
-      title: article.title,
+      title: metadataTitle,
       description: article.description,
       images: [socialImage]
     }
@@ -89,23 +93,32 @@ export default async function ResearchArticlePage({
     notFound();
   }
 
-  const isMarketsRallyArticle =
-    article.slug === "why-markets-rally-despite-bad-news";
-  const keyPoints = isMarketsRallyArticle
-    ? whyMarketsRallyKeyPoints
-    : cmeSingleStockFuturesKeyPoints;
-  const sources = isMarketsRallyArticle
-    ? whyMarketsRallySources
-    : cmeSingleStockFuturesSources;
-  const content = isMarketsRallyArticle ? (
+  const isMarketsRallyArticle = article.slug === "why-markets-rally-despite-bad-news";
+  const isSawitEcoThermArticle =
+    article.slug === "sawit-ecotherm-palm-oil-ai-data-centre-fcpo";
+  const keyPoints = isSawitEcoThermArticle
+    ? sawitEcoThermKeyPoints
+    : isMarketsRallyArticle
+      ? whyMarketsRallyKeyPoints
+      : cmeSingleStockFuturesKeyPoints;
+  const sources = isSawitEcoThermArticle
+    ? sawitEcoThermSources
+    : isMarketsRallyArticle
+      ? whyMarketsRallySources
+      : cmeSingleStockFuturesSources;
+  const content = isSawitEcoThermArticle ? (
+    <SawitEcoThermArticle />
+  ) : isMarketsRallyArticle ? (
     <WhyMarketsRallyDespiteBadNewsArticle />
   ) : (
     <CmeSingleStockFuturesArticle />
   );
-  const cover = isMarketsRallyArticle ? <MarketsRallyCover /> : undefined;
-  const socialImage = isMarketsRallyArticle
-    ? "/research/why-markets-rally-despite-bad-news-aeora-research.webp"
-    : "/research/cme-single-stock-futures-cover.png";
+  const cover = isSawitEcoThermArticle ? (
+    <SawitEcoThermCover />
+  ) : isMarketsRallyArticle ? (
+    <MarketsRallyCover />
+  ) : undefined;
+  const socialImage = article.socialImage ?? "/research/cme-single-stock-futures-cover.png";
 
   const articleUrl = `${SITE_URL}/research/${article.slug}`;
   const structuredData = {

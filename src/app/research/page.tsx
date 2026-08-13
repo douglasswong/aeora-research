@@ -3,6 +3,7 @@ import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { ResearchCover } from "@/components/ResearchCover";
+import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
 import { RESEARCH_ARTICLES } from "@/lib/research";
 import { SITE_URL } from "@/lib/site";
 
@@ -56,7 +57,7 @@ export default function ResearchPage() {
                   {latestArticle.displayDate}
                 </time>
               </div>
-              <h3>{latestArticle.title}</h3>
+              <h3>{latestArticle.shortTitle}</h3>
               <p>{latestArticle.excerpt}</p>
               <div className="research-feature__footer">
                 <span>{latestArticle.author}</span>
@@ -64,7 +65,9 @@ export default function ResearchPage() {
                 <strong>Read the note</strong>
               </div>
             </div>
-            {latestArticle.slug === "why-markets-rally-despite-bad-news" ? (
+            {latestArticle.slug === "sawit-ecotherm-palm-oil-ai-data-centre-fcpo" ? (
+              <SawitEcoThermCover articleCover={false} />
+            ) : latestArticle.slug === "why-markets-rally-despite-bad-news" ? (
               <MarketsRallyCover articleCover={false} />
             ) : (
               <ResearchCover articleNumber={latestArticle.noteNumber} />
