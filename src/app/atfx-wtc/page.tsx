@@ -118,14 +118,14 @@ export default function WorldTradingCupPage() {
               </p>
               <div className="wtc-hero__dates" aria-label="Important dates">
                 <p>
-                  <span>Pre-registration closes</span>
-                  <strong>14 August 2026</strong>
+                  <span>Pre-registration until</span>
+                  <strong>14 September 2026*</strong>
                   <span className="wtc-hero__urgency">
                     <span
                       className="wtc-hero__urgency-dot"
                       aria-hidden="true"
                     />
-                    Closing soon
+                    Registration extended
                   </span>
                 </p>
                 <p>
@@ -152,22 +152,23 @@ export default function WorldTradingCupPage() {
                 </a>
               </div>
               <p className="wtc-hero__note">
-                Registration opens on ATFX&apos;s website. Eligibility and
-                account approval are determined by ATFX.
+                *Extended pre-registration is subject to ATFX eligibility,
+                account approval and the official campaign terms.
               </p>
             </div>
           </section>
 
           <aside className="wtc-window" aria-label="Late registration timing">
             <div className="section__inner wtc-window__inner">
-              <p className="wtc-window__label">Late entry remains possible</p>
+              <p className="wtc-window__label">A later start remains possible</p>
               <p className="wtc-window__date">10 trading days are still required</p>
               <p className="wtc-window__guidance">
-                <strong>Example: join on 21 September.</strong> Trading on
-                21-25 September and 28 September-2 October provides ten
-                separate trading days before Stage 1 closes. Starting later
-                simply means a shorter performance window, subject to market
-                availability, ATFX account approval and all official rules.
+                <strong>Example: begin trading on 21 September.</strong> Trading
+                on 21-25 September and 28 September-2 October provides ten
+                separate trading days before Stage 1 closes. Register by the
+                stated deadline; starting later simply means a shorter
+                performance window, subject to market availability, ATFX
+                account approval and all official rules.
               </p>
             </div>
           </aside>
@@ -246,33 +247,55 @@ export default function WorldTradingCupPage() {
             </div>
           </section>
 
-          <section className="wtc-section wtc-prizes" aria-labelledby="prizes-title">
+          <section
+            id="prizes"
+            className="wtc-section wtc-prizes"
+            aria-labelledby="prizes-title"
+          >
             <div className="section__inner wtc-prizes__inner">
               <div className="wtc-prizes__heading">
                 <p className="section-kicker">Prizes</p>
                 <h2 id="prizes-title">Performance carries forward.</h2>
               </div>
-              <div className="wtc-prizes__summary">
-                <div>
-                  <p>Stage 1 / per sub-region</p>
-                  <strong>USD 1,000</strong>
-                  <span>USD 500 / USD 250</span>
+              <div className="wtc-prizes__detail">
+                <div className="wtc-prizes__summary">
+                  <div>
+                    <p>Stage 1 / per sub-region</p>
+                    <strong>USD 1,000</strong>
+                    <span>USD 500 / USD 250</span>
+                  </div>
+                  <div>
+                    <p>Stage 2 / per region</p>
+                    <strong>USD 5,000</strong>
+                    <span>USD 3,000 / USD 2,000 + travel package</span>
+                  </div>
+                  <div className="wtc-prizes__final">
+                    <p>Stage 3 / combined final</p>
+                    <strong
+                      className="wtc-prizes__grand-total"
+                      aria-label="USD 160,000"
+                    >
+                      <span className="wtc-prizes__currency" aria-hidden="true">
+                        USD
+                      </span>
+                      <span className="wtc-prizes__amount" aria-hidden="true">
+                        <span>1</span>
+                        <span>6</span>
+                        <span>0</span>
+                        <span>,</span>
+                        <span>0</span>
+                        <span>0</span>
+                        <span>0</span>
+                      </span>
+                    </strong>
+                    <span>Shared across the top five finalists</span>
+                  </div>
                 </div>
-                <div>
-                  <p>Stage 2 / per region</p>
-                  <strong>USD 5,000</strong>
-                  <span>USD 3,000 / USD 2,000 + travel package</span>
-                </div>
-                <div className="wtc-prizes__final">
-                  <p>Stage 3 / combined final</p>
-                  <strong>USD 160,000</strong>
-                  <span>Shared across the top five finalists</span>
-                </div>
+                <p className="wtc-prizes__note">
+                  Prize eligibility, ranking methodology and payment conditions
+                  are governed by ATFX&apos;s official promotion terms.
+                </p>
               </div>
-              <p className="wtc-prizes__note">
-                Prize eligibility, ranking methodology and payment conditions
-                are governed by ATFX&apos;s official promotion terms.
-              </p>
             </div>
           </section>
 
