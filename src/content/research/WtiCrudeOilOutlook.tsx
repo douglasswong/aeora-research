@@ -116,26 +116,46 @@ function WtiChart({ src, alt, caption, width, height }: WtiChartProps) {
   );
 }
 
-export function WtiCrudeOilCover() {
+type WtiCrudeOilCoverProps = {
+  articleCover?: boolean;
+};
+
+export function WtiCrudeOilCover({
+  articleCover = true
+}: WtiCrudeOilCoverProps) {
+  const chartImage = (
+    <Image
+      src="/research/wti-crude-oil-outlook-2026-daily.png"
+      alt="Annotated 2026 daily WTI CFD chart showing conflict, easing and recovery phases"
+      width={1311}
+      height={830}
+      priority={articleCover}
+      sizes={
+        articleCover
+          ? "(max-width: 760px) 100vw, 1200px"
+          : "(max-width: 980px) 100vw, 680px"
+      }
+    />
+  );
+
   return (
-    <figure className="wti-cover">
-      <a
-        className="wti-cover__link"
-        href="/research/wti-crude-oil-outlook-2026-daily.png"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Annotated 2026 daily WTI CFD chart. Open the full-resolution chart in a new tab."
-      >
-        <Image
-          src="/research/wti-crude-oil-outlook-2026-daily.png"
-          alt="Annotated 2026 daily WTI CFD chart showing conflict, easing and recovery phases"
-          width={1311}
-          height={830}
-          priority
-          sizes="(max-width: 760px) 100vw, 1200px"
-        />
-        <span className="wti-chart__zoom">Open full resolution</span>
-      </a>
+    <figure
+      className={`wti-cover${articleCover ? "" : " wti-cover--listing"}`}
+    >
+      {articleCover ? (
+        <a
+          className="wti-cover__link"
+          href="/research/wti-crude-oil-outlook-2026-daily.png"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Annotated 2026 daily WTI CFD chart. Open the full-resolution chart in a new tab."
+        >
+          {chartImage}
+          <span className="wti-chart__zoom">Open full resolution</span>
+        </a>
+      ) : (
+        chartImage
+      )}
       <figcaption>
         <span>WTI / 2026 decision map</span>
         <strong>$84-$85 pivot</strong>

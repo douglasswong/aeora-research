@@ -4,6 +4,7 @@ import { EditorialPage } from "@/components/EditorialPage";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { ResearchCover } from "@/components/ResearchCover";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
+import { WtiCrudeOilCover } from "@/content/research/WtiCrudeOilOutlook";
 import { RESEARCH_ARTICLES } from "@/lib/research";
 import { SITE_URL } from "@/lib/site";
 
@@ -65,7 +66,10 @@ export default function ResearchPage() {
                 <strong>Read the note</strong>
               </div>
             </div>
-            {latestArticle.slug === "sawit-ecotherm-palm-oil-ai-data-centre-fcpo" ? (
+            {latestArticle.slug ===
+            "wti-crude-oil-outlook-2026-geopolitical-90-day-scenario" ? (
+              <WtiCrudeOilCover articleCover={false} />
+            ) : latestArticle.slug === "sawit-ecotherm-palm-oil-ai-data-centre-fcpo" ? (
               <SawitEcoThermCover articleCover={false} />
             ) : latestArticle.slug === "why-markets-rally-despite-bad-news" ? (
               <MarketsRallyCover articleCover={false} />
