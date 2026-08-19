@@ -14,9 +14,30 @@ export type ResearchArticle = {
   socialImage?: string;
   socialImageWidth?: number;
   socialImageHeight?: number;
+  draft?: boolean;
 };
 
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
+  {
+    slug: "wti-crude-oil-outlook-2026-geopolitical-90-day-scenario",
+    title:
+      "WTI Crude Oil at a Decision Zone: Is Another Geopolitical Repricing Cycle Forming?",
+    shortTitle: "WTI at a Decision Zone",
+    description:
+      "Aeora Research examines WTI crude oil's 2026 geopolitical repricing cycle, the $90.8-$96.5 technical test and the long-term macro implications.",
+    excerpt:
+      "WTI has reclaimed a pivotal $84-$85 area while geopolitical uncertainty returns. The next test is not a forecast, but a decision region with cross-asset consequences.",
+    category: "Commodities & Macro",
+    author: "Aeora Research Team",
+    publishedAt: "2026-08-19",
+    displayDate: "19 August 2026",
+    readingTime: "12 min read",
+    noteNumber: "04",
+    seoTitle: "WTI Crude Oil Outlook 2026: Geopolitical Decision Zone",
+    socialImage: "/research/wti-crude-oil-outlook-2026-daily.png",
+    socialImageWidth: 1311,
+    socialImageHeight: 830
+  },
   {
     slug: "sawit-ecotherm-palm-oil-ai-data-centre-fcpo",
     title: "Can Palm Oil Cool AI? What Sawit EcoTherm Could Mean for FCPO",

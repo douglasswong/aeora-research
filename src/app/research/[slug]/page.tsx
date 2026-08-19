@@ -19,6 +19,12 @@ import {
   sawitEcoThermSources
 } from "@/content/research/SawitEcoTherm";
 import {
+  WtiCrudeOilArticle,
+  WtiCrudeOilCover,
+  wtiCrudeOilKeyPoints,
+  wtiCrudeOilSources
+} from "@/content/research/WtiCrudeOilOutlook";
+import {
   getResearchArticle,
   RESEARCH_ARTICLES
 } from "@/lib/research";
@@ -79,7 +85,14 @@ export async function generateMetadata({
       title: metadataTitle,
       description: article.description,
       images: [socialImage]
-    }
+    },
+    robots: article.draft
+      ? {
+          index: false,
+          follow: false,
+          noarchive: true
+        }
+      : undefined
   };
 }
 
@@ -96,29 +109,44 @@ export default async function ResearchArticlePage({
   const isMarketsRallyArticle = article.slug === "why-markets-rally-despite-bad-news";
   const isSawitEcoThermArticle =
     article.slug === "sawit-ecotherm-palm-oil-ai-data-centre-fcpo";
-  const keyPoints = isSawitEcoThermArticle
+  const isWtiCrudeOilArticle =
+    article.slug === "wti-crude-oil-outlook-2026-geopolitical-90-day-scenario";
+  const keyPoints = isWtiCrudeOilArticle
+    ? wtiCrudeOilKeyPoints
+    : isSawitEcoThermArticle
     ? sawitEcoThermKeyPoints
     : isMarketsRallyArticle
       ? whyMarketsRallyKeyPoints
       : cmeSingleStockFuturesKeyPoints;
-  const sources = isSawitEcoThermArticle
+  const sources = isWtiCrudeOilArticle
+    ? wtiCrudeOilSources
+    : isSawitEcoThermArticle
     ? sawitEcoThermSources
     : isMarketsRallyArticle
       ? whyMarketsRallySources
       : cmeSingleStockFuturesSources;
-  const content = isSawitEcoThermArticle ? (
+  const content = isWtiCrudeOilArticle ? (
+    <WtiCrudeOilArticle />
+  ) : isSawitEcoThermArticle ? (
     <SawitEcoThermArticle />
   ) : isMarketsRallyArticle ? (
     <WhyMarketsRallyDespiteBadNewsArticle />
   ) : (
     <CmeSingleStockFuturesArticle />
   );
-  const cover = isSawitEcoThermArticle ? (
+  const cover = isWtiCrudeOilArticle ? (
+    <WtiCrudeOilCover />
+  ) : isSawitEcoThermArticle ? (
     <SawitEcoThermCover />
   ) : isMarketsRallyArticle ? (
     <MarketsRallyCover />
   ) : undefined;
-  const headline = isSawitEcoThermArticle ? (
+  const headline = isWtiCrudeOilArticle ? (
+    <span className="wti-article-headline">
+      <mark>WTI Crude Oil</mark> at a Decision Zone: Is Another Geopolitical
+      Repricing Cycle Forming?
+    </span>
+  ) : isSawitEcoThermArticle ? (
     <>
       <span className="research-article__headline-primary">
         Can Palm Oil Cool AI?

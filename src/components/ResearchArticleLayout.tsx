@@ -33,6 +33,11 @@ export function ResearchArticleLayout({
   const encodedShareText = encodeURIComponent(
     `${article.title} | Aeora Research`
   );
+  const sourceSplitIndex = Math.min(6, sources.length);
+  const sourceColumns =
+    sources.length > sourceSplitIndex
+      ? [sources.slice(0, sourceSplitIndex), sources.slice(sourceSplitIndex)]
+      : [sources];
 
   return (
     <>
@@ -45,6 +50,11 @@ export function ResearchArticleLayout({
           <article>
             <header className="research-article__header section">
               <div className="section__inner">
+                {article.draft ? (
+                  <p className="research-article__draft-status">
+                    Editorial draft / not published
+                  </p>
+                ) : null}
                 <nav
                   className="research-breadcrumb"
                   aria-label="Breadcrumb"
@@ -62,7 +72,7 @@ export function ResearchArticleLayout({
 
                 <dl className="research-article__meta">
                   <div>
-                    <dt>Published</dt>
+                    <dt>{article.draft ? "Draft prepared" : "Published"}</dt>
                     <dd>
                       <time dateTime={article.publishedAt}>
                         {article.displayDate}
@@ -110,19 +120,37 @@ export function ResearchArticleLayout({
                   <p className="section-kicker">Reference desk</p>
                   <h2 id="research-sources-title">Sources and further reading</h2>
                 </div>
-                <ol>
-                  {sources.map((source) => (
-                    <li key={source.href}>
-                      <a
-                        href={source.href}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {source.label}
-                      </a>
-                    </li>
+                <div
+                  className={`research-article__source-lists${
+                    sourceColumns.length > 1
+                      ? " research-article__source-lists--split"
+                      : ""
+                  }`}
+                >
+                  {sourceColumns.map((column, columnIndex) => (
+                    <ol key={columnIndex}>
+                      {column.map((source, index) => {
+                        const sourceNumber =
+                          (columnIndex === 0 ? 0 : sourceSplitIndex) + index + 1;
+
+                        return (
+                          <li key={source.href}>
+                            <a
+                              href={source.href}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <span aria-hidden="true">
+                                {String(sourceNumber).padStart(2, "0")}
+                              </span>
+                              <span>{source.label}</span>
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ol>
                   ))}
-                </ol>
+                </div>
               </div>
             </section>
 

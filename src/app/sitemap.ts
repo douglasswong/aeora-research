@@ -54,7 +54,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
-  const researchArticles: MetadataRoute.Sitemap = RESEARCH_ARTICLES.map(
+  const researchArticles: MetadataRoute.Sitemap = RESEARCH_ARTICLES.filter(
+    (article) => !article.draft
+  ).map(
     (article) => ({
       url: `${SITE_URL}/research/${article.slug}`,
       lastModified: new Date(article.publishedAt),

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function ResearchPage() {
-  const researchArticles = [...RESEARCH_ARTICLES].sort(
+  const researchArticles = RESEARCH_ARTICLES.filter((article) => !article.draft).sort(
     (first, second) =>
       new Date(second.publishedAt).getTime() -
       new Date(first.publishedAt).getTime()
