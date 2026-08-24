@@ -32,8 +32,8 @@ export const TRADER_DEVELOPMENT_INTEREST_URL =
   "https://forms.gle/5JtxMrrjjSH7bHj18";
 
 export const TRADER_DEVELOPMENT_INTAKE = {
-  status: "Open",
-  availability: "limited slots left",
+  status: "Ended",
+  availability: null,
   dates: "22-23 August 2026",
   days: "Saturday & Sunday",
   location: "Kuala Lumpur, Malaysia",

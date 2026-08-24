@@ -39,13 +39,13 @@ const WHY_US = [
 
 export const metadata: Metadata = {
   title: "Aeora Trader Development | Professional Trading Programme",
-  description: `The next Aeora Trader Development intake is open for ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}, with a small-class training-room format.`,
+  description: `The latest Aeora Trader Development intake concluded on ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}, with a small-class training-room format.`,
   alternates: {
     canonical: "/pinnacle"
   },
   openGraph: {
     title: "Aeora Trader Development | Professional Trading Programme",
-    description: `The next Aeora Trader Development intake is open for ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}.`,
+    description: `The latest Aeora Trader Development intake concluded on ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}.`,
     url: `${SITE_URL}/pinnacle`
   }
 };
@@ -78,14 +78,16 @@ export default function PinnaclePage() {
                   deliberate approach to market preparation, risk and
                   execution.
                 </p>
-                <div className="pinnacle-intake" aria-label="Next programme intake">
+                <div className="pinnacle-intake" aria-label="Latest programme intake">
                   <div className="pinnacle-intake__status">
-                    <p>Next intake</p>
+                    <p>Latest intake</p>
                     <div className="pinnacle-intake__status-value">
                       <strong>{TRADER_DEVELOPMENT_INTAKE.status}</strong>
-                      <span>
-                        ({TRADER_DEVELOPMENT_INTAKE.availability})
-                      </span>
+                      {TRADER_DEVELOPMENT_INTAKE.availability ? (
+                        <span>
+                          ({TRADER_DEVELOPMENT_INTAKE.availability})
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                   <dl>
