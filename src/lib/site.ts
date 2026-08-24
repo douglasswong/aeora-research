@@ -90,6 +90,75 @@ export type PinnacleGalleryEvent = {
 
 export const PINNACLE_GALLERY: readonly PinnacleGalleryEvent[] = [
   {
+    id: "atdp-batch-4",
+    code: "ATDP 2026",
+    title: "Aeora Trader Development Batch-4",
+    location: "Kuala Lumpur, Malaysia",
+    date: "August 2026",
+    photos: [
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/batch-group.webp",
+        alt: "Aeora Trader Development Batch-4 participants and facilitators in Kuala Lumpur",
+        caption: "Aeora Trader Development Batch-4.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/classroom-overview.webp",
+        alt: "Aeora Trader Development participants during a classroom session",
+        caption: "A focused small-class market practice session.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/facilitator-team.webp",
+        alt: "Aeora Trader Development Batch-4 facilitator team",
+        caption: "The Batch-4 facilitator team.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/market-practice.webp",
+        alt: "Participants following a practical market-structure lesson",
+        caption: "Connecting market structure with live practice.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/volume-profile-session.webp",
+        alt: "Aeora facilitator explaining volume profile and trade flow",
+        caption: "Volume profile and trade-flow discussion.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/trade-flow-briefing.webp",
+        alt: "Aeora facilitator presenting a trade-flow lesson to participants",
+        caption: "Reviewing participation and trade flow.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/auction-market-session.webp",
+        alt: "Aeora facilitator explaining auction market theory in the classroom",
+        caption: "Auction market theory in practice.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/participant-chart-review.webp",
+        alt: "Participant presenting a chart structure during the Aeora programme",
+        caption: "Participant-led chart review.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/workshop-break.webp",
+        alt: "Aeora Trader Development participants exchanging views during a workshop break",
+        caption: "Exchanging perspectives between sessions.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/atdp-batch-4/participant-discussion.webp",
+        alt: "Aeora Trader Development participants discussing market work in small groups",
+        caption: "Small-group discussion and review.",
+        orientation: "portrait"
+      }
+    ]
+  },
+  {
     id: "pic",
     code: "PIC 2026",
     title: "PhilipCapital 16th Investment Conference",
