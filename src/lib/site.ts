@@ -57,6 +57,11 @@ export const RESEARCH_NAV_ITEM = {
   href: "/research"
 } as const;
 
+export const EVENT_NAV_ITEM = {
+  label: "Event",
+  href: "/atfx-wtc"
+} as const;
+
 export const HEADER_NAV_ITEMS = NAV_ITEMS.filter(
   (item) => item.href !== "/#philosophy"
 );

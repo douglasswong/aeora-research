@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
+  EVENT_NAV_ITEM,
   HEADER_NAV_ITEMS,
   RESEARCH_NAV_ITEM,
   TEAM_NAV_ITEM,
@@ -70,8 +71,11 @@ export function Header() {
 
             <ul
               className="site-nav__group site-nav__group--research"
-              aria-label="Research"
+              aria-label="Events and research"
             >
+              <li>
+                <Link href={EVENT_NAV_ITEM.href}>{EVENT_NAV_ITEM.label}</Link>
+              </li>
               <li>
                 <Link href={RESEARCH_NAV_ITEM.href}>
                   {RESEARCH_NAV_ITEM.label}
