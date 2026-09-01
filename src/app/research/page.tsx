@@ -4,6 +4,7 @@ import { EditorialPage } from "@/components/EditorialPage";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { ResearchCover } from "@/components/ResearchCover";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
+import { WarshFedQ42026Cover } from "@/components/WarshFedQ42026Cover";
 import { WtiCrudeOilCover } from "@/content/research/WtiCrudeOilOutlook";
 import { RESEARCH_ARTICLES } from "@/lib/research";
 import { SITE_URL } from "@/lib/site";
@@ -73,6 +74,9 @@ export default function ResearchPage() {
               <SawitEcoThermCover articleCover={false} />
             ) : latestArticle.slug === "why-markets-rally-despite-bad-news" ? (
               <MarketsRallyCover articleCover={false} />
+            ) : latestArticle.slug ===
+              "warsh-fed-rate-hike-q4-2026-market-outlook" ? (
+              <WarshFedQ42026Cover articleCover={false} />
             ) : (
               <ResearchCover articleNumber={latestArticle.noteNumber} />
             )}

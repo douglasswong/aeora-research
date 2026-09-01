@@ -25,6 +25,12 @@ import {
   wtiCrudeOilSources
 } from "@/content/research/WtiCrudeOilOutlook";
 import {
+  WarshFedQ42026OutlookArticle,
+  warshFedQ42026KeyPoints,
+  warshFedQ42026Sources
+} from "@/content/research/WarshFedQ42026Outlook";
+import { WarshFedQ42026Cover } from "@/components/WarshFedQ42026Cover";
+import {
   getResearchArticle,
   RESEARCH_ARTICLES
 } from "@/lib/research";
@@ -52,18 +58,22 @@ export async function generateMetadata({
     return {};
   }
 
-  const socialImage = article.socialImage ?? "/research/cme-single-stock-futures-cover.png";
+  const socialImage =
+    article.socialImage ?? "/research/cme-single-stock-futures-cover.png";
   const metadataTitle = article.seoTitle ?? article.title;
+  const openGraphTitle = article.openGraphTitle ?? metadataTitle;
+  const openGraphDescription = article.openGraphDescription ?? article.description;
 
   return {
     title: `${metadataTitle} | Aeora Research`,
     description: article.description,
+    keywords: article.tags ? [...article.tags] : undefined,
     alternates: {
       canonical: `/research/${article.slug}`
     },
     openGraph: {
-      title: metadataTitle,
-      description: article.description,
+      title: openGraphTitle,
+      description: openGraphDescription,
       type: "article",
       url: `${SITE_URL}/research/${article.slug}`,
       siteName: "Aeora Research",
@@ -82,8 +92,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: metadataTitle,
-      description: article.description,
+      title: openGraphTitle,
+      description: openGraphDescription,
       images: [socialImage]
     },
     robots: article.draft
@@ -111,21 +121,29 @@ export default async function ResearchArticlePage({
     article.slug === "sawit-ecotherm-palm-oil-ai-data-centre-fcpo";
   const isWtiCrudeOilArticle =
     article.slug === "wti-crude-oil-outlook-2026-geopolitical-90-day-scenario";
-  const keyPoints = isWtiCrudeOilArticle
+  const isWarshFedArticle =
+    article.slug === "warsh-fed-rate-hike-q4-2026-market-outlook";
+  const keyPoints = isWarshFedArticle
+    ? warshFedQ42026KeyPoints
+    : isWtiCrudeOilArticle
     ? wtiCrudeOilKeyPoints
     : isSawitEcoThermArticle
     ? sawitEcoThermKeyPoints
     : isMarketsRallyArticle
       ? whyMarketsRallyKeyPoints
       : cmeSingleStockFuturesKeyPoints;
-  const sources = isWtiCrudeOilArticle
+  const sources = isWarshFedArticle
+    ? warshFedQ42026Sources
+    : isWtiCrudeOilArticle
     ? wtiCrudeOilSources
     : isSawitEcoThermArticle
     ? sawitEcoThermSources
     : isMarketsRallyArticle
       ? whyMarketsRallySources
       : cmeSingleStockFuturesSources;
-  const content = isWtiCrudeOilArticle ? (
+  const content = isWarshFedArticle ? (
+    <WarshFedQ42026OutlookArticle />
+  ) : isWtiCrudeOilArticle ? (
     <WtiCrudeOilArticle />
   ) : isSawitEcoThermArticle ? (
     <SawitEcoThermArticle />
@@ -134,7 +152,9 @@ export default async function ResearchArticlePage({
   ) : (
     <CmeSingleStockFuturesArticle />
   );
-  const cover = isWtiCrudeOilArticle ? (
+  const cover = isWarshFedArticle ? (
+    <WarshFedQ42026Cover />
+  ) : isWtiCrudeOilArticle ? (
     <WtiCrudeOilCover />
   ) : isSawitEcoThermArticle ? (
     <SawitEcoThermCover />
@@ -156,7 +176,8 @@ export default async function ResearchArticlePage({
       </span>
     </>
   ) : undefined;
-  const socialImage = article.socialImage ?? "/research/cme-single-stock-futures-cover.png";
+  const socialImage =
+    article.socialImage ?? "/research/cme-single-stock-futures-cover.png";
 
   const articleUrl = `${SITE_URL}/research/${article.slug}`;
   const structuredData = {

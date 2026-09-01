@@ -11,6 +11,9 @@ export type ResearchArticle = {
   readingTime: string;
   noteNumber: string;
   seoTitle?: string;
+  openGraphTitle?: string;
+  openGraphDescription?: string;
+  tags?: readonly string[];
   socialImage?: string;
   socialImageWidth?: number;
   socialImageHeight?: number;
@@ -18,6 +21,39 @@ export type ResearchArticle = {
 };
 
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
+  {
+    slug: "warsh-fed-rate-hike-q4-2026-market-outlook",
+    title: "Warsh Turns Hawkish: USD, Gold, Stocks & Bitcoin Into Q4 2026",
+    shortTitle: "Warsh, Rates and Q4",
+    description:
+      "Aeora Research examines Kevin Warsh's August 2026 Jackson Hole speech, renewed rate-hike risk and the cross-asset outlook for the USD, gold, equities and Bitcoin into Q4.",
+    excerpt:
+      "The Fed debate has shifted from future easing toward renewed tightening risk. We map the implications for the dollar, gold, equities, Bitcoin and the September data calendar.",
+    category: "Cross-Asset Outlook",
+    author: "Aeora Research Team",
+    publishedAt: "2026-09-01",
+    displayDate: "1 September 2026",
+    readingTime: "9 min read",
+    noteNumber: "05",
+    seoTitle: "Fed Outlook Q4 2026: USD, Gold, Stocks & Bitcoin",
+    openGraphTitle: "Warsh Turns Hawkish: Q4 2026 Cross-Asset Outlook",
+    openGraphDescription:
+      "How Kevin Warsh's Jackson Hole speech reset the Fed debate and changed the Q4 setup for the USD, gold, equities and Bitcoin.",
+    socialImage: "/research/warsh-fed-usd-policy-repricing-q4-2026-v2.png",
+    socialImageWidth: 1668,
+    socialImageHeight: 937,
+    tags: [
+      "Fed outlook Q4 2026",
+      "Kevin Warsh rate hike",
+      "USD outlook 2026",
+      "Gold outlook Q4 2026",
+      "Nasdaq outlook 2026",
+      "S&P 500 outlook 2026",
+      "Bitcoin outlook 2026",
+      "Federal Reserve September 2026"
+    ],
+    draft: false
+  },
   {
     slug: "wti-crude-oil-outlook-2026-geopolitical-90-day-scenario",
     title:
