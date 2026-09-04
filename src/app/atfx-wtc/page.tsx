@@ -9,6 +9,8 @@ const REGISTRATION_URL =
   "https://login-gm.atfx.com/register?redirect_uri=applyLive&invitationCode=Pg8EBMac47Nn7SQCx2Plb3GK7xAQoIyD3OcUhX%2FAuM4%3D";
 const WHATSAPP_URL = "https://wa.me/60198899296";
 const CAMPAIGN_ASSET_PATH = "/campaigns/atfx-world-trading-cup";
+const ENGLISH_POSTER_SRC = `${CAMPAIGN_ASSET_PATH}/atfx-world-trading-cup-en-20260902.jpg`;
+const CHINESE_POSTER_SRC = `${CAMPAIGN_ASSET_PATH}/atfx-world-trading-cup-zh-cn-20260904.jpg`;
 
 const STAGES = [
   {
@@ -46,13 +48,13 @@ const ENTRY_REQUIREMENTS = [
 const POSTERS = [
   {
     language: "English",
-    src: `${CAMPAIGN_ASSET_PATH}/atfx-world-trading-cup-en.jpg`,
+    src: ENGLISH_POSTER_SRC,
     filename: "ATFX-World-Trading-Cup-2026-English.jpg",
     alt: "English ATFX World Trading Cup 2026 campaign poster"
   },
   {
     language: "Simplified Chinese",
-    src: `${CAMPAIGN_ASSET_PATH}/atfx-world-trading-cup-zh-cn.jpg`,
+    src: CHINESE_POSTER_SRC,
     filename: "ATFX-World-Trading-Cup-2026-Chinese.jpg",
     alt: "Simplified Chinese ATFX World Trading Cup 2026 campaign poster"
   }
@@ -73,9 +75,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${CAMPAIGN_ASSET_PATH}/atfx-world-trading-cup-en.jpg`,
+        url: ENGLISH_POSTER_SRC,
         width: 2160,
-        height: 4580,
+        height: 5400,
         alt: "ATFX World Trading Cup 2026"
       }
     ]
@@ -94,7 +96,7 @@ export default function WorldTradingCupPage() {
           <section className="wtc-hero" aria-labelledby="wtc-title">
             <Image
               className="wtc-hero__image"
-              src={`${CAMPAIGN_ASSET_PATH}/atfx-world-trading-cup-en.jpg`}
+              src={ENGLISH_POSTER_SRC}
               alt=""
               fill
               priority
@@ -320,7 +322,7 @@ export default function WorldTradingCupPage() {
                         src={poster.src}
                         alt={poster.alt}
                         width={2160}
-                        height={4580}
+                        height={5400}
                         sizes="(max-width: 720px) calc(100vw - 40px), 48vw"
                       />
                     </a>
