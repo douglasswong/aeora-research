@@ -307,7 +307,8 @@ export const ENQUIRY_PATHWAYS = [
   "Trader Enquiries",
   "Commercial Hedging",
   "Research Collaboration",
-  "Institutional Partnerships"
+  "Institutional Partnerships",
+  "Portfolio Consultations"
 ] as const;
 
 export const PARTNER_GROUPS = [
@@ -378,7 +379,7 @@ export const NUMBERS = [
   {
     label: "Number of Prop Traders",
     kind: "integer",
-    value: 8,
+    value: 12,
     suffix: "+"
   },
   {

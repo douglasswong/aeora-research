@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import "./home-motion.css";
 import { MarketField } from "@/components/MarketField";
 import { MarketContextField } from "@/components/MarketContextField";
 import { NumbersSection } from "@/components/NumbersSection";

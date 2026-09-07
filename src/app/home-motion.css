@@ -1,0 +1,62 @@
+/* Native scroll timelines keep motion tied to reading without scroll handlers. */
+@keyframes home-reading-progress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes home-editorial-enter {
+  from { opacity: 0.35; translate: 0 24px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@keyframes home-heading-ink {
+  from { background-size: 0% 100%; }
+  to { background-size: 100% 100%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .home-page .site-header::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 2px;
+      background: #31EDAE;
+      transform-origin: left;
+      pointer-events: none;
+      animation: home-reading-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    .home-page .pillar-card,
+    .home-page .about__body,
+    .home-page .connect__pathways li {
+      animation: home-editorial-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 85%;
+    }
+
+    .home-page .pillar-card:nth-child(2) {
+      animation-range: entry 8% entry 95%;
+    }
+
+    .home-page .pillar-card:nth-child(3) {
+      animation-range: entry 16% entry 100%;
+    }
+
+    .home-page #positioning-title,
+    .home-page #about-title,
+    .home-page #connect-title {
+      color: rgba(13, 20, 27, 0.45);
+      background-image: linear-gradient(var(--aeora-ink), var(--aeora-ink));
+      background-repeat: no-repeat;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: home-heading-ink linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 35%;
+    }
+  }
+}
