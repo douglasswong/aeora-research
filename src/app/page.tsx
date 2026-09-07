@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header";
 import "./home-motion.css";
+import { ConnectPathways } from "@/components/ConnectPathways";
 import { MarketField } from "@/components/MarketField";
 import { MarketContextField } from "@/components/MarketContextField";
 import { NumbersSection } from "@/components/NumbersSection";
@@ -136,7 +137,9 @@ export default function Home() {
               <div className="positioning__copy">
                 <p className="section-kicker">Positioning</p>
                 <h2 id="positioning-title">
-                  <span>Markets reward preparation,</span>
+                  <span>
+                    Markets reward <span className="positioning__accent">preparation</span>,
+                  </span>
                   <span>not prediction.</span>
                 </h2>
                 <p>
@@ -218,13 +221,7 @@ export default function Home() {
                 </a>
               </div>
               <div className="connect__panel reveal">
-                <ul className="connect__pathways" aria-label="Enquiry pathways">
-                  {ENQUIRY_PATHWAYS.map((pathway) => (
-                    <li key={pathway}>
-                      <span>{pathway}</span>
-                    </li>
-                  ))}
-                </ul>
+                <ConnectPathways pathways={ENQUIRY_PATHWAYS} />
                 <a
                   className="button button--primary"
                   href={`mailto:${CONTACT_EMAIL}`}

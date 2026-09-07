@@ -14,7 +14,54 @@
   to { background-size: 100% 100%; }
 }
 
+@keyframes home-brand-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+    transform: translateX(-0.04em);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes home-brand-strip-enter {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes home-pillar-block-enter {
+  from {
+    clip-path: inset(0 0 88% 0);
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
+  .home-page .hero-brand__word {
+    will-change: clip-path, opacity, transform;
+    animation: home-brand-wipe 800ms var(--ease-out) 100ms both;
+  }
+
+  .home-page .hero-brand__sub {
+    transform-origin: left;
+    animation: home-brand-strip-enter 520ms var(--ease-out) 600ms both;
+  }
+
   @supports (animation-timeline: scroll()) {
     .home-page .site-header::after {
       content: "";
@@ -30,20 +77,25 @@
   }
 
   @supports (animation-timeline: view()) {
-    .home-page .pillar-card,
-    .home-page .about__body,
-    .home-page .connect__pathways li {
+    .home-page .about__body {
       animation: home-editorial-enter linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 85%;
     }
 
+    .home-page .pillar-card {
+      will-change: clip-path, opacity, transform;
+      animation: home-pillar-block-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 72%;
+    }
+
     .home-page .pillar-card:nth-child(2) {
-      animation-range: entry 8% entry 95%;
+      animation-range: entry 8% entry 84%;
     }
 
     .home-page .pillar-card:nth-child(3) {
-      animation-range: entry 16% entry 100%;
+      animation-range: entry 16% entry 96%;
     }
 
     .home-page #positioning-title,
@@ -57,6 +109,12 @@
       animation: home-heading-ink linear both;
       animation-timeline: view();
       animation-range: entry 0% cover 35%;
+    }
+
+    .home-page .positioning__accent {
+      color: var(--aeora-mint);
+      background: none;
+      -webkit-text-fill-color: currentColor;
     }
   }
 }
