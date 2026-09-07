@@ -22,6 +22,40 @@ export type ResearchArticle = {
 
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   {
+    slug: "why-gold-dropped-after-nfp-xauusd-liquidity-shock",
+    title:
+      "Why Did Gold Drop After NFP? Inside XAUUSD's Seconds-Long Liquidity Shock",
+    shortTitle: "Gold, NFP and Liquidity",
+    description:
+      "Gold plunged after the September NFP release. Learn how liquidity shocks, spread widening, slippage and Fed repricing can move XAUUSD within seconds.",
+    excerpt:
+      "The 4 September gold move was more than a payroll headline. We examine the link between a macro surprise, rate repricing and the execution risk retail CFD traders face during an XAUUSD liquidity shock.",
+    category: "Market Microstructure",
+    author: "Aeora Research Team",
+    publishedAt: "2026-09-07",
+    displayDate: "7 September 2026",
+    readingTime: "5 min read",
+    noteNumber: "06",
+    seoTitle: "Why Did Gold Drop After NFP? XAUUSD Liquidity Explained",
+    openGraphTitle: "Why Did Gold Drop After NFP? Inside XAUUSD's Liquidity Shock",
+    openGraphDescription:
+      "Why gold sold off after NFP: a clear look at rate repricing, liquidity air pockets, XAUUSD slippage and CFD execution risk.",
+    socialImage: "/research/xauusd-gold-nfp-liquidity-shock-september-2026.webp",
+    socialImageWidth: 1672,
+    socialImageHeight: 941,
+    tags: [
+      "why did gold drop after NFP",
+      "XAUUSD NFP",
+      "gold NFP volatility",
+      "gold CFD slippage",
+      "gold spread widening",
+      "NFP liquidity",
+      "institutional NFP trading",
+      "prop desk NFP"
+    ],
+    draft: false
+  },
+  {
     slug: "warsh-fed-rate-hike-q4-2026-market-outlook",
     title: "Warsh Turns Hawkish: USD, Gold, Stocks & Bitcoin Into Q4 2026",
     shortTitle: "Warsh, Rates and Q4",

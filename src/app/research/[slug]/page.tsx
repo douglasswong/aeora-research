@@ -11,6 +11,12 @@ import {
   whyMarketsRallySources
 } from "@/content/research/WhyMarketsRallyDespiteBadNews";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
+import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
+import {
+  NfpGoldLiquidityShockArticle,
+  nfpGoldLiquidityShockKeyPoints,
+  nfpGoldLiquidityShockSources
+} from "@/content/research/NfpGoldLiquidityShock";
 import { ResearchArticleLayout } from "@/components/ResearchArticleLayout";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
 import {
@@ -123,7 +129,11 @@ export default async function ResearchArticlePage({
     article.slug === "wti-crude-oil-outlook-2026-geopolitical-90-day-scenario";
   const isWarshFedArticle =
     article.slug === "warsh-fed-rate-hike-q4-2026-market-outlook";
-  const keyPoints = isWarshFedArticle
+  const isNfpGoldLiquidityShockArticle =
+    article.slug === "why-gold-dropped-after-nfp-xauusd-liquidity-shock";
+  const keyPoints = isNfpGoldLiquidityShockArticle
+    ? nfpGoldLiquidityShockKeyPoints
+    : isWarshFedArticle
     ? warshFedQ42026KeyPoints
     : isWtiCrudeOilArticle
     ? wtiCrudeOilKeyPoints
@@ -132,7 +142,9 @@ export default async function ResearchArticlePage({
     : isMarketsRallyArticle
       ? whyMarketsRallyKeyPoints
       : cmeSingleStockFuturesKeyPoints;
-  const sources = isWarshFedArticle
+  const sources = isNfpGoldLiquidityShockArticle
+    ? nfpGoldLiquidityShockSources
+    : isWarshFedArticle
     ? warshFedQ42026Sources
     : isWtiCrudeOilArticle
     ? wtiCrudeOilSources
@@ -141,7 +153,9 @@ export default async function ResearchArticlePage({
     : isMarketsRallyArticle
       ? whyMarketsRallySources
       : cmeSingleStockFuturesSources;
-  const content = isWarshFedArticle ? (
+  const content = isNfpGoldLiquidityShockArticle ? (
+    <NfpGoldLiquidityShockArticle />
+  ) : isWarshFedArticle ? (
     <WarshFedQ42026OutlookArticle />
   ) : isWtiCrudeOilArticle ? (
     <WtiCrudeOilArticle />
@@ -152,7 +166,9 @@ export default async function ResearchArticlePage({
   ) : (
     <CmeSingleStockFuturesArticle />
   );
-  const cover = isWarshFedArticle ? (
+  const cover = isNfpGoldLiquidityShockArticle ? (
+    <NfpGoldLiquidityShockCover />
+  ) : isWarshFedArticle ? (
     <WarshFedQ42026Cover />
   ) : isWtiCrudeOilArticle ? (
     <WtiCrudeOilCover />

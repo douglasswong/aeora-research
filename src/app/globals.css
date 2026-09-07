@@ -495,8 +495,86 @@ a {
 }
 
 .home-page .hero {
+  position: relative;
   min-height: min(780px, calc(100svh - var(--header-height)));
   padding-block: 72px 84px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero__scroll-cue i {
+    animation: hero-scroll-cue 2.2s var(--ease-out) infinite;
+  }
+}
+
+@keyframes hero-scroll-cue {
+  0%,
+  100% {
+    transform: scaleX(0.72);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.hero__scroll-cue {
+  position: absolute;
+  right: max(24px, calc((100vw - var(--container)) / 2));
+  bottom: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(13, 20, 27, 0.56);
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.17em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hero__scroll-cue:hover {
+  color: var(--aeora-ink);
+}
+
+.hero__scroll-cue i {
+  position: relative;
+  width: 34px;
+  height: 1px;
+  background: rgba(13, 20, 27, 0.34);
+}
+
+.hero__scroll-cue i::after {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid var(--aeora-mint);
+  border-bottom: 1px solid var(--aeora-mint);
+  content: "";
+  transform: rotate(45deg);
+}
+
+@media (max-width: 980px) {
+  .home-page .hero {
+    padding-bottom: 34px;
+  }
+
+  .hero__scroll-cue {
+    position: static;
+    width: min(var(--container), calc(100% - 48px));
+    margin: 8px auto 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero__scroll-cue {
+    width: min(var(--container), calc(100% - 32px));
+    margin-top: 2px;
+  }
 }
 
 .hero::before {
@@ -3545,6 +3623,238 @@ a {
   margin: 46px 0 26px;
   font-family: var(--font-display);
   font-size: 1.02rem;
+/* NFP liquidity-shock research note */
+.nfp-gold-cover {
+  margin: 0;
+  border: 1px solid rgba(216, 227, 224, 0.18);
+  background: #050a0e;
+  color: #f5f7f7;
+}
+
+.nfp-gold-cover__media {
+  position: relative;
+  min-height: clamp(300px, 42vw, 520px);
+  overflow: hidden;
+  background: #050a0e;
+}
+
+.nfp-gold-cover__media img {
+  object-fit: cover;
+  object-position: center;
+}
+
+.nfp-gold-cover__label {
+  position: absolute;
+  top: clamp(22px, 4vw, 48px);
+  left: clamp(22px, 5vw, 64px);
+  display: grid;
+  max-width: min(46%, 430px);
+  gap: 10px;
+}
+
+.nfp-gold-cover__label span,
+.nfp-gold-cover__label small {
+  color: rgba(245, 247, 247, 0.76);
+  font-family: var(--font-display);
+  font-size: 0.63rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.nfp-gold-cover__label strong {
+  color: var(--aeora-white);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6.4cqi, 5.3rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 0.92;
+}
+
+.nfp-gold-cover__label small {
+  color: var(--aeora-mint);
+}
+
+.nfp-gold-cover figcaption {
+  padding: 14px 18px 16px;
+  border-top: 1px solid rgba(216, 227, 224, 0.18);
+  color: rgba(245, 247, 247, 0.68);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.nfp-flow {
+  margin: 36px 0;
+  border: 1px solid var(--aeora-line);
+  background: #091116;
+  color: var(--aeora-white);
+}
+
+.nfp-flow > p {
+  margin: 0;
+  padding: 17px 20px;
+  border-bottom: 1px solid rgba(245, 247, 247, 0.16);
+  color: var(--aeora-mint);
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.nfp-flow ol {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nfp-flow li {
+  position: relative;
+  display: grid;
+  min-height: 120px;
+  align-content: space-between;
+  gap: 20px;
+  padding: 18px;
+}
+
+.nfp-flow li + li {
+  border-left: 1px solid rgba(245, 247, 247, 0.12);
+}
+
+.nfp-flow li + li::before {
+  position: absolute;
+  top: 50%;
+  left: -6px;
+  width: 11px;
+  height: 11px;
+  border-top: 1px solid var(--aeora-mint);
+  border-right: 1px solid var(--aeora-mint);
+  background: #091116;
+  content: "";
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.nfp-flow li span {
+  color: var(--aeora-mint);
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+}
+
+.nfp-flow li strong {
+  color: var(--aeora-white);
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.nfp-faq {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 34px;
+  border: 1px solid var(--aeora-line);
+  background: var(--aeora-line);
+}
+
+.nfp-faq article {
+  padding: 28px;
+  background: var(--aeora-white);
+}
+
+.nfp-faq h3 {
+  margin: 0;
+  color: var(--aeora-ink);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.nfp-faq p {
+  margin: 14px 0 0;
+}
+
+.nfp-research-take {
+  margin-top: 58px;
+  padding: clamp(26px, 5vw, 48px);
+  border-left: 4px solid var(--aeora-mint);
+  background: #091116;
+  color: rgba(245, 247, 247, 0.82);
+}
+
+.nfp-research-take h2 {
+  margin-top: 14px;
+  color: var(--aeora-white);
+}
+
+.nfp-research-take .research-article__section-number {
+  color: var(--aeora-mint);
+}
+
+.nfp-research-take p + p {
+  margin-top: 18px;
+}
+
+.nfp-research-take__disclaimer {
+  padding-top: 18px;
+  border-top: 1px solid rgba(245, 247, 247, 0.2);
+  color: rgba(245, 247, 247, 0.66);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 980px) {
+  .nfp-flow ol {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .nfp-flow li:nth-child(5) {
+    border-left: 0;
+    border-top: 1px solid rgba(245, 247, 247, 0.12);
+  }
+
+  .nfp-flow li:nth-child(5)::before {
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
+  }
+}
+
+@media (max-width: 620px) {
+  .nfp-gold-cover__media {
+    min-height: 310px;
+  }
+
+  .nfp-gold-cover__label {
+    max-width: 62%;
+  }
+
+  .nfp-flow ol,
+  .nfp-faq {
+    grid-template-columns: 1fr;
+  }
+
+  .nfp-flow li,
+  .nfp-flow li:nth-child(5) {
+    min-height: 0;
+    padding: 17px 20px;
+    border-top: 1px solid rgba(245, 247, 247, 0.12);
+    border-left: 0;
+  }
+
+  .nfp-flow li:first-child {
+    border-top: 0;
+  }
+
+  .nfp-flow li::before,
+  .nfp-flow li:nth-child(5)::before {
+    top: -6px;
+    left: 30px;
+    transform: rotate(-45deg);
+  }
+}
+
   font-weight: 400;
   letter-spacing: 0.22em;
   line-height: 1.32;

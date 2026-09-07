@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
+import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { ResearchCover } from "@/components/ResearchCover";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
 import { WarshFedQ42026Cover } from "@/components/WarshFedQ42026Cover";
@@ -69,6 +70,9 @@ export default function ResearchPage() {
               </div>
             </div>
             {latestArticle.slug ===
+            "why-gold-dropped-after-nfp-xauusd-liquidity-shock" ? (
+              <NfpGoldLiquidityShockCover articleCover={false} />
+            ) : latestArticle.slug ===
             "wti-crude-oil-outlook-2026-geopolitical-90-day-scenario" ? (
               <WtiCrudeOilCover articleCover={false} />
             ) : latestArticle.slug === "sawit-ecotherm-palm-oil-ai-data-centre-fcpo" ? (
