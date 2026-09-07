@@ -121,6 +121,10 @@ export default function Home() {
                 <MarketField />
               </div>
             </div>
+            <a className="hero__scroll-cue" href="#positioning">
+              <span>Scroll to explore</span>
+              <i aria-hidden="true" />
+            </a>
           </section>
 
           <section
