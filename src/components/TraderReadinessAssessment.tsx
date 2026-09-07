@@ -102,7 +102,7 @@ export function TraderReadinessAssessment({
 
   return (
     <div className="trader-assessment" id="assessment">
-      <form className="trader-assessment__form" onSubmit={handleSubmit} noValidate>
+      {!result && <form className="trader-assessment__form" onSubmit={handleSubmit} noValidate>
         <div className="trader-assessment__intro">
           <div>
             <SectionLabel>Assessment / 10 questions</SectionLabel>
@@ -306,13 +306,14 @@ export function TraderReadinessAssessment({
             {isSubmitting ? "Saving request" : "View my assessment"}
           </button>
         </div>
-      </form>
+      </form>}
 
       {result && (
         <section className="trader-assessment__result" aria-live="polite" aria-labelledby="assessment-result-title">
           <p className="section-kicker">Your result</p>
           <h2 id="assessment-result-title">{result.category.replaceAll("_", " ")}</h2>
           <p className="trader-assessment__result-feedback">{result.feedback}</p>
+          {submitMessage && <p className="trader-assessment__result-status">{submitMessage}</p>}
           <dl className="trader-assessment__scores">
             <div><dt>Trader fit</dt><dd>{result.scores.traderFit}</dd></div>
             <div><dt>Development intent</dt><dd>{result.scores.intent}</dd></div>

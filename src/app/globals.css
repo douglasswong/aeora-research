@@ -997,6 +997,7 @@ a {
 .trader-assessment__result > .section-kicker,
 .trader-assessment__result > h2,
 .trader-assessment__result > .trader-assessment__result-feedback,
+.trader-assessment__result > .trader-assessment__result-status,
 .trader-assessment__result > .trader-assessment__scores,
 .trader-assessment__result > .trader-assessment__result-grid,
 .trader-assessment__result > .trader-assessment__next-step,
@@ -1010,15 +1011,23 @@ a {
 }
 
 .trader-assessment__result h2 {
-  grid-row: 2;
-  margin-top: -50px;
-  transform: translateX(calc(-100% - clamp(30px, 6vw, 94px)));
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: start;
+  margin: 52px 0 0;
 }
 
 .trader-assessment__result-feedback {
   margin: 0 0 26px;
   color: var(--aeora-slate);
   line-height: 1.7;
+}
+
+.trader-assessment__result-status {
+  margin: -10px 0 26px;
+  color: var(--aeora-slate);
+  font-size: 0.84rem;
+  line-height: 1.55;
 }
 
 .trader-assessment__scores {
