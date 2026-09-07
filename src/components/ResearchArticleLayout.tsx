@@ -44,7 +44,7 @@ export function ResearchArticleLayout({
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <div id="top" className="site-shell">
+      <div id="top" className="site-shell site-shell--reading-progress">
         <Header />
         <main id="main" className="research-article">
           <article>
