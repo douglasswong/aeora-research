@@ -3619,6 +3619,12 @@ a {
   margin: 46px 0 26px;
   font-family: var(--font-display);
   font-size: 1.02rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  line-height: 1.32;
+  text-transform: uppercase;
+}
+
 /* NFP liquidity-shock research note */
 .nfp-gold-cover {
   margin: 0;
@@ -3849,12 +3855,6 @@ a {
     left: 30px;
     transform: rotate(-45deg);
   }
-}
-
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  line-height: 1.32;
-  text-transform: uppercase;
 }
 
 .pillar-card p {
