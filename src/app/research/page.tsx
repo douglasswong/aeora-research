@@ -36,6 +36,7 @@ export default function ResearchPage() {
       title="Context before conviction."
       intro="Clear market structure, without unnecessary complexity."
       compactHero
+      readingProgress
     >
       <section className="research-index section section--ruled">
         <div className="section__inner">

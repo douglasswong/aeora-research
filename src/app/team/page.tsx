@@ -26,6 +26,7 @@ export default function TeamPage() {
       title="Built around disciplined market practice."
       intro="Aeora Research brings together research, trader development and specialist market practice with a long-term view of professional participation."
       compactHero
+      readingProgress
     >
       <section className="team-lead section section--ruled" aria-labelledby="leadership-title">
         <div className="section__inner team-lead__inner">

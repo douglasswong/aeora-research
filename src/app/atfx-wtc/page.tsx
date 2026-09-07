@@ -90,7 +90,10 @@ export default function WorldTradingCupPage() {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <div id="top" className="site-shell wtc-page">
+      <div
+        id="top"
+        className="site-shell site-shell--reading-progress wtc-page"
+      >
         <Header />
         <main id="main">
           <section className="wtc-hero" aria-labelledby="wtc-title">

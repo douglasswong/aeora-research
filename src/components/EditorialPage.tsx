@@ -7,6 +7,7 @@ type EditorialPageProps = {
   title: string;
   intro: string;
   compactHero?: boolean;
+  readingProgress?: boolean;
   children: ReactNode;
 };
 
@@ -15,6 +16,7 @@ export function EditorialPage({
   title,
   intro,
   compactHero = false,
+  readingProgress = false,
   children
 }: EditorialPageProps) {
   return (
@@ -22,7 +24,10 @@ export function EditorialPage({
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <div id="top" className="site-shell">
+      <div
+        id="top"
+        className={`site-shell${readingProgress ? " site-shell--reading-progress" : ""}`}
+      >
         <Header />
         <main id="main">
           <section

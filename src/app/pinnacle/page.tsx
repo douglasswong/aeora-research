@@ -57,7 +57,10 @@ export default function PinnaclePage() {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <div id="top" className="site-shell pinnacle-page">
+      <div
+        id="top"
+        className="site-shell site-shell--reading-progress pinnacle-page"
+      >
         <Header />
         <main id="main">
           <section className="pinnacle-hero" aria-labelledby="pinnacle-title">
