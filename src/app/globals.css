@@ -8789,9 +8789,17 @@ a {
   font-size: 0.8rem;
 }
 
-.pinnacle-hero .button {
+.pinnacle-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   align-self: flex-start;
   margin-top: 28px;
+}
+
+.pinnacle-hero__actions .button {
+  margin-top: 0;
+  white-space: nowrap;
 }
 
 .pinnacle-programme {

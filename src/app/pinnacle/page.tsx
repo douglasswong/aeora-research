@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Header } from "@/components/Header";
 import { PinnacleGallery } from "@/components/PinnacleGallery";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -108,9 +109,14 @@ export default function PinnaclePage() {
                     </div>
                   </dl>
                 </div>
-                <a className="button button--primary" href="#programme">
-                  More info
-                </a>
+                <div className="pinnacle-hero__actions">
+                  <a className="button button--primary" href="#programme">
+                    More info
+                  </a>
+                  <Link className="button button--secondary" href="/trader-readiness">
+                    Readiness Assessment
+                  </Link>
+                </div>
               </div>
             </div>
           </section>
