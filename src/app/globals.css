@@ -10257,7 +10257,7 @@ a {
   }
 
   .research-article__header h1 {
-    font-size: clamp(2.42rem, 12.5cqi, 3.2rem);
+    font-size: clamp(2rem, 10cqi, 2.5rem);
   }
 
   .research-article__headline-secondary {
