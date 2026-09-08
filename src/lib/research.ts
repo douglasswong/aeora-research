@@ -1,6 +1,7 @@
 export type ResearchArticle = {
   slug: string;
   title: string;
+  displayTitle?: string;
   shortTitle: string;
   description: string;
   excerpt: string;
@@ -25,6 +26,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
     slug: "why-gold-dropped-after-nfp-xauusd-liquidity-shock",
     title:
       "Why Did Gold Drop After NFP? Inside XAUUSD's Seconds-Long Liquidity Shock",
+    displayTitle: "Why Gold Dropped After NFP: XAUUSD Liquidity Shock",
     shortTitle: "Gold, NFP and Liquidity",
     description:
       "Gold plunged after the September NFP release. Learn how liquidity shocks, spread widening, slippage and Fed repricing can move XAUUSD within seconds.",

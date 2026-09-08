@@ -65,7 +65,7 @@ export function ResearchArticleLayout({
                 </nav>
 
                 <p className="section-kicker">Research note {article.noteNumber}</p>
-                <h1>{headline ?? article.title}</h1>
+                <h1>{headline ?? article.displayTitle ?? article.title}</h1>
                 <p className="research-article__description">
                   {article.description}
                 </p>
