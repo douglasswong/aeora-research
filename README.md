@@ -44,6 +44,36 @@ Run the ESLint workflow:
 npm run lint
 ```
 
+## Website QA
+
+Every frontend, route, shared-component, navigation, form, motion, or layout
+change must pass the Aeora website QA gate before it is presented as complete.
+
+Run the full local gate:
+
+```bash
+npm run qa:web
+```
+
+This runs lint, the webpack production build, route and navigation smoke checks,
+serious accessibility checks, browser console checks, and responsive screenshot
+checks in local Chrome. Each QA command starts a local production server, runs
+the selected checks, and then closes the server. The browser checks use six
+viewports: 375x812, 390x844, 768x1024, 1280x800, 1440x1000, and 1920x1080.
+
+Focused commands are also available when appropriate:
+
+```bash
+npm run qa
+npm run qa:smoke
+npm run qa:a11y
+npm run qa:visual
+```
+
+The full policy and the required final owner report are in
+`docs/website-quality-assurance.md`. For substantial visual work, review the
+screenshots generated in `qa-screenshots/` as part of the final QA pass.
+
 ## Deployment To Vercel
 
 1. Push this folder to a Git repository.

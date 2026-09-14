@@ -97,16 +97,9 @@ export function PrizeCounter({
       ref={counterRef}
       className={classes}
       style={style}
-      aria-label={`USD ${numberFormatter.format(amount)}`}
     >
-      <span className="wtc-prizes__currency" aria-hidden="true">
-        USD
-      </span>
-      <span
-        ref={valueRef}
-        className="wtc-prize-counter__value"
-        aria-hidden="true"
-      >
+      <span className="wtc-prizes__currency">USD</span>
+      <span ref={valueRef} className="wtc-prize-counter__value">
         {numberFormatter.format(amount)}
       </span>
     </strong>

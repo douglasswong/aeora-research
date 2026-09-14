@@ -177,21 +177,33 @@ export function TraderReadinessAssessment({
           <div className="trader-assessment__two-column-fields">
             <fieldset>
               <legend>What is your biggest challenge?</legend>
-              <select value={answers.challenge} onChange={(event) => updateChoice("challenge", event.target.value)}>
+              <select
+                aria-label="What is your biggest challenge?"
+                value={answers.challenge}
+                onChange={(event) => updateChoice("challenge", event.target.value)}
+              >
                 <option value="">Select one</option>
                 {ASSESSMENT_OPTIONS.challenge.map((option) => <option key={option}>{option}</option>)}
               </select>
             </fieldset>
             <fieldset>
               <legend>How often do you review performance?</legend>
-              <select value={answers.reviewFrequency} onChange={(event) => updateChoice("reviewFrequency", event.target.value)}>
+              <select
+                aria-label="How often do you review performance?"
+                value={answers.reviewFrequency}
+                onChange={(event) => updateChoice("reviewFrequency", event.target.value)}
+              >
                 <option value="">Select one</option>
                 {ASSESSMENT_OPTIONS.reviewFrequency.map((option) => <option key={option}>{option}</option>)}
               </select>
             </fieldset>
             <fieldset>
               <legend>Do you currently use written risk limits?</legend>
-              <select value={answers.riskLimits} onChange={(event) => updateChoice("riskLimits", event.target.value)}>
+              <select
+                aria-label="Do you currently use written risk limits?"
+                value={answers.riskLimits}
+                onChange={(event) => updateChoice("riskLimits", event.target.value)}
+              >
                 <option value="">Select one</option>
                 {ASSESSMENT_OPTIONS.riskLimits.map((option) => <option key={option}>{option}</option>)}
               </select>
@@ -226,21 +238,33 @@ export function TraderReadinessAssessment({
           <div className="trader-assessment__two-column-fields">
             <fieldset>
               <legend>How much time can you commit each week?</legend>
-              <select value={answers.weeklyCommitment} onChange={(event) => updateChoice("weeklyCommitment", event.target.value)}>
+              <select
+                aria-label="How much time can you commit each week?"
+                value={answers.weeklyCommitment}
+                onChange={(event) => updateChoice("weeklyCommitment", event.target.value)}
+              >
                 <option value="">Select one</option>
                 {ASSESSMENT_OPTIONS.weeklyCommitment.map((option) => <option key={option}>{option}</option>)}
               </select>
             </fieldset>
             <fieldset>
               <legend>Have you invested in trading education before?</legend>
-              <select value={answers.educationHistory} onChange={(event) => updateChoice("educationHistory", event.target.value)}>
+              <select
+                aria-label="Have you invested in trading education before?"
+                value={answers.educationHistory}
+                onChange={(event) => updateChoice("educationHistory", event.target.value)}
+              >
                 <option value="">Select one</option>
                 {ASSESSMENT_OPTIONS.educationHistory.map((option) => <option key={option}>{option}</option>)}
               </select>
             </fieldset>
             <fieldset>
               <legend>If a programme is a strong fit, what investment would you consider? <span>(optional)</span></legend>
-              <select value={answers.investmentComfort} onChange={(event) => updateChoice("investmentComfort", event.target.value)}>
+              <select
+                aria-label="If a programme is a strong fit, what investment would you consider?"
+                value={answers.investmentComfort}
+                onChange={(event) => updateChoice("investmentComfort", event.target.value)}
+              >
                 <option value="">Prefer not to say</option>
                 {ASSESSMENT_OPTIONS.investmentComfort.map((option) => <option key={option}>{option}</option>)}
               </select>

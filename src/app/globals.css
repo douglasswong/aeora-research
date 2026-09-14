@@ -1,5 +1,6 @@
 :root {
   --aeora-mint: #31EDAE;
+  --aeora-mint-ink: #087A55;
   --aeora-ink: #0D141B;
   --aeora-charcoal: #151D25;
   --aeora-slate: #68737D;
@@ -154,7 +155,7 @@ a {
 .section-kicker,
 .eyebrow {
   margin: 0 0 18px;
-  color: rgba(13, 20, 27, 0.5);
+  color: rgba(13, 20, 27, 0.64);
   font-family: var(--font-display);
   font-size: 0.68rem;
   font-weight: 500;
@@ -526,7 +527,7 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: rgba(13, 20, 27, 0.56);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.62rem;
   font-weight: 500;
@@ -1509,7 +1510,7 @@ a {
 }
 
 .wtc-window__label {
-  color: rgba(13, 20, 27, 0.56);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.66rem;
   font-weight: 600;
@@ -2694,7 +2695,7 @@ a {
 
 .account-guide-hero__context {
   margin: 16px 0 0;
-  color: rgba(13, 20, 27, 0.56);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.66rem;
   font-weight: 600;
@@ -2986,7 +2987,7 @@ a {
 .account-guide-disclaimer > div > p:last-child {
   max-width: 680px;
   margin: 0;
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-size: 0.86rem;
   line-height: 1.68;
 }
@@ -3197,7 +3198,7 @@ a {
   align-items: center;
   gap: 9px;
   border-bottom: 1px solid rgba(13, 20, 27, 0.13);
-  color: rgba(13, 20, 27, 0.56);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.7rem;
   font-weight: 500;
@@ -3268,7 +3269,7 @@ a {
 .positioning p:last-child {
   max-width: 390px;
   margin: 0 0 10px;
-  color: rgba(13, 20, 27, 0.58);
+  color: rgba(13, 20, 27, 0.64);
   font-size: 1rem;
   line-height: 1.78;
 }
@@ -3864,7 +3865,7 @@ a {
 .pillar-card p {
   max-width: 330px;
   margin: 0;
-  color: rgba(13, 20, 27, 0.58);
+  color: rgba(13, 20, 27, 0.64);
   line-height: 1.76;
 }
 
@@ -4438,7 +4439,7 @@ a {
 .connect__email {
   display: inline-flex;
   margin-top: 34px;
-  color: rgba(13, 20, 27, 0.58);
+  color: rgba(13, 20, 27, 0.64);
   font-family: var(--font-display);
   font-size: 0.98rem;
   letter-spacing: 0.05em;
@@ -6585,7 +6586,7 @@ a {
 
 .company-record dt,
 .research-framework__list > li > span {
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.67rem;
   font-weight: 600;
@@ -6670,7 +6671,7 @@ a {
 .team-lead__role,
 .team-member__details p {
   margin: 0;
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
 }
 
 .team-lead__content h2,
@@ -6836,7 +6837,7 @@ a {
 }
 
 .research-framework__list > li > span {
-  color: rgba(49, 237, 174, 0.95);
+  color: var(--aeora-mint-ink);
 }
 
 .research-framework__list h3 {
@@ -6886,7 +6887,7 @@ a {
 
 .research-index__count {
   margin: 0;
-  color: rgba(13, 20, 27, 0.58);
+  color: rgba(13, 20, 27, 0.64);
   font-family: var(--font-display);
   font-size: 0.68rem;
   font-weight: 600;
@@ -6914,7 +6915,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.65rem;
   font-weight: 600;
@@ -7156,7 +7157,7 @@ a {
 
 .research-cover figcaption {
   margin-top: 12px;
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.58rem;
   font-weight: 600;
@@ -7270,7 +7271,7 @@ a {
 .research-archive__number,
 .research-archive__detail > span,
 .research-archive__action {
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.62rem;
   font-weight: 600;
@@ -7357,7 +7358,7 @@ a {
 
 .market-rally-cover figcaption {
   margin-top: 12px;
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.58rem;
   font-weight: 600;
@@ -7444,7 +7445,7 @@ a {
 
 .sawit-cover figcaption {
   margin-top: 12px;
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.58rem;
   font-weight: 600;
@@ -7689,7 +7690,7 @@ a {
 }
 
 .sawit-data-callout > span {
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.58rem;
   font-weight: 600;
@@ -9120,7 +9121,7 @@ a {
 .pinnacle-intake dt,
 .pinnacle-gallery__empty > span,
 .pinnacle-gallery figcaption span {
-  color: rgba(13, 20, 27, 0.56);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.66rem;
   font-weight: 600;
@@ -9147,7 +9148,7 @@ a {
   width: fit-content;
   align-items: center;
   gap: 8px;
-  color: rgba(13, 20, 27, 0.5);
+  color: rgba(13, 20, 27, 0.64);
   font-family: var(--font-display);
   font-size: 0.64rem;
   font-weight: 500;
@@ -9204,7 +9205,7 @@ a {
 .pinnacle-intake dd span {
   display: block;
   margin-top: 3px;
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.66);
   font-size: 0.8rem;
 }
 
@@ -9315,7 +9316,7 @@ a {
   left: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  color: rgba(13, 20, 27, 0.42);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-mono);
   font-size: 0.5rem;
   font-weight: 600;
@@ -9665,7 +9666,7 @@ a {
 .pinnacle-gallery__event-header > span,
 .pinnacle-gallery__event-header > div > p,
 .pinnacle-gallery__event-header > p {
-  color: rgba(13, 20, 27, 0.56);
+  color: rgba(13, 20, 27, 0.66);
   font-family: var(--font-display);
   font-size: 0.66rem;
   font-weight: 600;

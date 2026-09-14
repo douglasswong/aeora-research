@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --max-warnings=0"
+    "lint": "eslint . --max-warnings=0",
+    "qa": "npm run lint && npm run build -- --webpack",
+    "qa:smoke": "node scripts/run-qa.mjs tests/qa/routes.spec.ts tests/qa/navigation.spec.ts",
+    "qa:visual": "node scripts/run-qa.mjs tests/qa/visual.spec.ts tests/qa/animation.spec.ts",
+    "qa:a11y": "node scripts/run-qa.mjs tests/qa/accessibility.spec.ts",
+    "qa:web": "npm run qa && node scripts/run-qa.mjs"
   },
   "dependencies": {
     "next": "^16.2.10",
@@ -14,6 +19,8 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@types/node": "^26.1.0",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
@@ -22,6 +29,6 @@
     "typescript": "^5.9.3"
   },
   "overrides": {
-    "postcss": "8.5.10"
+    "postcss": "8.5.28"
   }
 }

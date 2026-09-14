@@ -10,6 +10,10 @@ const eslintConfig = [
       "node_modules/**",
       "out/**",
       "build/**",
+      "playwright-report/**",
+      "test-results/**",
+      "qa-screenshots/**",
+      ".npm-cache/**",
       "next-env.d.ts"
     ]
   }
