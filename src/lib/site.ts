@@ -248,20 +248,27 @@ export const TEAM_MEMBERS = [
   },
   {
     index: "04",
+    slug: "marcus",
+    name: "Marcus Lam",
+    role: "FX & CFD Strategist",
+    image: "/team/marcus-lam.webp"
+  },
+  {
+    index: "05",
     slug: "joshua",
     name: "Joshua Chew",
     role: "Execution & Market Structure Analyst",
     image: "/team/joshua-chew.png"
   },
   {
-    index: "05",
+    index: "06",
     slug: "shady",
     name: "Shady Kambai",
     role: "Global Client Relations",
     image: "/team/shady-kambai-portrait.webp"
   },
   {
-    index: "06",
+    index: "07",
     slug: "joel",
     name: "Joel Banner",
     role: "Client Relationship Manager",

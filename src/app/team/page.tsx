@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function TeamPage() {
   const coreTeam = TEAM_MEMBERS.slice(0, 3);
-  const clientRelationsTeam = TEAM_MEMBERS.slice(3);
+  const extendedTeam = TEAM_MEMBERS.slice(3);
 
   return (
     <EditorialPage
@@ -72,8 +72,8 @@ export default function TeamPage() {
               <TeamMemberCard member={member} key={member.slug} />
             ))}
           </div>
-          <div className="team-roster__client-grid">
-            {clientRelationsTeam.map((member) => (
+          <div className="team-roster__extended-grid">
+            {extendedTeam.map((member) => (
               <TeamMemberCard member={member} key={member.slug} />
             ))}
           </div>

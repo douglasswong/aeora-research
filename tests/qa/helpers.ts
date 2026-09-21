@@ -6,6 +6,7 @@ export const responsivePages = [
   { label: "home", path: "/" },
   { label: "trader-development", path: "/pinnacle" },
   { label: "event", path: "/atfx-wtc" },
+  { label: "team", path: "/team" },
   { label: "research", path: "/research" },
   { label: "trader-readiness", path: "/trader-readiness" }
 ] as const;
