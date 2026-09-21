@@ -4,16 +4,17 @@ import { useEffect, useRef, useState } from "react";
 
 type ConnectPathwaysProps = {
   pathways: readonly string[];
+  contactHref: string;
 };
 
-export function ConnectPathways({ pathways }: ConnectPathwaysProps) {
-  const listRef = useRef<HTMLUListElement | null>(null);
+export function ConnectPathways({ pathways, contactHref }: ConnectPathwaysProps) {
+  const panelRef = useRef<HTMLDivElement | null>(null);
   const [hasSequenced, setHasSequenced] = useState(false);
 
   useEffect(() => {
-    const list = listRef.current;
+    const panel = panelRef.current;
 
-    if (!list || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (!panel || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
 
@@ -27,23 +28,27 @@ export function ConnectPathways({ pathways }: ConnectPathwaysProps) {
       { threshold: 0.35 }
     );
 
-    observer.observe(list);
+    observer.observe(panel);
 
     return () => observer.disconnect();
   }, []);
 
   return (
-    <ul
-      ref={listRef}
-      className="connect__pathways"
-      aria-label="Enquiry pathways"
+    <div
+      ref={panelRef}
+      className="connect__pathway-stack"
       data-sequenced={hasSequenced || undefined}
     >
-      {pathways.map((pathway) => (
-        <li key={pathway}>
-          <span>{pathway}</span>
-        </li>
-      ))}
-    </ul>
+      <ul className="connect__pathways" aria-label="Enquiry pathways">
+        {pathways.map((pathway) => (
+          <li key={pathway}>
+            <span>{pathway}</span>
+          </li>
+        ))}
+      </ul>
+      <a className="button button--primary connect__cta" href={contactHref}>
+        Connect with Aeora
+      </a>
+    </div>
   );
 }

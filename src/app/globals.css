@@ -4003,6 +4003,10 @@ a {
   margin-bottom: 0;
 }
 
+.about .section-kicker {
+  margin-bottom: 10px;
+}
+
 .about__body {
   grid-area: body;
 }
@@ -4424,7 +4428,7 @@ a {
 }
 
 .home-page .connect {
-  padding-block: clamp(86px, 8.5vw, 122px) clamp(96px, 9vw, 132px);
+  padding-block: clamp(68px, 6.5vw, 92px) clamp(76px, 7.5vw, 108px);
 }
 
 .connect__intro h2 {
@@ -4473,7 +4477,7 @@ a {
   left: 0;
   width: 0;
   height: 1px;
-  background: var(--aeora-mint);
+  background: rgba(13, 20, 27, 0.24);
   content: "";
 }
 
@@ -5139,37 +5143,43 @@ a {
     animation-delay: 920ms;
   }
 
-  .connect__pathways[data-sequenced] li {
-    animation: connect-pathway-enter 460ms var(--ease-out) both;
+  .connect__pathway-stack[data-sequenced] .connect__pathways span {
+    will-change: opacity, transform;
+    animation: connect-pathway-ascent 460ms var(--ease-out) both;
   }
 
-  .connect__pathways[data-sequenced] li::before {
+  .connect__pathway-stack[data-sequenced] .connect__pathways li::before {
     animation: connect-pathway-rule-enter 420ms var(--ease-out) both;
   }
 
-  .connect__pathways[data-sequenced] li:nth-child(1),
-  .connect__pathways[data-sequenced] li:nth-child(1)::before {
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(1) span,
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(1)::before {
     animation-delay: 0ms;
   }
 
-  .connect__pathways[data-sequenced] li:nth-child(2),
-  .connect__pathways[data-sequenced] li:nth-child(2)::before {
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(2) span,
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(2)::before {
     animation-delay: 100ms;
   }
 
-  .connect__pathways[data-sequenced] li:nth-child(3),
-  .connect__pathways[data-sequenced] li:nth-child(3)::before {
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(3) span,
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(3)::before {
     animation-delay: 200ms;
   }
 
-  .connect__pathways[data-sequenced] li:nth-child(4),
-  .connect__pathways[data-sequenced] li:nth-child(4)::before {
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(4) span,
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(4)::before {
     animation-delay: 300ms;
   }
 
-  .connect__pathways[data-sequenced] li:nth-child(5),
-  .connect__pathways[data-sequenced] li:nth-child(5)::before {
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(5) span,
+  .connect__pathway-stack[data-sequenced] .connect__pathways li:nth-child(5)::before {
     animation-delay: 400ms;
+  }
+
+  .connect__pathway-stack[data-sequenced] .connect__cta {
+    will-change: opacity, transform;
+    animation: connect-cta-ascent 520ms var(--ease-out) 520ms both;
   }
 
   .market-field__scan {
@@ -5407,14 +5417,25 @@ a {
   }
 }
 
-@keyframes connect-pathway-enter {
+@keyframes connect-pathway-ascent {
   from {
     opacity: 0;
-    transform: translateX(-16px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes connect-cta-ascent {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

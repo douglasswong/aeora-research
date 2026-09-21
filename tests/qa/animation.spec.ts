@@ -15,7 +15,8 @@ test("homepage scroll-triggered content becomes visible", async ({ page }) => {
   for (const selector of [
     ".pillars__grid .pillar-card",
     ".philosophy__terms span",
-    ".connect__panel"
+    ".connect__pathways span",
+    ".connect__cta"
   ]) {
     await expectFullyRevealed(page.locator(selector).first());
   }

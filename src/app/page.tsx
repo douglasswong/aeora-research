@@ -221,13 +221,10 @@ export default function Home() {
                 </a>
               </div>
               <div className="connect__panel reveal">
-                <ConnectPathways pathways={ENQUIRY_PATHWAYS} />
-                <a
-                  className="button button--primary"
-                  href={`mailto:${CONTACT_EMAIL}`}
-                >
-                  Connect with Aeora
-                </a>
+                <ConnectPathways
+                  pathways={ENQUIRY_PATHWAYS}
+                  contactHref={`mailto:${CONTACT_EMAIL}`}
+                />
               </div>
             </div>
           </section>
