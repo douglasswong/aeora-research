@@ -372,6 +372,37 @@ export const PARTNER_GROUPS = [
         variant: "codex"
       }
     ]
+  },
+  {
+    id: "payment",
+    title: "Payment Partners",
+    partners: [
+      {
+        name: "RedotPay",
+        logo: "/partners/redotpay.webp",
+        variant: "redotpay",
+        href: "https://url.hk/i/en/hbq89"
+      },
+      { name: "5Pay", logo: "/partners/5pay.png", variant: "5pay" }
+    ]
+  },
+  {
+    id: "strategic",
+    title: "Strategic Partners",
+    partners: [
+      {
+        name: "Max Anyarat Advisory",
+        logo: "/partners/max-anyarat.webp",
+        variant: "max-anyarat",
+        href: "https://www.instagram.com/maxanyaratadvisory/"
+      },
+      {
+        name: "Manulife Investment Management",
+        logo: "/partners/manulife-investment-management.png",
+        variant: "manulife",
+        href: "https://client.asia.manulifeam.com/en_MY/NewUser?invitation_url=bce1ec10-b72d-11f1-945c-a3f76360649c_n76hjduas8xro6wl1jjzx5fgkgjtanhafntqpqfnhskal0wigyccwdjajonrlwgz.1790154249553"
+      }
+    ]
   }
 ] as const;
 
