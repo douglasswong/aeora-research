@@ -25,5 +25,13 @@ test("homepage loads without browser errors", async ({ page }) => {
 
   await openPage(page, "/");
 
+  const marketTicker = page.locator("tv-ticker-tape");
+  await expect(marketTicker).toHaveCount(1);
+  await expect(marketTicker).toHaveAttribute("symbols", /FX_IDC:USDMYR/);
+  await expect(marketTicker).toHaveAttribute("item-size", "compact");
+  const marketTickerContainer = page.locator(".market-ticker");
+  await expect(marketTickerContainer).toHaveCSS("position", "fixed");
+  await expect(marketTickerContainer).toHaveCSS("bottom", "0px");
+
   expectNoBrowserIssues(issues);
 });

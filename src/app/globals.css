@@ -18,6 +18,7 @@
   --font-sans: "Aptos", "Inter", "Segoe UI", system-ui, sans-serif;
   --container: 1120px;
   --header-height: 76px;
+  --market-ticker-height: 76px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -4611,11 +4612,32 @@ a {
 }
 
 .site-footer {
+  padding-bottom: var(--market-ticker-height);
   color: var(--aeora-white);
   border-top: 1px solid rgba(245, 247, 247, 0.12);
   background:
     linear-gradient(90deg, transparent 0, transparent 49.95%, rgba(245, 247, 247, 0.05) 50%, transparent 50.05%),
     #080E14;
+}
+
+.market-ticker {
+  position: fixed;
+  z-index: 40;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: var(--market-ticker-height);
+  border-top: 1px solid var(--aeora-line);
+  background: var(--aeora-offwhite);
+  box-shadow: 0 -8px 20px rgba(13, 20, 27, 0.08);
+}
+
+.market-ticker__widget {
+  min-height: var(--market-ticker-height);
+}
+
+.market-ticker__widget tv-ticker-tape {
+  display: block;
 }
 
 .site-footer__inner {
