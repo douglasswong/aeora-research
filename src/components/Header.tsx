@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
+  ABOUT_NAV_ITEM,
   EVENT_NAV_ITEM,
-  HEADER_NAV_ITEMS,
+  HOME_NAV_ITEM,
+  OTHER_SERVICES_NAV_ITEM,
   RESEARCH_NAV_ITEM,
   TEAM_NAV_ITEM,
   TRADER_DEVELOPMENT_NAV_ITEM
@@ -13,6 +15,7 @@ import { BrandLockup } from "@/components/BrandLockup";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,16 +35,20 @@ export function Header() {
       <div className="site-header__inner">
         <BrandLockup asLink compact />
         <nav className="site-nav" aria-label="Primary navigation">
-          <div className="site-nav__groups">
+          <div
+            id="primary-navigation-links"
+            className={`site-nav__groups${isMenuOpen ? " site-nav__groups--open" : ""}`}
+          >
             <ul
               className="site-nav__group site-nav__group--company"
               aria-label="Company sections"
             >
-              {HEADER_NAV_ITEMS.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href}>{item.label}</Link>
-                </li>
-              ))}
+              <li>
+                <Link href={HOME_NAV_ITEM.href}>{HOME_NAV_ITEM.label}</Link>
+              </li>
+              <li>
+                <Link href={ABOUT_NAV_ITEM.href}>{ABOUT_NAV_ITEM.label}</Link>
+              </li>
               <li>
                 <Link href={TEAM_NAV_ITEM.href}>{TEAM_NAV_ITEM.label}</Link>
               </li>
@@ -49,8 +56,13 @@ export function Header() {
 
             <ul
               className="site-nav__group site-nav__group--development"
-              aria-label="Trader development"
+              aria-label="Research and trader development"
             >
+              <li>
+                <Link href={RESEARCH_NAV_ITEM.href}>
+                  {RESEARCH_NAV_ITEM.label}
+                </Link>
+              </li>
               <li>
                 <Link
                   href={TRADER_DEVELOPMENT_NAV_ITEM.href}
@@ -70,19 +82,37 @@ export function Header() {
             </ul>
 
             <ul
-              className="site-nav__group site-nav__group--research"
-              aria-label="Events and research"
+              className="site-nav__group site-nav__group--event"
+              aria-label="Events"
             >
               <li>
                 <Link href={EVENT_NAV_ITEM.href}>{EVENT_NAV_ITEM.label}</Link>
               </li>
+            </ul>
+
+            <ul
+              className="site-nav__group site-nav__group--services"
+              aria-label="Other services"
+            >
               <li>
-                <Link href={RESEARCH_NAV_ITEM.href}>
-                  {RESEARCH_NAV_ITEM.label}
+                <Link href={OTHER_SERVICES_NAV_ITEM.href}>
+                  {OTHER_SERVICES_NAV_ITEM.label}
                 </Link>
               </li>
             </ul>
           </div>
+          <button
+            className="site-nav__toggle"
+            type="button"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-controls="primary-navigation-links"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </button>
           <Link
             className="site-nav__cta"
             href="/#connect"

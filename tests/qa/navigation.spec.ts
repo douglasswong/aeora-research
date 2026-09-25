@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import {
+  capturePage,
   expectNoBrowserIssues,
   openPage,
   watchBrowserIssues
@@ -26,15 +27,25 @@ test("homepage internal navigation targets remain healthy", async ({ page, reque
 test("desktop navigation and core CTAs reach their destinations", async ({ page }) => {
   const issues = watchBrowserIssues(page);
   await page.setViewportSize({ width: 1280, height: 800 });
-  await openPage(page, "/");
   const headerNavigation = page.locator(".site-header .site-nav");
 
-  await headerNavigation.getByRole("link", { name: "Research", exact: true }).click();
-  await expect(page).toHaveURL(/\/research$/);
+  const destinations = [
+    { href: "/", url: /\/$/ },
+    { href: "/about", url: /\/about$/ },
+    { href: "/team", url: /\/team$/ },
+    { href: "/research", url: /\/research$/ },
+    { href: "/pinnacle", url: /\/pinnacle$/ },
+    { href: "/atfx-wtc", url: /\/atfx-wtc$/ },
+    { href: "/dngconsultation", url: /\/dngconsultation$/ }
+  ] as const;
 
-  await page.getByRole("link", { name: "Aeora Research home" }).click();
-  await expect(page).toHaveURL(/\/#top$/);
+  for (const destination of destinations) {
+    await openPage(page, "/");
+    await headerNavigation.locator(`a[href="${destination.href}"]`).click();
+    await expect(page).toHaveURL(destination.url);
+  }
 
+  await openPage(page, "/");
   await page
     .getByRole("link", { name: "Go to Aeora Research contact section" })
     .click();
@@ -43,22 +54,41 @@ test("desktop navigation and core CTAs reach their destinations", async ({ page 
   expectNoBrowserIssues(issues);
 });
 
-test("mobile primary navigation remains visible and usable", async ({ page }) => {
+test("mobile primary navigation remains visible and usable", async ({ page }, testInfo) => {
   const issues = watchBrowserIssues(page);
   await page.setViewportSize({ width: 390, height: 844 });
   await openPage(page, "/");
   const headerNavigation = page.locator(".site-header .site-nav");
 
   await expect(page.getByRole("navigation", { name: "Primary navigation" })).toBeVisible();
-  await expect(headerNavigation.getByRole("link", { name: "Research", exact: true })).toBeVisible();
+  const menuToggle = headerNavigation.locator(".site-nav__toggle");
+  await expect(menuToggle).toHaveAccessibleName("Open navigation menu");
+  await menuToggle.click();
+  await expect(menuToggle).toHaveAttribute("aria-expanded", "true");
+  await expect(menuToggle).toHaveAccessibleName("Close navigation menu");
+  await expect(headerNavigation.locator("#primary-navigation-links")).toHaveClass(
+    /site-nav__groups--open/
+  );
+  await menuToggle.click();
+  await expect(menuToggle).toHaveAttribute("aria-expanded", "false");
+  await expect(headerNavigation.locator("#primary-navigation-links")).not.toHaveClass(
+    /site-nav__groups--open/
+  );
+  await menuToggle.click();
+  await expect(
+    headerNavigation.getByRole("link", { name: "Other Services", exact: true })
+  ).toBeVisible();
   await expect(
     headerNavigation.getByRole("link", {
       name: "Go to Aeora Research contact section"
     })
   ).toBeVisible();
+  await capturePage(page, testInfo, "mobile-navigation-expanded");
 
-  await headerNavigation.getByRole("link", { name: "Research", exact: true }).click();
-  await expect(page).toHaveURL(/\/research$/);
+  await headerNavigation
+    .getByRole("link", { name: "Other Services", exact: true })
+    .click();
+  await expect(page).toHaveURL(/\/dngconsultation$/);
 
   expectNoBrowserIssues(issues);
 });

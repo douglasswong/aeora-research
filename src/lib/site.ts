@@ -46,11 +46,9 @@ export const SITE_TITLE =
 export const SITE_DESCRIPTION =
   "Aeora Research is a Malaysia based research-led market ecosystem focused on market intelligence, trader development and performance-driven thinking.";
 
-export const NAV_ITEMS = [
-  { label: "Focus", href: "/#focus" },
-  { label: "Philosophy", href: "/#philosophy" },
-  { label: "About", href: "/#about" }
-] as const;
+export const HOME_NAV_ITEM = { label: "Home", href: "/" } as const;
+
+export const ABOUT_NAV_ITEM = { label: "About", href: "/about" } as const;
 
 export const RESEARCH_NAV_ITEM = {
   label: "Research",
@@ -62,10 +60,6 @@ export const EVENT_NAV_ITEM = {
   href: "/atfx-wtc"
 } as const;
 
-export const HEADER_NAV_ITEMS = NAV_ITEMS.filter(
-  (item) => item.href !== "/#philosophy"
-);
-
 export const TEAM_NAV_ITEM = { label: "Our Team", href: "/team" } as const;
 
 export const TRADER_DEVELOPMENT_NAV_ITEM = {
@@ -76,6 +70,14 @@ export const TRADER_DEVELOPMENT_NAV_ITEM = {
 } as const;
 
 export const FAQ_NAV_ITEM = { label: "FAQ", href: "/faq" } as const;
+
+export const OTHER_SERVICES_NAV_ITEM = {
+  label: "Other Services",
+  href: "/dngconsultation"
+} as const;
+
+export const DNG_CONSULTATION_CONTACT_URL =
+  "https://forms.gle/5JtxMrrjjSH7bHj18";
 
 export type PinnacleGalleryItem = {
   src: string;
@@ -279,11 +281,13 @@ export const TEAM_MEMBERS = [
 export type TeamMember = (typeof TEAM_MEMBERS)[number];
 
 export const FOOTER_NAV_ITEMS = [
-  ...NAV_ITEMS,
+  HOME_NAV_ITEM,
+  ABOUT_NAV_ITEM,
   TEAM_NAV_ITEM,
-  TRADER_DEVELOPMENT_NAV_ITEM,
   RESEARCH_NAV_ITEM,
-  FAQ_NAV_ITEM
+  TRADER_DEVELOPMENT_NAV_ITEM,
+  EVENT_NAV_ITEM,
+  OTHER_SERVICES_NAV_ITEM
 ] as const;
 
 export const PILLARS = [
