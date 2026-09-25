@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
-  ABOUT_NAV_ITEM,
-  EVENT_NAV_ITEM,
   HOME_NAV_ITEM,
   OTHER_SERVICES_NAV_ITEM,
   RESEARCH_NAV_ITEM,
@@ -81,9 +79,6 @@ export function Header() {
                 <Link href={HOME_NAV_ITEM.href}>{HOME_NAV_ITEM.label}</Link>
               </li>
               <li>
-                <Link href={ABOUT_NAV_ITEM.href}>{ABOUT_NAV_ITEM.label}</Link>
-              </li>
-              <li>
                 <Link href={TEAM_NAV_ITEM.href}>{TEAM_NAV_ITEM.label}</Link>
               </li>
             </ul>
@@ -112,15 +107,6 @@ export function Header() {
                     {TRADER_DEVELOPMENT_NAV_ITEM.narrowLabel}
                   </span>
                 </Link>
-              </li>
-            </ul>
-
-            <ul
-              className="site-nav__group site-nav__group--event"
-              aria-label="Events"
-            >
-              <li>
-                <Link href={EVENT_NAV_ITEM.href}>{EVENT_NAV_ITEM.label}</Link>
               </li>
             </ul>
 

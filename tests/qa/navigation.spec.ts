@@ -31,11 +31,9 @@ test("desktop navigation and core CTAs reach their destinations", async ({ page 
 
   const destinations = [
     { href: "/", url: /\/$/ },
-    { href: "/about", url: /\/about$/ },
     { href: "/team", url: /\/team$/ },
     { href: "/research", url: /\/research$/ },
     { href: "/pinnacle", url: /\/pinnacle$/ },
-    { href: "/atfx-wtc", url: /\/atfx-wtc$/ },
     { href: "/dngconsultation", url: /\/dngconsultation$/ }
   ] as const;
 
@@ -46,6 +44,12 @@ test("desktop navigation and core CTAs reach their destinations", async ({ page 
   }
 
   await openPage(page, "/");
+  await expect(
+    headerNavigation.getByRole("link", { name: "About", exact: true })
+  ).toHaveCount(0);
+  await expect(
+    headerNavigation.getByRole("link", { name: "Event", exact: true })
+  ).toHaveCount(0);
   await page
     .getByRole("link", { name: "Go to Aeora Research contact section" })
     .click();

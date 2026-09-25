@@ -5953,7 +5953,7 @@ a {
 @media (max-width: 720px) {
   :root {
     --header-height: 128px;
-    --market-ticker-height: 56px;
+    --market-ticker-height: 0px;
     --section-y: 82px;
   }
 

@@ -22,7 +22,7 @@ test("homepage scroll-triggered content becomes visible", async ({ page }) => {
   }
 });
 
-test("mobile homepage uses observer-driven reveals and a touch-friendly ticker", async ({ page }) => {
+test("mobile homepage uses observer-driven reveals without the desktop ticker", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "no-preference" });
   await openPage(page, "/");
@@ -45,13 +45,8 @@ test("mobile homepage uses observer-driven reveals and a touch-friendly ticker",
     )
     .not.toBe("0-0");
 
-  const ticker = page.locator(".market-ticker");
-  await expect(ticker).toHaveCSS("position", "fixed");
-  await expect(ticker).toHaveCSS("touch-action", "pan-y");
-  await expect(ticker).toHaveCSS("pointer-events", "none");
-  await expect
-    .poll(() => ticker.evaluate((element) => element.getBoundingClientRect().height))
-    .toBeLessThanOrEqual(64);
+  await expect(page.locator(".market-ticker")).toHaveCount(0);
+  await expect(page.locator(".site-footer")).toHaveCSS("padding-bottom", "0px");
 
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight / 2));
   await expect
