@@ -68,7 +68,7 @@ export function PrizeCounter({
           animationFrame = window.requestAnimationFrame(updateCounter);
         }, delay);
       },
-      { threshold: 0.55 }
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.15 }
     );
 
     observer.observe(counter);

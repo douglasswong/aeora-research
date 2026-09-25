@@ -37,9 +37,18 @@ test("mobile homepage uses observer-driven reveals and a touch-friendly ticker",
     .poll(() => firstPillar.evaluate((element) => Number(getComputedStyle(element).opacity)))
     .toBeGreaterThan(0.98);
 
+  const numbers = page.locator(".numbers");
+  await numbers.scrollIntoViewIfNeeded();
+  await expect
+    .poll(() =>
+      page.locator(".numbers__value-main").first().textContent()
+    )
+    .not.toBe("0-0");
+
   const ticker = page.locator(".market-ticker");
   await expect(ticker).toHaveCSS("position", "fixed");
   await expect(ticker).toHaveCSS("touch-action", "pan-y");
+  await expect(ticker).toHaveCSS("pointer-events", "none");
   await expect
     .poll(() => ticker.evaluate((element) => element.getBoundingClientRect().height))
     .toBeLessThanOrEqual(64);

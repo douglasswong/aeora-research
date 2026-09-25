@@ -48,10 +48,12 @@ export function Header() {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll);
+    window.addEventListener("pageshow", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
+      window.removeEventListener("pageshow", handleScroll);
 
       if (frameId) {
         window.cancelAnimationFrame(frameId);

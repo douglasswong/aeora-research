@@ -4671,8 +4671,10 @@ a {
   background: var(--aeora-offwhite);
   contain: layout paint;
   isolation: isolate;
+  pointer-events: none;
   touch-action: pan-y;
   transform: translateZ(0);
+  will-change: transform;
 }
 
 .market-ticker__widget {

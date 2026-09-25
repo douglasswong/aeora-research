@@ -25,7 +25,7 @@ export function ConnectPathways({ pathways, contactHref }: ConnectPathwaysProps)
           observer.disconnect();
         }
       },
-      { threshold: 0.35 }
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
     );
 
     observer.observe(panel);

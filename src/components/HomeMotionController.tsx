@@ -32,33 +32,52 @@ export function HomeMotionController() {
 
     root.dataset.homeMotion = "observer";
 
-    for (const [index, target] of targets.entries()) {
-      target.dataset.homeReveal = "pending";
-      target.style.setProperty("--home-reveal-delay", `${(index % 4) * 70}ms`);
-    }
+    let observer: IntersectionObserver | undefined;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) {
-            continue;
-          }
+    const observeEntrances = () => {
+      observer?.disconnect();
 
-          const target = entry.target as HTMLElement;
-          target.dataset.homeReveal = "revealed";
-          observer.unobserve(target);
-        }
-      },
-      {
-        rootMargin: "0px 0px -12% 0px",
-        threshold: 0.08
+      for (const [index, target] of targets.entries()) {
+        target.dataset.homeReveal = "pending";
+        target.style.setProperty("--home-reveal-delay", `${(index % 4) * 70}ms`);
       }
-    );
 
-    targets.forEach((target) => observer.observe(target));
+      observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) {
+              continue;
+            }
+
+            const target = entry.target as HTMLElement;
+            target.dataset.homeReveal = "revealed";
+            observer?.unobserve(target);
+          }
+        },
+        {
+          // A light threshold remains dependable with a short mobile viewport,
+          // the expanded header, and the fixed market ticker all in view.
+          rootMargin: "0px 0px -6% 0px",
+          threshold: 0.02
+        }
+      );
+
+      targets.forEach((target) => observer?.observe(target));
+    };
+
+    observeEntrances();
+
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        observeEntrances();
+      }
+    };
+
+    window.addEventListener("pageshow", handlePageShow);
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("pageshow", handlePageShow);
+      observer?.disconnect();
     };
   }, []);
 
