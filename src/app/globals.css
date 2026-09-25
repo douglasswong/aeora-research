@@ -18,7 +18,7 @@
   --font-sans: "Aptos", "Inter", "Segoe UI", system-ui, sans-serif;
   --container: 1120px;
   --header-height: 76px;
-  --market-ticker-height: 76px;
+  --market-ticker-height: 64px;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -95,31 +95,18 @@ a {
   overflow: clip;
 }
 
-/* A compact timeline marker for long-form destination pages. */
-@keyframes site-reading-progress {
-  from {
-    transform: scaleX(0);
-  }
-
-  to {
-    transform: scaleX(1);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  @supports (animation-timeline: scroll()) {
-    .site-shell--reading-progress .site-header::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 2px;
-      background: var(--aeora-mint);
-      transform-origin: left;
-      pointer-events: none;
-      animation: site-reading-progress linear both;
-      animation-timeline: scroll(root block);
-    }
-  }
+/* Use a JavaScript-updated transform so the marker works in mobile browsers
+   that do not yet implement scroll-driven CSS animations. */
+.site-shell--reading-progress .site-header::after,
+.home-page .site-header::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: var(--aeora-mint);
+  content: "";
+  pointer-events: none;
+  transform: scaleX(var(--site-reading-progress, 0));
+  transform-origin: left;
 }
 
 .section {
@@ -4682,14 +4669,22 @@ a {
   min-height: var(--market-ticker-height);
   border-top: 1px solid var(--aeora-line);
   background: var(--aeora-offwhite);
+  contain: layout paint;
+  isolation: isolate;
+  touch-action: pan-y;
+  transform: translateZ(0);
 }
 
 .market-ticker__widget {
+  height: var(--market-ticker-height);
   min-height: var(--market-ticker-height);
+  overflow: hidden;
 }
 
 .market-ticker__widget tv-ticker-tape {
   display: block;
+  min-height: var(--market-ticker-height);
+  transform: translateZ(0);
 }
 
 .site-footer__inner {
@@ -5956,7 +5951,34 @@ a {
 @media (max-width: 720px) {
   :root {
     --header-height: 128px;
+    --market-ticker-height: 56px;
     --section-y: 82px;
+  }
+
+  /* Preserve intentional entrances on mobile while avoiding dozens of
+     decorative loops competing with touch scrolling and the fixed ticker. */
+  @media (prefers-reduced-motion: no-preference) {
+    .market-field__candle,
+    .market-field__fib-level,
+    .market-context-field__grid,
+    .market-context-field__candle,
+    .market-context-field__candle span,
+    .market-context-field__trace,
+    .market-context-field__cursor,
+    .market-context-field__ladder-row,
+    .market-context-field__bid::after,
+    .market-context-field__ask::after,
+    .market-context-field__flow--one,
+    .market-context-field__flow--two,
+    .market-context-field__reading--two {
+      animation: none;
+    }
+
+    .market-field__scan,
+    .market-field__trace--one,
+    .market-field__trace--two {
+      animation-duration: 11s;
+    }
   }
 
   .section__inner {

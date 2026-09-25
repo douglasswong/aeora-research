@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ABOUT_NAV_ITEM,
@@ -14,22 +14,54 @@ import {
 import { BrandLockup } from "@/components/BrandLockup";
 
 export function Header() {
+  const headerRef = useRef<HTMLElement | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
+    let frameId = 0;
+
+    const updateHeader = () => {
+      const documentElement = document.documentElement;
+      const scrollableHeight = Math.max(
+        documentElement.scrollHeight - documentElement.clientHeight,
+        1
+      );
+      const progress = Math.min(Math.max(window.scrollY / scrollableHeight, 0), 1);
+
+      headerRef.current?.style.setProperty("--site-reading-progress", `${progress}`);
+      setIsScrolled((wasScrolled) => {
+        const nextIsScrolled = window.scrollY > 12;
+        return wasScrolled === nextIsScrolled ? wasScrolled : nextIsScrolled;
+      });
+      frameId = 0;
+    };
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 12);
+      if (frameId) {
+        return;
+      }
+
+      frameId = window.requestAnimationFrame(updateHeader);
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+
+      if (frameId) {
+        window.cancelAnimationFrame(frameId);
+      }
+    };
   }, []);
 
   return (
     <header
+      ref={headerRef}
       className={`site-header ${isScrolled ? "site-header--scrolled" : ""}`}
     >
       <div className="site-header__inner">

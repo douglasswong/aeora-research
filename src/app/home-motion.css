@@ -1,9 +1,3 @@
-/* Native scroll timelines keep motion tied to reading without scroll handlers. */
-@keyframes home-reading-progress {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
 @keyframes home-editorial-enter {
   from { opacity: 0.35; translate: 0 24px; }
   to { opacity: 1; translate: 0 0; }
@@ -51,6 +45,18 @@
   }
 }
 
+@keyframes home-observer-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .home-page .hero-brand__word {
     will-change: clip-path, opacity, transform;
@@ -62,59 +68,26 @@
     animation: home-brand-strip-enter 520ms var(--ease-out) 600ms both;
   }
 
-  @supports (animation-timeline: scroll()) {
-    .home-page .site-header::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 2px;
-      background: #31EDAE;
-      transform-origin: left;
-      pointer-events: none;
-      animation: home-reading-progress linear both;
-      animation-timeline: scroll(root block);
-    }
+  .home-page[data-home-motion="observer"] [data-home-reveal="pending"] {
+    opacity: 0;
+    transform: translateY(18px);
   }
 
-  @supports (animation-timeline: view()) {
-    .home-page .about__body {
-      animation: home-editorial-enter linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 85%;
-    }
+  .home-page[data-home-motion="observer"] [data-home-reveal="revealed"] {
+    animation: home-observer-enter 560ms var(--ease-out) var(--home-reveal-delay, 0ms) both;
+  }
 
-    .home-page .pillar-card {
-      will-change: clip-path, opacity, transform;
-      animation: home-pillar-block-enter linear both;
-      animation-timeline: view();
-      animation-range: entry 0% entry 72%;
-    }
+  .home-page[data-home-motion="observer"] .pillar-card[data-home-reveal="revealed"] {
+    will-change: clip-path, opacity, transform;
+    animation-name: home-pillar-block-enter;
+  }
 
-    .home-page .pillar-card:nth-child(2) {
-      animation-range: entry 8% entry 84%;
-    }
+  .home-page[data-home-motion="observer"] .partner-group[data-home-reveal="revealed"] {
+    animation-duration: 500ms;
+  }
 
-    .home-page .pillar-card:nth-child(3) {
-      animation-range: entry 16% entry 96%;
-    }
-
-    .home-page #positioning-title,
-    .home-page #about-title,
-    .home-page #connect-title {
-      color: rgba(13, 20, 27, 0.45);
-      background-image: linear-gradient(var(--aeora-ink), var(--aeora-ink));
-      background-repeat: no-repeat;
-      background-clip: text;
-      -webkit-background-clip: text;
-      animation: home-heading-ink linear both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 35%;
-    }
-
-    .home-page .positioning__accent {
-      color: var(--aeora-mint);
-      background: none;
-      -webkit-text-fill-color: currentColor;
-    }
+  .home-page[data-home-motion="observer"] .positioning__accent {
+    color: var(--aeora-mint);
+    -webkit-text-fill-color: currentColor;
   }
 }

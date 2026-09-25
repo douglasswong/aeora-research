@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import "./home-motion.css";
 import { ConnectPathways } from "@/components/ConnectPathways";
+import { HomeMotionController } from "@/components/HomeMotionController";
 import { MarketField } from "@/components/MarketField";
 import { MarketContextField } from "@/components/MarketContextField";
 import { NumbersSection } from "@/components/NumbersSection";
@@ -79,6 +80,7 @@ export default function Home() {
       </a>
       <div id="top" className="site-shell home-page">
         <Header />
+        <HomeMotionController />
         <main id="main">
           <section className="hero section" aria-labelledby="hero-title">
             <div className="section__inner hero__inner">
