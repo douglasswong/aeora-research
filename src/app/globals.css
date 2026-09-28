@@ -7375,8 +7375,8 @@ a {
 
 .research-archive a {
   display: grid;
-  grid-template-columns: minmax(86px, 0.24fr) minmax(0, 1fr) minmax(160px, 0.34fr);
-  gap: 24px;
+  grid-template-columns: minmax(74px, 0.16fr) minmax(0, 1fr) minmax(136px, 0.2fr);
+  gap: clamp(16px, 1.6vw, 24px);
   align-items: center;
   padding: 24px 0;
 }
@@ -7400,13 +7400,24 @@ a {
   gap: 8px;
 }
 
+.research-archive__meta time {
+  color: rgba(13, 20, 27, 0.9);
+  font-weight: 800;
+}
+
 .research-archive__detail strong {
   color: var(--aeora-ink);
   font-family: var(--font-display);
-  font-size: clamp(1.28rem, 2.1vw, 1.78rem);
+  font-size: clamp(1.05rem, 1.35vw, 1.32rem);
   font-weight: 350;
   letter-spacing: 0;
-  line-height: 1.15;
+  line-height: 1.2;
+}
+
+@media (min-width: 1080px) {
+  .research-archive__detail strong {
+    white-space: nowrap;
+  }
 }
 
 .research-archive__action {

@@ -101,8 +101,11 @@ export default function ResearchPage() {
                         Note {article.noteNumber}
                       </span>
                       <span className="research-archive__detail">
-                        <span>
-                          {article.category} / {article.displayDate}
+                        <span className="research-archive__meta">
+                          {article.category} /{" "}
+                          <time dateTime={article.publishedAt}>
+                            {article.displayDate}
+                          </time>
                         </span>
                         <strong>{article.title}</strong>
                       </span>
