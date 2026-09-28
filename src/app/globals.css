@@ -11067,7 +11067,11 @@ a {
   }
 
   .dng-hero__content h1 {
-    font-size: clamp(2.45rem, 11.2cqi, 3.1rem);
+    font-size: clamp(2.2rem, 10cqi, 3rem);
+  }
+
+  .dng-hero__content h1 span:last-child {
+    white-space: nowrap;
   }
 
   .dng-hero__content > p:not(.section-kicker) {
