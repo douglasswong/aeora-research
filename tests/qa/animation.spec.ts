@@ -81,6 +81,41 @@ test("trader development cards use observer-backed entrances", async ({ page }) 
   await expect(firstCard).toHaveCSS("animation-name", "why-item-enter");
 });
 
+test("courses panels use observer-backed entrances", async ({ page }) => {
+  await openPage(page, "/courses");
+
+  const courses = page.locator(".courses-page");
+  await expect(courses).toHaveAttribute("data-page-motion", "observer");
+
+  const heroField = page.locator(".courses-hero__field");
+  await expect(heroField).toHaveAttribute("data-page-reveal", "revealed");
+  await expectFullyRevealed(heroField);
+  await expect(heroField).toHaveCSS("animation-name", "courses-section-enter");
+
+  await expect(page.locator(".courses-hero__title span").first()).toHaveCSS(
+    "animation-name",
+    "courses-hero-copy-enter"
+  );
+
+  const firstCourse = page.locator(".courses-card").first();
+  await firstCourse.scrollIntoViewIfNeeded();
+  await expect(firstCourse).toHaveAttribute("data-page-reveal", "revealed");
+  await expectFullyRevealed(firstCourse);
+  await expect(firstCourse).toHaveCSS("animation-name", "courses-section-enter");
+});
+
+test("motion-reduced course content remains visible", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openPage(page, "/courses");
+
+  await expect(page.locator(".courses-page")).toHaveAttribute(
+    "data-page-motion",
+    "reduced"
+  );
+  await expect(page.locator(".courses-card").first()).toBeVisible();
+  await expect(page.locator(".courses-pricing__card").first()).toBeVisible();
+});
+
 test("event campaign sections use observer-backed entrances", async ({ page }) => {
   await openPage(page, "/atfx-wtc");
 

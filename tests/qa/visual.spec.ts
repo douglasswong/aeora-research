@@ -9,6 +9,23 @@ import {
   watchBrowserIssues
 } from "./helpers";
 
+test.beforeEach(async ({ page }) => {
+  await page.route("https://widgets.tradingview-widget.com/**", (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: "application/javascript",
+      body: ""
+    })
+  );
+  await page.route(/https:\/\/www\.google\.com\/maps\/embed.*/, (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: "text/html",
+      body: "<!doctype html><title>Map preview</title>"
+    })
+  );
+});
+
 for (const viewport of viewports) {
   test(`${viewport.label} pages are aligned without horizontal overflow`, async ({ page }, testInfo) => {
     test.setTimeout(90_000);

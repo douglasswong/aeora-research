@@ -76,6 +76,8 @@ export const OTHER_SERVICES_NAV_ITEM = {
   href: "/dngconsultation"
 } as const;
 
+export const COURSES_NAV_ITEM = { label: "Courses", href: "/courses" } as const;
+
 export const DNG_CONSULTATION_CONTACT_URL =
   "https://forms.gle/5JtxMrrjjSH7bHj18";
 
@@ -287,7 +289,8 @@ export const FOOTER_NAV_ITEMS = [
   RESEARCH_NAV_ITEM,
   TRADER_DEVELOPMENT_NAV_ITEM,
   EVENT_NAV_ITEM,
-  OTHER_SERVICES_NAV_ITEM
+  OTHER_SERVICES_NAV_ITEM,
+  COURSES_NAV_ITEM
 ] as const;
 
 export const PILLARS = [
