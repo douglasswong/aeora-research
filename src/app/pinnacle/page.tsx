@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { PinnacleGallery } from "@/components/PinnacleGallery";
+import { ScrollRevealController } from "@/components/ScrollRevealController";
 import { SiteFooter } from "@/components/SiteFooter";
 import {
   SITE_URL,
@@ -38,6 +39,8 @@ const WHY_US = [
   }
 ] as const;
 
+const PINNACLE_REVEAL_SELECTORS = [".pinnacle-why__item"] as const;
+
 export const metadata: Metadata = {
   title: "Aeora Trader Development | Professional Trading Programme",
   description: `The latest Aeora Trader Development intake concluded on ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}, with a small-class training-room format.`,
@@ -62,6 +65,10 @@ export default function PinnaclePage() {
         className="site-shell site-shell--reading-progress pinnacle-page"
       >
         <Header />
+        <ScrollRevealController
+          rootSelector=".pinnacle-page"
+          revealSelectors={PINNACLE_REVEAL_SELECTORS}
+        />
         <main id="main">
           <section className="pinnacle-hero" aria-labelledby="pinnacle-title">
             <div className="section__inner pinnacle-hero__inner">

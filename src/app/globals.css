@@ -1792,51 +1792,6 @@ a {
     animation: wtc-banner-scan 5.8s ease-in-out infinite;
   }
 
-  @supports (animation-timeline: view()) {
-    .wtc-region__heading,
-    .wtc-region__banner,
-    .wtc-heading {
-      animation: wtc-scroll-reveal linear both;
-      animation-timeline: view();
-      animation-range: entry 8% cover 30%;
-    }
-
-    .wtc-route__stage {
-      animation: wtc-stage-enter linear both;
-      animation-timeline: view();
-      animation-range: entry 8% cover 27%;
-    }
-
-    .wtc-route__stage:nth-child(2) {
-      animation-range: entry 12% cover 31%;
-    }
-
-    .wtc-route__stage:nth-child(3) {
-      animation-range: entry 16% cover 35%;
-    }
-
-    .wtc-prizes__summary > div {
-      animation: wtc-prize-row-enter linear both;
-      animation-timeline: view();
-      animation-range: entry 8% cover 26%;
-    }
-
-    .wtc-prizes__summary > div:nth-child(2) {
-      animation-range: entry 12% cover 30%;
-    }
-
-    .wtc-prizes__final {
-      animation-range: entry 14% cover 34%;
-    }
-
-    .wtc-prizes__final::before {
-      animation: wtc-prize-line-draw linear both;
-      animation-timeline: view();
-      animation-range: entry 14% cover 36%;
-    }
-
-  }
-
   .wtc-prize-counter.is-active::after {
     animation: wtc-counter-charge var(--wtc-counter-duration) var(--ease-out)
       both;
@@ -3991,6 +3946,46 @@ a {
   margin-bottom: 0;
 }
 
+/* IntersectionObserver-backed entrances keep the campaign motion consistent
+   in iOS WebKit versions that do not fully implement view timelines. */
+.wtc-page[data-page-motion="observer"] .wtc-region__heading[data-page-reveal="pending"],
+.wtc-page[data-page-motion="observer"] .wtc-region__banner[data-page-reveal="pending"],
+.wtc-page[data-page-motion="observer"] .wtc-heading[data-page-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.wtc-page[data-page-motion="observer"] .wtc-route__stage[data-page-reveal="pending"] {
+  opacity: 0;
+  transform: translateX(-18px);
+}
+
+.wtc-page[data-page-motion="observer"] .wtc-prizes__summary > div[data-page-reveal="pending"] {
+  opacity: 0;
+  transform: translateX(24px);
+}
+
+.wtc-page[data-page-motion="observer"] .wtc-region__heading[data-page-reveal="revealed"],
+.wtc-page[data-page-motion="observer"] .wtc-region__banner[data-page-reveal="revealed"],
+.wtc-page[data-page-motion="observer"] .wtc-heading[data-page-reveal="revealed"] {
+  will-change: opacity, transform;
+  animation: wtc-scroll-reveal 620ms var(--ease-out) var(--page-reveal-delay, 0ms) both;
+}
+
+.wtc-page[data-page-motion="observer"] .wtc-route__stage[data-page-reveal="revealed"] {
+  will-change: opacity, transform;
+  animation: wtc-stage-enter 620ms var(--ease-out) var(--page-reveal-delay, 0ms) both;
+}
+
+.wtc-page[data-page-motion="observer"] .wtc-prizes__summary > div[data-page-reveal="revealed"] {
+  will-change: opacity, transform;
+  animation: wtc-prize-row-enter 620ms var(--ease-out) var(--page-reveal-delay, 0ms) both;
+}
+
+.wtc-page[data-page-motion="observer"] .wtc-prizes__final[data-page-reveal="revealed"]::before {
+  animation: wtc-prize-line-draw 640ms var(--ease-out) var(--page-reveal-delay, 0ms) both;
+}
+
 .about .section-kicker {
   margin-bottom: 10px;
 }
@@ -5374,30 +5369,6 @@ a {
   }
 
   @supports (animation-timeline: view()) {
-    .pinnacle-why__item {
-      animation: why-item-enter linear both;
-      animation-range: entry 5% cover 30%;
-      animation-timeline: view();
-    }
-
-    .pinnacle-why__item:nth-child(2) {
-      animation-range: entry 8% cover 33%;
-    }
-
-    .pinnacle-why__item:nth-child(3) {
-      animation-range: entry 11% cover 36%;
-    }
-
-    .pinnacle-why__item:nth-child(4) {
-      animation-range: entry 14% cover 39%;
-    }
-
-    .pinnacle-why__item:nth-child(5) {
-      animation-range: entry 17% cover 42%;
-    }
-  }
-
-  @supports (animation-timeline: view()) {
     .parallax-slider {
       view-timeline-axis: block;
       view-timeline-name: --aeora-slider;
@@ -5497,6 +5468,20 @@ a {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Use the shared observer rather than a CSS view timeline so the cards retain
+   their entrance on iOS WebKit releases without that timeline API. */
+.pinnacle-page[data-page-motion="observer"]
+  .pinnacle-why__item[data-page-reveal="pending"] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+.pinnacle-page[data-page-motion="observer"]
+  .pinnacle-why__item[data-page-reveal="revealed"] {
+  will-change: opacity, transform;
+  animation: why-item-enter 620ms var(--ease-out) var(--page-reveal-delay, 0ms) both;
 }
 
 @keyframes connect-cta-ascent {
@@ -5957,29 +5942,38 @@ a {
     --section-y: 82px;
   }
 
-  /* Preserve intentional entrances on mobile while avoiding dozens of
-     decorative loops competing with touch scrolling and the fixed ticker. */
+  /* The ticker is desktop-only, so keep the editorial market field alive on
+     touch devices at a measured cadence rather than stopping it entirely. */
   @media (prefers-reduced-motion: no-preference) {
     .market-field__candle,
-    .market-field__fib-level,
+    .market-field__fib-level {
+      animation-duration: 6.6s;
+    }
+
     .market-context-field__grid,
+    .market-field__scan,
+    .market-field__trace--one,
+    .market-field__trace--two {
+      animation-duration: 11s;
+    }
+
     .market-context-field__candle,
-    .market-context-field__candle span,
     .market-context-field__trace,
     .market-context-field__cursor,
     .market-context-field__ladder-row,
     .market-context-field__bid::after,
     .market-context-field__ask::after,
-    .market-context-field__flow--one,
-    .market-context-field__flow--two,
     .market-context-field__reading--two {
-      animation: none;
+      animation-duration: 4.8s;
     }
 
-    .market-field__scan,
-    .market-field__trace--one,
-    .market-field__trace--two {
-      animation-duration: 11s;
+    .market-context-field__candle span {
+      animation-duration: 2.6s;
+    }
+
+    .market-context-field__flow--one,
+    .market-context-field__flow--two {
+      animation-duration: 6.8s;
     }
   }
 

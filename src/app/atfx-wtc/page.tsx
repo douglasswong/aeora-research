@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Header } from "@/components/Header";
 import { PrizeCounter } from "@/components/PrizeCounter";
+import { ScrollRevealController } from "@/components/ScrollRevealController";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SITE_URL } from "@/lib/site";
 
@@ -60,6 +61,14 @@ const POSTERS = [
   }
 ] as const;
 
+const WTC_REVEAL_SELECTORS = [
+  ".wtc-region__heading",
+  ".wtc-region__banner",
+  ".wtc-heading",
+  ".wtc-route__stage",
+  ".wtc-prizes__summary > div"
+] as const;
+
 export const metadata: Metadata = {
   title: "ATFX World Trading Cup 2026 | Register via Aeora Research",
   description:
@@ -95,6 +104,10 @@ export default function WorldTradingCupPage() {
         className="site-shell site-shell--reading-progress wtc-page"
       >
         <Header />
+        <ScrollRevealController
+          rootSelector=".wtc-page"
+          revealSelectors={WTC_REVEAL_SELECTORS}
+        />
         <main id="main">
           <section className="wtc-hero" aria-labelledby="wtc-title">
             <Image

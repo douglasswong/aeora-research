@@ -36,6 +36,16 @@ test("mobile homepage uses observer-driven reveals without the desktop ticker", 
   await expect
     .poll(() => firstPillar.evaluate((element) => Number(getComputedStyle(element).opacity)))
     .toBeGreaterThan(0.98);
+  await expect(firstPillar).toHaveCSS("animation-name", "home-pillar-block-enter");
+
+  await expect(page.locator(".market-field__candle").first()).toHaveCSS(
+    "animation-name",
+    "field-candle-pulse"
+  );
+  await expect(page.locator(".market-context-field__trace")).toHaveCSS(
+    "animation-name",
+    "context-field-trace"
+  );
 
   const numbers = page.locator(".numbers");
   await numbers.scrollIntoViewIfNeeded();
@@ -58,21 +68,44 @@ test("mobile homepage uses observer-driven reveals without the desktop ticker", 
     .toBeGreaterThan(0);
 });
 
-test("trader development cards become visible when read", async ({ page }) => {
+test("trader development cards use observer-backed entrances", async ({ page }) => {
   await openPage(page, "/pinnacle");
 
-  await expectFullyRevealed(page.locator(".pinnacle-why__item").first());
+  const pinnacle = page.locator(".pinnacle-page");
+  await expect(pinnacle).toHaveAttribute("data-page-motion", "observer");
+
+  const firstCard = page.locator(".pinnacle-why__item").first();
+  await firstCard.scrollIntoViewIfNeeded();
+  await expect(firstCard).toHaveAttribute("data-page-reveal", "revealed");
+  await expectFullyRevealed(firstCard);
+  await expect(firstCard).toHaveCSS("animation-name", "why-item-enter");
 });
 
-test("event campaign sections become visible when read", async ({ page }) => {
+test("event campaign sections use observer-backed entrances", async ({ page }) => {
   await openPage(page, "/atfx-wtc");
 
-  for (const selector of [
-    ".wtc-region__heading",
-    ".wtc-region__banner",
-    ".wtc-route__stage",
-    ".wtc-prizes__summary > div"
+  const campaign = page.locator(".wtc-page");
+  await expect(campaign).toHaveAttribute("data-page-motion", "observer");
+
+  for (const { selector, animationName } of [
+    { selector: ".wtc-region__heading", animationName: "wtc-scroll-reveal" },
+    { selector: ".wtc-region__banner", animationName: "wtc-scroll-reveal" },
+    { selector: ".wtc-route__stage", animationName: "wtc-stage-enter" },
+    { selector: ".wtc-prizes__summary > div", animationName: "wtc-prize-row-enter" }
   ]) {
-    await expectFullyRevealed(page.locator(selector).first());
+    const element = page.locator(selector).first();
+    await element.scrollIntoViewIfNeeded();
+    await expect(element).toHaveAttribute("data-page-reveal", "revealed");
+    await expectFullyRevealed(element);
+    await expect(element).toHaveCSS("animation-name", animationName);
   }
+});
+
+test("motion-reduced campaign content remains visible", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openPage(page, "/atfx-wtc");
+
+  await expect(page.locator(".wtc-page")).toHaveAttribute("data-page-motion", "reduced");
+  await expect(page.locator(".wtc-region__heading").first()).toBeVisible();
+  await expect(page.locator(".wtc-route__stage").first()).toBeVisible();
 });

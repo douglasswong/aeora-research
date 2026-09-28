@@ -1,6 +1,7 @@
 import { defineConfig } from "@playwright/test";
 
 const baseURL = process.env.QA_BASE_URL ?? "http://127.0.0.1:3110";
+const browserName = process.env.QA_BROWSER === "webkit" ? "webkit" : "chromium";
 
 export default defineConfig({
   testDir: "./tests/qa",
@@ -18,8 +19,8 @@ export default defineConfig({
   ],
   use: {
     baseURL,
-    browserName: "chromium",
-    channel: "chrome",
+    browserName,
+    ...(browserName === "chromium" ? { channel: "chrome" } : {}),
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     video: "retain-on-failure"
