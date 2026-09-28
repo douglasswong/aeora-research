@@ -9155,14 +9155,14 @@ a {
 }
 
 .pinnacle-hero {
-  padding-block: clamp(46px, 6vw, 88px);
+  padding: clamp(22px, 2.8vw, 40px) 0 clamp(50px, 5vw, 72px);
   border-bottom: 1px solid var(--aeora-line);
 }
 
 .pinnacle-hero__inner {
   display: grid;
   grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
-  align-items: center;
+  align-items: stretch;
   border-top: 1px solid rgba(13, 20, 27, 0.28);
   border-bottom: 1px solid var(--aeora-line);
 }
@@ -9170,8 +9170,7 @@ a {
 .pinnacle-hero__cover {
   position: relative;
   width: 100%;
-  min-height: 0;
-  aspect-ratio: 4 / 5;
+  min-height: 100%;
   overflow: hidden;
   background: #050a0e;
 }
@@ -9185,7 +9184,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: clamp(38px, 4.5vw, 64px);
+  padding: clamp(30px, 3.6vw, 50px);
   border-left: 1px solid var(--aeora-line);
 }
 
@@ -9202,27 +9201,41 @@ a {
 
 .pinnacle-hero__content h1 {
   max-width: 690px;
-  margin-top: 22px;
+  margin-top: 18px;
   font-size: clamp(3rem, 4.6vw, 4.8rem);
 }
 
 .pinnacle-hero__content > p:not(.section-kicker) {
   max-width: 545px;
-  margin: 26px 0 0;
+  margin: 22px 0 0;
   color: rgba(13, 20, 27, 0.66);
   font-size: clamp(1rem, 1.4vw, 1.1rem);
   line-height: 1.75;
 }
 
+.pinnacle-intakes {
+  display: grid;
+  max-width: 720px;
+  margin-top: 28px;
+}
+
 .pinnacle-intake {
   display: grid;
-  grid-template-columns: minmax(160px, 0.46fr) minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: minmax(150px, 0.42fr) minmax(0, 1fr);
+  gap: 24px;
   align-items: center;
-  max-width: 720px;
-  margin-top: 34px;
-  padding: 24px 0;
+  padding: 18px 0;
   border-top: 1px solid rgba(13, 20, 27, 0.24);
+}
+
+.pinnacle-intake--upcoming {
+  border-bottom: 1px solid rgba(13, 20, 27, 0.16);
+}
+
+.pinnacle-intake--history {
+  grid-template-columns: minmax(132px, 0.3fr) minmax(0, 0.7fr);
+  padding: 14px 0 18px;
+  border-top: 0;
   border-bottom: 1px solid rgba(13, 20, 27, 0.16);
 }
 
@@ -9235,10 +9248,10 @@ a {
 
 .pinnacle-intake__status {
   display: grid;
-  gap: 12px;
+  gap: 8px;
   align-content: center;
   border-right: 1px solid rgba(13, 20, 27, 0.12);
-  padding-right: 24px;
+  padding-right: 20px;
 }
 
 .pinnacle-intake__status p,
@@ -9256,74 +9269,32 @@ a {
 .pinnacle-intake strong {
   color: var(--aeora-ink);
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 3.4vw, 3.15rem);
+  font-size: clamp(1.95rem, 2.8vw, 2.65rem);
   font-weight: 300;
   letter-spacing: 0;
   line-height: 0.94;
 }
 
-.pinnacle-intake__status-value {
-  display: grid;
-  gap: 6px;
-}
-
-.pinnacle-intake__status-value > span {
-  display: inline-flex;
-  width: fit-content;
-  align-items: center;
-  gap: 8px;
-  color: rgba(13, 20, 27, 0.64);
-  font-family: var(--font-display);
-  font-size: 0.64rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  line-height: 1.3;
-  white-space: nowrap;
-  text-transform: uppercase;
-}
-
-.pinnacle-intake__status-value > span::before {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--aeora-mint);
-  content: "";
-  flex: 0 0 auto;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .pinnacle-intake__status-value > span::before {
-    animation: pinnacle-availability-pulse 1.9s ease-out infinite;
-  }
-}
-
-@keyframes pinnacle-availability-pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(49, 237, 174, 0.42);
-    opacity: 0.72;
-  }
-
-  55% {
-    opacity: 1;
-  }
-
-  100% {
-    box-shadow: 0 0 0 7px rgba(49, 237, 174, 0);
-    opacity: 0.72;
-  }
-}
-
 .pinnacle-intake dl {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 20px;
+  gap: 18px;
+}
+
+.pinnacle-intake--history dl {
+  grid-template-columns: minmax(0, 240px);
+  gap: 0;
+}
+
+.pinnacle-intake--history strong {
+  font-size: clamp(1.45rem, 2.15vw, 2rem);
 }
 
 .pinnacle-intake dd {
-  margin-top: 8px;
+  margin-top: 6px;
   color: rgba(13, 20, 27, 0.72);
-  font-size: 0.9rem;
-  line-height: 1.55;
+  font-size: 0.86rem;
+  line-height: 1.5;
 }
 
 .pinnacle-intake dd span {
@@ -9338,7 +9309,7 @@ a {
   flex-wrap: wrap;
   gap: 12px;
   align-self: flex-start;
-  margin-top: 28px;
+  margin-top: 24px;
 }
 
 .pinnacle-hero__actions .button {
@@ -9506,6 +9477,47 @@ a {
   margin-top: 0;
 }
 
+.pinnacle-programme__interest-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-shadow: 0 7px 16px rgba(13, 20, 27, 0.12);
+}
+
+.pinnacle-programme__interest-button::after {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  background: linear-gradient(
+    108deg,
+    transparent 34%,
+    rgba(49, 237, 174, 0.26) 49%,
+    rgba(245, 247, 247, 0.22) 54%,
+    transparent 68%
+  );
+  transform: translateX(-112%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pinnacle-programme__interest-button::after {
+    animation: pinnacle-interest-shine 1.05s var(--ease-out) 520ms both;
+  }
+
+  @media (hover: hover) {
+    .pinnacle-programme__interest-button:hover::after {
+      animation: pinnacle-interest-shine 720ms var(--ease-out) both;
+    }
+  }
+}
+
+@keyframes pinnacle-interest-shine {
+  to {
+    transform: translateX(112%);
+  }
+}
+
 .pinnacle-programme__cta-signal {
   position: relative;
   display: block;
@@ -9604,7 +9616,7 @@ a {
 
 .pinnacle-why {
   position: relative;
-  padding-block: clamp(90px, 11vw, 150px);
+  padding-block: clamp(64px, 7.5vw, 96px);
   border-top: 1px solid var(--aeora-line);
   border-bottom: 1px solid var(--aeora-line);
   background: var(--aeora-offwhite);
@@ -9616,7 +9628,7 @@ a {
   grid-template-columns: minmax(160px, 0.55fr) minmax(0, 1.45fr);
   gap: clamp(30px, 6vw, 90px);
   align-items: end;
-  margin-bottom: clamp(52px, 6vw, 80px);
+  margin-bottom: clamp(34px, 4vw, 52px);
 }
 
 .pinnacle-why h2 {
@@ -9635,20 +9647,20 @@ a {
 .pinnacle-why__item {
   position: relative;
   display: grid;
-  grid-template-columns: 48px minmax(0, 1fr);
+  grid-template-columns: 36px minmax(0, 1fr);
   align-content: start;
-  column-gap: 22px;
+  column-gap: 18px;
   min-width: 0;
-  min-height: clamp(190px, 18vw, 246px);
-  padding: clamp(26px, 3vw, 42px);
+  min-height: clamp(144px, 13.6vw, 188px);
+  padding: clamp(22px, 2.3vw, 30px);
   background: var(--aeora-offwhite);
   transition: background-color 260ms var(--ease-out), transform 260ms var(--ease-out);
 }
 
 .pinnacle-why__item--pathways {
   grid-column: 1 / -1;
-  grid-template-columns: minmax(48px, 0.26fr) minmax(0, 1fr);
-  min-height: clamp(210px, 19vw, 274px);
+  grid-template-columns: minmax(36px, 0.18fr) minmax(0, 1fr);
+  min-height: clamp(170px, 15.5vw, 212px);
   align-items: end;
   background: var(--aeora-ink);
 }
@@ -9672,7 +9684,7 @@ a {
   margin: 0;
   color: var(--aeora-ink);
   font-family: var(--font-display);
-  font-size: clamp(1.8rem, 2.7vw, 2.7rem);
+  font-size: clamp(1.45rem, 2.2vw, 2.18rem);
   font-weight: 300;
   letter-spacing: 0;
   line-height: 1.02;
@@ -9680,18 +9692,18 @@ a {
 
 .pinnacle-why__item p {
   grid-column: 2;
-  max-width: 400px;
-  margin: 18px 0 0;
+  max-width: 360px;
+  margin: 14px 0 0;
   color: rgba(13, 20, 27, 0.68);
-  font-size: 0.96rem;
-  line-height: 1.65;
+  font-size: 0.88rem;
+  line-height: 1.58;
 }
 
 .pinnacle-why__item h3::after {
   display: block;
   width: 30px;
   height: 1px;
-  margin-top: 21px;
+  margin-top: 14px;
   content: "";
   background: var(--aeora-mint);
   transition: width 260ms var(--ease-out);
@@ -9700,7 +9712,7 @@ a {
 .pinnacle-why__item--pathways h3 {
   max-width: 660px;
   color: var(--aeora-offwhite);
-  font-size: clamp(2.25rem, 4.2vw, 4.15rem);
+  font-size: clamp(1.9rem, 3.2vw, 3.25rem);
 }
 
 .pinnacle-why__item--pathways p {
@@ -9970,6 +9982,7 @@ a {
     width: min(100%, 540px);
     justify-self: center;
     min-height: 0;
+    aspect-ratio: 4 / 5;
   }
 
   .pinnacle-hero__content {
@@ -10013,8 +10026,19 @@ a {
 
   .pinnacle-intake {
     grid-template-columns: 1fr;
-    gap: 22px;
-    margin-top: 34px;
+    gap: 18px;
+    padding-block: 16px;
+  }
+
+  .pinnacle-intakes {
+    margin-top: 26px;
+  }
+
+  .pinnacle-intake--history {
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    align-items: end;
+    gap: 16px;
+    padding-bottom: 18px;
   }
 
   .pinnacle-intake__status {
@@ -10023,6 +10047,17 @@ a {
     border-right: 0;
     border-bottom: 1px solid rgba(13, 20, 27, 0.12);
     padding: 0 0 20px;
+  }
+
+  .pinnacle-intake--history .pinnacle-intake__status {
+    display: block;
+    border-bottom: 0;
+    padding: 0;
+  }
+
+  .pinnacle-intake--history .pinnacle-intake__status strong {
+    display: block;
+    margin-top: 8px;
   }
 
   .pinnacle-intake dl {
@@ -10077,11 +10112,11 @@ a {
     grid-column: auto;
     grid-template-columns: 36px minmax(0, 1fr);
     min-height: 0;
-    padding: 28px 22px 30px;
+    padding: 22px 18px 24px;
   }
 
   .pinnacle-why__item--pathways h3 {
-    font-size: clamp(2.15rem, 10.4cqi, 3rem);
+    font-size: clamp(1.95rem, 9.4cqi, 2.65rem);
   }
 
   .pinnacle-gallery__event-header {

@@ -1,6 +1,5 @@
 import { expect, test } from "@playwright/test";
 import {
-  capturePage,
   expectNoHorizontalOverflow,
   openPage
 } from "./helpers";
@@ -17,7 +16,7 @@ test.beforeEach(async ({ page }) => {
 
 test("research archive keeps dates prominent and titles on one line at laptop width", async ({
   page
-}, testInfo) => {
+}) => {
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await openPage(page, "/research");
@@ -36,5 +35,4 @@ test("research archive keeps dates prominent and titles on one line at laptop wi
   expect(dateStyles.every((weight) => weight >= 700)).toBeTruthy();
   expect(titleWidths.every((title) => title.scrollWidth <= title.clientWidth + 1)).toBeTruthy();
   await expectNoHorizontalOverflow(page);
-  await capturePage(page, testInfo, "research-archive-laptop");
 });

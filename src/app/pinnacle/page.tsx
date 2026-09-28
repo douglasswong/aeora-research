@@ -8,7 +8,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import {
   SITE_URL,
   TRADER_DEVELOPMENT_INTAKE,
-  TRADER_DEVELOPMENT_INTEREST_URL
+  TRADER_DEVELOPMENT_INTEREST_URL,
+  TRADER_DEVELOPMENT_UPCOMING_INTAKE
 } from "@/lib/site";
 
 const WHY_US = [
@@ -89,35 +90,42 @@ export default function PinnaclePage() {
                   deliberate approach to market preparation, risk and
                   execution.
                 </p>
-                <div className="pinnacle-intake" aria-label="Latest programme intake">
-                  <div className="pinnacle-intake__status">
-                    <p>Latest intake</p>
-                    <div className="pinnacle-intake__status-value">
-                      <strong>{TRADER_DEVELOPMENT_INTAKE.status}</strong>
-                      {TRADER_DEVELOPMENT_INTAKE.availability ? (
-                        <span>
-                          ({TRADER_DEVELOPMENT_INTAKE.availability})
-                        </span>
-                      ) : null}
+                <div className="pinnacle-intakes" aria-label="Programme intake information">
+                  <div className="pinnacle-intake pinnacle-intake--upcoming">
+                    <div className="pinnacle-intake__status">
+                      <p>Upcoming intake</p>
+                      <strong>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.intake}</strong>
                     </div>
+                    <dl>
+                      <div>
+                        <dt>Proposed dates</dt>
+                        <dd>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates}</dd>
+                      </div>
+                      <div>
+                        <dt>Location</dt>
+                        <dd>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.location}</dd>
+                      </div>
+                      <div>
+                        <dt>Format</dt>
+                        <dd>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.format}</dd>
+                      </div>
+                    </dl>
                   </div>
-                  <dl>
-                    <div>
-                      <dt>Dates</dt>
-                      <dd>
-                        {TRADER_DEVELOPMENT_INTAKE.dates}
-                        <span>{TRADER_DEVELOPMENT_INTAKE.days}</span>
-                      </dd>
+                  <div className="pinnacle-intake pinnacle-intake--history">
+                    <div className="pinnacle-intake__status">
+                      <p>Latest intake</p>
+                      <strong>{TRADER_DEVELOPMENT_INTAKE.status}</strong>
                     </div>
-                    <div>
-                      <dt>Location</dt>
-                      <dd>{TRADER_DEVELOPMENT_INTAKE.location}</dd>
-                    </div>
-                    <div>
-                      <dt>Format</dt>
-                      <dd>{TRADER_DEVELOPMENT_INTAKE.format}</dd>
-                    </div>
-                  </dl>
+                    <dl>
+                      <div>
+                        <dt>Previous dates</dt>
+                        <dd>
+                          {TRADER_DEVELOPMENT_INTAKE.dates}
+                          <span>{TRADER_DEVELOPMENT_INTAKE.days}</span>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
                 </div>
                 <div className="pinnacle-hero__actions">
                   <a className="button button--primary" href="#programme">
@@ -202,7 +210,7 @@ export default function PinnaclePage() {
                     <span />
                   </span>
                   <a
-                    className="button button--primary"
+                    className="button button--primary pinnacle-programme__interest-button"
                     href={TRADER_DEVELOPMENT_INTEREST_URL}
                     target="_blank"
                     rel="noopener noreferrer"

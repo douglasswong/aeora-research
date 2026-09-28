@@ -40,6 +40,13 @@ export const TRADER_DEVELOPMENT_INTAKE = {
   format: "Small Class, Training Room"
 } as const;
 
+export const TRADER_DEVELOPMENT_UPCOMING_INTAKE = {
+  intake: "Q4 2026",
+  proposedDates: "Early November 2026",
+  location: "Kuala Lumpur, Malaysia",
+  format: "Small Class, Training Room"
+} as const;
+
 export const SITE_TITLE =
   "Aeora Research Malaysia | Market Intelligence & Prop Desk";
 
