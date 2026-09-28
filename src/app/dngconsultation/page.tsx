@@ -78,7 +78,11 @@ export default function DngConsultationPage() {
             <div className="section__inner dng-hero__inner">
               <div className="dng-hero__content">
                 <p className="section-kicker">Other services / D&amp;G Consultation</p>
-                <h1 id="dng-title">From Market Experience to Structured Wealth</h1>
+                <h1 id="dng-title">
+                  <span>From Market</span>{" "}
+                  <span>Experience to</span>{" "}
+                  <span>Structured Wealth</span>
+                </h1>
                 <p>
                   Under the same company umbrella, D&amp;G Consultation was founded in 2020 to bring together more than a decade of hands-on experience across trading, investing, financial markets and advisory work.
                 </p>
@@ -103,7 +107,10 @@ export default function DngConsultationPage() {
             <div className="section__inner">
               <div className="dng-services__heading">
                 <p className="section-kicker">What we also do</p>
-                <h2 id="dng-services-title">A more structured financial journey.</h2>
+                <h2 id="dng-services-title">
+                  <span>A more structured</span>{" "}
+                  <span>financial journey.</span>
+                </h2>
                 <p>
                   Clearer choices across earning, preservation, placement and the structures that support long-term financial progress.
                 </p>
