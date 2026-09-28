@@ -103,7 +103,6 @@ export function SiteFooter() {
                   {item.label}
                 </Link>
               ))}
-              <Link href="/#connect">Connect</Link>
             </nav>
           </div>
         </div>

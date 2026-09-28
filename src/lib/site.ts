@@ -78,6 +78,11 @@ export const OTHER_SERVICES_NAV_ITEM = {
 
 export const COURSES_NAV_ITEM = { label: "Courses", href: "/courses" } as const;
 
+export const KF_ONBOARDING_NAV_ITEM = {
+  label: "KF Onboarding",
+  href: "/guides/kenanga-futures-account-opening#before-you-begin"
+} as const;
+
 export const DNG_CONSULTATION_CONTACT_URL =
   "https://forms.gle/5JtxMrrjjSH7bHj18";
 
@@ -284,13 +289,13 @@ export type TeamMember = (typeof TEAM_MEMBERS)[number];
 
 export const FOOTER_NAV_ITEMS = [
   HOME_NAV_ITEM,
-  ABOUT_NAV_ITEM,
   TEAM_NAV_ITEM,
   RESEARCH_NAV_ITEM,
   TRADER_DEVELOPMENT_NAV_ITEM,
   EVENT_NAV_ITEM,
   OTHER_SERVICES_NAV_ITEM,
-  COURSES_NAV_ITEM
+  COURSES_NAV_ITEM,
+  KF_ONBOARDING_NAV_ITEM
 ] as const;
 
 export const PILLARS = [

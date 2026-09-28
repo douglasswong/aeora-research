@@ -79,8 +79,17 @@ test("courses catalogue and enrolment destinations remain complete", async ({ pa
   await expect(previewBooking).toHaveAttribute("target", "_blank");
   await expect(previewBooking).toHaveAttribute("rel", /noopener/);
 
-  const footerCourses = page.getByRole("link", { name: "Courses", exact: true });
+  const footerNav = page.getByRole("navigation", { name: "Footer navigation" });
+  const footerCourses = footerNav.getByRole("link", {
+    name: "Courses",
+    exact: true
+  });
   await expect(footerCourses).toHaveAttribute("href", "/courses");
+  await expect(
+    footerNav.getByRole("link", { name: "KF Onboarding", exact: true })
+  ).toHaveAttribute("href", "/guides/kenanga-futures-account-opening#before-you-begin");
+  await expect(footerNav.getByRole("link", { name: "About", exact: true })).toHaveCount(0);
+  await expect(footerNav.getByRole("link", { name: "Connect", exact: true })).toHaveCount(0);
 
   await expect(
     page.getByRole("heading", { name: "Programme and payment information" })
