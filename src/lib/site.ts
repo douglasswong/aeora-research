@@ -104,6 +104,7 @@ export type PinnacleGalleryEvent = {
   id: string;
   code: string;
   title: string;
+  description?: string;
   location: string;
   date: string;
   photos: readonly PinnacleGalleryItem[];
@@ -242,6 +243,99 @@ export const PINNACLE_GALLERY: readonly PinnacleGalleryEvent[] = [
         alt: "FIA Forum Kuala Lumpur 2026 venue and registration screen",
         caption: "Forum venue in Kuala Lumpur.",
         orientation: "portrait"
+      }
+    ]
+  },
+  {
+    id: "malaysia-50-plus-expo",
+    code: "Malaysia 50+ Expo 2024",
+    title: "Malaysia 50+ Expo",
+    description: "Our very first expo participation and experience with the team.",
+    location: "Penang Island, Malaysia",
+    date: "October 2024",
+    photos: [
+      {
+        src: "/pinnacle/gallery/malaysia-50-plus-expo-2024/certificate-of-appreciation.webp",
+        alt: "D&G Consultation team receiving a certificate of appreciation at the Malaysia 50+ Expo in Penang Island",
+        caption: "Receiving a certificate of appreciation at the Expo.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/malaysia-50-plus-expo-2024/expo-team.webp",
+        alt: "D&G Consultation team at the Malaysia 50+ Expo booth in Penang Island",
+        caption: "The team at the Malaysia 50+ Expo booth.",
+        orientation: "landscape"
+      }
+    ]
+  },
+  {
+    id: "at-global-wine-cheese",
+    code: "AT Global 2024",
+    title: "Wine and Cheese Session",
+    description:
+      "An afternoon red wine and market outlook session with AT Global, featuring Weems Chan, ATFX Global Head of Marketing, and Martin Lam, ATFX Chief Analyst, Asia Pacific.",
+    location: "Petaling Jaya, Malaysia",
+    date: "July 2024",
+    photos: [
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/session-group.webp",
+        alt: "AT Global guests and attendees gathered at the Wine and Cheese Session in Petaling Jaya",
+        caption: "Guests gathered for the Wine and Cheese Session.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/market-outlook-session.webp",
+        alt: "Attendees following the AT Global market outlook session",
+        caption: "Following the afternoon market outlook discussion.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/market-outlook-presentation.webp",
+        alt: "ATFX market outlook presentation during the Wine and Cheese Session",
+        caption: "Market outlook in discussion.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/wine-toast.webp",
+        alt: "Guests raising a toast during the Wine and Cheese Session",
+        caption: "A toast to the afternoon session.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/atfx-hosts.webp",
+        alt: "ATFX Global hosts at the Wine and Cheese Session",
+        caption: "Welcoming guests to the session.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/wine-and-cheese-board.webp",
+        alt: "Wine and cheese board prepared for session guests",
+        caption: "Wine and cheese prepared for guests.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/attendee-table.webp",
+        alt: "Guests seated at the Wine and Cheese Session",
+        caption: "Conversations around the table.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/market-outlook-table.webp",
+        alt: "Guests following a market outlook session with ATFX and Malaysian flags",
+        caption: "Market outlook with the session guests.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/wine-presentation.webp",
+        alt: "ATFX representatives presenting a bottle of wine during the session",
+        caption: "A moment from the wine presentation.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-wine-cheese-2024/market-outlook-conversation.webp",
+        alt: "Guests at the AT Global Wine and Cheese Session",
+        caption: "An afternoon of market conversation.",
+        orientation: "landscape"
       }
     ]
   }

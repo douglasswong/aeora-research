@@ -9266,6 +9266,11 @@ a {
   text-transform: uppercase;
 }
 
+.pinnacle-intake--upcoming .pinnacle-intake__status p,
+.pinnacle-intake--upcoming dt {
+  color: var(--aeora-mint-ink);
+}
+
 .pinnacle-intake strong {
   color: var(--aeora-ink);
   font-family: var(--font-display);
@@ -9828,6 +9833,14 @@ a {
   text-align: right;
 }
 
+.pinnacle-gallery__event-summary {
+  max-width: 760px;
+  margin: -14px 0 28px 50px;
+  color: rgba(13, 20, 27, 0.68);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
 .pinnacle-gallery__collage {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -10129,6 +10142,11 @@ a {
     grid-column: 2;
     justify-items: start;
     text-align: left;
+  }
+
+  .pinnacle-gallery__event-summary {
+    margin: -8px 0 24px 40px;
+    font-size: 0.9rem;
   }
 
   .pinnacle-gallery__collage {

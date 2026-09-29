@@ -52,6 +52,11 @@ export function PinnacleGallery() {
                 <span>{event.date}</span>
               </p>
             </header>
+            {event.description ? (
+              <p className="pinnacle-gallery__event-summary">
+                {event.description}
+              </p>
+            ) : null}
             <div className="pinnacle-gallery__collage">
               {event.photos.map((photo, photoIndex) => (
                 <button
