@@ -57,6 +57,16 @@ export function PinnacleGallery() {
                 {event.description}
               </p>
             ) : null}
+            {event.link ? (
+              <a
+                className="pinnacle-gallery__event-link"
+                href={event.link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {event.link.label}
+              </a>
+            ) : null}
             <div className="pinnacle-gallery__collage">
               {event.photos.map((photo, photoIndex) => (
                 <button

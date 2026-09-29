@@ -124,6 +124,10 @@ export default function PinnaclePage() {
                           <span>{TRADER_DEVELOPMENT_INTAKE.days}</span>
                         </dd>
                       </div>
+                      <div>
+                        <dt>Onboarding rate</dt>
+                        <dd>100%</dd>
+                      </div>
                     </dl>
                   </div>
                 </div>

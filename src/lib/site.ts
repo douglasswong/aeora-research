@@ -105,6 +105,10 @@ export type PinnacleGalleryEvent = {
   code: string;
   title: string;
   description?: string;
+  link?: {
+    label: string;
+    href: string;
+  };
   location: string;
   date: string;
   photos: readonly PinnacleGalleryItem[];
@@ -335,6 +339,116 @@ export const PINNACLE_GALLERY: readonly PinnacleGalleryEvent[] = [
         src: "/pinnacle/gallery/at-global-wine-cheese-2024/market-outlook-conversation.webp",
         alt: "Guests at the AT Global Wine and Cheese Session",
         caption: "An afternoon of market conversation.",
+        orientation: "landscape"
+      }
+    ]
+  },
+  {
+    id: "at-global-london-office",
+    code: "AT Global 2023",
+    title: "ATFX Office Visit",
+    description:
+      "ATFX Office Visit at Cornhill, the historic nucleus and financial centre of modern London, England. Hosted by Wei Qiang Zhang, Managing Director of ATFX Connect Global.",
+    location: "London, UK",
+    date: "October 2023",
+    photos: [
+      {
+        src: "/pinnacle/gallery/at-global-london-office-2023/cornhill-street.webp",
+        alt: "Visitor outside 32 Cornhill near the ATFX London office",
+        caption: "At Cornhill in the City of London.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-london-office-2023/royal-exchange-entrance.webp",
+        alt: "Visitor outside the Royal Exchange Buildings near ATFX at Cornhill",
+        caption: "Arriving at the Royal Exchange Buildings.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-london-office-2023/atfx-awards.webp",
+        alt: "ATFX awards and recognition on display at the London office",
+        caption: "ATFX awards and recognition.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-london-office-2023/london-office.webp",
+        alt: "Workstations inside the ATFX London office",
+        caption: "Inside the ATFX London office.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-london-office-2023/atfx-office-visit.webp",
+        alt: "Visitor meeting the ATFX team in the London office",
+        caption: "Meeting the ATFX team in London.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-london-office-2023/atfx-office-portrait.webp",
+        alt: "Visitor at the ATFX London office",
+        caption: "At the ATFX London office.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-london-office-2023/atfx-london-coffee.webp",
+        alt: "ATFX-branded coffee during the London office visit",
+        caption: "A pause during the office visit.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-london-office-2023/cornhill-directory.webp",
+        alt: "Directory listing ATFX at 32 Cornhill in London",
+        caption: "ATFX at 32 Cornhill.",
+        orientation: "portrait"
+      }
+    ]
+  },
+  {
+    id: "at-global-bangkok-doe",
+    code: "AT Global 2023",
+    title: "ATFX Office Visit & Duke of Edinburgh Cup",
+    description:
+      "An ATFX office visit in Bangkok alongside The Duke of Edinburgh Cup 2023 Bangkok Qualifier golf session.",
+    link: {
+      label: "Official Duke of Edinburgh Cup announcement",
+      href: "https://www.atfx.com/en/about-us/company-news/atfx-official-partner-duke-of-edinburgh-cup"
+    },
+    location: "Bangkok, Thailand",
+    date: "July 2023",
+    photos: [
+      {
+        src: "/pinnacle/gallery/at-global-bangkok-doe-2023/bangkok-office-01.webp",
+        alt: "ATFX visitors at the AT Global Solutions office reception in Bangkok",
+        caption: "Arriving at the AT Global Solutions office in Bangkok.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-bangkok-doe-2023/bangkok-office-02.webp",
+        alt: "ATFX team gathering during the Bangkok office visit",
+        caption: "Team gathering during the Bangkok office visit.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-bangkok-doe-2023/bangkok-office-03.webp",
+        alt: "ATFX representatives at the Duke of Edinburgh Cup 2023 Bangkok Qualifier",
+        caption: "At the Duke of Edinburgh Cup 2023 Bangkok Qualifier.",
+        orientation: "landscape"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-bangkok-doe-2023/bangkok-office-04.webp",
+        alt: "ATFX participant on the golf course at the Duke of Edinburgh Cup 2023 Bangkok Qualifier",
+        caption: "A moment on the golf course.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-bangkok-doe-2023/bangkok-office-05.webp",
+        alt: "AT Global Solutions office reception in Bangkok",
+        caption: "AT Global Solutions office reception.",
+        orientation: "portrait"
+      },
+      {
+        src: "/pinnacle/gallery/at-global-bangkok-doe-2023/doe-bangkok-golf-session.webp",
+        alt: "ATFX participants at the Duke of Edinburgh Cup 2023 Bangkok Qualifier",
+        caption: "The Duke of Edinburgh Cup 2023 Bangkok Qualifier.",
         orientation: "landscape"
       }
     ]

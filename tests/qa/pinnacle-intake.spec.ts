@@ -30,7 +30,11 @@ test("Pinnacle separates proposed and completed intake details", async ({ page }
   await expect(upcoming).toContainText("Small Class, Training Room");
   await expect(history).toContainText("Latest intake");
   await expect(history).toContainText("Ended");
-  await expect(history.locator("dt")).toHaveText("Previous dates");
+  await expect(history.locator("dt")).toHaveText([
+    "Previous dates",
+    "Onboarding rate"
+  ]);
+  await expect(history).toContainText("100%");
   await expect(history.getByText("Location", { exact: true })).toHaveCount(0);
   await expect(history.getByText("Format", { exact: true })).toHaveCount(0);
   await expect(registerInterest).toHaveText("Register interest");
