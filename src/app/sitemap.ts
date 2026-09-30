@@ -57,6 +57,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6
+    },
+    {
+      url: `${SITE_URL}/security`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6
     }
   ];
 

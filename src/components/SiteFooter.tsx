@@ -115,6 +115,9 @@ export function SiteFooter() {
             or guarantee of performance.
           </p>
           <div className="site-footer__legal-meta">
+            <Link className="site-footer__terms" href="/security">
+              Security &amp; Verification
+            </Link>
             <Link className="site-footer__terms" href="/terms-conditions">
               Terms &amp; Conditions
             </Link>

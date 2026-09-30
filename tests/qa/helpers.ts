@@ -10,6 +10,7 @@ export const responsivePages = [
   { label: "research", path: "/research" },
   { label: "courses", path: "/courses" },
   { label: "other-services", path: "/dngconsultation" },
+  { label: "security", path: "/security" },
   { label: "trader-readiness", path: "/trader-readiness" }
 ] as const;
 

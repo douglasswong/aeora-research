@@ -1,0 +1,5 @@
+# Aeora Research security contact information
+# For security and impersonation reports, contact our official support mailbox.
+Contact: mailto:support@aeora-research.com
+Canonical: https://aeora-research.com/.well-known/security.txt
+Preferred-Languages: en
