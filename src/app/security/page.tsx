@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { SiteFooter } from "@/components/SiteFooter";
-import { CONTACT_EMAIL, SITE_URL, SOCIAL_CHANNELS } from "@/lib/site";
+import {
+  CONTACT_EMAIL,
+  LINKEDIN_COMPANY_URL,
+  SITE_URL,
+  SOCIAL_CHANNELS
+} from "@/lib/site";
 
 const SENSITIVE_REQUESTS = [
   "Your banking password",
@@ -221,9 +226,13 @@ export default function SecurityPage() {
                       </li>
                     ))}
                     <li>
-                      <span className="security-channel__social-status">
-                        LinkedIn: To be set up soon.
-                      </span>
+                      <a
+                        href={LINKEDIN_COMPANY_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        LinkedIn
+                      </a>
                     </li>
                   </ul>
                   <p className="security-channel__note">

@@ -657,6 +657,9 @@ export const NUMBERS = [
   }
 ] as const;
 
+export const LINKEDIN_COMPANY_URL =
+  "https://www.linkedin.com/company/aeora-research/";
+
 export const SOCIAL_CHANNELS = [
   {
     label: "Instagram",
