@@ -11,7 +11,13 @@ import {
   whyMarketsRallySources
 } from "@/content/research/WhyMarketsRallyDespiteBadNews";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
+import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
+import {
+  GulfOilRiskPremiumArticle,
+  gulfOilRiskPremiumKeyPoints,
+  gulfOilRiskPremiumSources
+} from "@/content/research/GulfOilRiskPremium";
 import {
   NfpGoldLiquidityShockArticle,
   nfpGoldLiquidityShockKeyPoints,
@@ -123,6 +129,8 @@ export default async function ResearchArticlePage({
   }
 
   const isMarketsRallyArticle = article.slug === "why-markets-rally-despite-bad-news";
+  const isGulfOilRiskPremiumArticle =
+    article.slug === "why-oil-still-prices-risk-after-gulf-exports-recover";
   const isSawitEcoThermArticle =
     article.slug === "sawit-ecotherm-palm-oil-ai-data-centre-fcpo";
   const isWtiCrudeOilArticle =
@@ -131,7 +139,9 @@ export default async function ResearchArticlePage({
     article.slug === "warsh-fed-rate-hike-q4-2026-market-outlook";
   const isNfpGoldLiquidityShockArticle =
     article.slug === "why-gold-dropped-after-nfp-xauusd-liquidity-shock";
-  const keyPoints = isNfpGoldLiquidityShockArticle
+  const keyPoints = isGulfOilRiskPremiumArticle
+    ? gulfOilRiskPremiumKeyPoints
+    : isNfpGoldLiquidityShockArticle
     ? nfpGoldLiquidityShockKeyPoints
     : isWarshFedArticle
     ? warshFedQ42026KeyPoints
@@ -142,7 +152,9 @@ export default async function ResearchArticlePage({
     : isMarketsRallyArticle
       ? whyMarketsRallyKeyPoints
       : cmeSingleStockFuturesKeyPoints;
-  const sources = isNfpGoldLiquidityShockArticle
+  const sources = isGulfOilRiskPremiumArticle
+    ? gulfOilRiskPremiumSources
+    : isNfpGoldLiquidityShockArticle
     ? nfpGoldLiquidityShockSources
     : isWarshFedArticle
     ? warshFedQ42026Sources
@@ -153,7 +165,9 @@ export default async function ResearchArticlePage({
     : isMarketsRallyArticle
       ? whyMarketsRallySources
       : cmeSingleStockFuturesSources;
-  const content = isNfpGoldLiquidityShockArticle ? (
+  const content = isGulfOilRiskPremiumArticle ? (
+    <GulfOilRiskPremiumArticle />
+  ) : isNfpGoldLiquidityShockArticle ? (
     <NfpGoldLiquidityShockArticle />
   ) : isWarshFedArticle ? (
     <WarshFedQ42026OutlookArticle />
@@ -166,7 +180,9 @@ export default async function ResearchArticlePage({
   ) : (
     <CmeSingleStockFuturesArticle />
   );
-  const cover = isNfpGoldLiquidityShockArticle ? (
+  const cover = isGulfOilRiskPremiumArticle ? (
+    <GulfOilRiskPremiumCover />
+  ) : isNfpGoldLiquidityShockArticle ? (
     <NfpGoldLiquidityShockCover />
   ) : isWarshFedArticle ? (
     <WarshFedQ42026Cover />

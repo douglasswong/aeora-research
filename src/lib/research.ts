@@ -23,6 +23,39 @@ export type ResearchArticle = {
 
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   {
+    slug: "why-oil-still-prices-risk-after-gulf-exports-recover",
+    title: "Why Oil Still Prices Risk After Gulf Exports Recover",
+    shortTitle: "Why Oil Still Prices Risk",
+    description:
+      "Gulf crude export flows have largely recovered. Aeora Research explains why refinery outages, product tightness, shipping risk and inventories can still support a Brent risk premium.",
+    excerpt:
+      "A recovered crude barrel does not restore every fuel tank, freight route or insurance market. The oil story has shifted from volume loss to resilience risk.",
+    category: "Commodities & Macro",
+    author: "Aeora Research Team",
+    publishedAt: "2026-10-01",
+    displayDate: "1 October 2026",
+    readingTime: "6 min read",
+    noteNumber: "07",
+    seoTitle: "Why Oil Prices Stay High After Gulf Exports Recover",
+    openGraphTitle: "Why Oil Still Prices Risk After Gulf Exports Recover",
+    openGraphDescription:
+      "Recovered Gulf crude exports do not mean the oil system is fully normal. A clear look at refining, product supply, shipping and Brent's risk premium.",
+    socialImage: "/research/gulf-exports-brent-risk-premium-september-2026.png",
+    socialImageWidth: 1668,
+    socialImageHeight: 938,
+    tags: [
+      "Brent risk premium",
+      "Persian Gulf oil exports",
+      "oil market structure",
+      "refined product supply",
+      "oil tanker freight",
+      "Gulf oil exports",
+      "Brent outlook 2026",
+      "commodity market risk"
+    ],
+    draft: false
+  },
+  {
     slug: "why-gold-dropped-after-nfp-xauusd-liquidity-shock",
     title:
       "Why Did Gold Drop After NFP? Inside XAUUSD's Seconds-Long Liquidity Shock",

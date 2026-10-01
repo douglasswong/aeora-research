@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
+import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { ResearchCover } from "@/components/ResearchCover";
@@ -70,6 +71,9 @@ export default function ResearchPage() {
               </div>
             </div>
             {latestArticle.slug ===
+            "why-oil-still-prices-risk-after-gulf-exports-recover" ? (
+              <GulfOilRiskPremiumCover articleCover={false} />
+            ) : latestArticle.slug ===
             "why-gold-dropped-after-nfp-xauusd-liquidity-shock" ? (
               <NfpGoldLiquidityShockCover articleCover={false} />
             ) : latestArticle.slug ===

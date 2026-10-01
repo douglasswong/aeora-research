@@ -3634,6 +3634,211 @@ a {
   line-height: 1.5;
 }
 
+/* Gulf export recovery research note */
+.gulf-oil-cover {
+  margin: 0;
+  border: 1px solid rgba(13, 20, 27, 0.22);
+  background: #07111a;
+}
+
+.gulf-oil-cover__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #07111a;
+}
+
+.gulf-oil-cover__media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 13, 20, 0.76), rgba(5, 13, 20, 0.18) 55%, transparent 80%);
+  content: "";
+  pointer-events: none;
+}
+
+.gulf-oil-cover__media img {
+  object-fit: cover;
+}
+
+.gulf-oil-cover__label {
+  position: absolute;
+  z-index: 1;
+  bottom: clamp(18px, 3.2vw, 40px);
+  left: clamp(18px, 3.2vw, 40px);
+  display: grid;
+  max-width: min(46%, 420px);
+  gap: 7px;
+  border-left: 2px solid var(--aeora-mint);
+  padding: 12px 16px;
+  color: var(--aeora-white);
+  background: rgba(5, 13, 20, 0.75);
+}
+
+.gulf-oil-cover__label span,
+.gulf-oil-cover__label small {
+  color: var(--aeora-mint);
+  font-family: var(--font-display);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.42;
+  text-transform: uppercase;
+}
+
+.gulf-oil-cover__label strong {
+  color: var(--aeora-white);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.35vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.gulf-oil-cover figcaption {
+  padding: 0.86rem 1.2rem;
+  color: rgba(13, 20, 27, 0.68);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  background: var(--aeora-white);
+}
+
+.oil-recovery-figure {
+  margin: 42px 0;
+  border-top: 2px solid var(--aeora-mint);
+  border-bottom: 1px solid var(--aeora-line);
+  background: rgba(245, 247, 247, 0.72);
+}
+
+.oil-recovery-figure__headline {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(220px, 1.1fr);
+  gap: 26px;
+  align-items: end;
+  padding: 24px 26px 25px;
+  border-bottom: 1px solid var(--aeora-line);
+}
+
+.oil-recovery-figure__headline > div {
+  display: grid;
+  gap: 7px;
+}
+
+.oil-recovery-figure__headline span,
+.oil-recovery-figure__headline small,
+.oil-recovery-figure figcaption {
+  color: rgba(13, 20, 27, 0.58);
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.oil-recovery-figure__headline strong {
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.96;
+}
+
+.oil-recovery-figure__headline p {
+  margin: 0;
+  color: rgba(13, 20, 27, 0.7);
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  font-weight: 400;
+  line-height: 1.42;
+}
+
+.oil-recovery-figure ol {
+  display: grid;
+  gap: 17px;
+  margin: 0;
+  padding: 26px;
+  list-style: none;
+}
+
+.oil-recovery-figure li {
+  display: grid;
+  grid-template-columns: minmax(132px, 0.52fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.oil-recovery-figure li > div:first-child {
+  display: grid;
+  gap: 3px;
+}
+
+.oil-recovery-figure li strong {
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.oil-recovery-figure li span {
+  color: rgba(13, 20, 27, 0.56);
+  font-size: 0.77rem;
+  line-height: 1.45;
+}
+
+.oil-recovery-figure__track {
+  height: 10px;
+  overflow: hidden;
+  background: rgba(13, 20, 27, 0.1);
+}
+
+.oil-recovery-figure__track span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #11835e, var(--aeora-mint));
+}
+
+.oil-recovery-figure figcaption {
+  padding: 16px 26px 18px;
+  border-top: 1px solid var(--aeora-line);
+  text-transform: none;
+}
+
+.oil-scenarios {
+  border-top: 1px solid rgba(13, 20, 27, 0.3);
+}
+
+.oil-scenarios article {
+  padding: 28px 0 30px;
+  border-bottom: 1px solid var(--aeora-line);
+}
+
+.oil-scenarios span {
+  color: #11835e;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.oil-scenarios h3 {
+  margin: 8px 0 16px;
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.oil-scenarios p {
+  color: rgba(13, 20, 27, 0.67);
+}
+
 .nfp-flow {
   margin: 36px 0;
   border: 1px solid var(--aeora-line);
@@ -3778,6 +3983,33 @@ a {
 
   .nfp-gold-cover__label {
     max-width: 62%;
+  }
+
+  .gulf-oil-cover__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .gulf-oil-cover__label {
+    max-width: 78%;
+  }
+
+  .oil-recovery-figure__headline {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px 20px;
+  }
+
+  .oil-recovery-figure ol {
+    padding: 22px 20px;
+  }
+
+  .oil-recovery-figure li {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .oil-recovery-figure figcaption {
+    padding: 15px 20px 17px;
   }
 
   .nfp-flow ol,
