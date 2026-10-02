@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 const pillar = requireAuthorityPillar("institutional-trading-malaysia");
 
 export const metadata: Metadata = {
-  title: "Institutional Trading in Malaysia: Market Structure & Risk | Aeora Research",
+  title: "Institutional Trading in Malaysia | Aeora Research",
   description: pillar.description,
   keywords: [
     "institutional trading Malaysia",

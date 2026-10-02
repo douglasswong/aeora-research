@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 const pillar = requireAuthorityPillar("prop-desk-malaysia");
 
 export const metadata: Metadata = {
-  title: "Prop Desk & Professional Trader Development in Malaysia | Aeora Research",
+  title: "Prop Desk Development in Malaysia | Aeora Research",
   description: pillar.description,
   keywords: [
     "prop desk Malaysia",

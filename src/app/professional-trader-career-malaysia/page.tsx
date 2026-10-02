@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site";
 const pillar = requireAuthorityPillar("professional-trader-career-malaysia");
 
 export const metadata: Metadata = {
-  title: "How to Become a Professional Trader in Malaysia | Aeora Research",
+  title: "Professional Trader Career in Malaysia | Aeora Research",
   description: pillar.description,
   keywords: [
     "how to become a professional trader Malaysia",

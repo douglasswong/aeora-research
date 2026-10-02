@@ -10,17 +10,17 @@ const pillars = [
   {
     path: "/prop-desk-malaysia",
     title: "Prop Desk & Professional Trader Development in Malaysia",
-    metaTitle: "Prop Desk & Professional Trader Development in Malaysia"
+    metaTitle: "Prop Desk Development in Malaysia"
   },
   {
     path: "/institutional-trading-malaysia",
     title: "Institutional Trading in Malaysia: Market Structure, Access and Risk",
-    metaTitle: "Institutional Trading in Malaysia: Market Structure & Risk"
+    metaTitle: "Institutional Trading in Malaysia"
   },
   {
     path: "/professional-trader-career-malaysia",
     title: "How to Become a Professional Trader in Malaysia",
-    metaTitle: "How to Become a Professional Trader in Malaysia"
+    metaTitle: "Professional Trader Career in Malaysia"
   }
 ] as const;
 
