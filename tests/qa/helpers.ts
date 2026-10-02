@@ -26,6 +26,10 @@ export const responsivePages = [
     path: "/research/prop-firm-vs-prop-desk-malaysia"
   },
   {
+    label: "professional-trader-roadmap-malaysia",
+    path: "/research/professional-trader-roadmap-malaysia"
+  },
+  {
     label: "direct-market-access-explained",
     path: "/research/direct-market-access-explained"
   },
