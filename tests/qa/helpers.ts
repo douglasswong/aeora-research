@@ -36,6 +36,22 @@ export const responsivePages = [
   {
     label: "trading-career-malaysia",
     path: "/research/trading-career-malaysia"
+  },
+  {
+    label: "market-making-explained",
+    path: "/research/market-making-explained"
+  },
+  {
+    label: "retail-vs-institutional-trading",
+    path: "/research/retail-vs-institutional-trading"
+  },
+  {
+    label: "trading-desk-risk-management",
+    path: "/research/trading-desk-risk-management"
+  },
+  {
+    label: "order-flow-and-volume-profile",
+    path: "/research/order-flow-and-volume-profile"
   }
 ] as const;
 
@@ -140,7 +156,11 @@ export async function capturePage(
   });
 
   await page.evaluate(() => window.scrollTo(0, 0));
-  await page.waitForTimeout(250);
+  await page.waitForFunction(
+    () => Array.from(document.images).every((image) => image.complete),
+    undefined,
+    { timeout: 15_000 }
+  );
 
   const unloadedImages = await page.locator("img").evaluateAll((images) =>
     (images as HTMLImageElement[])
