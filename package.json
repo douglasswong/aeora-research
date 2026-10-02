@@ -14,7 +14,7 @@
     "qa:web": "npm run qa && node scripts/run-qa.mjs"
   },
   "dependencies": {
-    "next": "^16.2.10",
+    "next": "16.3.8",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
