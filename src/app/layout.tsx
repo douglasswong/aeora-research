@@ -1,5 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
+import {
+  COMPANY_ADDRESS_LINES,
+  COMPANY_NAME,
+  COMPANY_REGISTRATION,
+  CONTACT_EMAIL,
+  HOTLINE_PHONE,
+  OFFICE_PHONE,
+  SITE_DESCRIPTION,
+  SITE_TITLE,
+  SITE_URL,
+  SOCIAL_CHANNELS
+} from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -41,6 +52,24 @@ export const viewport: Viewport = {
   colorScheme: "light"
 };
 
+const organizationStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Aeora Research",
+  legalName: COMPANY_NAME,
+  identifier: COMPANY_REGISTRATION,
+  url: SITE_URL,
+  logo: `${SITE_URL}/brand/aeora-logo-dark.png`,
+  email: CONTACT_EMAIL,
+  telephone: [OFFICE_PHONE.label, HOTLINE_PHONE.label],
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: COMPANY_ADDRESS_LINES.join(", "),
+    addressCountry: "MY"
+  },
+  sameAs: SOCIAL_CHANNELS.map((channel) => channel.href)
+};
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -48,7 +77,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationStructuredData).replace(
+              /</g,
+              "\\u003c"
+            )
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

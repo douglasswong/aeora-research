@@ -3,7 +3,7 @@ import { EditorialPage } from "@/components/EditorialPage";
 import {
   CONTACT_EMAIL,
   SITE_URL,
-  TRADER_DEVELOPMENT_INTAKE
+  TRADER_DEVELOPMENT_UPCOMING_INTAKE
 } from "@/lib/site";
 
 const FAQ_ITEMS = [
@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "When and where is the next Aeora Trader Development intake?",
-    answer: `The next intake is now open for ${TRADER_DEVELOPMENT_INTAKE.dates} (${TRADER_DEVELOPMENT_INTAKE.days}) in ${TRADER_DEVELOPMENT_INTAKE.location}. It will run as a ${TRADER_DEVELOPMENT_INTAKE.format.toLowerCase()}.`
+    answer: `The currently listed proposed intake is ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.intake}, with proposed dates of ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates} in ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.location}. Dates and participation details are subject to confirmation; please check the Trader Development page for current information.`
   },
   {
     question: "Does registering interest guarantee a role on a prop desk?",
@@ -53,6 +53,19 @@ const FAQ_ITEMS = [
   }
 ] as const;
 
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer
+    }
+  }))
+};
+
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | Aeora Research",
   description:
@@ -70,50 +83,58 @@ export const metadata: Metadata = {
 
 export default function FaqPage() {
   return (
-    <EditorialPage
-      kicker="FAQ"
-      title="Clear answers. Deliberate next steps."
-      intro="A concise guide to Aeora Research, Aeora Trader Development and the principles behind our market work."
-      compactHero
-    >
-      <section className="faq section" aria-labelledby="faq-title">
-        <div className="section__inner faq__inner">
-          <div className="faq__intro">
-            <p className="section-kicker">Common questions</p>
-            <h2 id="faq-title">What you may want to know.</h2>
-            <p>
-              For enquiries not covered here, please contact the team directly.
-            </p>
-          </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqStructuredData).replace(/</g, "\\u003c")
+        }}
+      />
+      <EditorialPage
+        kicker="FAQ"
+        title="Clear answers. Deliberate next steps."
+        intro="A concise guide to Aeora Research, Aeora Trader Development and the principles behind our market work."
+        compactHero
+      >
+        <section className="faq section" aria-labelledby="faq-title">
+          <div className="section__inner faq__inner">
+            <div className="faq__intro">
+              <p className="section-kicker">Common questions</p>
+              <h2 id="faq-title">What you may want to know.</h2>
+              <p>
+                For enquiries not covered here, please contact the team directly.
+              </p>
+            </div>
 
-          <div className="faq__list">
-            {FAQ_ITEMS.map((item, index) => (
-              <details className="faq__item" key={item.question}>
-                <summary>
-                  <span className="faq__index" aria-hidden="true">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span>{item.question}</span>
-                </summary>
-                <div className="faq__answer">
-                  <p>
-                    {item.question === "How can I connect with Aeora Research?" ? (
-                      <>
-                        You can contact Aeora Research at{" "}
-                        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>{" "}
-                        for trader enquiries, research collaboration or
-                        institutional partnership discussions.
-                      </>
-                    ) : (
-                      item.answer
-                    )}
-                  </p>
-                </div>
-              </details>
-            ))}
+            <div className="faq__list">
+              {FAQ_ITEMS.map((item, index) => (
+                <details className="faq__item" key={item.question}>
+                  <summary>
+                    <span className="faq__index" aria-hidden="true">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span>{item.question}</span>
+                  </summary>
+                  <div className="faq__answer">
+                    <p>
+                      {item.question === "How can I connect with Aeora Research?" ? (
+                        <>
+                          You can contact Aeora Research at{" "}
+                          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>{" "}
+                          for trader enquiries, research collaboration or
+                          institutional partnership discussions.
+                        </>
+                      ) : (
+                        item.answer
+                      )}
+                    </p>
+                  </div>
+                </details>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-    </EditorialPage>
+        </section>
+      </EditorialPage>
+    </>
   );
 }

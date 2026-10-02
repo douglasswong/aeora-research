@@ -104,6 +104,19 @@ export function SiteFooter() {
                 </Link>
               ))}
             </nav>
+            <nav
+              className="site-footer__authority"
+              aria-label="Professional market guides"
+            >
+              <p className="site-footer__kicker">Market guides</p>
+              <Link href="/prop-desk-malaysia">Prop Desk</Link>
+              <Link href="/institutional-trading-malaysia">
+                Institutional Trading
+              </Link>
+              <Link href="/professional-trader-career-malaysia">
+                Professional Trader Career
+              </Link>
+            </nav>
           </div>
         </div>
 

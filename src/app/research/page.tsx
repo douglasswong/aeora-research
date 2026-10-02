@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
+import { AuthorityResearchCover } from "@/components/AuthorityResearchCover";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { ResearchCover } from "@/components/ResearchCover";
@@ -24,10 +25,16 @@ export const metadata: Metadata = {
 };
 
 export default function ResearchPage() {
-  const researchArticles = RESEARCH_ARTICLES.filter((article) => !article.draft).sort(
-    (first, second) =>
-      new Date(second.publishedAt).getTime() -
-      new Date(first.publishedAt).getTime()
+  const publishedArticles = RESEARCH_ARTICLES.filter((article) => !article.draft);
+  const researchArticles = publishedArticles
+    .filter((article) => article.contentType !== "guide")
+    .sort(
+      (first, second) =>
+        new Date(second.publishedAt).getTime() -
+        new Date(first.publishedAt).getTime()
+    );
+  const authorityResources = publishedArticles.filter(
+    (article) => article.contentType === "guide"
   );
   const latestArticle = researchArticles[0];
   const earlierArticles = researchArticles.slice(1);
@@ -120,6 +127,48 @@ export default function ResearchPage() {
                   </li>
                 ))}
               </ol>
+            </section>
+          ) : null}
+
+          {authorityResources.length > 0 ? (
+            <section
+              className="research-authority section"
+              aria-labelledby="research-authority-title"
+            >
+              <div className="research-authority__heading">
+                <div>
+                  <p className="section-kicker">Professional market practice</p>
+                  <h2 id="research-authority-title">
+                    Malaysia field guides.
+                  </h2>
+                </div>
+                <p>
+                  Structured explainers on trader development, market structure,
+                  professional careers and risk. They are educational references,
+                  not trading signals or service promises.
+                </p>
+              </div>
+              <div className="research-authority__grid">
+                {authorityResources.map((article) => (
+                  <Link
+                    href={`/research/${article.slug}`}
+                    key={article.slug}
+                    aria-label={`Read ${article.title}`}
+                  >
+                    <AuthorityResearchCover
+                      articleNumber={article.noteNumber}
+                      category={article.category}
+                      title={article.shortTitle}
+                    />
+                    <div>
+                      <span>{article.category}</span>
+                      <h3>{article.title}</h3>
+                      <p>{article.excerpt}</p>
+                      <strong>Read the field guide</strong>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </section>
           ) : null}
         </div>

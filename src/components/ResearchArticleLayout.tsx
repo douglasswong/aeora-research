@@ -29,6 +29,8 @@ export function ResearchArticleLayout({
   children
 }: ResearchArticleLayoutProps) {
   const articleUrl = `${SITE_URL}/research/${article.slug}`;
+  const publicationLabel =
+    article.contentType === "guide" ? "Field guide" : "Research note";
   const encodedUrl = encodeURIComponent(articleUrl);
   const encodedShareText = encodeURIComponent(
     `${article.title} | Aeora Research`
@@ -64,7 +66,9 @@ export function ResearchArticleLayout({
                   <span>{article.category}</span>
                 </nav>
 
-                <p className="section-kicker">Research note {article.noteNumber}</p>
+                <p className="section-kicker">
+                  {publicationLabel} {article.noteNumber}
+                </p>
                 <h1>{headline ?? article.displayTitle ?? article.title}</h1>
                 <p className="research-article__description">
                   {article.description}
@@ -168,7 +172,7 @@ export function ResearchArticleLayout({
                 </div>
 
                 <div className="research-article__actions">
-                  <p>Share this research note</p>
+                  <p>Share this {publicationLabel.toLowerCase()}</p>
                   <div>
                     <a
                       href={`https://wa.me/?text=${encodedShareText}%20${encodedUrl}`}

@@ -3,6 +3,7 @@ import { RESEARCH_ARTICLES } from "@/lib/research";
 import { SITE_URL } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const authorityLastModified = new Date("2026-10-02");
   const corePages: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
@@ -47,6 +48,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9
     },
     {
+      url: `${SITE_URL}/prop-desk-malaysia`,
+      lastModified: authorityLastModified,
+      changeFrequency: "monthly",
+      priority: 0.9
+    },
+    {
+      url: `${SITE_URL}/institutional-trading-malaysia`,
+      lastModified: authorityLastModified,
+      changeFrequency: "monthly",
+      priority: 0.9
+    },
+    {
+      url: `${SITE_URL}/professional-trader-career-malaysia`,
+      lastModified: authorityLastModified,
+      changeFrequency: "monthly",
+      priority: 0.85
+    },
+    {
       url: `${SITE_URL}/terms-conditions`,
       lastModified: new Date(),
       changeFrequency: "yearly",
@@ -73,7 +92,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/research/${article.slug}`,
       lastModified: new Date(article.publishedAt),
       changeFrequency: "monthly",
-      priority: 0.85
+      priority: article.contentType === "guide" ? 0.76 : 0.85
     })
   );
 

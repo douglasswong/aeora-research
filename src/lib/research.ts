@@ -1,3 +1,8 @@
+import {
+  AUTHORITY_RESOURCES,
+  SEO_AUTHORITY_PUBLISHED_AT
+} from "@/lib/seo-authority";
+
 export type ResearchArticle = {
   slug: string;
   title: string;
@@ -18,6 +23,7 @@ export type ResearchArticle = {
   socialImage?: string;
   socialImageWidth?: number;
   socialImageHeight?: number;
+  contentType?: "research" | "guide";
   draft?: boolean;
 };
 
@@ -191,8 +197,29 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
     displayDate: "28 July 2026",
     readingTime: "5 min read",
     noteNumber: "01"
-  }
-] as const;
+  },
+  ...AUTHORITY_RESOURCES.map((resource, index) => ({
+    slug: resource.slug,
+    title: resource.title,
+    shortTitle: resource.shortTitle,
+    description: resource.description,
+    excerpt: resource.excerpt,
+    category: resource.category,
+    author: "Aeora Research Team",
+    publishedAt: SEO_AUTHORITY_PUBLISHED_AT,
+    displayDate: "2 October 2026",
+    readingTime: `${6 + (index % 3)} min read`,
+    noteNumber: resource.noteNumber,
+    seoTitle: resource.title,
+    openGraphTitle: resource.title,
+    openGraphDescription: resource.description,
+    tags: resource.tags,
+    socialImage: "/og-image.svg",
+    socialImageWidth: 1200,
+    socialImageHeight: 630,
+    contentType: "guide" as const
+  }))
+];
 
 export function getResearchArticle(slug: string) {
   return RESEARCH_ARTICLES.find((article) => article.slug === slug);

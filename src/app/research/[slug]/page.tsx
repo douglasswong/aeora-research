@@ -11,6 +11,7 @@ import {
   whyMarketsRallySources
 } from "@/content/research/WhyMarketsRallyDespiteBadNews";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
+import { AuthorityResearchCover } from "@/components/AuthorityResearchCover";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import {
@@ -24,6 +25,7 @@ import {
   nfpGoldLiquidityShockSources
 } from "@/content/research/NfpGoldLiquidityShock";
 import { ResearchArticleLayout } from "@/components/ResearchArticleLayout";
+import { MalaysiaTradingAuthorityArticle } from "@/content/research/MalaysiaTradingAuthority";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
 import {
   SawitEcoThermArticle,
@@ -46,6 +48,7 @@ import {
   getResearchArticle,
   RESEARCH_ARTICLES
 } from "@/lib/research";
+import { getAuthorityResource } from "@/lib/seo-authority";
 import { SITE_URL } from "@/lib/site";
 
 type ResearchArticlePageProps = {
@@ -128,6 +131,7 @@ export default async function ResearchArticlePage({
     notFound();
   }
 
+  const authorityResource = getAuthorityResource(article.slug);
   const isMarketsRallyArticle = article.slug === "why-markets-rally-despite-bad-news";
   const isGulfOilRiskPremiumArticle =
     article.slug === "why-oil-still-prices-risk-after-gulf-exports-recover";
@@ -139,7 +143,9 @@ export default async function ResearchArticlePage({
     article.slug === "warsh-fed-rate-hike-q4-2026-market-outlook";
   const isNfpGoldLiquidityShockArticle =
     article.slug === "why-gold-dropped-after-nfp-xauusd-liquidity-shock";
-  const keyPoints = isGulfOilRiskPremiumArticle
+  const keyPoints = authorityResource
+    ? authorityResource.keyPoints
+    : isGulfOilRiskPremiumArticle
     ? gulfOilRiskPremiumKeyPoints
     : isNfpGoldLiquidityShockArticle
     ? nfpGoldLiquidityShockKeyPoints
@@ -152,7 +158,9 @@ export default async function ResearchArticlePage({
     : isMarketsRallyArticle
       ? whyMarketsRallyKeyPoints
       : cmeSingleStockFuturesKeyPoints;
-  const sources = isGulfOilRiskPremiumArticle
+  const sources = authorityResource
+    ? authorityResource.sources
+    : isGulfOilRiskPremiumArticle
     ? gulfOilRiskPremiumSources
     : isNfpGoldLiquidityShockArticle
     ? nfpGoldLiquidityShockSources
@@ -165,7 +173,9 @@ export default async function ResearchArticlePage({
     : isMarketsRallyArticle
       ? whyMarketsRallySources
       : cmeSingleStockFuturesSources;
-  const content = isGulfOilRiskPremiumArticle ? (
+  const content = authorityResource ? (
+    <MalaysiaTradingAuthorityArticle resource={authorityResource} />
+  ) : isGulfOilRiskPremiumArticle ? (
     <GulfOilRiskPremiumArticle />
   ) : isNfpGoldLiquidityShockArticle ? (
     <NfpGoldLiquidityShockArticle />
@@ -180,7 +190,13 @@ export default async function ResearchArticlePage({
   ) : (
     <CmeSingleStockFuturesArticle />
   );
-  const cover = isGulfOilRiskPremiumArticle ? (
+  const cover = authorityResource ? (
+    <AuthorityResearchCover
+      articleNumber={article.noteNumber}
+      category={article.category}
+      title={article.shortTitle}
+    />
+  ) : isGulfOilRiskPremiumArticle ? (
     <GulfOilRiskPremiumCover />
   ) : isNfpGoldLiquidityShockArticle ? (
     <NfpGoldLiquidityShockCover />
@@ -193,7 +209,7 @@ export default async function ResearchArticlePage({
   ) : isMarketsRallyArticle ? (
     <MarketsRallyCover />
   ) : undefined;
-  const headline = isWtiCrudeOilArticle ? (
+  const headline = authorityResource ? undefined : isWtiCrudeOilArticle ? (
     <span className="wti-article-headline">
       <mark>WTI Crude Oil</mark> at a Decision Zone: Is Another Geopolitical
       Repricing Cycle Forming?
@@ -212,32 +228,58 @@ export default async function ResearchArticlePage({
     article.socialImage ?? "/research/cme-single-stock-futures-cover.png";
 
   const articleUrl = `${SITE_URL}/research/${article.slug}`;
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: article.title,
-    description: article.description,
-    datePublished: article.publishedAt,
-    dateModified: article.publishedAt,
-    mainEntityOfPage: articleUrl,
-    articleSection: article.category,
-    image: `${SITE_URL}${socialImage}`,
-    author: {
-      "@type": "Organization",
-      name: article.author,
-      url: SITE_URL
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.title,
+      description: article.description,
+      datePublished: article.publishedAt,
+      dateModified: article.publishedAt,
+      mainEntityOfPage: articleUrl,
+      articleSection: article.category,
+      image: `${SITE_URL}${socialImage}`,
+      author: {
+        "@type": "Organization",
+        name: article.author,
+        url: SITE_URL
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Aeora Research",
+        url: SITE_URL,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/brand/aeora-logo-dark.png`
+        }
+      },
+      citation: sources.map((source) => source.href)
     },
-    publisher: {
-      "@type": "Organization",
-      name: "Aeora Research",
-      url: SITE_URL,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/brand/aeora-logo-dark.png`
-      }
-    },
-    citation: sources.map((source) => source.href)
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Research",
+          item: `${SITE_URL}/research`
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: article.title,
+          item: articleUrl
+        }
+      ]
+    }
+  ];
 
   return (
     <>

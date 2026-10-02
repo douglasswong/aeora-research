@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Header } from "@/components/Header";
 import { ScrollRevealController } from "@/components/ScrollRevealController";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -407,6 +408,12 @@ export default function CoursesPage() {
                   Six focused learning pathways, from first principles through
                   to specialist market practice.
                 </p>
+                <Link
+                  className="courses-overview__context-link"
+                  href="/institutional-trading-malaysia"
+                >
+                  Read the institutional trading guide
+                </Link>
               </div>
               <div className="courses-grid">
                 {COURSE_CATALOGUE.map((course) => (

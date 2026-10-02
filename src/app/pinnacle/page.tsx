@@ -43,14 +43,16 @@ const WHY_US = [
 const PINNACLE_REVEAL_SELECTORS = [".pinnacle-why__item"] as const;
 
 export const metadata: Metadata = {
-  title: "Aeora Trader Development | Professional Trading Programme",
-  description: `The latest Aeora Trader Development intake concluded on ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}, with a small-class training-room format.`,
+  title: "Aeora Trader Development | Professional Market Practice",
+  description:
+    "An in-person learning environment for market preparation, risk awareness, execution practice and more deliberate trading routines.",
   alternates: {
     canonical: "/pinnacle"
   },
   openGraph: {
-    title: "Aeora Trader Development | Professional Trading Programme",
-    description: `The latest Aeora Trader Development intake concluded on ${TRADER_DEVELOPMENT_INTAKE.dates} in ${TRADER_DEVELOPMENT_INTAKE.location}.`,
+    title: "Aeora Trader Development | Professional Market Practice",
+    description:
+      "An in-person learning environment for market preparation, risk awareness, execution practice and more deliberate trading routines.",
     url: `${SITE_URL}/pinnacle`
   }
 };
@@ -209,6 +211,12 @@ export default function PinnaclePage() {
                   <li>Professional routines around execution</li>
                   <li>Full-Time Trader Career Pathway</li>
                 </ul>
+                <Link
+                  className="pinnacle-programme__guide-link"
+                  href="/professional-trader-career-malaysia"
+                >
+                  Explore the professional trader development guide
+                </Link>
                 <div className="pinnacle-programme__action">
                   <span className="pinnacle-programme__cta-signal" aria-hidden="true">
                     <span />
