@@ -90,7 +90,8 @@ export const AUTHORITY_PILLARS: readonly AuthorityPillar[] = [
         title: "Start with the operating model, not the label.",
         paragraphs: [
           "The phrase prop desk can mean different things in different markets. In its narrow sense, proprietary trading means a firm trades its own capital rather than managing capital for clients. In practice, the visible work is broader: research, risk limits, execution procedures, supervision and post-trade review all matter.",
-          "An online evaluation or funded-account programme may use similar language, but it is a separate commercial model with its own eligibility, fees, rules, simulated or live-account arrangements and payout terms. Treat the label as a prompt for due diligence, not as evidence of a professional pathway."
+          "An online evaluation or funded-account programme may use similar language, but it is a separate commercial model with its own eligibility, fees, rules, simulated or live-account arrangements and payout terms. Treat the label as a prompt for due diligence, not as evidence of a professional pathway.",
+          "Retail self-directed trading describes a person operating their own account through an intermediary; it is neither a desk role nor a capital-allocation arrangement. Institutional trading describes roles within organisations that carry responsibilities around execution, client assets, liquidity or oversight. These contexts can share vocabulary without being interchangeable."
         ]
       },
       {
@@ -178,7 +179,7 @@ export const AUTHORITY_PILLARS: readonly AuthorityPillar[] = [
     fieldLabel: "Market structure study",
     fieldTags: ["Liquidity", "Access", "Controls", "Process"],
     definition:
-      "For this page, institutional trading refers to the systems and responsibilities used by organisations that execute, manage or facilitate substantial market activity. Aeora Research provides educational context, not institutional trading, execution, brokerage or personalised advice.",
+      "For this page, institutional trading refers to the systems and responsibilities used by organisations that execute, manage or facilitate substantial market activity. Aeora Research provides educational context, not institutional trading, execution, brokerage, institutional services or personalised advice. It is not a bank, broker, exchange or fund manager.",
     sections: [
       {
         eyebrow: "01 / Mechanics",
