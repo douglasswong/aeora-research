@@ -11,7 +11,28 @@ export const responsivePages = [
   { label: "courses", path: "/courses" },
   { label: "other-services", path: "/dngconsultation" },
   { label: "security", path: "/security" },
-  { label: "trader-readiness", path: "/trader-readiness" }
+  { label: "trader-readiness", path: "/trader-readiness" },
+  { label: "prop-desk-malaysia", path: "/prop-desk-malaysia" },
+  {
+    label: "institutional-trading-malaysia",
+    path: "/institutional-trading-malaysia"
+  },
+  {
+    label: "professional-trader-career-malaysia",
+    path: "/professional-trader-career-malaysia"
+  },
+  {
+    label: "prop-firm-vs-prop-desk-malaysia",
+    path: "/research/prop-firm-vs-prop-desk-malaysia"
+  },
+  {
+    label: "direct-market-access-explained",
+    path: "/research/direct-market-access-explained"
+  },
+  {
+    label: "trading-career-malaysia",
+    path: "/research/trading-career-malaysia"
+  }
 ] as const;
 
 export const viewports = [

@@ -3,6 +3,8 @@ import { expect, test } from "@playwright/test";
 import { openPage, responsivePages } from "./helpers";
 
 test("primary journeys have no serious or critical WCAG 2 A/AA issues", async ({ page }, testInfo) => {
+  testInfo.setTimeout(90_000);
+
   for (const route of responsivePages) {
     await openPage(page, route.path);
 
