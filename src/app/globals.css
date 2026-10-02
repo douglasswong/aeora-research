@@ -7820,7 +7820,7 @@ a {
   flex-wrap: wrap;
   gap: 8px 12px;
   margin-bottom: clamp(54px, 8vw, 90px);
-  color: rgba(13, 20, 27, 0.5);
+  color: rgba(13, 20, 27, 0.72);
   font-family: var(--font-display);
   font-size: 0.64rem;
   font-weight: 600;
@@ -7915,7 +7915,7 @@ a {
 }
 
 .research-article__meta dt {
-  color: rgba(13, 20, 27, 0.44);
+  color: rgba(13, 20, 27, 0.72);
 }
 
 .research-article__meta dd {
@@ -7962,7 +7962,7 @@ a {
 }
 
 .research-article__summary li > span {
-  color: #11835e;
+  color: var(--aeora-mint-ink);
   font-family: var(--font-display);
   font-size: 0.58rem;
   font-weight: 600;
@@ -7999,7 +7999,7 @@ a {
 
 .research-article__section-number {
   margin: 0 0 14px;
-  color: #11835e;
+  color: var(--aeora-mint-ink);
   font-family: var(--font-display);
   font-size: 0.62rem;
   font-weight: 600;
@@ -8630,7 +8630,7 @@ a {
 }
 
 .research-article__sources a > span:first-child {
-  color: #11835e;
+  color: var(--aeora-mint-ink);
   font-family: var(--font-display);
   font-size: 0.58rem;
   font-weight: 600;
@@ -8665,7 +8665,7 @@ a {
 
 .research-article__disclaimer > p:last-child {
   margin: 0;
-  color: rgba(13, 20, 27, 0.57);
+  color: rgba(13, 20, 27, 0.66);
   font-size: 0.88rem;
   line-height: 1.75;
 }
@@ -8676,7 +8676,7 @@ a {
 
 .research-article__actions > p {
   margin: 0 0 18px;
-  color: rgba(13, 20, 27, 0.48);
+  color: rgba(13, 20, 27, 0.68);
   font-family: var(--font-display);
   font-size: 0.62rem;
   font-weight: 600;
@@ -13571,7 +13571,7 @@ a {
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 38px;
-  color: rgba(13, 20, 27, 0.52);
+  color: rgba(13, 20, 27, 0.72);
   font-family: var(--font-display);
   font-size: 0.62rem;
   letter-spacing: 0.16em;
@@ -13668,9 +13668,10 @@ a {
 }
 
 .authority-field__signal--two {
-  bottom: 17%;
-  left: -7%;
-  width: 48%;
+  right: -9%;
+  bottom: 23%;
+  left: auto;
+  width: 32%;
   transform: rotate(22deg);
 }
 
@@ -14028,7 +14029,7 @@ a {
 
 .authority-article__table caption {
   padding: 18px 0 14px;
-  color: rgba(13, 20, 27, 0.5);
+  color: rgba(13, 20, 27, 0.72);
   font-family: var(--font-display);
   font-size: 0.61rem;
   letter-spacing: 0.14em;
