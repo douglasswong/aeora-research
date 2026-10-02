@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { LINKEDIN_COMPANY_URL } from "../../src/lib/site";
 import {
   expectNoBrowserIssues,
   expectNoHorizontalOverflow,
@@ -28,7 +29,7 @@ test("security page exposes only confirmed Aeora verification channels", async (
   await expect(channels).toContainText(
     "Our confirmed public support and security-reporting address."
   );
-  await expect(channels).toContainText("LinkedIn: To be set up soon.");
+  await expect(channels).not.toContainText("LinkedIn: To be set up soon.");
   await expect(channels).toContainText("+603 5626 5777");
   await expect(channels).toContainText("+6019 8899 296");
   await expect(channels).toContainText("+6016 414 5996");
@@ -47,6 +48,10 @@ test("security page exposes only confirmed Aeora verification channels", async (
   ).toHaveAttribute(
     "href",
     "https://www.facebook.com/share/1SG2VkQo3J/?mibextid=wwXIfr"
+  );
+  await expect(channels.getByRole("link", { name: "LinkedIn" })).toHaveAttribute(
+    "href",
+    LINKEDIN_COMPANY_URL
   );
   await expect(
     channels.getByRole("link", { name: "+603 5626 5777" })
