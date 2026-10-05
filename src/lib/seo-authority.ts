@@ -179,26 +179,23 @@ export const AUTHORITY_PILLARS: readonly AuthorityPillar[] = [
     sections: [
       {
         eyebrow: "01 / Mechanics",
-        title: "Institutional is a workflow, not a visual style.",
+        title: "Focus on the workflow.",
         paragraphs: [
-          "Across asset classes, institutions must decide how an order reaches a market, how much risk can be taken, who may approve activity and how the record is kept. Execution quality, settlement, counterparty exposure and operational resilience often matter as much as the directional view.",
-          "Market makers, brokers, banks, asset managers, proprietary firms and exchange members can all interact with markets differently. Their obligations, permissions and capital structures are not interchangeable."
+          "Institutional trading is defined by how orders, risk, approvals and records are managed. Visual tools or market vocabulary alone do not create the controls, responsibilities or permissions of an institutional role."
         ]
       },
       {
         eyebrow: "02 / Liquidity",
-        title: "Liquidity is useful only when it is understood in context.",
+        title: "Put liquidity in context.",
         paragraphs: [
-          "A quote is not the same as available size, and a displayed price is not a guarantee that a large order can be completed there. Professionals examine the depth, timing, venue and risk around a transaction before deciding how to trade.",
-          "Bank Negara Malaysia's principal-dealer framework is a local example of a formal liquidity role: appointed dealers have two-way quotation responsibilities for benchmark securities. That is a specific market structure, not a general description of all trading activity."
+          "A displayed price does not guarantee available size or execution. Assess depth, timing, venue and risk; formal structures such as Bank Negara Malaysia's principal-dealer framework apply only within their specific market."
         ]
       },
       {
         eyebrow: "03 / Access",
-        title: "Direct market access is not a shortcut around control.",
+        title: "Access still needs control.",
         paragraphs: [
-          "Direct market access describes an arrangement through which orders can be routed to a trading venue with a more direct electronic path. In regulated markets, access remains surrounded by financial, legal, operational and pre-trade risk controls.",
-          "Whether a particular service is available depends on the venue, broker, client category, asset class, jurisdiction and the provider's own onboarding requirements. Never infer availability from generic education content."
+          "Direct market access can shorten an electronic route, not remove financial, legal or pre-trade controls. Availability depends on the venue, broker, asset class, jurisdiction and onboarding requirements."
         ]
       }
     ],
@@ -274,26 +271,23 @@ export const AUTHORITY_PILLARS: readonly AuthorityPillar[] = [
     sections: [
       {
         eyebrow: "01 / Reality check",
-        title: "Treat the career question as a capability question.",
+        title: "Start with capability.",
         paragraphs: [
-          "The useful starting point is not a title. It is the ability to read market information, communicate a decision, follow risk controls and work inside the pace and accountability of an organisation. These skills are valuable whether a person moves toward trading, research, operations, sales or risk.",
-          "Online search results for trading jobs and funded-trader programmes often mix recruitment, commercial education and platform marketing. Separate those categories before interpreting a listing as a career path."
+          "A trading career is built on reading markets, communicating decisions, following risk controls and working with accountability. Separate employment roles, commercial education and funded-trader marketing before treating any listing as a career path."
         ]
       },
       {
         eyebrow: "02 / Evidence",
-        title: "Build work that can be reviewed.",
+        title: "Make progress reviewable.",
         paragraphs: [
-          "A market journal, pre-trade plan, risk log, research note and post-trade review create evidence of how a person thinks. None is a credential by itself, but each makes development more visible than a list of claimed wins.",
-          "Academic, regulatory and professional education may be relevant depending on the role. Requirements differ by employer, instrument, market and jurisdiction, so only an actual employer or programme can confirm what it accepts."
+          "A market journal, pre-trade plan, risk log and review show how a person thinks and improves. Employers and programmes set their own role, market and jurisdiction requirements."
         ]
       },
       {
         eyebrow: "03 / Malaysia",
-        title: "Use verified pathways, not assumed eligibility.",
+        title: "Verify the path.",
         paragraphs: [
-          "Malaysia has formal capital-market learning and professional development organisations, alongside private-sector opportunities. A public course page, social profile or community membership should not be read as an employment promise or regulatory approval.",
-          "For a role that involves regulated activity, seek direct clarification from the prospective employer and consult the relevant Securities Commission Malaysia materials. Do not infer licensing, eligibility or job availability from this page."
+          "A course, social profile or community is not an employment promise or regulatory approval. For regulated roles, ask the prospective employer directly and consult the relevant Securities Commission Malaysia materials."
         ]
       }
     ],
