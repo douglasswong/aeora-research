@@ -55,7 +55,10 @@ export function AuthorityPillarPage({ pillar }: AuthorityPillarPageProps) {
       <a className="skip-link" href="#main">
         Skip to content
       </a>
-      <div id="top" className="site-shell authority-page">
+      <div
+        id="top"
+        className={`site-shell authority-page authority-page--${pillar.slug}`}
+      >
         <Header />
         <main id="main">
           <section className="authority-hero" aria-labelledby="authority-title">

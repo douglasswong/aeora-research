@@ -13601,6 +13601,20 @@ a {
   line-height: 0.98;
 }
 
+@media (min-width: 981px) {
+  .authority-page--prop-desk-malaysia .authority-hero h1 {
+    max-width: 690px;
+    font-size: clamp(3.75rem, 4.2vw, 4.25rem);
+  }
+}
+
+@media (max-width: 720px) {
+  .authority-page--prop-desk-malaysia .authority-hero h1 {
+    font-size: clamp(2rem, 9.7vw, 2.4rem);
+    line-height: 1.02;
+  }
+}
+
 .authority-hero__description {
   max-width: 690px;
   margin: 30px 0 0;
