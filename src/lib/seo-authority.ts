@@ -87,27 +87,23 @@ export const AUTHORITY_PILLARS: readonly AuthorityPillar[] = [
     sections: [
       {
         eyebrow: "01 / Definition",
-        title: "Start with the operating model, not the label.",
+        title: "Look past the label.",
         paragraphs: [
-          "The phrase prop desk can mean different things in different markets. In its narrow sense, proprietary trading means a firm trades its own capital rather than managing capital for clients. In practice, the visible work is broader: research, risk limits, execution procedures, supervision and post-trade review all matter.",
-          "An online evaluation or funded-account programme may use similar language, but it is a separate commercial model with its own eligibility, fees, rules, simulated or live-account arrangements and payout terms. Treat the label as a prompt for due diligence, not as evidence of a professional pathway.",
-          "Retail self-directed trading describes a person operating their own account through an intermediary; it is neither a desk role nor a capital-allocation arrangement. Institutional trading describes roles within organisations that carry responsibilities around execution, client assets, liquidity or oversight. These contexts can share vocabulary without being interchangeable."
+          "A prop desk is a working trading environment, not a funded-account promise or a job advert. Look for clear rules around capital, risk, execution and review; treat a programme's fees, eligibility and payout terms as due diligence, not proof of a professional pathway."
         ]
       },
       {
         eyebrow: "02 / Environment",
-        title: "What professional development actually asks of a trader.",
+        title: "Build an observable process.",
         paragraphs: [
-          "Serious development is less about finding a single setup and more about making decisions observable. That means recording the market context, defining risk before entry, documenting execution choices and reviewing the result without rewriting the original rationale.",
-          "The useful question is not whether a process looks institutional. It is whether the process can be repeated, challenged and improved when the market is fast, uncertain or simply uninteresting."
+          "Professional development makes decisions observable: record market context, define risk before entry, document execution and review the result. The test is whether the process can be repeated, challenged and improved."
         ]
       },
       {
         eyebrow: "03 / Malaysia",
-        title: "Use local relevance carefully.",
+        title: "Check local suitability.",
         paragraphs: [
-          "Malaysia has established financial-market infrastructure, licensed market participants and derivatives education pathways. Those facts do not make every online trading offer available, suitable or regulated for a Malaysian resident.",
-          "Before paying for an evaluation, course, platform or trading service, verify the provider's legal entity, the product terms, country eligibility and relevant regulatory status. The Securities Commission Malaysia Investor Alert List is one useful official starting point; it is not a substitute for reading the provider's own documentation."
+          "Before paying, verify the provider's legal entity, product terms, country eligibility and regulatory status. The Securities Commission Malaysia Investor Alert List is a useful starting point alongside the provider's own documentation."
         ]
       }
     ],
