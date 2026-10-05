@@ -110,7 +110,7 @@ test("Malaysia field guides are indexed through research with article metadata",
   await page.emulateMedia({ reducedMotion: "reduce" });
 
   await openPage(page, "/research");
-  const guideLinks = page.locator(".research-authority__grid > a");
+  const guideLinks = page.locator(".research-authority__list > li > a");
   await expect(guideLinks).toHaveCount(fieldGuides.length);
   await expectNoHorizontalOverflow(page);
 

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
-import { AuthorityResearchCover } from "@/components/AuthorityResearchCover";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { ResearchCover } from "@/components/ResearchCover";
@@ -143,32 +142,32 @@ export default function ResearchPage() {
                   </h2>
                 </div>
                 <p>
-                  Structured explainers on trader development, market structure,
-                  professional careers and risk. They are educational references,
-                  not trading signals or service promises.
+                  Practical references on market structure, trader development and
+                  career paths. Educational context, not services or signals.
                 </p>
               </div>
-              <div className="research-authority__grid">
+              <ol className="research-authority__list">
                 {authorityResources.map((article) => (
-                  <Link
-                    href={`/research/${article.slug}`}
-                    key={article.slug}
-                    aria-label={`Read ${article.title}`}
-                  >
-                    <AuthorityResearchCover
-                      articleNumber={article.noteNumber}
-                      category={article.category}
-                      title={article.shortTitle}
-                    />
-                    <div>
-                      <span>{article.category}</span>
-                      <h3>{article.title}</h3>
-                      <p>{article.excerpt}</p>
-                      <strong>Read the field guide</strong>
-                    </div>
-                  </Link>
+                  <li key={article.slug}>
+                    <Link
+                      href={`/research/${article.slug}`}
+                      aria-label={`Read ${article.title}`}
+                    >
+                      <span className="research-authority__meta">
+                        <span>{article.noteNumber}</span>
+                        <span>{article.category}</span>
+                      </span>
+                      <div className="research-authority__content">
+                        <h3>{article.title}</h3>
+                        <p>{article.excerpt}</p>
+                      </div>
+                      <span className="research-authority__action" aria-hidden="true">
+                        Read guide
+                      </span>
+                    </Link>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </section>
           ) : null}
         </div>
