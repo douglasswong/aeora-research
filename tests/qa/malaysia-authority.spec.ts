@@ -3,6 +3,7 @@ import {
   expectNoBrowserIssues,
   expectNoHorizontalOverflow,
   openPage,
+  viewports,
   watchBrowserIssues
 } from "./helpers";
 
@@ -126,6 +127,13 @@ test("Malaysia field guides are indexed through research with article metadata",
     );
     await expect(page.locator("h1")).toHaveText(guide.title);
     await expect(page.getByText("Aeora Research Team", { exact: true })).toBeVisible();
+    await expect(page.locator(".research-article__meta time")).toHaveAttribute(
+      "datetime",
+      "2026-01-01"
+    );
+    await expect(page.locator(".research-article__meta time")).toHaveText(
+      "1 January 2026"
+    );
     await expect(page.locator(".authority-article__related a")).toHaveCount(3);
     await expect(page.locator(".research-article__sources a").first()).toBeVisible();
     await expectNoHorizontalOverflow(page);
@@ -150,6 +158,65 @@ test("Malaysia field guides are indexed through research with article metadata",
   const robots = await request.get("/robots.txt");
   expect(robots.ok()).toBeTruthy();
   expect(await robots.text()).toContain("Sitemap: https://aeora-research.com/sitemap.xml");
+
+  expectNoBrowserIssues(issues);
+});
+
+test("Malaysia field guide covers keep titles clear at all required viewports", async ({
+  page
+}, testInfo) => {
+  testInfo.setTimeout(90_000);
+  await page.route("https://widgets.tradingview-widget.com/**", (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: "application/javascript",
+      body: ""
+    })
+  );
+  const issues = watchBrowserIssues(page);
+
+  for (const viewport of viewports) {
+    await page.setViewportSize(viewport);
+    await page.emulateMedia({ reducedMotion: "reduce" });
+
+    for (const guide of fieldGuides) {
+      await openPage(page, guide.path);
+
+      const cover = page.locator(".authority-research-cover");
+      const title = cover.locator(".authority-research-cover__title");
+      const matrix = cover.locator(".authority-research-cover__matrix");
+
+      await expect(cover).toBeVisible();
+      await expect(title).toBeVisible();
+      await expect(cover.locator("figcaption")).toHaveCount(0);
+
+      const coverBox = await cover.boundingBox();
+      const titleBox = await title.boundingBox();
+
+      expect(coverBox, `${guide.path} cover box`).not.toBeNull();
+      expect(titleBox, `${guide.path} title box`).not.toBeNull();
+
+      if (!coverBox || !titleBox) {
+        continue;
+      }
+
+      expect(titleBox.y).toBeGreaterThanOrEqual(coverBox.y + 12);
+      expect(titleBox.y + titleBox.height).toBeLessThanOrEqual(
+        coverBox.y + coverBox.height - 12
+      );
+
+      if (await matrix.isVisible()) {
+        const matrixBox = await matrix.boundingBox();
+
+        expect(matrixBox, `${guide.path} matrix box`).not.toBeNull();
+        if (matrixBox) {
+          expect(titleBox.x + titleBox.width).toBeLessThanOrEqual(matrixBox.x);
+        }
+      }
+
+      await expectNoHorizontalOverflow(page);
+    }
+  }
 
   expectNoBrowserIssues(issues);
 });

@@ -26,7 +26,6 @@ export function AuthorityResearchCover({
         <span>Risk</span>
         <span>Review</span>
       </div>
-      <figcaption>Educational reference from Aeora Research</figcaption>
     </figure>
   );
 }

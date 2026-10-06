@@ -207,7 +207,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
     category: resource.category,
     author: "Aeora Research Team",
     publishedAt: SEO_AUTHORITY_PUBLISHED_AT,
-    displayDate: "2 October 2026",
+    displayDate: "1 January 2026",
     readingTime: `${6 + (index % 3)} min read`,
     noteNumber: resource.noteNumber,
     seoTitle: resource.title,

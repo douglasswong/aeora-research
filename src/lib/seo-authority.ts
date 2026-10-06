@@ -69,7 +69,7 @@ export type AuthorityResource = {
   }[];
 };
 
-export const SEO_AUTHORITY_PUBLISHED_AT = "2026-10-02";
+export const SEO_AUTHORITY_PUBLISHED_AT = "2026-01-01";
 
 export const AUTHORITY_PILLARS: readonly AuthorityPillar[] = [
   {
