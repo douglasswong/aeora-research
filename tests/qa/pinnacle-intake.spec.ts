@@ -24,8 +24,10 @@ test("Pinnacle separates proposed and completed intake details", async ({ page }
   const registerInterest = page.locator(".pinnacle-programme__interest-button");
 
   await expect(upcoming).toContainText("Upcoming intake");
-  await expect(upcoming).toContainText("Q4 2026");
-  await expect(upcoming).toContainText("Early November 2026");
+  await expect(upcoming).toContainText("Open");
+  await expect(upcoming).toContainText("Limited Slots Left");
+  await expect(upcoming).toContainText("7-8 November 2026");
+  await expect(upcoming).toContainText("Saturday & Sunday");
   await expect(upcoming).toContainText("Kuala Lumpur, Malaysia");
   await expect(upcoming).toContainText("Small Class, Training Room");
   await expect(history).toContainText("Latest intake");

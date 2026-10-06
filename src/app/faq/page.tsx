@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "When and where is the next Aeora Trader Development intake?",
-    answer: `The currently listed proposed intake is ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.intake}, with proposed dates of ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates} in ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.location}. Dates and participation details are subject to confirmation; please check the Trader Development page for current information.`
+    answer: `The next Aeora Trader Development intake is ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.status.toLowerCase()}, with ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.availability.toLowerCase()} for ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates} (${TRADER_DEVELOPMENT_UPCOMING_INTAKE.days}) in ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.location}. Dates and participation details are subject to confirmation; please check the Trader Development page for current information.`
   },
   {
     question: "Does registering interest guarantee a role on a prop desk?",

@@ -96,12 +96,20 @@ export default function PinnaclePage() {
                   <div className="pinnacle-intake pinnacle-intake--upcoming">
                     <div className="pinnacle-intake__status">
                       <p>Upcoming intake</p>
-                      <strong>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.intake}</strong>
+                      <strong className="pinnacle-intake__availability">
+                        {TRADER_DEVELOPMENT_UPCOMING_INTAKE.status}
+                      </strong>
+                      <span className="pinnacle-intake__availability-note">
+                        ({TRADER_DEVELOPMENT_UPCOMING_INTAKE.availability})
+                      </span>
                     </div>
                     <dl>
                       <div>
                         <dt>Proposed dates</dt>
-                        <dd>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates}</dd>
+                        <dd>
+                          {TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates}
+                          <span>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.days}</span>
+                        </dd>
                       </div>
                       <div>
                         <dt>Location</dt>

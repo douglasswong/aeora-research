@@ -41,8 +41,10 @@ export const TRADER_DEVELOPMENT_INTAKE = {
 } as const;
 
 export const TRADER_DEVELOPMENT_UPCOMING_INTAKE = {
-  intake: "Q4 2026",
-  proposedDates: "Early November 2026",
+  status: "Open",
+  availability: "Limited Slots Left",
+  proposedDates: "7-8 November 2026",
+  days: "Saturday & Sunday",
   location: "Kuala Lumpur, Malaysia",
   format: "Small Class, Training Room"
 } as const;
