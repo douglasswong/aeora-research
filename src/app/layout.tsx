@@ -28,9 +28,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/og-image.svg",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
+        type: "image/png",
         alt: "Aeora Research visual identity"
       }
     ]
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ["/og-image.svg"]
+    images: ["/og-image.png"]
   },
   icons: {
     icon: [{ url: "/favicon.png", type: "image/png" }],
