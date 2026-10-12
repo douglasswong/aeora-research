@@ -5,11 +5,11 @@ import {
   COMPANY_REGISTRATION,
   CONTACT_EMAIL,
   HOTLINE_PHONE,
+  ORGANIZATION_SAME_AS,
   OFFICE_PHONE,
   SITE_DESCRIPTION,
   SITE_TITLE,
-  SITE_URL,
-  SOCIAL_CHANNELS
+  SITE_URL
 } from "@/lib/site";
 import "./globals.css";
 
@@ -68,7 +68,7 @@ const organizationStructuredData = {
     streetAddress: COMPANY_ADDRESS_LINES.join(", "),
     addressCountry: "MY"
   },
-  sameAs: SOCIAL_CHANNELS.map((channel) => channel.href)
+  sameAs: ORGANIZATION_SAME_AS
 };
 
 export default function RootLayout({

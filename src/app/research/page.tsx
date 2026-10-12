@@ -143,7 +143,11 @@ export default function ResearchPage() {
                 </div>
                 <p>
                   Practical references on market structure, trader development and
-                  career paths. Educational context, not services or signals.
+                  career paths. Begin with <Link href="/prop-desk-malaysia">prop
+                  desk development</Link>, <Link href="/institutional-trading-malaysia">institutional
+                  trading concepts</Link> or <Link href="/professional-trader-career-malaysia">professional
+                  trader careers</Link>. Educational context, not services or
+                  signals.
                 </p>
               </div>
               <ol className="research-authority__list">

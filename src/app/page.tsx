@@ -16,9 +16,9 @@ import {
   CONTACT_EMAIL,
   ENQUIRY_PATHWAYS,
   OFFICE_PHONE,
+  ORGANIZATION_SAME_AS,
   PILLARS,
   SITE_DESCRIPTION,
-  SOCIAL_CHANNELS,
   SITE_URL
 } from "@/lib/site";
 
@@ -45,7 +45,7 @@ const organizationSchema = {
     postalCode: "47100",
     addressCountry: "MY"
   },
-  sameAs: SOCIAL_CHANNELS.map((channel) => channel.href)
+  sameAs: ORGANIZATION_SAME_AS
 };
 
 const websiteSchema = {

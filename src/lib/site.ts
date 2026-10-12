@@ -672,3 +672,8 @@ export const SOCIAL_CHANNELS = [
     href: "https://www.facebook.com/share/1SG2VkQo3J/?mibextid=wwXIfr"
   }
 ] as const;
+
+export const ORGANIZATION_SAME_AS = [
+  LINKEDIN_COMPANY_URL,
+  ...SOCIAL_CHANNELS.map((channel) => channel.href)
+] as const;
