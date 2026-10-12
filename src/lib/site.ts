@@ -646,15 +646,15 @@ export const NUMBERS = [
   {
     label: "Number of Prop Traders",
     kind: "integer",
-    value: 12,
+    value: 13,
     suffix: "+"
   },
   {
     label: "Current AUM",
     kind: "decimal",
-    value: 2.3,
+    value: 2.1,
     suffix: "mil MYR+",
-    context: "Approx. USD 580K",
+    context: "Approx. USD 518K",
     note: "still growing"
   }
 ] as const;
