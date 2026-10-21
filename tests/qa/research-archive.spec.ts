@@ -36,3 +36,23 @@ test("research archive keeps dates prominent and titles on one line at laptop wi
   expect(titleWidths.every((title) => title.scrollWidth <= title.clientWidth + 1)).toBeTruthy();
   await expectNoHorizontalOverflow(page);
 });
+
+test("current research feature uses the tanker freight cover", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openPage(page, "/research");
+
+  const feature = page.locator(".research-feature");
+  await expect(feature).toHaveAttribute(
+    "href",
+    "/research/why-tanker-freight-matters-for-oil-prices"
+  );
+
+  const cover = feature.locator(".tanker-freight-cover");
+  await expect(cover).toBeVisible();
+  await expect(cover.locator("img")).toHaveAttribute(
+    "src",
+    /tanker-freight-oil-market-october-2026\.png/
+  );
+  await expectNoHorizontalOverflow(page);
+});

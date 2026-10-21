@@ -6,6 +6,7 @@ import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { ResearchCover } from "@/components/ResearchCover";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
+import { TankerFreightCover } from "@/components/TankerFreightCover";
 import { WarshFedQ42026Cover } from "@/components/WarshFedQ42026Cover";
 import { WtiCrudeOilCover } from "@/content/research/WtiCrudeOilOutlook";
 import { RESEARCH_ARTICLES } from "@/lib/research";
@@ -76,7 +77,9 @@ export default function ResearchPage() {
                 <strong>Read the note</strong>
               </div>
             </div>
-            {latestArticle.slug ===
+            {latestArticle.slug === "why-tanker-freight-matters-for-oil-prices" ? (
+              <TankerFreightCover articleCover={false} />
+            ) : latestArticle.slug ===
             "why-oil-still-prices-risk-after-gulf-exports-recover" ? (
               <GulfOilRiskPremiumCover articleCover={false} />
             ) : latestArticle.slug ===
