@@ -3702,6 +3702,255 @@ a {
   background: var(--aeora-white);
 }
 
+/* Tanker-freight research note */
+.tanker-freight-cover {
+  margin: 0;
+  border: 1px solid rgba(13, 20, 27, 0.22);
+  background: #07111a;
+}
+
+.tanker-freight-cover__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #07111a;
+}
+
+.tanker-freight-cover__media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 13, 20, 0.8), rgba(5, 13, 20, 0.18) 57%, transparent 82%);
+  content: "";
+  pointer-events: none;
+}
+
+.tanker-freight-cover__media img {
+  object-fit: cover;
+}
+
+.tanker-freight-cover__label {
+  position: absolute;
+  z-index: 1;
+  bottom: clamp(18px, 3.2vw, 40px);
+  left: clamp(18px, 3.2vw, 40px);
+  display: grid;
+  max-width: min(46%, 420px);
+  gap: 7px;
+  border-left: 2px solid var(--aeora-mint);
+  padding: 12px 16px;
+  color: var(--aeora-white);
+  background: rgba(5, 13, 20, 0.75);
+}
+
+.tanker-freight-cover__label span,
+.tanker-freight-cover__label small {
+  color: var(--aeora-mint);
+  font-family: var(--font-display);
+  font-size: 0.61rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.42;
+  text-transform: uppercase;
+}
+
+.tanker-freight-cover__label strong {
+  color: var(--aeora-white);
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.35vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.08;
+}
+
+.tanker-freight-cover figcaption {
+  padding: 0.86rem 1.2rem;
+  color: rgba(13, 20, 27, 0.68);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  background: var(--aeora-white);
+}
+
+.freight-transmission-figure {
+  margin: 42px 0;
+  border: 1px solid var(--aeora-line);
+  border-top: 2px solid var(--aeora-mint);
+  background: rgba(245, 247, 247, 0.72);
+}
+
+.freight-transmission-figure__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(220px, 0.95fr);
+  gap: 28px;
+  align-items: end;
+  padding: 24px 26px 25px;
+  border-bottom: 1px solid var(--aeora-line);
+}
+
+.freight-transmission-figure__header > div {
+  display: grid;
+  gap: 8px;
+}
+
+.freight-transmission-figure__header span,
+.freight-transmission-figure figcaption {
+  color: rgba(13, 20, 27, 0.66);
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.freight-transmission-figure__header strong {
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.1vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.05;
+}
+
+.freight-transmission-figure__header p {
+  margin: 0;
+  color: rgba(13, 20, 27, 0.7);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.freight-transmission-figure ol {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.freight-transmission-figure li {
+  position: relative;
+  display: grid;
+  min-height: 202px;
+  align-content: start;
+  gap: 12px;
+  padding: 23px 20px 25px;
+}
+
+.freight-transmission-figure li + li {
+  border-left: 1px solid var(--aeora-line);
+}
+
+.freight-transmission-figure li + li::before {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: -6px;
+  width: 11px;
+  height: 11px;
+  border-top: 1px solid var(--aeora-mint);
+  border-right: 1px solid var(--aeora-mint);
+  background: #f5f7f7;
+  content: "";
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.freight-transmission-figure li > span {
+  color: #087353;
+  font-family: var(--font-display);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.4;
+}
+
+.freight-transmission-figure h3 {
+  margin: 0;
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.freight-transmission-figure li p {
+  margin: 0;
+  color: rgba(13, 20, 27, 0.68);
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+.freight-transmission-figure figcaption {
+  padding: 15px 26px 17px;
+  border-top: 1px solid var(--aeora-line);
+  text-transform: none;
+}
+
+.freight-scenarios {
+  border-top: 1px solid rgba(13, 20, 27, 0.3);
+}
+
+.freight-scenarios article {
+  padding: 28px 0 30px;
+  border-bottom: 1px solid var(--aeora-line);
+}
+
+.freight-scenarios span {
+  color: #087353;
+  font-family: var(--font-display);
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.freight-scenarios h3 {
+  margin: 8px 0 16px;
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.25;
+}
+
+.freight-scenarios p {
+  color: rgba(13, 20, 27, 0.67);
+}
+
+.freight-research-take {
+  margin-top: 58px;
+  padding: clamp(26px, 5vw, 48px);
+  border-left: 4px solid var(--aeora-mint);
+  background: #091116;
+  color: rgba(245, 247, 247, 0.82);
+}
+
+.research-article__body .freight-research-take h2 {
+  margin-top: 14px;
+  color: var(--aeora-white);
+}
+
+.research-article__body .freight-research-take .research-article__section-number {
+  color: var(--aeora-mint);
+}
+
+.research-article__body .freight-research-take p {
+  color: rgba(245, 247, 247, 0.82);
+}
+
+.research-article__body .freight-research-take p + p {
+  margin-top: 18px;
+}
+
+.research-article__body .freight-research-take__disclaimer {
+  padding-top: 18px;
+  border-top: 1px solid rgba(245, 247, 247, 0.2);
+  color: rgba(245, 247, 247, 0.66);
+  font-size: 0.88rem;
+}
+
 .oil-recovery-figure {
   margin: 42px 0;
   border-top: 2px solid var(--aeora-mint);
@@ -3991,6 +4240,44 @@ a {
 
   .gulf-oil-cover__label {
     max-width: 78%;
+  }
+
+  .tanker-freight-cover__media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .tanker-freight-cover__label {
+    max-width: 78%;
+  }
+
+  .freight-transmission-figure__header {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 22px 20px;
+  }
+
+  .freight-transmission-figure ol {
+    grid-template-columns: 1fr;
+  }
+
+  .freight-transmission-figure li {
+    min-height: 0;
+    padding: 18px 20px 20px;
+  }
+
+  .freight-transmission-figure li + li {
+    border-top: 1px solid var(--aeora-line);
+    border-left: 0;
+  }
+
+  .freight-transmission-figure li + li::before {
+    top: -6px;
+    left: 30px;
+    transform: rotate(135deg);
+  }
+
+  .freight-transmission-figure figcaption {
+    padding: 15px 20px 17px;
   }
 
   .oil-recovery-figure__headline {

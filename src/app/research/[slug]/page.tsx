@@ -14,6 +14,7 @@ import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { AuthorityResearchCover } from "@/components/AuthorityResearchCover";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
+import { TankerFreightCover } from "@/components/TankerFreightCover";
 import {
   GulfOilRiskPremiumArticle,
   gulfOilRiskPremiumKeyPoints,
@@ -24,6 +25,11 @@ import {
   nfpGoldLiquidityShockKeyPoints,
   nfpGoldLiquidityShockSources
 } from "@/content/research/NfpGoldLiquidityShock";
+import {
+  TankerFreightOilMarketArticle,
+  tankerFreightOilMarketKeyPoints,
+  tankerFreightOilMarketSources
+} from "@/content/research/TankerFreightOilMarket";
 import { ResearchArticleLayout } from "@/components/ResearchArticleLayout";
 import { MalaysiaTradingAuthorityArticle } from "@/content/research/MalaysiaTradingAuthority";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
@@ -133,6 +139,8 @@ export default async function ResearchArticlePage({
 
   const authorityResource = getAuthorityResource(article.slug);
   const isMarketsRallyArticle = article.slug === "why-markets-rally-despite-bad-news";
+  const isTankerFreightOilMarketArticle =
+    article.slug === "why-tanker-freight-matters-for-oil-prices";
   const isGulfOilRiskPremiumArticle =
     article.slug === "why-oil-still-prices-risk-after-gulf-exports-recover";
   const isSawitEcoThermArticle =
@@ -145,6 +153,8 @@ export default async function ResearchArticlePage({
     article.slug === "why-gold-dropped-after-nfp-xauusd-liquidity-shock";
   const keyPoints = authorityResource
     ? authorityResource.keyPoints
+    : isTankerFreightOilMarketArticle
+    ? tankerFreightOilMarketKeyPoints
     : isGulfOilRiskPremiumArticle
     ? gulfOilRiskPremiumKeyPoints
     : isNfpGoldLiquidityShockArticle
@@ -160,6 +170,8 @@ export default async function ResearchArticlePage({
       : cmeSingleStockFuturesKeyPoints;
   const sources = authorityResource
     ? authorityResource.sources
+    : isTankerFreightOilMarketArticle
+    ? tankerFreightOilMarketSources
     : isGulfOilRiskPremiumArticle
     ? gulfOilRiskPremiumSources
     : isNfpGoldLiquidityShockArticle
@@ -175,6 +187,8 @@ export default async function ResearchArticlePage({
       : cmeSingleStockFuturesSources;
   const content = authorityResource ? (
     <MalaysiaTradingAuthorityArticle resource={authorityResource} />
+  ) : isTankerFreightOilMarketArticle ? (
+    <TankerFreightOilMarketArticle />
   ) : isGulfOilRiskPremiumArticle ? (
     <GulfOilRiskPremiumArticle />
   ) : isNfpGoldLiquidityShockArticle ? (
@@ -196,6 +210,8 @@ export default async function ResearchArticlePage({
       category={article.category}
       title={article.shortTitle}
     />
+  ) : isTankerFreightOilMarketArticle ? (
+    <TankerFreightCover />
   ) : isGulfOilRiskPremiumArticle ? (
     <GulfOilRiskPremiumCover />
   ) : isNfpGoldLiquidityShockArticle ? (

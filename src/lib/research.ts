@@ -29,6 +29,40 @@ export type ResearchArticle = {
 
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   {
+    slug: "why-tanker-freight-matters-for-oil-prices",
+    title: "Why Tanker Freight Has Become the Oil Market's Hidden Variable",
+    displayTitle: "Why Tanker Freight Is Oil's Hidden Variable",
+    shortTitle: "Tanker Freight and Oil",
+    description:
+      "Oil tanker freight is shaping delivered crude costs, refinery margins and fuel risk. Aeora Research separates verified evidence from the estimates behind the headlines.",
+    excerpt:
+      "The quoted oil price is only one part of the story. We examine the route, vessel, insurance and refinery costs embedded in the delivered barrel.",
+    category: "Commodities & Macro",
+    author: "Aeora Research Team",
+    publishedAt: "2026-10-21",
+    displayDate: "21 October 2026",
+    readingTime: "7 min read",
+    noteNumber: "08",
+    seoTitle: "Oil Tanker Freight Rates: Why They Matter for Brent and Fuel Prices",
+    openGraphTitle: "Why Tanker Freight Has Become Oil's Hidden Variable",
+    openGraphDescription:
+      "The oil market is not only pricing barrels. It is pricing security, tanker availability, insurance, routes and the cost of delivering crude.",
+    socialImage: "/research/tanker-freight-oil-market-october-2026.png",
+    socialImageWidth: 1672,
+    socialImageHeight: 940,
+    tags: [
+      "oil tanker freight rates",
+      "Brent freight costs",
+      "Strait of Hormuz tanker risk",
+      "delivered crude cost",
+      "oil refinery margins",
+      "ship-to-ship oil transfers",
+      "oil market structure",
+      "commodities research"
+    ],
+    draft: false
+  },
+  {
     slug: "why-oil-still-prices-risk-after-gulf-exports-recover",
     title: "Why Oil Still Prices Risk After Gulf Exports Recover",
     shortTitle: "Why Oil Still Prices Risk",
