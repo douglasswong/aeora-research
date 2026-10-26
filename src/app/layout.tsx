@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import {
   COMPANY_ADDRESS_LINES,
   COMPANY_NAME,
@@ -71,6 +72,9 @@ const organizationStructuredData = {
   sameAs: ORGANIZATION_SAME_AS
 };
 
+const analyticsEnabled = process.env.NEXT_PUBLIC_AEORA_ANALYTICS_ENABLED === "true";
+const analyticsMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 export default function RootLayout({
   children
 }: Readonly<{
@@ -79,6 +83,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <AnalyticsTracker
+          enabled={analyticsEnabled}
+          measurementId={analyticsMeasurementId}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
