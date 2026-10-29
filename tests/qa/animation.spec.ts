@@ -85,9 +85,13 @@ test("homepage prop-trader metric keeps its intended label and dated qualifier",
   ]);
   await expect(propTraderMetric.locator(".numbers__value-main")).toHaveText("15");
   await expect(propTraderMetric.locator(".numbers__value-suffix")).toHaveText("+");
-  await expect(propTraderMetric.locator(".numbers__note")).toHaveText(
-    "* As of Oct 2026"
-  );
+  const datedNote = propTraderMetric.locator(".numbers__note");
+
+  await expect(datedNote).toHaveText("* As of Nov 2026");
+  await expect(datedNote).toHaveCSS("white-space", "nowrap");
+  await expect(
+    datedNote.evaluate((element) => element.scrollWidth <= element.clientWidth)
+  ).resolves.toBe(true);
 });
 
 test("trader development cards use observer-backed entrances", async ({ page }) => {

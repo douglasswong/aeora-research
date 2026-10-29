@@ -649,7 +649,8 @@ export const NUMBERS = [
     kind: "integer",
     value: 15,
     suffix: "+",
-    note: "* As of Oct 2026"
+    note: "* As of Nov 2026",
+    noteNoWrap: true
   },
   {
     label: "Current AUM",

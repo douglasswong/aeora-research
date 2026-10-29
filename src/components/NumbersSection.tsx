@@ -124,7 +124,15 @@ export function NumbersSection() {
                   </span>
                 </strong>
                 {"note" in item ? (
-                  <span className="numbers__note">{item.note}</span>
+                  <span
+                    className={`numbers__note${
+                      "noteNoWrap" in item && item.noteNoWrap
+                        ? " numbers__note--single-line"
+                        : ""
+                    }`}
+                  >
+                    {item.note}
+                  </span>
                 ) : null}
               </article>
             );
