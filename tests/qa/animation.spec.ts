@@ -68,6 +68,28 @@ test("mobile homepage uses observer-driven reveals without the desktop ticker", 
     .toBeGreaterThan(0);
 });
 
+test("homepage prop-trader metric keeps its intended label and dated qualifier", async ({
+  page
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openPage(page, "/");
+
+  const propTraderMetric = page.locator(
+    ".numbers__item:has(.numbers__label-line)"
+  );
+
+  await propTraderMetric.scrollIntoViewIfNeeded();
+  await expect(propTraderMetric.locator(".numbers__label-line")).toHaveText([
+    "Number of",
+    "Prop Traders"
+  ]);
+  await expect(propTraderMetric.locator(".numbers__value-main")).toHaveText("15");
+  await expect(propTraderMetric.locator(".numbers__value-suffix")).toHaveText("+");
+  await expect(propTraderMetric.locator(".numbers__note")).toHaveText(
+    "* As of Oct 2026"
+  );
+});
+
 test("trader development cards use observer-backed entrances", async ({ page }) => {
   await openPage(page, "/pinnacle");
 

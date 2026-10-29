@@ -645,9 +645,11 @@ export const NUMBERS = [
   },
   {
     label: "Number of Prop Traders",
+    labelLines: ["Number of", "Prop Traders"],
     kind: "integer",
-    value: 13,
-    suffix: "+"
+    value: 15,
+    suffix: "+",
+    note: "* As of Oct 2026"
   },
   {
     label: "Current AUM",

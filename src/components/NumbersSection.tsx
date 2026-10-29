@@ -101,7 +101,17 @@ export function NumbersSection() {
 
             return (
               <article className="numbers__item reveal" key={item.label}>
-                <p>{item.label}</p>
+                <p
+                  aria-label={"labelLines" in item ? item.label : undefined}
+                >
+                  {"labelLines" in item
+                    ? item.labelLines.map((line) => (
+                        <span className="numbers__label-line" key={line}>
+                          {line}
+                        </span>
+                      ))
+                    : item.label}
+                </p>
                 {"context" in item ? (
                   <span className="numbers__context">{item.context}</span>
                 ) : null}

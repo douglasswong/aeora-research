@@ -3429,6 +3429,11 @@ a {
   text-transform: uppercase;
 }
 
+.numbers__label-line {
+  display: block;
+  white-space: nowrap;
+}
+
 .numbers__context {
   display: block;
   min-height: 1.35em;
