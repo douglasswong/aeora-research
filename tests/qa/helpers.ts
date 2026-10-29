@@ -11,6 +11,7 @@ export const responsivePages = [
   { label: "courses", path: "/courses" },
   { label: "other-services", path: "/dngconsultation" },
   { label: "security", path: "/security" },
+  { label: "privacy", path: "/privacy" },
   { label: "trader-readiness", path: "/trader-readiness" },
   { label: "prop-desk-malaysia", path: "/prop-desk-malaysia" },
   {

@@ -1,4 +1,5 @@
 import { BrandLockup } from "@/components/BrandLockup";
+import { AnalyticsConsentPreferencesButton } from "@/components/AnalyticsConsentPreferencesButton";
 import { TradingViewTickerTape } from "@/components/TradingViewTickerTape";
 import Link from "next/link";
 import {
@@ -134,6 +135,10 @@ export function SiteFooter() {
             <Link className="site-footer__terms" href="/terms-conditions">
               Terms &amp; Conditions
             </Link>
+            <Link className="site-footer__terms" href="/privacy">
+              Privacy &amp; Cookies
+            </Link>
+            <AnalyticsConsentPreferencesButton className="site-footer__terms site-footer__cookie-preferences" />
             <p className="site-footer__copyright">
               &copy; {currentYear} Aeora Research. All rights reserved.
             </p>
