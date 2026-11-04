@@ -75,7 +75,7 @@ test("homepage prop-trader metric keeps its intended label and dated qualifier",
   await openPage(page, "/");
 
   const propTraderMetric = page.locator(
-    ".numbers__item:has(.numbers__label-line)"
+    '.numbers__item:has(p[aria-label="Number of Prop Traders"])'
   );
 
   await propTraderMetric.scrollIntoViewIfNeeded();
@@ -91,6 +91,48 @@ test("homepage prop-trader metric keeps its intended label and dated qualifier",
   await expect(datedNote).toHaveCSS("white-space", "nowrap");
   await expect(
     datedNote.evaluate((element) => element.scrollWidth <= element.clientWidth)
+  ).resolves.toBe(true);
+});
+
+test("homepage metrics keep four desktop columns and include monthly volume", async ({
+  page
+}) => {
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openPage(page, "/");
+
+  const metrics = page.locator(".numbers__item");
+  const grid = page.locator(".numbers__grid");
+  const monthlyVolumeMetric = page.locator(
+    '.numbers__item:has(p[aria-label="Avg Monthly Volume"])'
+  );
+
+  await grid.scrollIntoViewIfNeeded();
+  await expect(metrics).toHaveCount(4);
+  await expect
+    .poll(() =>
+      grid.evaluate((element) =>
+        getComputedStyle(element).gridTemplateColumns.trim().split(/\s+/).length
+      )
+    )
+    .toBe(4);
+  await expect(monthlyVolumeMetric.locator(".numbers__label-line")).toHaveText([
+    "Avg Monthly",
+    "Volume"
+  ]);
+  await expect(monthlyVolumeMetric.locator(".numbers__value-main")).toHaveText(
+    "500-1000"
+  );
+  await expect(monthlyVolumeMetric.locator(".numbers__value-suffix")).toHaveText(
+    "lots"
+  );
+
+  const ytdNote = monthlyVolumeMetric.locator(".numbers__note");
+
+  await expect(ytdNote).toHaveText("* Actual YTD data");
+  await expect(ytdNote).toHaveCSS("white-space", "nowrap");
+  await expect(
+    ytdNote.evaluate((element) => element.scrollWidth <= element.clientWidth)
   ).resolves.toBe(true);
 });
 

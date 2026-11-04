@@ -638,10 +638,21 @@ export const PARTNER_GROUPS = [
 export const NUMBERS = [
   {
     label: "Avg Annual Portfolio Target",
+    labelLines: ["Avg Annual", "Portfolio Target"],
     kind: "range",
     from: 15,
     to: 30,
     suffix: "%"
+  },
+  {
+    label: "Avg Monthly Volume",
+    labelLines: ["Avg Monthly", "Volume"],
+    kind: "range",
+    from: 500,
+    to: 1000,
+    suffix: "lots",
+    note: "* Actual YTD data",
+    noteNoWrap: true
   },
   {
     label: "Number of Prop Traders",

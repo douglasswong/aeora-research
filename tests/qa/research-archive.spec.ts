@@ -37,7 +37,7 @@ test("research archive keeps dates prominent and titles on one line at laptop wi
   await expectNoHorizontalOverflow(page);
 });
 
-test("current research feature uses the tanker freight cover", async ({ page }) => {
+test("current research feature uses the latest crude oil cover", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await openPage(page, "/research");
@@ -45,14 +45,14 @@ test("current research feature uses the tanker freight cover", async ({ page }) 
   const feature = page.locator(".research-feature");
   await expect(feature).toHaveAttribute(
     "href",
-    "/research/why-tanker-freight-matters-for-oil-prices"
+    "/research/crude-oil-crossroads-brent-curve-physical-markets"
   );
 
-  const cover = feature.locator(".tanker-freight-cover");
+  const cover = feature.locator(".crude-oil-crossroads-cover");
   await expect(cover).toBeVisible();
   await expect(cover.locator("img")).toHaveAttribute(
     "src",
-    /tanker-freight-oil-market-october-2026\.png/
+    /crude-oil-crossroads-physical-markets-november-2026\.png/
   );
   await expectNoHorizontalOverflow(page);
 });
