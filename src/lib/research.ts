@@ -29,6 +29,39 @@ export type ResearchArticle = {
 
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   {
+    slug: "crude-oil-crossroads-brent-curve-physical-markets",
+    title: "Crude Oil: Physical Markets and the Brent Curve",
+    shortTitle: "Oil Visual Briefing",
+    description:
+      "A visual research briefing on Gulf flows, inventory buffers, physical oil signals and the Brent futures curve.",
+    excerpt:
+      "A shorter visual reading of the oil market: verified Gulf-flow numbers, delivery-system risks and the relative-value logic behind Brent calendar spreads.",
+    category: "Commodities & Macro",
+    author: "Aeora Research Team",
+    publishedAt: "2026-11-03",
+    displayDate: "3 November 2026",
+    readingTime: "7 min visual brief",
+    noteNumber: "09",
+    seoTitle: "Crude Oil Visual Brief: Physical Markets and the Brent Curve",
+    openGraphTitle: "Crude Oil: A Visual Briefing on Physical Markets and Brent",
+    openGraphDescription:
+      "Aeora Research visual briefing: Gulf flow snapshot, physical-market signals, Brent calendar-spread mechanics and scenario radar.",
+    socialImage: "/research/crude-oil-crossroads-physical-markets-november-2026.png",
+    socialImageWidth: 1672,
+    socialImageHeight: 940,
+    tags: [
+      "crude oil visual brief",
+      "Brent futures curve",
+      "Brent calendar spread",
+      "oil inventories",
+      "physical oil market",
+      "oil tanker freight",
+      "oil market structure",
+      "commodities research"
+    ],
+    draft: false
+  },
+  {
     slug: "why-tanker-freight-matters-for-oil-prices",
     title: "Why Tanker Freight Has Become the Oil Market's Hidden Variable",
     displayTitle: "Why Tanker Freight Is Oil's Hidden Variable",

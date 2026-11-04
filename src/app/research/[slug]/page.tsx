@@ -13,6 +13,7 @@ import {
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { AuthorityResearchCover } from "@/components/AuthorityResearchCover";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
+import { CrudeOilCrossroadsCover } from "@/components/CrudeOilCrossroadsCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { TankerFreightCover } from "@/components/TankerFreightCover";
 import {
@@ -30,6 +31,11 @@ import {
   tankerFreightOilMarketKeyPoints,
   tankerFreightOilMarketSources
 } from "@/content/research/TankerFreightOilMarket";
+import {
+  CrudeOilCrossroadsVisualV2Article,
+  crudeOilCrossroadsVisualV2KeyPoints,
+  crudeOilCrossroadsVisualV2Sources
+} from "@/content/research/CrudeOilCrossroadsVisualV2";
 import { ResearchArticleLayout } from "@/components/ResearchArticleLayout";
 import { MalaysiaTradingAuthorityArticle } from "@/content/research/MalaysiaTradingAuthority";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
@@ -141,6 +147,8 @@ export default async function ResearchArticlePage({
   const isMarketsRallyArticle = article.slug === "why-markets-rally-despite-bad-news";
   const isTankerFreightOilMarketArticle =
     article.slug === "why-tanker-freight-matters-for-oil-prices";
+  const isCrudeOilVisualBriefingArticle =
+    article.slug === "crude-oil-crossroads-brent-curve-physical-markets";
   const isGulfOilRiskPremiumArticle =
     article.slug === "why-oil-still-prices-risk-after-gulf-exports-recover";
   const isSawitEcoThermArticle =
@@ -153,6 +161,8 @@ export default async function ResearchArticlePage({
     article.slug === "why-gold-dropped-after-nfp-xauusd-liquidity-shock";
   const keyPoints = authorityResource
     ? authorityResource.keyPoints
+    : isCrudeOilVisualBriefingArticle
+    ? crudeOilCrossroadsVisualV2KeyPoints
     : isTankerFreightOilMarketArticle
     ? tankerFreightOilMarketKeyPoints
     : isGulfOilRiskPremiumArticle
@@ -170,6 +180,8 @@ export default async function ResearchArticlePage({
       : cmeSingleStockFuturesKeyPoints;
   const sources = authorityResource
     ? authorityResource.sources
+    : isCrudeOilVisualBriefingArticle
+    ? crudeOilCrossroadsVisualV2Sources
     : isTankerFreightOilMarketArticle
     ? tankerFreightOilMarketSources
     : isGulfOilRiskPremiumArticle
@@ -187,6 +199,8 @@ export default async function ResearchArticlePage({
       : cmeSingleStockFuturesSources;
   const content = authorityResource ? (
     <MalaysiaTradingAuthorityArticle resource={authorityResource} />
+  ) : isCrudeOilVisualBriefingArticle ? (
+    <CrudeOilCrossroadsVisualV2Article />
   ) : isTankerFreightOilMarketArticle ? (
     <TankerFreightOilMarketArticle />
   ) : isGulfOilRiskPremiumArticle ? (
@@ -210,6 +224,8 @@ export default async function ResearchArticlePage({
       category={article.category}
       title={article.shortTitle}
     />
+  ) : isCrudeOilVisualBriefingArticle ? (
+    <CrudeOilCrossroadsCover visualBrief />
   ) : isTankerFreightOilMarketArticle ? (
     <TankerFreightCover />
   ) : isGulfOilRiskPremiumArticle ? (
