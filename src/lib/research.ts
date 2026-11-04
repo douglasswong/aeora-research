@@ -6,6 +6,7 @@ import {
 export type ResearchArticle = {
   slug: string;
   title: string;
+  subtitle?: string;
   displayTitle?: string;
   shortTitle: string;
   description: string;
@@ -31,6 +32,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   {
     slug: "crude-oil-crossroads-brent-curve-physical-markets",
     title: "Crude Oil: Physical Markets and the Brent Curve",
+    subtitle: "Barclays Commodities Research Intel Study",
     shortTitle: "Oil Visual Briefing",
     description:
       "A visual research briefing on Gulf flows, inventory buffers, physical oil signals and the Brent futures curve.",

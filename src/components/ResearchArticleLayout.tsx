@@ -70,6 +70,9 @@ export function ResearchArticleLayout({
                   {publicationLabel} {article.noteNumber}
                 </p>
                 <h1>{headline ?? article.displayTitle ?? article.title}</h1>
+                {article.subtitle ? (
+                  <p className="research-article__subtitle">{article.subtitle}</p>
+                ) : null}
                 <p className="research-article__description">
                   {article.description}
                 </p>

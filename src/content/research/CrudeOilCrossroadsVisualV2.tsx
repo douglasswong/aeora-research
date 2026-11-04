@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export const crudeOilCrossroadsVisualV2KeyPoints = [
   "IEA reported a September recovery in Gulf producer crude exports and transit flows, but the numbers overlap and cannot be added into a single supply total.",
   "A visual market read should separate flow recovery, inventory buffers, positioning evidence and the Brent curve instead of treating Brent as one all-purpose price signal.",
   "The historical Barclays Sep 2027 minus Dec 2027 Brent idea is a relative-value structure: it needs September to strengthen against December, not merely a higher flat price.",
-  "Aeora's V2 assessment remains conditional: credible de-escalation can compress risk, while tight buffers and fragile logistics can keep time-specific scarcity relevant."
+  "Aeora's assessment remains conditional: credible de-escalation can compress risk, while tight buffers and fragile logistics can keep time-specific scarcity relevant."
 ] as const;
 
 export const crudeOilCrossroadsVisualV2Sources = [
@@ -226,6 +227,117 @@ function BrentSpreadFigure() {
   );
 }
 
+const sourceStudyPlates = [
+  {
+    id: "01",
+    label: "Positioning and Gulf flows",
+    title: "Read market conviction beside the physical flow",
+    image: "/research/barclays-oil-positioning-gulf-flows-november-2026.jpg",
+    alt: "Two supplied research charts showing oil positioning and Middle East oil flows.",
+    introduction:
+      "The pair separates market participation from the barrel count. That distinction is useful when a calm-looking futures market sits beside a transport system that remains operationally sensitive.",
+    prompts: [
+      "Is positioning showing conviction, or simply reduced appetite to carry risk?",
+      "Are flows broadly resilient across routes, products and timing, or concentrated in fewer channels?",
+      "Which part of the route remains most exposed to a renewed disruption?"
+    ]
+  },
+  {
+    id: "02",
+    label: "Balance and inventory buffers",
+    title: "Track the system, then test the buffer",
+    image: "/research/barclays-oil-balance-inventory-november-2026.jpg",
+    alt: "Two supplied research charts showing physical oil market balance and inventories.",
+    introduction:
+      "A recovery in visible flows can improve the balance without recreating a comfortable inventory cushion. The study task is to separate a better headline from a more resilient physical system.",
+    prompts: [
+      "Which offsetting flows are supporting the net balance?",
+      "Do inventory levels provide a meaningful buffer, or only a narrow margin for error?",
+      "Would a change in exports, imports or ship-to-ship transfers alter the read first?"
+    ]
+  },
+  {
+    id: "03",
+    label: "Prompt premiums and supply response",
+    title: "Let the physical premium speak before the curve",
+    image: "/research/barclays-oil-premiums-supply-response-november-2026.jpg",
+    alt: "Two supplied research charts showing physical oil premiums and onshore production growth.",
+    introduction:
+      "Prompt physical premiums can show where immediacy is being priced. Supply response develops on a different timetable, so both signals matter without being interchangeable.",
+    prompts: [
+      "Is the premium linked to a specific grade, delivery point or temporary logistics constraint?",
+      "How quickly can available production respond to the condition being observed?",
+      "Does the Brent curve confirm the same scarcity signal, or tell a different time story?"
+    ]
+  }
+] as const;
+
+function SourceStudyPlates() {
+  return (
+    <section className="oil-v2-source-study" aria-labelledby="oil-v2-source-study-title">
+      <div className="oil-v2-source-study__header">
+        <div>
+          <p className="research-article__section-number">02 / Source-study plates</p>
+          <h2 id="oil-v2-source-study-title">Six market lenses, read in sequence</h2>
+        </div>
+        <p>
+          The supplied chart plates make the study sequence more concrete. Each
+          one is paired with a short Aeora guide to the question it can help a
+          reader ask, rather than a conclusion it can answer on its own.
+        </p>
+      </div>
+
+      <ol className="oil-v2-source-study__plates">
+        {sourceStudyPlates.map((plate) => (
+          <li className="oil-v2-source-study__plate" key={plate.id}>
+            <figure>
+              <a
+                href={plate.image}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open the ${plate.label.toLowerCase()} source study plate`}
+              >
+                <Image
+                  src={plate.image}
+                  alt={plate.alt}
+                  width={1600}
+                  height={900}
+                  sizes="(max-width: 720px) calc(100vw - 40px), 820px"
+                />
+              </a>
+              <figcaption>
+                <span>Plate {plate.id}</span>
+                <span>{plate.label}</span>
+                <a href={plate.image} target="_blank" rel="noreferrer">
+                  Open full plate
+                </a>
+              </figcaption>
+            </figure>
+            <div className="oil-v2-source-study__reading">
+              <div>
+                <span>Aeora reading guide</span>
+                <h3>{plate.title}</h3>
+                <p>{plate.introduction}</p>
+              </div>
+              <ul>
+                {plate.prompts.map((prompt) => (
+                  <li key={prompt}>{prompt}</li>
+                ))}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <p className="oil-v2-source-study__boundary">
+        <strong>Source note.</strong> The study plates are supplied Barclays
+        Commodities Research material presented for educational context. They
+        are not Aeora charts, price targets or trade recommendations.
+      </p>
+    </section>
+  );
+}
+
 function ScenarioCards() {
   return (
     <section className="oil-v2-scenarios" aria-labelledby="oil-v2-scenarios-title">
@@ -277,8 +389,10 @@ export function CrudeOilCrossroadsVisualV2Article() {
 
       <SignalBoard />
 
+      <SourceStudyPlates />
+
       <section aria-labelledby="oil-v2-physical">
-        <p className="research-article__section-number">02 / Physical market check</p>
+        <p className="research-article__section-number">03 / Physical market check</p>
         <h2 id="oil-v2-physical">The delivered barrel is the harder test</h2>
         <p>
           A benchmark futures price says something about the market&apos;s broad
@@ -297,7 +411,7 @@ export function CrudeOilCrossroadsVisualV2Article() {
       </section>
 
       <section aria-labelledby="oil-v2-curve">
-        <p className="research-article__section-number">03 / Curve, not just price</p>
+        <p className="research-article__section-number">04 / Curve, not just price</p>
         <h2 id="oil-v2-curve">Brent spreads show which delivery window matters</h2>
         <p>
           A calendar spread compares two futures months. It can react to the
@@ -311,7 +425,7 @@ export function CrudeOilCrossroadsVisualV2Article() {
       </section>
 
       <section aria-labelledby="oil-v2-premiums">
-        <p className="research-article__section-number">04 / Physical premiums</p>
+        <p className="research-article__section-number">05 / Physical premiums</p>
         <h2 id="oil-v2-premiums">Use a physical premium as a local clue, not a global verdict</h2>
         <p>
           A premium for a deliverable cargo can reflect local grade demand,
@@ -323,16 +437,16 @@ export function CrudeOilCrossroadsVisualV2Article() {
         <p>
           The supplied Barclays material uses licensed Argus assessments for its
           physical-premium chart. Aeora does not recreate the series or infer
-          exact values from the screenshot. The V2 note explains what to read
-          when a public or licensed source is available to the market
-          participant.
+          exact values from the screenshot. A premium is most useful when it is
+          read with its grade, delivery point, timing and market methodology in
+          view.
         </p>
       </section>
 
       <ScenarioCards />
 
       <section aria-labelledby="oil-v2-malaysia">
-        <p className="research-article__section-number">05 / Malaysia relevance</p>
+        <p className="research-article__section-number">06 / Malaysia relevance</p>
         <h2 id="oil-v2-malaysia">For Malaysian traders, follow the transmission chain</h2>
         <div className="oil-v2-local-grid">
           <article>
@@ -351,7 +465,7 @@ export function CrudeOilCrossroadsVisualV2Article() {
       </section>
 
       <section className="oil-v2-watchlist" aria-labelledby="oil-v2-watchlist-title">
-        <p className="research-article__section-number">06 / What changes the view</p>
+        <p className="research-article__section-number">07 / What changes the view</p>
         <h2 id="oil-v2-watchlist-title">A short list for the next research pass</h2>
         <ul>
           <li>Verified diplomatic implementation, rather than unconfirmed optimism</li>

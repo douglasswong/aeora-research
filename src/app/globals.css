@@ -15829,3 +15829,240 @@ a {
     padding: 26px 20px;
   }
 }
+
+.research-article__subtitle {
+  max-width: 760px;
+  margin: 22px 0 0;
+  color: #087353;
+  font-family: var(--font-display);
+  font-size: clamp(0.7rem, 1.05vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.research-article__subtitle + .research-article__description {
+  margin-top: 16px;
+}
+
+@media (max-width: 720px) {
+  .research-article__subtitle {
+    margin-top: 17px;
+    font-size: 0.63rem;
+    line-height: 1.55;
+  }
+
+}
+
+.oil-v2-source-study {
+  margin-top: 72px;
+  padding: 42px;
+  border-top: 2px solid var(--aeora-mint);
+  background: #eff6f4;
+}
+
+.oil-v2-source-study__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(250px, 0.75fr);
+  gap: 34px;
+  align-items: end;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(13, 20, 27, 0.24);
+}
+
+.oil-v2-source-study__header h2,
+.oil-v2-source-study__reading h3 {
+  margin: 0;
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-weight: 450;
+  letter-spacing: 0;
+}
+
+.oil-v2-source-study__header h2 {
+  font-size: 2.45rem;
+  line-height: 1.08;
+}
+
+.oil-v2-source-study__header > p {
+  margin: 0;
+  color: #4d585f;
+  font-size: 0.94rem;
+  line-height: 1.64;
+}
+
+.oil-v2-source-study__plates {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oil-v2-source-study__plate {
+  padding: 34px 0 38px;
+  border-bottom: 1px solid rgba(13, 20, 27, 0.2);
+}
+
+.oil-v2-source-study__plate figure {
+  margin: 0;
+  border: 1px solid rgba(13, 20, 27, 0.26);
+  background: var(--aeora-white);
+}
+
+.oil-v2-source-study__plate figure > a {
+  display: block;
+}
+
+.oil-v2-source-study__plate figure > a:focus-visible,
+.oil-v2-source-study__plate figcaption a:focus-visible {
+  outline: 2px solid var(--aeora-mint);
+  outline-offset: -2px;
+}
+
+.oil-v2-source-study__plate figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.oil-v2-source-study__plate figcaption {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 15px;
+  align-items: center;
+  padding: 13px 16px;
+  background: #0d141b;
+  color: rgba(245, 247, 247, 0.76);
+  font-family: var(--font-display);
+  font-size: 0.64rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.oil-v2-source-study__plate figcaption span:first-child {
+  color: var(--aeora-mint);
+}
+
+.oil-v2-source-study__plate figcaption a {
+  color: var(--aeora-mint);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.oil-v2-source-study__reading {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(260px, 1.1fr);
+  gap: 34px;
+  align-items: start;
+  padding: 26px 4px 0;
+}
+
+.oil-v2-source-study__reading > div > span {
+  display: block;
+  margin-bottom: 11px;
+  color: #087353;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.oil-v2-source-study__reading h3 {
+  font-size: 1.65rem;
+  line-height: 1.12;
+}
+
+.oil-v2-source-study__reading p {
+  margin: 15px 0 0;
+  color: #4d585f;
+  font-size: 0.91rem;
+  line-height: 1.65;
+}
+
+.oil-v2-source-study__reading ul {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(13, 20, 27, 0.18);
+}
+
+.oil-v2-source-study__reading li {
+  position: relative;
+  padding: 13px 0 13px 24px;
+  border-bottom: 1px solid rgba(13, 20, 27, 0.14);
+  color: #334047;
+  font-size: 0.84rem;
+  line-height: 1.53;
+}
+
+.oil-v2-source-study__reading li::before {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 10px;
+  height: 2px;
+  background: var(--aeora-mint);
+  content: "";
+}
+
+.oil-v2-source-study__boundary {
+  margin: 24px 0 0;
+  color: #4d585f;
+  font-size: 0.78rem;
+  line-height: 1.58;
+}
+
+.oil-v2-source-study__boundary strong {
+  color: var(--aeora-ink);
+}
+
+@media (max-width: 720px) {
+  .oil-v2-source-study {
+    margin-top: 58px;
+    padding: 26px 20px;
+  }
+
+  .oil-v2-source-study__header,
+  .oil-v2-source-study__reading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .oil-v2-source-study__header {
+    padding-bottom: 22px;
+  }
+
+  .oil-v2-source-study__header h2 {
+    font-size: 1.95rem;
+  }
+
+  .oil-v2-source-study__plate {
+    padding: 27px 0 30px;
+  }
+
+  .oil-v2-source-study__plate figcaption {
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 12px;
+  }
+
+  .oil-v2-source-study__plate figcaption a {
+    margin-top: 5px;
+  }
+
+  .oil-v2-source-study__reading {
+    padding: 22px 0 0;
+  }
+
+  .oil-v2-source-study__reading h3 {
+    font-size: 1.45rem;
+  }
+}

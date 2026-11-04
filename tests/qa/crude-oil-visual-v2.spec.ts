@@ -33,6 +33,9 @@ test("oil visual briefing is published with sourced market graphics", async ({
   await expect(page.getByText("Editorial draft / not published")).toHaveCount(0);
   await expect(page.getByText("Published", { exact: true })).toBeVisible();
   await expect(page.getByText("Research note 09")).toBeVisible();
+  await expect(
+    page.getByText("Barclays Commodities Research Intel Study", { exact: true })
+  ).toBeVisible();
   await expect(page.locator("#article-cover")).toBeVisible();
   await expect(page.locator("#article-cover")).toContainText(
     "Visual briefing / market structure"
@@ -42,9 +45,13 @@ test("oil visual briefing is published with sourced market graphics", async ({
   await expect(page.locator(".oil-v2-flow-figure")).toContainText("10.9");
   await expect(page.locator(".oil-v2-flow-figure")).toContainText("5.6");
   await expect(page.locator(".oil-v2-signal-board li")).toHaveCount(4);
+  await expect(page.locator(".oil-v2-source-study__plate")).toHaveCount(3);
+  await expect(page.locator(".oil-v2-source-study__plate img")).toHaveCount(3);
+  await expect(page.locator(".oil-v2-source-study")).toContainText("Source note");
   await expect(page.locator(".oil-v2-spread-figure__leg")).toHaveCount(2);
   await expect(page.locator(".oil-v2-scenarios li")).toHaveCount(3);
   await expect(page.locator(".oil-v2-local-grid article")).toHaveCount(3);
+  await expect(page.getByText("V2 note explains what to read")).toHaveCount(0);
 
   const titleLineCount = await page.locator(".research-article__header h1").evaluate((element) => {
     const range = document.createRange();
@@ -120,6 +127,7 @@ test("oil visual briefing remains legible on mobile", async ({ page }, testInfo)
 
   await expect(page.locator(".oil-v2-flow-figure")).toBeVisible();
   await expect(page.locator(".oil-v2-signal-board")).toBeVisible();
+  await expect(page.locator(".oil-v2-source-study")).toBeVisible();
   await expect(page.locator(".oil-v2-spread-figure")).toBeVisible();
   await expect(page.locator(".oil-v2-scenarios")).toBeVisible();
   await expectNoHorizontalOverflow(page);
