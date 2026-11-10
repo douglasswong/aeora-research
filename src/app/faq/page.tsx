@@ -6,6 +6,22 @@ import {
   TRADER_DEVELOPMENT_UPCOMING_INTAKE
 } from "@/lib/site";
 
+const upcomingIntakeStatus =
+  TRADER_DEVELOPMENT_UPCOMING_INTAKE.status === "TBC"
+    ? "to be confirmed"
+    : TRADER_DEVELOPMENT_UPCOMING_INTAKE.status.toLowerCase();
+const upcomingIntakeAvailability = TRADER_DEVELOPMENT_UPCOMING_INTAKE.availability
+  ? `, with ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.availability.toLowerCase()}`
+  : "";
+const upcomingIntakeSchedule = [
+  TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates,
+  TRADER_DEVELOPMENT_UPCOMING_INTAKE.days
+    ? `(${TRADER_DEVELOPMENT_UPCOMING_INTAKE.days})`
+    : null
+]
+  .filter(Boolean)
+  .join(" ");
+
 const FAQ_ITEMS = [
   {
     question: "What is Aeora Research?",
@@ -29,7 +45,7 @@ const FAQ_ITEMS = [
   },
   {
     question: "When and where is the next Aeora Trader Development intake?",
-    answer: `The next Aeora Trader Development intake is ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.status.toLowerCase()}, with ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.availability.toLowerCase()} for ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates} (${TRADER_DEVELOPMENT_UPCOMING_INTAKE.days}) in ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.location}. Dates and participation details are subject to confirmation; please check the Trader Development page for current information.`
+    answer: `The next Aeora Trader Development intake is currently ${upcomingIntakeStatus}${upcomingIntakeAvailability}. The proposed timing is ${upcomingIntakeSchedule} in ${TRADER_DEVELOPMENT_UPCOMING_INTAKE.location}. Dates and participation details are subject to confirmation; please check the Trader Development page for current information.`
   },
   {
     question: "Does registering interest guarantee a role on a prop desk?",

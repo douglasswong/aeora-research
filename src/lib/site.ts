@@ -34,17 +34,26 @@ export const TRADER_DEVELOPMENT_INTEREST_URL =
 export const TRADER_DEVELOPMENT_INTAKE = {
   status: "Ended",
   availability: null,
-  dates: "22-23 August 2026",
+  dates: "7-8 November 2026",
   days: "Saturday & Sunday",
   location: "Kuala Lumpur, Malaysia",
   format: "Small Class, Training Room"
 } as const;
 
-export const TRADER_DEVELOPMENT_UPCOMING_INTAKE = {
-  status: "Open",
-  availability: "Limited Slots Left",
-  proposedDates: "7-8 November 2026",
-  days: "Saturday & Sunday",
+type TraderDevelopmentUpcomingIntake = {
+  status: "Open" | "TBC";
+  availability: string | null;
+  proposedDates: string;
+  days: string | null;
+  location: string;
+  format: string;
+};
+
+export const TRADER_DEVELOPMENT_UPCOMING_INTAKE: TraderDevelopmentUpcomingIntake = {
+  status: "TBC",
+  availability: null,
+  proposedDates: "2027 Onwards",
+  days: null,
   location: "Kuala Lumpur, Malaysia",
   format: "Small Class, Training Room"
 } as const;

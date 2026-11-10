@@ -96,19 +96,29 @@ export default function PinnaclePage() {
                   <div className="pinnacle-intake pinnacle-intake--upcoming">
                     <div className="pinnacle-intake__status">
                       <p>Upcoming intake</p>
-                      <strong className="pinnacle-intake__availability">
+                      <strong
+                        className={
+                          TRADER_DEVELOPMENT_UPCOMING_INTAKE.status === "Open"
+                            ? "pinnacle-intake__availability"
+                            : undefined
+                        }
+                      >
                         {TRADER_DEVELOPMENT_UPCOMING_INTAKE.status}
                       </strong>
-                      <span className="pinnacle-intake__availability-note">
-                        ({TRADER_DEVELOPMENT_UPCOMING_INTAKE.availability})
-                      </span>
+                      {TRADER_DEVELOPMENT_UPCOMING_INTAKE.availability ? (
+                        <span className="pinnacle-intake__availability-note">
+                          ({TRADER_DEVELOPMENT_UPCOMING_INTAKE.availability})
+                        </span>
+                      ) : null}
                     </div>
                     <dl>
                       <div>
                         <dt>Proposed dates</dt>
                         <dd>
                           {TRADER_DEVELOPMENT_UPCOMING_INTAKE.proposedDates}
-                          <span>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.days}</span>
+                          {TRADER_DEVELOPMENT_UPCOMING_INTAKE.days ? (
+                            <span>{TRADER_DEVELOPMENT_UPCOMING_INTAKE.days}</span>
+                          ) : null}
                         </dd>
                       </div>
                       <div>
