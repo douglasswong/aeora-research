@@ -68,7 +68,7 @@ test("oil visual briefing is published with sourced market graphics", async ({
   expect(hubResponse.ok()).toBeTruthy();
   const hubHtml = await hubResponse.text();
   expect(hubHtml).toContain(articlePath);
-  expect(hubHtml).toContain("Visual briefing / market structure");
+  expect(hubHtml).toContain("Crude Oil: Physical Markets and the Brent Curve");
 
   const sitemapResponse = await request.get("/sitemap.xml");
   expect(sitemapResponse.ok()).toBeTruthy();
@@ -79,43 +79,18 @@ test("oil visual briefing is published with sourced market graphics", async ({
   expectNoBrowserIssues(issues);
 });
 
-test("research hub features the published visual briefing with its own cover", async ({
+test("research hub archives the published visual briefing after a newer note", async ({
   page
-}, testInfo) => {
+}) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.emulateMedia({ reducedMotion: "reduce" });
-  const issues = watchBrowserIssues(page);
 
   await openPage(page, "/research");
 
-  const featuredArticle = page.locator(".research-feature");
-  await expect(featuredArticle).toHaveAttribute("href", articlePath);
-  await expect(featuredArticle.getByRole("heading", { name: "Oil Visual Briefing" })).toBeVisible();
-  await expect(featuredArticle).toContainText("Visual briefing / market structure");
-  await expect(featuredArticle.locator("img")).toHaveAttribute(
-    "src",
-    /crude-oil-crossroads-physical-markets-november-2026\.png/
-  );
-  await capturePage(page, testInfo, "crude-oil-visual-briefing-hub-desktop");
+  const archivedArticle = page.locator(`.research-archive a[href="${articlePath}"]`);
+  await expect(archivedArticle).toBeVisible();
+  await expect(archivedArticle).toContainText("Crude Oil: Physical Markets and the Brent Curve");
   await expectNoHorizontalOverflow(page);
-  expectNoBrowserIssues(issues);
-});
-
-test("research hub keeps the visual briefing cover legible on mobile", async ({
-  page
-}, testInfo) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.emulateMedia({ reducedMotion: "reduce" });
-  const issues = watchBrowserIssues(page);
-
-  await openPage(page, "/research");
-
-  const featuredArticle = page.locator(".research-feature");
-  await expect(featuredArticle).toHaveAttribute("href", articlePath);
-  await expect(featuredArticle.locator(".crude-oil-crossroads-cover")).toBeVisible();
-  await capturePage(page, testInfo, "crude-oil-visual-briefing-hub-mobile");
-  await expectNoHorizontalOverflow(page);
-  expectNoBrowserIssues(issues);
 });
 
 test("oil visual briefing remains legible on mobile", async ({ page }, testInfo) => {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
 import { CrudeOilCrossroadsCover } from "@/components/CrudeOilCrossroadsCover";
+import { GoldSilverRelativeValueCover } from "@/components/GoldSilverRelativeValueCover";
 import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { ResearchCover } from "@/components/ResearchCover";
@@ -80,6 +81,9 @@ export default function ResearchPage() {
             </div>
             {latestArticle.slug === "why-tanker-freight-matters-for-oil-prices" ? (
               <TankerFreightCover articleCover={false} />
+            ) : latestArticle.slug ===
+              "silver-below-50-gold-silver-ratio-outlook" ? (
+              <GoldSilverRelativeValueCover articleCover={false} />
             ) : latestArticle.slug ===
               "crude-oil-crossroads-brent-curve-physical-markets" ? (
               <CrudeOilCrossroadsCover articleCover={false} visualBrief />

@@ -30,6 +30,40 @@ export type ResearchArticle = {
 
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   {
+    slug: "silver-below-50-gold-silver-ratio-outlook",
+    title: "Silver Below $50: Relative Value or a Value Trap?",
+    subtitle: "Gold-Silver Ratio and Silver Accumulation Outlook",
+    shortTitle: "Silver Below $50",
+    description:
+      "Aeora Research examines silver's 2026 correction, the gold-silver ratio, structural supply-demand evidence and the conditional scenarios required for a recovery.",
+    excerpt:
+      "A high gold-silver ratio can open a relative-value question, but it cannot settle the answer. We map the evidence, the downside conditions and the arithmetic behind a $70 silver scenario.",
+    category: "Precious Metals & Macro",
+    author: "Aeora Research Team",
+    publishedAt: "2026-11-16",
+    displayDate: "16 November 2026",
+    readingTime: "9 min read",
+    noteNumber: "10",
+    seoTitle: "Silver Below $50: Gold-Silver Ratio Outlook for 2026",
+    openGraphTitle: "Silver Below $50: Relative Value or a Value Trap?",
+    openGraphDescription:
+      "A dated, evidence-led look at silver's correction, the gold-silver ratio, technical scenario zones and the conditions needed for a recovery.",
+    socialImage: "/research/gold-silver-relative-value-2026.png",
+    socialImageWidth: 1118,
+    socialImageHeight: 540,
+    tags: [
+      "gold silver ratio 2026",
+      "silver price outlook 2026",
+      "silver below $50",
+      "silver technical analysis",
+      "silver fundamental analysis",
+      "XAGUSD outlook",
+      "gold vs silver",
+      "silver market supply deficit"
+    ],
+    draft: false
+  },
+  {
     slug: "crude-oil-crossroads-brent-curve-physical-markets",
     title: "Crude Oil: Physical Markets and the Brent Curve",
     subtitle: "Barclays Commodities Research Intel Study",

@@ -14,6 +14,7 @@ import { MarketsRallyCover } from "@/components/MarketsRallyCover";
 import { AuthorityResearchCover } from "@/components/AuthorityResearchCover";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
 import { CrudeOilCrossroadsCover } from "@/components/CrudeOilCrossroadsCover";
+import { GoldSilverRelativeValueCover } from "@/components/GoldSilverRelativeValueCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { TankerFreightCover } from "@/components/TankerFreightCover";
 import {
@@ -36,6 +37,11 @@ import {
   crudeOilCrossroadsVisualV2KeyPoints,
   crudeOilCrossroadsVisualV2Sources
 } from "@/content/research/CrudeOilCrossroadsVisualV2";
+import {
+  GoldSilverRelativeValueArticle,
+  goldSilverRelativeValueKeyPoints,
+  goldSilverRelativeValueSources
+} from "@/content/research/GoldSilverRelativeValue";
 import { ResearchArticleLayout } from "@/components/ResearchArticleLayout";
 import { MalaysiaTradingAuthorityArticle } from "@/content/research/MalaysiaTradingAuthority";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
@@ -149,6 +155,8 @@ export default async function ResearchArticlePage({
     article.slug === "why-tanker-freight-matters-for-oil-prices";
   const isCrudeOilVisualBriefingArticle =
     article.slug === "crude-oil-crossroads-brent-curve-physical-markets";
+  const isGoldSilverRelativeValueArticle =
+    article.slug === "silver-below-50-gold-silver-ratio-outlook";
   const isGulfOilRiskPremiumArticle =
     article.slug === "why-oil-still-prices-risk-after-gulf-exports-recover";
   const isSawitEcoThermArticle =
@@ -161,6 +169,8 @@ export default async function ResearchArticlePage({
     article.slug === "why-gold-dropped-after-nfp-xauusd-liquidity-shock";
   const keyPoints = authorityResource
     ? authorityResource.keyPoints
+    : isGoldSilverRelativeValueArticle
+    ? goldSilverRelativeValueKeyPoints
     : isCrudeOilVisualBriefingArticle
     ? crudeOilCrossroadsVisualV2KeyPoints
     : isTankerFreightOilMarketArticle
@@ -180,6 +190,8 @@ export default async function ResearchArticlePage({
       : cmeSingleStockFuturesKeyPoints;
   const sources = authorityResource
     ? authorityResource.sources
+    : isGoldSilverRelativeValueArticle
+    ? goldSilverRelativeValueSources
     : isCrudeOilVisualBriefingArticle
     ? crudeOilCrossroadsVisualV2Sources
     : isTankerFreightOilMarketArticle
@@ -199,6 +211,8 @@ export default async function ResearchArticlePage({
       : cmeSingleStockFuturesSources;
   const content = authorityResource ? (
     <MalaysiaTradingAuthorityArticle resource={authorityResource} />
+  ) : isGoldSilverRelativeValueArticle ? (
+    <GoldSilverRelativeValueArticle />
   ) : isCrudeOilVisualBriefingArticle ? (
     <CrudeOilCrossroadsVisualV2Article />
   ) : isTankerFreightOilMarketArticle ? (
@@ -224,6 +238,8 @@ export default async function ResearchArticlePage({
       category={article.category}
       title={article.shortTitle}
     />
+  ) : isGoldSilverRelativeValueArticle ? (
+    <GoldSilverRelativeValueCover />
   ) : isCrudeOilVisualBriefingArticle ? (
     <CrudeOilCrossroadsCover visualBrief />
   ) : isTankerFreightOilMarketArticle ? (

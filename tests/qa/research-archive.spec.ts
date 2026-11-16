@@ -37,7 +37,7 @@ test("research archive keeps dates prominent and titles on one line at laptop wi
   await expectNoHorizontalOverflow(page);
 });
 
-test("current research feature uses the latest crude oil cover", async ({ page }) => {
+test("current research feature uses the latest gold-silver cover", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: "reduce" });
   await openPage(page, "/research");
@@ -45,14 +45,11 @@ test("current research feature uses the latest crude oil cover", async ({ page }
   const feature = page.locator(".research-feature");
   await expect(feature).toHaveAttribute(
     "href",
-    "/research/crude-oil-crossroads-brent-curve-physical-markets"
+    "/research/silver-below-50-gold-silver-ratio-outlook"
   );
 
-  const cover = feature.locator(".crude-oil-crossroads-cover");
+  const cover = feature.locator(".gold-silver-cover");
   await expect(cover).toBeVisible();
-  await expect(cover.locator("img")).toHaveAttribute(
-    "src",
-    /crude-oil-crossroads-physical-markets-november-2026\.png/
-  );
+  await expect(cover).toContainText("78.1");
   await expectNoHorizontalOverflow(page);
 });
