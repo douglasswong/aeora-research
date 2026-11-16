@@ -48,9 +48,9 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
     openGraphTitle: "Silver Below $50: Relative Value or a Value Trap?",
     openGraphDescription:
       "A dated, evidence-led look at silver's correction, the gold-silver ratio, technical scenario zones and the conditions needed for a recovery.",
-    socialImage: "/research/gold-silver-relative-value-2026.png",
-    socialImageWidth: 1118,
-    socialImageHeight: 540,
+    socialImage: "/research/gold-silver-relative-value-photo-2026.png",
+    socialImageWidth: 1672,
+    socialImageHeight: 941,
     tags: [
       "gold silver ratio 2026",
       "silver price outlook 2026",

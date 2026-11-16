@@ -10,7 +10,7 @@ import {
 
 const articlePath = "/research/silver-below-50-gold-silver-ratio-outlook";
 
-test("gold-silver research note is published with original visuals and complete metadata", async ({
+test("gold-silver research note is published with the approved photo cover and complete metadata", async ({
   page,
   request
 }, testInfo) => {
@@ -25,6 +25,10 @@ test("gold-silver research note is published with original visuals and complete 
   await expect(page.getByText("Research note 10")).toBeVisible();
   await expect(page.getByText("Gold-Silver Ratio and Silver Accumulation Outlook")).toBeVisible();
   await expect(page.locator("#article-cover")).toContainText("78.1");
+  await expect(page.locator("#article-cover img")).toHaveAttribute(
+    "src",
+    /gold-silver-relative-value-photo-2026\.png/
+  );
   await expect(page.locator(".gold-silver-framework")).toContainText("Hypothetical watch threshold");
   await expect(page.locator(".silver-structure-map")).toContainText("$40-45");
   await expect(page.locator(".gold-silver-matrix__target")).toHaveCount(2);
@@ -43,7 +47,7 @@ test("gold-silver research note is published with original visuals and complete 
   expect(articleResponse.ok()).toBeTruthy();
   const articleHtml = await articleResponse.text();
   expect(articleHtml).not.toContain("noindex");
-  expect(articleHtml).toContain("/research/gold-silver-relative-value-2026.png");
+  expect(articleHtml).toContain("/research/gold-silver-relative-value-photo-2026.png");
 
   const hubResponse = await request.get("/research");
   expect(hubResponse.ok()).toBeTruthy();
@@ -54,7 +58,7 @@ test("gold-silver research note is published with original visuals and complete 
   expect(await sitemapResponse.text()).toContain(articlePath);
 
   const socialImageResponse = await request.get(
-    "/research/gold-silver-relative-value-2026.png"
+    "/research/gold-silver-relative-value-photo-2026.png"
   );
   expect(socialImageResponse.ok()).toBeTruthy();
   expect(socialImageResponse.headers()["content-type"]).toContain("image/png");
@@ -77,6 +81,10 @@ test("research hub features the published gold-silver note with its own cover", 
   await expect(feature).toHaveAttribute("href", articlePath);
   await expect(feature.getByRole("heading", { name: "Silver Below $50" })).toBeVisible();
   await expect(feature.locator(".gold-silver-cover")).toContainText("78.1");
+  await expect(feature.locator(".gold-silver-cover img")).toHaveAttribute(
+    "src",
+    /gold-silver-relative-value-photo-2026\.png/
+  );
   await capturePage(page, testInfo, "gold-silver-relative-value-hub-desktop");
   await expectNoHorizontalOverflow(page);
   expectNoBrowserIssues(issues);
