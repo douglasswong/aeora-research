@@ -65,11 +65,19 @@ function toPositiveCount(value: unknown) {
 }
 
 function getConfiguredRedisUrl(environment: ArticleViewEnvironment) {
-  return environment.UPSTASH_REDIS_REST_URL ?? environment.KV_REST_API_URL;
+  return (
+    environment.UPSTASH_REDIS_REST_URL ??
+    environment.UPSTASH_REDIS_REST_KV_REST_API_URL ??
+    environment.KV_REST_API_URL
+  );
 }
 
 function getConfiguredRedisToken(environment: ArticleViewEnvironment) {
-  return environment.UPSTASH_REDIS_REST_TOKEN ?? environment.KV_REST_API_TOKEN;
+  return (
+    environment.UPSTASH_REDIS_REST_TOKEN ??
+    environment.UPSTASH_REDIS_REST_KV_REST_API_TOKEN ??
+    environment.KV_REST_API_TOKEN
+  );
 }
 
 /**

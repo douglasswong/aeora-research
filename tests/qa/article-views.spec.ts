@@ -60,6 +60,16 @@ test("counter configuration stays disabled outside explicitly enabled production
       ARTICLE_VIEW_COUNTER_RATE_LIMIT_SECRET: COUNTER_CONFIG.rateLimitSecret
     })
   ).toEqual(COUNTER_CONFIG);
+
+  expect(
+    getArticleViewCounterConfig({
+      VERCEL_ENV: "production",
+      ARTICLE_VIEW_COUNTER_ENABLED: "true",
+      UPSTASH_REDIS_REST_KV_REST_API_URL: COUNTER_CONFIG.redisUrl,
+      UPSTASH_REDIS_REST_KV_REST_API_TOKEN: COUNTER_CONFIG.redisToken,
+      ARTICLE_VIEW_COUNTER_RATE_LIMIT_SECRET: COUNTER_CONFIG.rateLimitSecret
+    })
+  ).toEqual(COUNTER_CONFIG);
 });
 
 test("counter uses one atomic Redis script per concurrent qualified-view attempt", async () => {
