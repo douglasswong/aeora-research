@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { ArticleViewCounter } from "@/components/ArticleViewCounter";
 import { ResearchCover } from "@/components/ResearchCover";
 import { SiteFooter } from "@/components/SiteFooter";
 import type { ResearchArticle } from "@/lib/research";
@@ -94,6 +95,17 @@ export function ResearchArticleLayout({
                     <dt>Reading time</dt>
                     <dd>{article.readingTime}</dd>
                   </div>
+                  {!article.draft ? (
+                    <div className="research-article__view-meta">
+                      <dt>Article views</dt>
+                      <dd>
+                        <ArticleViewCounter
+                          slug={article.slug}
+                          viewId={article.viewId}
+                        />
+                      </dd>
+                    </div>
+                  ) : null}
                 </dl>
               </div>
             </header>

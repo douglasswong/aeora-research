@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { EditorialPage } from "@/components/EditorialPage";
+import {
+  ArticleViewCountsProvider,
+  ResearchViewCount
+} from "@/components/ArticleViewCounter";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
 import { CrudeOilCrossroadsCover } from "@/components/CrudeOilCrossroadsCover";
 import { GoldSilverRelativeValueCover } from "@/components/GoldSilverRelativeValueCover";
@@ -50,7 +54,10 @@ export default function ResearchPage() {
       readingProgress
     >
       <section className="research-index section section--ruled">
-        <div className="section__inner">
+        <ArticleViewCountsProvider
+          slugs={publishedArticles.map((article) => article.slug)}
+        >
+          <div className="section__inner">
           <div className="research-index__heading">
             <div>
               <p className="section-kicker">Latest research</p>
@@ -76,6 +83,7 @@ export default function ResearchPage() {
               <div className="research-feature__footer">
                 <span>{latestArticle.author}</span>
                 <span>{latestArticle.readingTime}</span>
+                <ResearchViewCount slug={latestArticle.slug} />
                 <strong>Read the note</strong>
               </div>
             </div>
@@ -131,7 +139,9 @@ export default function ResearchPage() {
                         <strong>{article.title}</strong>
                       </span>
                       <span className="research-archive__action">
-                        {article.readingTime} / Read the note
+                        <span>{article.readingTime}</span>
+                        <ResearchViewCount slug={article.slug} />
+                        <span>Read the note</span>
                       </span>
                     </Link>
                   </li>
@@ -171,6 +181,7 @@ export default function ResearchPage() {
                       <span className="research-authority__meta">
                         <span>{article.noteNumber}</span>
                         <span>{article.category}</span>
+                        <ResearchViewCount slug={article.slug} />
                       </span>
                       <div className="research-authority__content">
                         <h3>{article.title}</h3>
@@ -185,7 +196,8 @@ export default function ResearchPage() {
               </ol>
             </section>
           ) : null}
-        </div>
+          </div>
+        </ArticleViewCountsProvider>
       </section>
 
       <section className="research-framework-section section section--ruled">

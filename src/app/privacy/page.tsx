@@ -4,19 +4,19 @@ import { AnalyticsConsentPreferencesButton } from "@/components/AnalyticsConsent
 import { EditorialPage } from "@/components/EditorialPage";
 import { CONTACT_EMAIL, SITE_URL } from "@/lib/site";
 
-const lastUpdated = "29 October 2026";
+const lastUpdated = "17 November 2026";
 
 export const metadata: Metadata = {
   title: "Privacy & Cookies | Aeora Research",
   description:
-    "How Aeora Research handles website inquiries, optional analytics and cookie preferences.",
+    "How Aeora Research handles website inquiries, optional analytics, aggregate article-view measurement and cookie preferences.",
   alternates: {
     canonical: "/privacy"
   },
   openGraph: {
     title: "Privacy & Cookies | Aeora Research",
     description:
-      "How Aeora Research handles website inquiries, optional analytics and cookie preferences.",
+      "How Aeora Research handles website inquiries, optional analytics, aggregate article-view measurement and cookie preferences.",
     url: SITE_URL + "/privacy"
   }
 };
@@ -76,6 +76,30 @@ const sections = [
     )
   },
   {
+    id: "article-views",
+    title: "Aggregate article views",
+    body: (
+      <>
+        <p>
+          When enabled, a first-party counter may measure qualified reading of
+          public Research articles. It is an aggregate article-view measure,
+          not a unique-reader profile, and it does not depend on the optional
+          analytics choice above.
+        </p>
+        <p>
+          The counter uses a browser-session storage marker to avoid repeated
+          counts during the same session. To protect the service against
+          automated or repeated requests, the server processes an IP address
+          and browser user agent only in transit to create short-lived,
+          keyed-hash abuse-control values. Aeora Research does not retain the
+          raw IP address or a persistent browser fingerprint for this purpose.
+          The durable record is an article&apos;s aggregate total; temporary
+          hashed deduplication and rate-limit values expire automatically.
+        </p>
+      </>
+    )
+  },
+  {
     id: "third-parties",
     title: "Third-party services",
     body: (
@@ -129,7 +153,7 @@ export default function PrivacyPage() {
               </section>
             ))}
             <section className="terms__section terms__section--contact" id="contact">
-              <p className="terms__index">06</p>
+              <p className="terms__index">07</p>
               <div>
                 <h3>Contact</h3>
                 <p>

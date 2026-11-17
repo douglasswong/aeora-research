@@ -5,6 +5,11 @@ import {
 
 export type ResearchArticle = {
   slug: string;
+  /**
+   * Durable counter key. Keep this stable if an article slug changes so its
+   * qualified-view total remains attached to the same editorial work.
+   */
+  viewId: string;
   title: string;
   subtitle?: string;
   displayTitle?: string;
@@ -31,6 +36,7 @@ export type ResearchArticle = {
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   {
     slug: "silver-below-50-gold-silver-ratio-outlook",
+    viewId: "research-010",
     title: "Silver Below $50: Relative Value or a Value Trap?",
     subtitle: "Gold-Silver Ratio and Silver Accumulation Outlook",
     shortTitle: "Silver Below $50",
@@ -65,6 +71,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "crude-oil-crossroads-brent-curve-physical-markets",
+    viewId: "research-009",
     title: "Crude Oil: Physical Markets and the Brent Curve",
     subtitle: "Barclays Commodities Research Intel Study",
     shortTitle: "Oil Visual Briefing",
@@ -99,6 +106,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "why-tanker-freight-matters-for-oil-prices",
+    viewId: "research-008",
     title: "Why Tanker Freight Has Become the Oil Market's Hidden Variable",
     displayTitle: "Why Tanker Freight Is Oil's Hidden Variable",
     shortTitle: "Tanker Freight and Oil",
@@ -133,6 +141,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "why-oil-still-prices-risk-after-gulf-exports-recover",
+    viewId: "research-007",
     title: "Why Oil Still Prices Risk After Gulf Exports Recover",
     shortTitle: "Why Oil Still Prices Risk",
     description:
@@ -166,6 +175,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "why-gold-dropped-after-nfp-xauusd-liquidity-shock",
+    viewId: "research-006",
     title:
       "Why Did Gold Drop After NFP? Inside XAUUSD's Seconds-Long Liquidity Shock",
     displayTitle: "Why Gold Dropped After NFP: XAUUSD Liquidity Shock",
@@ -201,6 +211,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "warsh-fed-rate-hike-q4-2026-market-outlook",
+    viewId: "research-005",
     title: "Warsh Turns Hawkish: USD, Gold, Stocks & Bitcoin Into Q4 2026",
     shortTitle: "Warsh, Rates and Q4",
     description:
@@ -234,6 +245,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "wti-crude-oil-outlook-2026-geopolitical-90-day-scenario",
+    viewId: "research-004",
     title:
       "WTI Crude Oil at a Decision Zone: Is Another Geopolitical Repricing Cycle Forming?",
     shortTitle: "WTI at a Decision Zone",
@@ -254,6 +266,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "sawit-ecotherm-palm-oil-ai-data-centre-fcpo",
+    viewId: "research-003",
     title: "Can Palm Oil Cool AI? What Sawit EcoTherm Could Mean for FCPO",
     shortTitle: "Palm Oil, AI and FCPO",
     description:
@@ -273,6 +286,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "why-markets-rally-despite-bad-news",
+    viewId: "research-002",
     title: "Why Markets Rally Despite Bad News",
     shortTitle: "Why Markets Rally",
     description:
@@ -288,6 +302,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   {
     slug: "cme-single-stock-futures-explained",
+    viewId: "research-001",
     title: "CME Single Stock Futures: A Beginner's Guide",
     shortTitle: "CME Single Stock Futures",
     description:
@@ -303,6 +318,7 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   },
   ...AUTHORITY_RESOURCES.map((resource, index) => ({
     slug: resource.slug,
+    viewId: `field-guide-${resource.noteNumber.toLowerCase()}`,
     title: resource.title,
     shortTitle: resource.shortTitle,
     description: resource.description,
@@ -326,4 +342,10 @@ export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
 
 export function getResearchArticle(slug: string) {
   return RESEARCH_ARTICLES.find((article) => article.slug === slug);
+}
+
+export function getPublishedResearchArticle(slug: string) {
+  const article = getResearchArticle(slug);
+
+  return article && !article.draft ? article : undefined;
 }
