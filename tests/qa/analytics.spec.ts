@@ -50,3 +50,29 @@ test("analytics loads only after affirmative visitor consent", async ({ page }) 
 
   await expect(googleTag).toHaveCount(1);
 });
+
+test("analytics creates its queue before the Google tag executes", async ({ page }) => {
+  test.skip(!analyticsEnabled, "requires an enabled analytics QA build");
+
+  await page.route("https://www.googletagmanager.com/**", (route) =>
+    route.fulfill({
+      status: 200,
+      contentType: "application/javascript",
+      body: `window.__aeoraAnalyticsQueueAtTagLoad = Array.isArray(window.dataLayer);`
+    })
+  );
+
+  await openPage(page, "/");
+  await page.getByRole("button", { name: "Allow analytics" }).click();
+
+  await expect
+    .poll(() =>
+      page.evaluate(
+        () =>
+          (window as typeof window & {
+            __aeoraAnalyticsQueueAtTagLoad?: boolean;
+          }).__aeoraAnalyticsQueueAtTagLoad
+      )
+    )
+    .toBe(true);
+});

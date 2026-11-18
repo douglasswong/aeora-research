@@ -29,7 +29,7 @@ type AnalyticsTrackerProps = {
 
 declare global {
   interface Window {
-    dataLayer?: unknown[][];
+    dataLayer?: IArguments[];
     gtag?: (command: string, ...args: unknown[]) => void;
   }
 }
@@ -149,8 +149,10 @@ function getTrackedDestination(anchor: HTMLAnchorElement): TrackedDestination | 
 
 function ensureGoogleTag() {
   window.dataLayer ??= [];
-  window.gtag ??= (command: string, ...args: unknown[]) => {
-    window.dataLayer?.push([command, ...args]);
+  window.gtag ??= function gtag() {
+    // Google Tag expects each queued command as an arguments object.
+    // eslint-disable-next-line prefer-rest-params
+    window.dataLayer?.push(arguments);
   };
 
   return window.gtag;
@@ -306,7 +308,9 @@ export function AnalyticsTracker({ enabled, measurementId }: AnalyticsTrackerPro
     const syncPreferences = () => {
       const storedConsent = readStoredConsent();
 
-      if (storedConsent !== "granted") {
+      if (storedConsent === "granted") {
+        ensureGoogleTag();
+      } else {
         disableGoogleAnalytics();
       }
 
@@ -331,7 +335,10 @@ export function AnalyticsTracker({ enabled, measurementId }: AnalyticsTrackerPro
   const chooseConsent = (nextConsent: AnalyticsConsent) => {
     storeConsent(nextConsent);
 
-    if (nextConsent === "denied") {
+    if (nextConsent === "granted") {
+      // The queue must exist before Next injects the external tag.
+      ensureGoogleTag();
+    } else {
       disableGoogleAnalytics();
     }
 
