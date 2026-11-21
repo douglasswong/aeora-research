@@ -35,6 +35,41 @@ export type ResearchArticle = {
 
 export const RESEARCH_ARTICLES: readonly ResearchArticle[] = [
   {
+    slug: "ai-bubble-or-market-reset-us-equity-selloff",
+    viewId: "research-011",
+    title: "AI Bubble or Market Reset? What the US Equity Selloff Really Means",
+    subtitle: "US Equity Repricing, AI Capex and 2027 Expectations",
+    shortTitle: "AI Bubble or Market Reset?",
+    description:
+      "Aeora Research examines the November 2026 US equity selloff, AI infrastructure spending, cash-flow pressure and the evidence needed to separate a reset from a deeper repricing.",
+    excerpt:
+      "A sharp technology selloff has reopened the AI-bubble debate. We separate verified market moves, disclosed capex and the cash-return evidence still required.",
+    category: "Cross-Asset Outlook",
+    author: "Aeora Research Team",
+    publishedAt: "2026-11-22",
+    displayDate: "22 November 2026",
+    readingTime: "5 min read",
+    noteNumber: "11",
+    seoTitle: "AI Bubble or Market Reset? US Equity Selloff Explained",
+    openGraphTitle: "AI Bubble or Market Reset? What the US Equity Selloff Really Means",
+    openGraphDescription:
+      "A source-dated assessment of the US equity selloff, AI capex, free cash flow and the conditions that would distinguish a reset from a deeper repricing.",
+    socialImage: "/research/ai-market-reset-data-centre-cover-november-2026.png",
+    socialImageWidth: 1672,
+    socialImageHeight: 940,
+    tags: [
+      "AI bubble 2026",
+      "US equity selloff",
+      "AI capex",
+      "technology stock valuation",
+      "NVIDIA data center revenue",
+      "Federal Reserve rates 2026",
+      "Nasdaq correction",
+      "AI investment cycle"
+    ],
+    draft: false
+  },
+  {
     slug: "silver-below-50-gold-silver-ratio-outlook",
     viewId: "research-010",
     title: "Silver Below $50: Relative Value or a Value Trap?",

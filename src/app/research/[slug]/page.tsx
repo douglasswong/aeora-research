@@ -15,6 +15,7 @@ import { AuthorityResearchCover } from "@/components/AuthorityResearchCover";
 import { GulfOilRiskPremiumCover } from "@/components/GulfOilRiskPremiumCover";
 import { CrudeOilCrossroadsCover } from "@/components/CrudeOilCrossroadsCover";
 import { GoldSilverRelativeValueCover } from "@/components/GoldSilverRelativeValueCover";
+import { AiMarketResetCover } from "@/components/AiMarketResetCover";
 import { NfpGoldLiquidityShockCover } from "@/components/NfpGoldLiquidityShockCover";
 import { TankerFreightCover } from "@/components/TankerFreightCover";
 import {
@@ -42,6 +43,11 @@ import {
   goldSilverRelativeValueKeyPoints,
   goldSilverRelativeValueSources
 } from "@/content/research/GoldSilverRelativeValue";
+import {
+  AiMarketResetArticle,
+  aiMarketResetKeyPoints,
+  aiMarketResetSources
+} from "@/content/research/AiMarketReset";
 import { ResearchArticleLayout } from "@/components/ResearchArticleLayout";
 import { MalaysiaTradingAuthorityArticle } from "@/content/research/MalaysiaTradingAuthority";
 import { SawitEcoThermCover } from "@/components/SawitEcoThermCover";
@@ -157,6 +163,8 @@ export default async function ResearchArticlePage({
     article.slug === "crude-oil-crossroads-brent-curve-physical-markets";
   const isGoldSilverRelativeValueArticle =
     article.slug === "silver-below-50-gold-silver-ratio-outlook";
+  const isAiMarketResetArticle =
+    article.slug === "ai-bubble-or-market-reset-us-equity-selloff";
   const isGulfOilRiskPremiumArticle =
     article.slug === "why-oil-still-prices-risk-after-gulf-exports-recover";
   const isSawitEcoThermArticle =
@@ -169,6 +177,8 @@ export default async function ResearchArticlePage({
     article.slug === "why-gold-dropped-after-nfp-xauusd-liquidity-shock";
   const keyPoints = authorityResource
     ? authorityResource.keyPoints
+    : isAiMarketResetArticle
+    ? aiMarketResetKeyPoints
     : isGoldSilverRelativeValueArticle
     ? goldSilverRelativeValueKeyPoints
     : isCrudeOilVisualBriefingArticle
@@ -190,6 +200,8 @@ export default async function ResearchArticlePage({
       : cmeSingleStockFuturesKeyPoints;
   const sources = authorityResource
     ? authorityResource.sources
+    : isAiMarketResetArticle
+    ? aiMarketResetSources
     : isGoldSilverRelativeValueArticle
     ? goldSilverRelativeValueSources
     : isCrudeOilVisualBriefingArticle
@@ -211,6 +223,8 @@ export default async function ResearchArticlePage({
       : cmeSingleStockFuturesSources;
   const content = authorityResource ? (
     <MalaysiaTradingAuthorityArticle resource={authorityResource} />
+  ) : isAiMarketResetArticle ? (
+    <AiMarketResetArticle />
   ) : isGoldSilverRelativeValueArticle ? (
     <GoldSilverRelativeValueArticle />
   ) : isCrudeOilVisualBriefingArticle ? (
@@ -238,6 +252,8 @@ export default async function ResearchArticlePage({
       category={article.category}
       title={article.shortTitle}
     />
+  ) : isAiMarketResetArticle ? (
+    <AiMarketResetCover />
   ) : isGoldSilverRelativeValueArticle ? (
     <GoldSilverRelativeValueCover />
   ) : isCrudeOilVisualBriefingArticle ? (
