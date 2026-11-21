@@ -8,7 +8,9 @@ const REVEAL_SELECTORS = [
   ".about__body",
   ".connect__intro",
   ".connect__panel",
-  ".partner-group"
+  ".partner-group",
+  ".trading-access__heading",
+  ".trading-access__market"
 ] as const;
 
 export function HomeMotionController() {

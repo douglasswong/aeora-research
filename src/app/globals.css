@@ -5006,9 +5006,8 @@ a {
 
 .partners {
   border-top: 1px solid var(--aeora-line);
-  border-bottom: 1px solid var(--aeora-line);
   background: var(--aeora-white);
-  padding: clamp(72px, 8vw, 108px) 0;
+  padding: clamp(64px, 6vw, 84px) 0 clamp(32px, 3vw, 48px);
 }
 
 .partners__inner {
@@ -5173,6 +5172,145 @@ a {
 
 .partner-group--ai .partner-logo--codex {
   margin-left: -56px;
+}
+
+.trading-access {
+  border-bottom: 1px solid var(--aeora-line);
+  background: var(--aeora-white);
+  padding: clamp(46px, 4.5vw, 64px) 0;
+}
+
+.trading-access__inner {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.72fr) minmax(0, 1.85fr);
+  gap: clamp(38px, 7vw, 116px);
+}
+
+.trading-access__heading {
+  padding-top: 20px;
+}
+
+.trading-access__heading h2 {
+  max-width: none;
+  margin: 16px 0 0;
+  color: var(--aeora-ink);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 3.55vw, 3.72rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.trading-access__heading h2 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.trading-access__markets {
+  border-top: 1px solid rgba(13, 20, 27, 0.24);
+}
+
+.trading-access__market {
+  display: grid;
+  grid-template-columns: minmax(92px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 46px);
+  min-height: 148px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--aeora-line);
+}
+
+.trading-access__index {
+  display: grid;
+  align-content: start;
+  gap: 7px;
+  color: var(--aeora-muted);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.trading-access__index span:first-child {
+  color: var(--aeora-mint-deep);
+}
+
+.trading-access__content {
+  display: grid;
+  align-content: center;
+  min-width: 0;
+}
+
+.trading-access__brand {
+  display: block;
+  width: auto;
+  max-width: min(100%, 330px);
+  height: 56px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.trading-access__market--bursa .trading-access__brand {
+  max-width: min(100%, 282px);
+}
+
+.trading-access__market--cme {
+  min-height: 214px;
+}
+
+.trading-access__market--cme .trading-access__brand {
+  max-width: min(100%, 342px);
+  height: 48px;
+}
+
+.trading-access__cme-markets {
+  display: grid;
+  grid-template-columns: minmax(112px, 0.55fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(13, 20, 27, 0.16);
+}
+
+.trading-access__cme-markets p {
+  margin: 0;
+  color: var(--aeora-muted);
+  font-family: var(--font-mono);
+  font-size: 0.61rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.trading-access__cme-markets ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.trading-access__cme-markets li {
+  display: flex;
+  min-width: 0;
+  min-height: 40px;
+  align-items: center;
+  border-left: 1px solid rgba(13, 20, 27, 0.14);
+  padding-left: 16px;
+}
+
+.trading-access__cme-markets img {
+  display: block;
+  width: 100%;
+  max-width: 112px;
+  height: 34px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .site-footer {
@@ -6562,6 +6700,19 @@ a {
     grid-column: 1 / -1;
   }
 
+  .home-page .trading-access {
+    padding-block: 56px 60px;
+  }
+
+  .trading-access__inner {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .trading-access__heading {
+    padding-top: 0;
+  }
+
   .site-footer__inner {
     grid-template-columns: 1fr 1fr;
   }
@@ -6862,6 +7013,63 @@ a {
     max-width: 520px;
   }
 
+  .home-page .trading-access {
+    padding-block: 44px 50px;
+  }
+
+  .trading-access__inner {
+    gap: 34px;
+  }
+
+  .trading-access__heading h2 {
+    font-size: clamp(2.35rem, 10.2cqi, 3.2rem);
+  }
+
+  .trading-access__market {
+    grid-template-columns: 62px minmax(0, 1fr);
+    gap: 16px;
+    min-height: 126px;
+    padding: 22px 0;
+  }
+
+  .trading-access__market--cme {
+    min-height: 0;
+  }
+
+  .trading-access__brand {
+    max-width: min(100%, 250px);
+    height: 44px;
+  }
+
+  .trading-access__market--bursa .trading-access__brand {
+    max-width: min(100%, 220px);
+  }
+
+  .trading-access__market--cme .trading-access__brand {
+    max-width: min(100%, 264px);
+    height: 40px;
+  }
+
+  .trading-access__cme-markets {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 20px;
+    padding-top: 16px;
+  }
+
+  .trading-access__cme-markets ul {
+    gap: 10px;
+  }
+
+  .trading-access__cme-markets li {
+    min-height: 34px;
+    padding-left: 10px;
+  }
+
+  .trading-access__cme-markets img {
+    height: 27px;
+  }
+
   .site-footer__inner {
     grid-template-columns: 1fr;
     gap: 28px;
@@ -7144,7 +7352,7 @@ a {
   }
 
   .partners {
-    padding-block: 62px;
+    padding: 56px 0 38px;
   }
 
   .partner-group__logos {

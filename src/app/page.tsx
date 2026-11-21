@@ -10,6 +10,7 @@ import { PartnersSection } from "@/components/PartnersSection";
 import { PillarCard } from "@/components/PillarCard";
 import { PhilosophySection } from "@/components/PhilosophySection";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TradingAccessSection } from "@/components/TradingAccessSection";
 import {
   COMPANY_NAME,
   COMPANY_REGISTRATION,
@@ -232,6 +233,7 @@ export default function Home() {
           </section>
 
           <PartnersSection />
+          <TradingAccessSection />
         </main>
 
         <SiteFooter />
