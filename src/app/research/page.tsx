@@ -143,9 +143,11 @@ export default function ResearchPage() {
                         <strong>{article.title}</strong>
                       </span>
                       <span className="research-archive__action">
-                        <span>{article.readingTime}</span>
+                        <span className="research-archive__reading-time">
+                          {article.readingTime}
+                        </span>
                         <ResearchViewCount slug={article.slug} />
-                        <span>Read the note</span>
+                        <span className="research-archive__read-note">Read note</span>
                       </span>
                     </Link>
                   </li>
