@@ -651,7 +651,9 @@ export const NUMBERS = [
     kind: "range",
     from: 15,
     to: 30,
-    suffix: "%"
+    suffix: "%",
+    note: "*+18.77% YTD Actual",
+    noteNoWrap: true
   },
   {
     label: "Avg Monthly Volume",
@@ -675,7 +677,7 @@ export const NUMBERS = [
   {
     label: "Current AUM",
     kind: "decimal",
-    value: 2.1,
+    value: 2.38,
     suffix: "mil MYR+",
     context: "Approx. USD 518K",
     note: "still growing"
