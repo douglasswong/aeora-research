@@ -68,15 +68,19 @@ test("mobile homepage uses observer-driven reveals without the desktop ticker", 
     .toBeGreaterThan(0);
 });
 
-test("homepage prop-trader metric keeps its intended label and dated qualifier", async ({
+test("homepage metric qualifiers and AUM precision remain accurate", async ({
   page
 }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await openPage(page, "/");
 
+  const annualTargetMetric = page.locator(
+    '.numbers__item:has(p[aria-label="Avg Annual Portfolio Target"])'
+  );
   const propTraderMetric = page.locator(
     '.numbers__item:has(p[aria-label="Number of Prop Traders"])'
   );
+  const aumMetric = page.locator('.numbers__item:has(p:text-is("Current AUM"))');
 
   await propTraderMetric.scrollIntoViewIfNeeded();
   await expect(propTraderMetric.locator(".numbers__label-line")).toHaveText([
@@ -92,6 +96,14 @@ test("homepage prop-trader metric keeps its intended label and dated qualifier",
   await expect(
     datedNote.evaluate((element) => element.scrollWidth <= element.clientWidth)
   ).resolves.toBe(true);
+
+  await expect(annualTargetMetric.locator(".numbers__note")).toHaveText(
+    "*+18.77% YTD Actual"
+  );
+  await expect(aumMetric.locator(".numbers__value-main")).toHaveText("2.38");
+  await expect(aumMetric.locator(".numbers__value-suffix")).toHaveText(
+    "mil MYR+"
+  );
 });
 
 test("homepage metrics keep four desktop columns and include monthly volume", async ({

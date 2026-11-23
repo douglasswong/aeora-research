@@ -678,6 +678,7 @@ export const NUMBERS = [
     label: "Current AUM",
     kind: "decimal",
     value: 2.38,
+    decimalPlaces: 2,
     suffix: "mil MYR+",
     context: "Approx. USD 518K",
     note: "still growing"

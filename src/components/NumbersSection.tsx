@@ -20,7 +20,12 @@ function formatNumber(item: (typeof NUMBERS)[number], progress: number) {
   }
 
   if (item.kind === "decimal") {
-    return { value: (item.value * progress).toFixed(1), suffix: item.suffix };
+    const decimalPlaces = "decimalPlaces" in item ? item.decimalPlaces : 1;
+
+    return {
+      value: (item.value * progress).toFixed(decimalPlaces),
+      suffix: item.suffix
+    };
   }
 
   return { value: `${Math.round(item.value * progress)}`, suffix: item.suffix };
